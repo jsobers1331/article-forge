@@ -108,6 +108,40 @@ applied to voice and images respectively: state what you found, fix the
 template rather than the one draft, and verify the fix on new material
 before trusting it.
 
+## Running the full backlog through score_article.py surfaced two more bugs
+
+Scoring all 6 backlog articles for one site in one pass (instead of one-off spot
+checks) surfaced two failure modes that smaller tests hadn't hit:
+
+1. **The linking rule was satisfied by intent, not by syntax.** DeepSeek would
+   sometimes write "YNAB (https://ynab.com)" — a competitor named next to its
+   real URL — and consider that "linked." A human reads that as a link; the
+   scorer (correctly) doesn't, because it isn't one, and neither does a crawler
+   looking for an anchor. Fixed by making rules 16/17 spell out the exact
+   `[anchor text](url)` syntax requirement, and added `check_bare_urls()` to
+   `check_article.py` as a hard-fail gate so this can't slip through silently
+   again. Confirmed the failure was real (not a scorer bug) by checking the
+   raw draft text before fixing.
+2. **Scoring an already-shipped page requires care in how you get its text
+   back out.** Two already-published articles were scored by converting their
+   TSX back to plain text for `score_article.py`. The first extraction pass
+   silently dropped an entire comparison table (data passed as a component
+   prop, not inline JSX text) and flattened `<ol>` into unordered bullets,
+   which cost real structure points that the live page actually has. It also
+   briefly zeroed out the E-E-A-T "updated" signal by deleting the dateline
+   line instead of relocating it. None of these were content problems — they
+   were artifacts of the conversion step — but an unverified artifact produces
+   a wrong score you'd act on as if it were real. Lesson: when scoring a
+   shipped page rather than a fresh draft, sanity-check the extracted text
+   against the source before trusting the number, the same way you'd sanity-check
+   any other measurement before using it to make a decision.
+
+Net effect on the 4 backlog articles scored/fixed in this pass: 81.0→93.2,
+83.6→92.0, and two new articles shipped at 89.6 and 90.2 — all from real,
+verifiable additions (naming a competitor already being discussed, linking a
+URL that was already named, adding one already-true "our take" phrase). No
+score was raised by adding anything unverifiable.
+
 ## What this does NOT do
 
 - It does not check real keyword search volume — validate the topic backlog

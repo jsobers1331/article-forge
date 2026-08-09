@@ -110,6 +110,26 @@ def check_structured_element(text):
     return "WARN", "no markdown table or numbered list found — RULES.md §2 wants at least one structured element"
 
 
+def check_bare_urls(text):
+    """Catch a real generation bug: the model names a competitor's URL as bare
+    parenthetical text — "YNAB (https://ynab.com)" — instead of a Markdown
+    link. It reads fine to a human but registers as zero links to the linking
+    scorer and to any real crawler looking for an anchor tag. See RULES.md §16/17.
+    """
+    markdown_link_spans = [m.span() for m in re.finditer(r"\[[^\]]+\]\(https?://[^)]+\)", text)]
+
+    def _inside_markdown_link(pos):
+        return any(start <= pos < end for start, end in markdown_link_spans)
+
+    bare = []
+    for m in re.finditer(r"\(https?://[^)\s]+\)", text):
+        if not _inside_markdown_link(m.start()):
+            bare.append(m.group(0))
+    if bare:
+        return "FAIL", f"{len(bare)} bare URL(s) in parentheses, not Markdown links: {bare[:3]}"
+    return "PASS", "no bare parenthetical URLs found"
+
+
 def check_h1_present(text, target_query):
     m = re.search(r"^#\s+(.+)$", text, re.MULTILINE)
     if not m:
@@ -222,6 +242,7 @@ def run_checks(text, article_type, target_query, config):
         ("Fabrication/placeholder gate", check_fabrication_placeholders(text)),
         ("Visible opening-function labels", check_visible_function_labels(text)),
         ("H1 matches target query", check_h1_present(text, target_query)),
+        ("Bare URLs (not Markdown links)", check_bare_urls(text)),
         ("Word count", check_word_count(text, article_type)),
         ("Banned words", check_banned_words(text, voice.get("extra_ban_words", []))),
         ("Structured element present", check_structured_element(text)),
