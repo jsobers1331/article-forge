@@ -1,4 +1,4 @@
-"""Fill the article prompt template from a site-config.json + a chosen topic.
+"""Fill the article prompt template from a site-config.<project>.json + a chosen topic.
 
 Model-agnostic by design: this script only produces a plain-text prompt. You
 can paste the output into ANY LLM's chat interface directly — no API
@@ -90,7 +90,7 @@ def render(config, topic):
         "has_real_press_mentions": facts.get("has_real_press_mentions", False),
         "has_real_usage_stats": facts.get("has_real_usage_stats", False),
         "competitors": ", ".join(f"{c['name']} ({c['url']})" for c in config.get("competitors", [])) or "(none listed)",
-        "current_month_year": config.get("current_month_year", "(set current_month_year in site-config.json)"),
+        "current_month_year": config.get("current_month_year", "(set current_month_year in your site-config.<project>.json)"),
         "existing_pages": ", ".join(config.get("existing_pages", [])) or "(none listed)",
         "target_query": topic.get("target_query", topic.get("title", "")),
         "article_type": topic.get("type", "standard"),
@@ -104,7 +104,7 @@ def render(config, topic):
 
 def main():
     parser = argparse.ArgumentParser(description="Render a site-config + topic into a ready-to-send article prompt")
-    parser.add_argument("--config", default=os.path.join(REPO_ROOT, "site-config.json"), help="Path to site-config.json")
+    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
     parser.add_argument("--topic-index", type=int, help="Index into the config's topic_backlog")
     parser.add_argument("--title", help="Ad-hoc topic title (skips topic_backlog)")
     parser.add_argument("--query", help="Ad-hoc target query/keyword (skips topic_backlog)")

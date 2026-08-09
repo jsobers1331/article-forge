@@ -255,7 +255,7 @@ def run_checks(text, article_type, target_query, config):
 def main():
     parser = argparse.ArgumentParser(description="Run the automated compliance gate against an article draft")
     parser.add_argument("--draft", required=True, help="Path to the markdown draft")
-    parser.add_argument("--config", default="site-config.json", help="Path to site-config.json")
+    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
     parser.add_argument("--type", default="standard", choices=["pillar", "standard", "supporting"])
     parser.add_argument("--query", required=True, help="The target query this article is meant to answer")
     args = parser.parse_args()

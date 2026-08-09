@@ -1,7 +1,8 @@
 .env
 __pycache__/
 *.pyc
-site-config.json
+site-config.*.json
+!site-config.example.json
 output/*.md
 !output/.gitkeep
 .DS_Store

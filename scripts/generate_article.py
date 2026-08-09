@@ -39,7 +39,7 @@ def run_fabrication_gate(text):
 
 def main():
     parser = argparse.ArgumentParser(description="Generate one article end-to-end and gate it before publish")
-    parser.add_argument("--config", default=os.path.join(REPO_ROOT, "site-config.json"))
+    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
     parser.add_argument("--topic-index", type=int)
     parser.add_argument("--title")
     parser.add_argument("--query")

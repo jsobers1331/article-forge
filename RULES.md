@@ -7,20 +7,20 @@ research (independent answers from Claude and DeepSeek, cross-checked against
 live web research) plus hard lessons from real sites that shipped inaccurate
 content.
 
-Every rule below assumes you've filled out `site-config.json` first — that's
+Every rule below assumes you've filled out `site-config.<project>.json` first — that's
 where the site-specific facts (product, ICP, differentiators, competitors,
 what's real vs. not-yet-real) live. These rules never hardcode a product.
 
 ## 1. Non-negotiable integrity rules
 
 1. **Never fabricate.** No invented press mentions, stats, testimonials,
-   quotes, or contact info. If `site-config.json` doesn't supply a real value,
+   quotes, or contact info. If `site-config.<project>.json` doesn't supply a real value,
    leave a clearly-labeled placeholder (`<!-- PLACEHOLDER: needs real value -->`)
    instead of a plausible-sounding fake one. Fabricated content is
    structurally indistinguishable from real content once shipped — it gets
    past visual review and stays live.
 2. **Claims must match verified reality.** Only state what's in
-   `site-config.json`'s `verified_facts` block. Never describe a
+   `site-config.<project>.json`'s `verified_facts` block. Never describe a
    `coming_soon`/roadmap feature as available. Never state a pricing/billing
    term (trial, refund policy, price) that isn't explicitly listed there.
 2b. **Tier-gated features must name their tier.** A feature being real and
@@ -88,7 +88,7 @@ past ~2,000 on a non-pillar piece means split it into two articles.
 - Sitewide: `Organization` + `WebSite`, once, on the homepage.
 - The site's main entity gets ONE schema type matched to what it actually is
   — `SoftwareApplication`, `Product`, `Service`, `LocalBusiness`, etc. Pick
-  from `site-config.json`'s `schema_type` field; don't guess. If
+  from `site-config.<project>.json`'s `schema_type` field; don't guess. If
   `SoftwareApplication`, use the most specific `applicationCategory` value
   that fits (e.g. `FinanceApplication`, not the generic `BusinessApplication`,
   if the product is finance-adjacent) — specificity helps categorization
@@ -124,7 +124,7 @@ force a fake one in.
 
 - Draft from your own outline/bullet points; use an LLM to critique and
   tighten, not to generate full paragraphs from a blank prompt.
-- Ban list (default — extend per-site in `site-config.json`): "delve",
+- Ban list (default — extend per-site in `site-config.<project>.json`): "delve",
   "landscape", "robust", "seamless", "elevate", "game-changer", "in today's
   fast-paced world", rhetorical-question openers, rule-of-three padding.
 - If the site has a real first-person founder voice (`voice.first_person:
@@ -188,7 +188,7 @@ for placeholder/fabrication tells:
 grep -inE "example\.com|lorem ipsum|TBD|FIXME|555-|Jane (S|Smith)|John (S|Smith)|Sample (Customer|Client)" draft.md
 ```
 
-Any hit means a value that should have come from `site-config.json` was
+Any hit means a value that should have come from `site-config.<project>.json` was
 left as a stand-in. Fix before publishing — don't ship placeholders.
 
 **This grep only catches fabrication/placeholder tells. It does not catch
@@ -211,7 +211,7 @@ reduces this error class; it does not eliminate it. Keep doing the manual
 cross-check above even on a fully tier-tagged config.
 
 **Automated gate:** run `scripts/check_article.py --draft <file> --config
-site-config.json --type <type> --query "<target query>"` before publishing.
+site-config.<project>.json --type <type> --query "<target query>"` before publishing.
 It automates what CAN be automated — the fabrication grep, word count range,
 banned words, presence of a structured element, H1/query match, and a
 word-overlap heuristic for tier-gating gaps — and exits non-zero on a hard

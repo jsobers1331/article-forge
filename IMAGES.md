@@ -39,7 +39,7 @@ marketed already have one, built for exactly this purpose — check for
 scratch). A screenshot chosen because it's on-topic beats one chosen because it's
 already there, even when the already-there one is perfectly real and unfabricated.
 - **Never generate:** anything implying real customer social proof. If
-  `verified_facts.has_real_testimonials` is `false` in `site-config.json`, no image may
+  `verified_facts.has_real_testimonials` is `false` in `site-config.<project>.json`, no image may
   be captioned or imply a real customer, review, or testimonial — full stop. Generic
   mood/lifestyle photography that doesn't claim to depict a real customer is fine; a
   photo captioned "HomeWeal user Sarah" would not be.

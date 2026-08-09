@@ -203,7 +203,7 @@ def main():
     parser = argparse.ArgumentParser(description="Score a draft against a SERP snapshot")
     parser.add_argument("--draft", required=True)
     parser.add_argument("--snapshot", required=True, help="Path to serp_snapshot.json")
-    parser.add_argument("--config", default="site-config.json")
+    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
     parser.add_argument("--type", default="standard", choices=["pillar", "standard", "supporting"])
     args = parser.parse_args()
 

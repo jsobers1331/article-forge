@@ -5,7 +5,7 @@ in traditional search **and** get cited by AI answer engines (ChatGPT,
 Perplexity, Google AI Overviews, Claude).
 
 It's not a product-specific tool — it's a ruleset (`RULES.md`) plus a small
-set of scripts that turn any site's facts (`site-config.json`) and a topic
+set of scripts that turn any site's facts (`site-config.<project>.json`) and a topic
 into a fully-specified article prompt. That prompt works with literally any
 LLM: paste it into a chat window, or point the included scripts at whichever
 provider you have an API key for.
@@ -38,20 +38,27 @@ content claims against `verified_facts`.
 
 ## Quick start
 
+This repo is shared across every product you use it for — name your config per project so
+switching projects never means overwriting another one's facts:
+
 ```bash
-cp site-config.example.json site-config.json
-# edit site-config.json with your site's real facts
+cp site-config.example.json site-config.<yourproject>.json
+# edit site-config.<yourproject>.json with your site's real facts — e.g. site-config.homeweal.json
 
 pip install -r requirements.txt
 cp .env.example .env
 # fill in an API key ONLY if you want generate_article.py to call a provider directly
 
+# --config is required on every script, always — there is no shared default file to fall
+# back to. This is deliberate: a silent default is exactly how one project's config got
+# clobbered by another's mid-session in practice. See the git history for that incident.
+
 # Option A — fully model-agnostic, zero API integration:
-python scripts/generate_prompt.py --topic-index 0
+python scripts/generate_prompt.py --config site-config.<yourproject>.json --topic-index 0
 # paste the output into any LLM chat interface yourself
 
 # Option B — let the script call a provider for you:
-python scripts/generate_article.py --topic-index 0 --provider deepseek
+python scripts/generate_article.py --config site-config.<yourproject>.json --topic-index 0 --provider deepseek
 ```
 
 ## Files
@@ -59,9 +66,9 @@ python scripts/generate_article.py --topic-index 0 --provider deepseek
 | Path | Purpose |
 |---|---|
 | `RULES.md` | The full ruleset — structure, schema/JSON-LD guidance, voice, word counts, cadence, the pre-publish integrity gate. Read this first. |
-| `site-config.example.json` | Template for a site's facts: positioning, ICP, verified differentiators, what's NOT real yet, competitors, topic backlog. Copy to `site-config.json` and fill in. |
+| `site-config.example.json` | Template for a site's facts: positioning, ICP, verified differentiators, what's NOT real yet, competitors, topic backlog. Copy to `site-config.<project>.json` and fill in. |
 | `prompts/article_prompt_template.md` | The master prompt template, filled in by `generate_prompt.py`. |
-| `scripts/generate_prompt.py` | Renders `site-config.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
+| `scripts/generate_prompt.py` | Renders `site-config.<project>.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
 | `scripts/call_llm.py` | One function that calls any OpenAI-compatible endpoint (DeepSeek, OpenAI, OpenRouter, Groq, local Ollama) or native Anthropic — swap providers via a flag, not new code. Runnable standalone too. |
 | `scripts/generate_article.py` | Ties the above together: render prompt → call provider → save draft → run the pre-publish fabrication/placeholder gate. |
 | `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
@@ -72,7 +79,7 @@ python scripts/generate_article.py --topic-index 0 --provider deepseek
 
 ## Adding a topic
 
-Either add entries to `topic_backlog` in `site-config.json`, or pass one ad
+Either add entries to `topic_backlog` in your `site-config.<project>.json`, or pass one ad
 hoc:
 
 ```bash
