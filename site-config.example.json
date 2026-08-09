@@ -1,0 +1,51 @@
+{
+  "site_name": "Example Co",
+  "domain": "example.com",
+  "category_frame": "the category you want to own, e.g. 'household bill tracker'",
+  "not_positioned_as": "the adjacent category to explicitly avoid, e.g. 'budgeting app'",
+  "icp": "one sentence describing who this is for, as specific as possible",
+  "canonical_definition_sentence": "One sentence defining the product/business. Reused verbatim in meta description, schema description, and every article's first paragraph.",
+
+  "verified_facts": {
+    "real_differentiators": [
+      "list only features/claims that are actually true and shippable today"
+    ],
+    "coming_soon_features": [
+      "list features that exist in code/roadmap but are NOT available yet — articles must never claim these are live"
+    ],
+    "pricing_and_billing": {
+      "note": "state the ACTUAL billing mechanics here, e.g. 'pay-now with a 30-day money-back guarantee, NOT a free trial' — this is the single most common content-accuracy bug: copy drifting from real billing reality",
+      "tiers": []
+    },
+    "has_real_testimonials": false,
+    "has_real_press_mentions": false,
+    "has_real_usage_stats": false
+  },
+
+  "competitors": [
+    { "name": "Competitor A", "url": "https://competitor-a.com", "existing_vs_page": "/vs/competitor-a" }
+  ],
+
+  "schema_type": "SoftwareApplication",
+  "application_category": "the most specific schema.org applicationCategory value that fits, e.g. FinanceApplication",
+
+  "existing_pages": [
+    "/pricing",
+    "/vs/competitor-a"
+  ],
+
+  "topic_backlog": [
+    {
+      "title": "Definitional pillar — what is a [category]?",
+      "type": "pillar",
+      "target_query": "what is a [category_frame]",
+      "priority": 1
+    }
+  ],
+
+  "voice": {
+    "first_person": false,
+    "anecdotes_allowed": false,
+    "extra_ban_words": []
+  }
+}

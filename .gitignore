@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+site-config.json
+output/*.md
+!output/.gitkeep
+.DS_Store
