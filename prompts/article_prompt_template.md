@@ -5,7 +5,7 @@ You are writing one article for {site_name} ({domain}).
 - Category: "{category_frame}" — explicitly NOT positioned as "{not_positioned_as}".
 - ICP: {icp}
 - Canonical definition (reuse verbatim wherever a one-sentence definition is needed): "{canonical_definition_sentence}"
-- Real, live differentiators (safe to claim):
+- Real, live differentiators (safe to claim — some carry a [TIER: ...] tag; if a differentiator has one, you MUST name that exact tier/plan anywhere you describe using that feature, not just once in passing):
 {real_differentiators}
 - Coming-soon / roadmap features — NEVER claim these are available:
 {coming_soon_features}
@@ -36,5 +36,6 @@ You are writing one article for {site_name} ({domain}).
 10. Voice: {voice_instructions}
 11. Banned words/phrases — do not use: {ban_words}
 12. If a competitor or simpler alternative genuinely wins this specific use case, say so plainly.
+13. If any differentiator above is tagged [TIER: ...], explicitly name that tier/plan in every place you describe how to use that feature (setup steps, pricing recap) — never write instructions a reader on a lower tier couldn't actually follow.
 
 Write the full article now in markdown, including the H1.

@@ -47,6 +47,19 @@ def target_length_for(article_type):
     }.get(article_type, "1200-1800")
 
 
+def format_differentiator(d):
+    """A plain string is tier-agnostic (true for every plan). A dict with a
+    `tier` key is gated to a specific plan — see RULES.md §2b. Getting this
+    distinction wrong is exactly the bug that shipped in article-forge's
+    first real deployment (2026-08-09): a feature description without its
+    tier led to instructions a free-tier reader couldn't actually follow.
+    """
+    if isinstance(d, dict):
+        tier = d.get("tier", "TIER UNSPECIFIED — verify before publishing")
+        return f"  - {d['feature']} [TIER: {tier} — you MUST name this tier if you describe how to use this feature]"
+    return f"  - {d}"
+
+
 def render(config, topic):
     with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
         template = f.read()
@@ -70,7 +83,7 @@ def render(config, topic):
         "not_positioned_as": config.get("not_positioned_as", ""),
         "icp": config.get("icp", ""),
         "canonical_definition_sentence": config.get("canonical_definition_sentence", ""),
-        "real_differentiators": "\n".join(f"  - {d}" for d in facts.get("real_differentiators", [])) or "  (none listed)",
+        "real_differentiators": "\n".join(format_differentiator(d) for d in facts.get("real_differentiators", [])) or "  (none listed)",
         "coming_soon_features": "\n".join(f"  - {d}" for d in facts.get("coming_soon_features", [])) or "  (none listed)",
         "pricing_note": facts.get("pricing_and_billing", {}).get("note", "(no pricing/billing facts supplied — omit pricing claims)"),
         "has_real_testimonials": facts.get("has_real_testimonials", False),

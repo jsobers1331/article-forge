@@ -23,6 +23,21 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
    `site-config.json`'s `verified_facts` block. Never describe a
    `coming_soon`/roadmap feature as available. Never state a pricing/billing
    term (trial, refund policy, price) that isn't explicitly listed there.
+2b. **Tier-gated features must name their tier.** A feature being real and
+   live is not the same as it being universally available. If a
+   differentiator in `verified_facts.real_differentiators` carries a `tier`
+   annotation (e.g. `{"feature": "household bill splitting", "tier": "family
+   only"}`), any article describing how to use that feature must name the
+   tier/plan explicitly — never let the surrounding prose imply it's
+   available on a lower tier. This is a real bug caught in article-forge's
+   first live deployment (2026-08-09): a generated how-to article walked a
+   reader through "create a household, invite your roommate, split bills"
+   without noting that splitting/invite/settle-up was gated to a specific
+   paid plan — a reader following the free-tier instructions would have hit
+   a paywall mid-task. The automated pre-publish gate (§11) does NOT catch
+   this class of error — it's a facts-accuracy gap, not a fabrication or
+   placeholder — so treat tier-gating as a mandatory manual cross-check on
+   every draft, not just an automated one.
 3. **Stay in the chosen category frame.** Use `category_frame` and
    `not_positioned_as` from the config on every article — don't let an
    article drift the product into an adjacent category the business has
@@ -157,3 +172,22 @@ grep -inE "example\.com|lorem ipsum|TBD|FIXME|555-|Jane (S|Smith)|John (S|Smith)
 
 Any hit means a value that should have come from `site-config.json` was
 left as a stand-in. Fix before publishing — don't ship placeholders.
+
+**This grep only catches fabrication/placeholder tells. It does not catch
+facts-accuracy errors** — a claim that's real but wrongly scoped (see §2b).
+Before publishing, also manually cross-check: for every feature the draft
+describes someone using, does `verified_facts.real_differentiators` gate
+that feature to a specific tier? If so, does the draft name that tier
+wherever it matters (setup instructions, pricing recap), not just once in
+passing? This check has no automatable pattern — it requires actually
+reading the draft against the config, which is why it's separate from the
+grep above rather than folded into it.
+
+**Tested, not just theorized:** after adding `[TIER: ...]` tagging to
+`verified_facts` and the matching prompt instruction (§2b), regenerating
+the same article correctly named the gated tier in 2 of 3 places it
+mattered — a real improvement over the untagged version, which named it
+nowhere. The third mention still blurred two separate upgrade paths
+("more bills" vs. "multiple members") into one muddled sentence. Tagging
+reduces this error class; it does not eliminate it. Keep doing the manual
+cross-check above even on a fully tier-tagged config.

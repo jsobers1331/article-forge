@@ -20,6 +20,14 @@ that should've been retired). The core discipline — **never state anything
 the site owner hasn't verified as true** — is baked into the framework, not
 left as an afterthought.
 
+The framework earned its first real bug report from its own first live
+deployment: a generated how-to article correctly avoided fabricating
+anything, but still implied a paid-tier-only feature was available more
+broadly than it was — because the config schema had no way to say "this is
+real, but only on plan X." See `RULES.md` §2b and `site-config.example.json`
+for the fix (tier-tagged differentiators). Left in as evidence the
+integrity rules are tested against reality, not just written down.
+
 ## Quick start
 
 ```bash

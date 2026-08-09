@@ -8,7 +8,8 @@
 
   "verified_facts": {
     "real_differentiators": [
-      "list only features/claims that are actually true and shippable today"
+      "a plain string = true and available on every tier/plan",
+      { "feature": "a feature that's real but only on one plan, e.g. team invites or multi-user sharing", "tier": "name the specific plan here, e.g. 'family plan only' — never leave this vague" }
     ],
     "coming_soon_features": [
       "list features that exist in code/roadmap but are NOT available yet — articles must never claim these are live"
