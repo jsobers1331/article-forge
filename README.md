@@ -67,6 +67,7 @@ python scripts/generate_article.py --topic-index 0 --provider deepseek
 | `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
+| `scripts/check_article.py` | Automated compliance gate — fabrication grep, word count, banned words, structured-element presence, H1/query match, tier-gating heuristic, and structural-repetition heuristic. Run before publishing every draft. Not a substitute for the manual checklists in `RULES.md`/`IMAGES.md` — it catches shape, not meaning. |
 
 ## Adding a topic
 
@@ -90,6 +91,21 @@ python scripts/call_llm.py --prompt-file output/some-prompt.md \
   --kind openai_compatible \
   --model your-model-name
 ```
+
+## Verified on fresh topics, not just the topics that shaped the rules
+
+After building the fixes above from the HomeWeal test run, two NEW topics
+(a definitional pillar and a comparison listicle, neither used to derive
+any of the rules) were generated and run through `check_article.py` to
+confirm the fixes actually generalize. First pass found two real, new
+bugs — the model printed its internal opening-function plan as a visible
+label ("**Answer.**", "**Scenario.**") on one draft, and both drafts used
+`##` instead of `#` for the H1 — neither caught by intuition, both caught
+by the gate. Fixed in the template (rules 2 and 4), regenerated, both
+passed clean. See `RULES.md` §12 and `IMAGES.md` for the same discipline
+applied to voice and images respectively: state what you found, fix the
+template rather than the one draft, and verify the fix on new material
+before trusting it.
 
 ## What this does NOT do
 

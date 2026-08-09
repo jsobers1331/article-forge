@@ -9,10 +9,35 @@ to `RULES.md`; read that first for the article-writing rules this assumes.
 ## 1. Scope — what this covers and doesn't
 
 - **Covers:** AI-generated hero/OG images and mood/emotional supporting images.
-- **Does NOT cover:** real product screenshots. Those are authentic proof the product
-  exists and should be captured directly from the app (e.g. via browser automation),
-  never AI-generated. Screenshots should dominate an article's imagery; AI-generated
-  images are supporting, not primary.
+- **Does NOT cover:** real product screenshots — but see §1a for exactly when a
+  screenshot is the right call vs. when it isn't.
+
+### 1a. The screenshot-vs-AI decision rule
+
+**Use a real screenshot only when the placement's specific job is to prove a real
+feature exists. Generate AI imagery for everything else.** This is a gate, not a
+default toward either option:
+
+- A setup/how-to step describing a concrete UI action ("click Add Bill," "here's the
+  settle-up screen") → real screenshot. The reader needs proof that thing exists and
+  looks like that, not an illustration of the idea.
+- A hero/OG image, a mood shot for a pain-point section, anything establishing tone
+  rather than proving a specific feature → AI-generated. Don't screenshot the
+  dashboard just because it's available; a generic dashboard shot proves nothing a
+  specific reader came to that section to check.
+
+**When you do need a screenshot, capture one that's actually topic-specific — don't
+reach for whatever's already sitting in an asset library.** On 2026-08-09 the first
+version of this exact pipeline placed an existing `dashboard.webp` (already used
+elsewhere on the site, on a different page, for a different purpose) into an article's
+setup section — technically real, but not chosen for what that section specifically
+needed to prove. The fix was capturing a NEW screenshot of the exact UI moment the
+section describes (the "Add a new bill" form itself, for a manual-entry claim) using
+the app's own local Playwright + seeded-database harness (most real apps being
+marketed already have one, built for exactly this purpose — check for
+`scripts/screenshot-capture.mjs` or similar before building a new harness from
+scratch). A screenshot chosen because it's on-topic beats one chosen because it's
+already there, even when the already-there one is perfectly real and unfabricated.
 - **Never generate:** anything implying real customer social proof. If
   `verified_facts.has_real_testimonials` is `false` in `site-config.json`, no image may
   be captioned or imply a real customer, review, or testimonial — full stop. Generic
@@ -64,16 +89,36 @@ instructing the model not to render text on a visible surface.
 2. **Explicit blank/closed/face-down object list**: name every paper, screen, or
    book-like surface and state its state (closed, blank backside, face-down).
 3. **Single brand-accent color rule**: one accent color (the site's real brand color)
-   on exactly one object, everything else warm-neutral/muted. This is what makes a set
-   of generated images read as one consistent house style rather than disconnected
-   stock photos — reuse the identical accent-color instruction across every image for
-   one article set.
+   somewhere in the scene, everything else warm-neutral/muted. This is what makes a set
+   of generated images read as one consistent house style.
 4. **Natural light + material texture cues**: "soft morning window light," "a faint
    coffee ring," "a folded corner" — small imperfections that read as real rather than
    rendered.
 5. **The same hard negative list every time**: no people, no hands (unless the
    placement specifically calls for a hand/person — see §5), no glossy 3D render look,
    no charts/graphs/data visualizations, no logos, no legible text anywhere.
+
+**Corrected on 2026-08-09 — the unifying thread must NOT be the whole composition.**
+The first four images generated with this pattern all used the identical scene
+formula — overhead shot, wooden table, closed notebook, mug, blank paper — varying
+only the small props around that formula. The result was four images that read as
+near-duplicates of each other, because "keep the house style consistent" had been
+misapplied as "repeat the same composition," not just "repeat the same color and
+light quality." Fixed by writing an explicit shot list BEFORE generating, with one row
+per image:
+
+| Image | Angle/distance | Location/objects | Accent placement |
+|---|---|---|---|
+| Hero A | Low-angle close-up | Single wallet on a windowsill | Teal stitching on the wallet |
+| Hero B | Close-up, wall-mounted | Two keys on a door hook | Teal keychain tag on one key |
+
+Two images from that table shared zero named props and a completely different
+camera angle/distance — genuinely distinct — while both still read as the same site's
+photography because of the shared light quality and the single teal accent (on a
+*different* object each time, never the same recurring prop). **Rule of thumb: no two
+images in one set should share more than one named prop or the same angle+distance
+combination.** If you catch yourself reaching for the same "overhead tablescape"
+setup for a second image, that's the signal to write the shot list instead.
 
 See `prompts/image_prompt_template.md` for the fillable version of this pattern.
 

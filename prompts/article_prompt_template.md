@@ -25,9 +25,9 @@ You are writing one article for {site_name} ({domain}).
 ## Rules (follow exactly — see RULES.md for full rationale)
 
 1. Never fabricate anything not listed above. Use `<!-- PLACEHOLDER: needs real value -->` for any gap instead of inventing a plausible-sounding value.
-2. H1 = the target query, close to verbatim.
+2. Title = a single Markdown H1 — one `#` character, not `##` — using the target query close to verbatim. This is a hard formatting requirement, not a suggestion.
 3. First 40-100 words: a standalone, extractable direct-answer paragraph. No throat-clearing intro.
-4. H2s phrased as the real follow-up questions a searcher would ask next; each opens with its own 2-3 sentence direct answer before detail.
+4. H2s phrased as the real follow-up questions a searcher would ask next. Before drafting, silently plan each H2 an opening function — answer, assertion, scenario, contrast, continuation, evidence, or question — based on what that section is actually doing. This plan is for YOUR use only: **never print the function name itself as visible text** (do not write "**Answer.**" or "**Scenario.**" as a literal label at the start of a section — that's just as mechanical a tell as the pattern this rule exists to avoid). Write the sentence in that style; don't announce the style. Reserve "answer" (a direct-answer capsule) for sections that genuinely match a real search/"people also ask"-style query, not as a fixed quota to hit. Never use the same opening function on two adjacent H2s. Not every section needs to be independently understandable in isolation — some should explicitly continue or complicate the previous section's point, which itself breaks the flat-register feel of every H2 restarting from zero.
 5. Include at least one genuine structured element: a real markdown table for comparisons, or a numbered list for how-to steps.
 6. Include an honest "who this isn't for" or "common mistakes" section.
 7. Close with a ~150-word bottom-line verdict and one CTA linking to one of the existing pages above.
@@ -37,5 +37,6 @@ You are writing one article for {site_name} ({domain}).
 11. Banned words/phrases — do not use: {ban_words}
 12. If a competitor or simpler alternative genuinely wins this specific use case, say so plainly.
 13. If any differentiator above is tagged [TIER: ...], explicitly name that tier/plan in every place you describe how to use that feature (setup steps, pricing recap) — never write instructions a reader on a lower tier couldn't actually follow.
+14. Vary sentence length within every paragraph — mix short direct sentences with longer ones carrying a qualifier or example. Don't manufacture choppy sentences just to create variance; the goal is natural rhythm, not alternating short-long-short-long mechanically. No two consecutive H2s should have the same paragraph shape (count and rough length of paragraphs) either.
 
-Write the full article now in markdown, including the H1.
+This variation must be planned before drafting, not fixed in a rewrite pass afterward — write out your per-H2 opening-function plan first (rule 4), then write the full article in markdown, including the H1. Note: this prompt-level instruction alone is not a guarantee — `scripts/check_article.py`'s structural-repetition check and a separate fresh-context audit pass (see RULES.md §12) are the actual verification, not this instruction by itself.

@@ -134,6 +134,24 @@ force a fake one in.
 - State a real, specific opinion per section rather than hedging everything
   into mush — readers and AI engines both discount content that says
   nothing.
+- **Vary how each section opens — do not open every H2 the same way.** A
+  flat register (every section starts with a plain declarative sentence
+  stating a general truth, then elaborates) is itself an AI-sounding tell,
+  independent of word choice. Rotate: a blunt one-line statement, a direct
+  question, a short scenario, an answer-first capsule (reserve this
+  specifically for sections that match a real search/PAA-style query — not
+  every section is one). Pick per-section based on what that section is
+  actually doing (explaining a trade-off vs. answering a direct question
+  vs. transitioning topics), not decoratively.
+- **Vary sentence length within a paragraph.** Mix short, direct sentences
+  with longer ones that carry a qualifier or example. Uniform
+  medium-length sentences throughout a section are a second AI-sounding
+  tell independent of vocabulary.
+- These two rules are generation-time rules, not just a rewrite-time fix —
+  apply them in the first draft (see the prompt template), not as a
+  polish pass afterward. A prompt that only says "sound human" without
+  these two concrete instructions reliably produces the flat-register
+  default.
 
 ## 8. Internal linking — hub and spoke
 
@@ -191,3 +209,63 @@ nowhere. The third mention still blurred two separate upgrade paths
 ("more bills" vs. "multiple members") into one muddled sentence. Tagging
 reduces this error class; it does not eliminate it. Keep doing the manual
 cross-check above even on a fully tier-tagged config.
+
+**Automated gate:** run `scripts/check_article.py --draft <file> --config
+site-config.json --type <type> --query "<target query>"` before publishing.
+It automates what CAN be automated — the fabrication grep, word count range,
+banned words, presence of a structured element, H1/query match, and a
+word-overlap heuristic for tier-gating gaps — and exits non-zero on a hard
+fabrication failure. It does NOT replace the manual read above: automated
+checks catch shape (is there a table? is the word count right?), not
+meaning (does this sentence actually match `verified_facts`?). Tested
+against a deliberately bad draft ("invite your roommate to split bills...
+all for free" — no tier named) and it correctly flagged the gap; tested
+against both real shipped articles and both passed clean.
+
+## 12. Rewriting an already-published article
+
+Before rewriting anything for voice, tone, or structure, **verify your
+diagnosis against the actual current source, not against what you assume
+is there.** A rewrite plan proposed "every H2 opens with a bolded 2-3
+sentence capsule" as the problem to fix — a plausible-sounding pattern that,
+on inspection of the live article, wasn't actually present; only 2 of 7
+H2s had anything resembling that shape. Rewriting against a wrong diagnosis
+either fixes nothing or breaks something that wasn't broken. Read the
+current live source first; state the actual pattern found, not the assumed
+one.
+
+Once the real issue is identified, treat any prose rewrite as a risk
+surface for reintroducing inaccuracy, not just a style pass:
+
+- Re-run the automated gate (§11) AND the manual fabrication/tier-gating
+  checks after every rewrite, not just on first generation.
+- Vary structure by what the section is actually doing, not decoratively:
+  a direct-answer capsule where the section matches a real "people also
+  ask"-style query, a scenario or blunt statement where it's explaining a
+  trade-off, a question where it's transitioning topics. Vary sentence
+  length within a section too — a rewrite that's just "different words,
+  same rhythm throughout" doesn't read any more human than the original.
+- Every fact carried over from the original draft (pricing, tier-gating,
+  billing framing, what's real vs. `coming_soon`) must be checked against
+  `verified_facts` again, not assumed correct because it was correct
+  before the rewrite touched that sentence.
+
+**Prompt-level voice rules are not self-verifying.** Cross-model review
+(DeepSeek + direct Codex CLI, 2026-08-09) on exactly this question agreed:
+an LLM given "vary how each section opens" cannot reliably audit its own
+output for whether it actually did — long-generation self-monitoring is
+weak, and a self-critique appended to the same generation tends to
+rubber-stamp itself rather than catch real repetition. Two things fix
+this, not one:
+
+1. `scripts/check_article.py`'s structural-repetition check — flags
+   adjacent H2s sharing an opening word and sections with near-uniform
+   sentence length. Coarse and gameable by design (a variance threshold
+   alone rewards mechanically-alternating short/long sentences, not real
+   rhythm) — treat it as a WARN worth a human skim, never a hard gate.
+2. For anything ship-grade, run a genuine audit pass in a **separate,
+   fresh model context** — a new `agent()`/API call handed only the
+   finished draft, asked specifically to find repeated rhetorical
+   patterns across H2s. A fresh context has no stake in the text it
+   didn't write, which is why it catches what a same-context self-critique
+   misses.
