@@ -28,6 +28,14 @@ real, but only on plan X." See `RULES.md` §2b and `site-config.example.json`
 for the fix (tier-tagged differentiators). Left in as evidence the
 integrity rules are tested against reality, not just written down.
 
+Also covers supporting imagery: `IMAGES.md` documents a real generate-and-inspect test
+cycle against OpenAI's GPT Image 2, including a failed first attempt (garbled
+pseudo-text on documents despite an explicit "no text" instruction) and the fix
+(describe surfaces as blank/closed/face-down, not just "no text"). Real measured cost:
+$0.006–$0.02/image, not the $0.10+ estimates the initial cross-model consultation gave —
+verify cost/model claims against a real test call the same way this framework verifies
+content claims against `verified_facts`.
+
 ## Quick start
 
 ```bash
@@ -56,6 +64,9 @@ python scripts/generate_article.py --topic-index 0 --provider deepseek
 | `scripts/generate_prompt.py` | Renders `site-config.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
 | `scripts/call_llm.py` | One function that calls any OpenAI-compatible endpoint (DeepSeek, OpenAI, OpenRouter, Groq, local Ollama) or native Anthropic — swap providers via a flag, not new code. Runnable standalone too. |
 | `scripts/generate_article.py` | Ties the above together: render prompt → call provider → save draft → run the pre-publish fabrication/placeholder gate. |
+| `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
+| `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
+| `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
 
 ## Adding a topic
 

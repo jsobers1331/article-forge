@@ -48,5 +48,12 @@
     "first_person": false,
     "anecdotes_allowed": false,
     "extra_ban_words": []
+  },
+
+  "image_style": {
+    "accent_color": "the site's real brand accent hex, e.g. #0d9488 — reused as the single accent color in every generated image for house-style consistency",
+    "palette": "describe the rest of the palette, e.g. 'warm-neutral: cream, charcoal, walnut wood'",
+    "people_allowed": false,
+    "notes": "see IMAGES.md before generating anything — the prompt pattern that avoids garbled pseudo-text is to describe every paper/screen as blank, closed, or face-down, not just to say 'no text'"
   }
 }
