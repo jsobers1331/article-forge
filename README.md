@@ -68,6 +68,7 @@ python scripts/generate_article.py --topic-index 0 --provider deepseek
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
 | `scripts/check_article.py` | Automated compliance gate — fabrication grep, word count, banned words, structured-element presence, H1/query match, tier-gating heuristic, and structural-repetition heuristic. Run before publishing every draft. Not a substitute for the manual checklists in `RULES.md`/`IMAGES.md` — it catches shape, not meaning. |
+| `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
 
 ## Adding a topic
 
