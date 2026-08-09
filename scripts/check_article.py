@@ -14,6 +14,7 @@ import argparse
 import json
 import re
 import sys
+from datetime import date
 
 DEFAULT_BAN_WORDS = [
     "delve", "landscape", "robust", "seamless", "elevate", "game-changer",
@@ -88,6 +89,27 @@ def check_visible_function_labels(text):
     if hits:
         return "FAIL", "visible opening-function labels found (should be internal planning only): " + "; ".join(hits)
     return "PASS", "no visible opening-function labels found"
+
+
+def check_facts_freshness(config, max_age_days=30):
+    """Enforced, not just documented — DISCOVERY.md's whole premise is that
+    verified_facts can drift (a price change, a paused promo) between runs.
+    A facts_last_verified field nobody checks is just a date; this makes
+    staleness visible every single run instead of trusting it gets read.
+    """
+    verified = config.get("facts_last_verified")
+    if not verified:
+        return "WARN", "no facts_last_verified set on this config — add one (YYYY-MM-DD) and treat this as immediately due for a re-check against the live site"
+    try:
+        verified_date = date.fromisoformat(verified)
+    except ValueError:
+        return "WARN", f"facts_last_verified {verified!r} is not a valid YYYY-MM-DD date"
+    age = (date.today() - verified_date).days
+    if age < 0:
+        return "WARN", f"facts_last_verified {verified} is in the future — check for a typo"
+    if age > max_age_days:
+        return "WARN", f"verified_facts last confirmed {age} days ago (>{max_age_days}) — re-read the live site's source of truth and update facts_last_verified before publishing"
+    return "PASS", f"verified_facts confirmed {age} day(s) ago"
 
 
 def check_fabrication_placeholders(text):
@@ -239,6 +261,7 @@ def run_checks(text, article_type, target_query, config):
     real_differentiators = config.get("verified_facts", {}).get("real_differentiators", [])
 
     checks = [
+        ("Facts freshness", check_facts_freshness(config)),
         ("Fabrication/placeholder gate", check_fabrication_placeholders(text)),
         ("Visible opening-function labels", check_visible_function_labels(text)),
         ("H1 matches target query", check_h1_present(text, target_query)),

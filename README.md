@@ -42,13 +42,33 @@ This repo is shared across every product you use it for — name your config per
 switching projects never means overwriting another one's facts:
 
 ```bash
-cp site-config.example.json site-config.<yourproject>.json
-# edit site-config.<yourproject>.json with your site's real facts — e.g. site-config.homeweal.json
-
 pip install -r requirements.txt
 cp .env.example .env
 # fill in an API key ONLY if you want generate_article.py to call a provider directly
 
+cp site-config.example.json site-config.<yourproject>.json
+# fill in ONLY the identity fields for now: site_name, domain, category_frame, icp.
+# verified_facts/topic_backlog come later, informed by Step 0 below.
+```
+
+**Step 0 — Discovery (new project, or topic_backlog running low):** find out
+what's actually worth writing about before guessing. Needs only the identity
+fields above, not the full config — see `DISCOVERY.md` for the full
+walkthrough (seed-keyword suggestion → orchestrating-agent research →
+coverage-gap report). Skippable if you already know your topics; recommended
+otherwise.
+
+```bash
+python scripts/discover_gaps.py --config site-config.<yourproject>.json --suggest-seeds
+# ... orchestrating agent researches those seeds, builds discovery_snapshot.json ...
+python scripts/discover_gaps.py --config site-config.<yourproject>.json --snapshot discovery_snapshot.json
+```
+
+Now finish filling in `site-config.<yourproject>.json` — `verified_facts` from
+the real site, `topic_backlog` from Step 0's report (manually reviewed, never
+auto-applied) plus your own judgment — and generate:
+
+```bash
 # --config is required on every script, always — there is no shared default file to fall
 # back to. This is deliberate: a silent default is exactly how one project's config got
 # clobbered by another's mid-session in practice. See the git history for that incident.
@@ -76,6 +96,8 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
 | `scripts/check_article.py` | Automated compliance gate — fabrication grep, word count, banned words, structured-element presence, H1/query match, tier-gating heuristic, and structural-repetition heuristic. Run before publishing every draft. Not a substitute for the manual checklists in `RULES.md`/`IMAGES.md` — it catches shape, not meaning. |
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
+| `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
+| `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
 
 ## Adding a topic
 

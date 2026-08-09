@@ -3,6 +3,9 @@ __pycache__/
 *.pyc
 site-config.*.json
 !site-config.example.json
+discovery-snapshot.*.json
+discovery-report.*.json
+serp-snapshot.*.json
 output/*.md
 !output/.gitkeep
 .DS_Store

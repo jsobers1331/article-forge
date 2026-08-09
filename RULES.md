@@ -23,6 +23,13 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
    `site-config.<project>.json`'s `verified_facts` block. Never describe a
    `coming_soon`/roadmap feature as available. Never state a pricing/billing
    term (trial, refund policy, price) that isn't explicitly listed there.
+   `verified_facts` can drift out of date — a price change, a paused promo —
+   between runs. `facts_last_verified` (YYYY-MM-DD) records when someone last
+   re-read the live site's actual source of truth and confirmed the block
+   still matches; `scripts/check_article.py` hard-WARNs once it's more than
+   30 days old, so staleness surfaces every run instead of relying on someone
+   remembering to check. See DISCOVERY.md for the pre-topic-selection
+   research pass that also depends on these facts being current.
 2b. **Tier-gated features must name their tier.** A feature being real and
    live is not the same as it being universally available. If a
    differentiator in `verified_facts.real_differentiators` carries a `tier`
