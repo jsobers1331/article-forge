@@ -31,6 +31,46 @@
       "existing_vs_page": "/vs/competitor-a"
     }
   ],
+  "content_targeting": {
+    "allow_personal_data": false,
+    "prohibit_protected_class_targeting": true,
+    "allow_programmatic_location_pages": false,
+    "min_local_evidence_sources": 2,
+    "max_evidence_age_days": 365
+  },
+  "audience_segments": [
+    {
+      "id": "new-household-organizers",
+      "label": "People setting up a shared household bill routine",
+      "type": "life_situation",
+      "needs": ["a clear ownership list", "reliable due-date reminders"],
+      "search_intents": ["how-to", "comparison"]
+    }
+  ],
+  "locations": [
+    {
+      "id": "global-en",
+      "label": "International English-speaking households",
+      "scope": "global",
+      "language": "en"
+    },
+    {
+      "id": "example-country",
+      "label": "Example country",
+      "scope": "country",
+      "country_code": "XX",
+      "language": "en"
+    }
+  ],
+  "evidence_sources": [
+    {
+      "id": "example-primary-source",
+      "label": "Example primary source",
+      "url": "https://example.gov/verified-guidance",
+      "claims": ["replace with the exact claim this source supports"],
+      "verified_on": "2026-08-09"
+    }
+  ],
   "schema_type": "SoftwareApplication",
   "application_category": "the most specific schema.org applicationCategory value that fits, e.g. FinanceApplication",
   "existing_pages": [
@@ -42,7 +82,19 @@
       "title": "Definitional pillar \u2014 what is a [category]?",
       "type": "pillar",
       "target_query": "what is a [category_frame]",
-      "priority": 1
+      "priority": 1,
+      "audience_segment_ids": ["new-household-organizers"],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "image_plan": [
+        {
+          "role": "editorial_hero",
+          "subject": "a single object that expresses the article's problem",
+          "composition": "a distinct camera angle and setting, never a generic dashboard",
+          "named_props": ["one relevant prop"],
+          "alt": "Literal description of the scene for a non-visual reader"
+        }
+      ]
     }
   ],
   "voice": {

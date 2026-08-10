@@ -18,6 +18,16 @@ You are writing one article for {site_name} ({domain}).
 - Existing site pages you can link to (Markdown, relative paths): {existing_pages}
 - Current month/year for the dateline: {current_month_year}
 
+## Audience, locale, sources, and visuals (verified — do not broaden)
+
+- Audience segments: these are verified life situations, jobs-to-be-done, or roles — never target a named individual, personal data, or a protected characteristic:
+{audience_brief}
+- Locale: {locale_brief}. Only make a locale-specific claim when the approved source list below directly supports it. Do not spin a city or regional variant from this article.
+- Approved evidence sources: cite a source in Markdown when you use the fact it supports; do not cite it decoratively and do not add a source that has not been verified:
+{evidence_sources}
+- Planned visuals: use these distinct jobs for images. A feature-proof screenshot must show the named real feature; heroes and editorial visuals must not show a generic dashboard or fake interface:
+{image_plan}
+
 ## This article
 
 - Target query / topic: {target_query}
@@ -41,7 +51,8 @@ You are writing one article for {site_name} ({domain}).
 14. Vary sentence length within every paragraph — mix short direct sentences with longer ones carrying a qualifier or example. Don't manufacture choppy sentences just to create variance; the goal is natural rhythm, not alternating short-long-short-long mechanically. No two consecutive H2s should have the same paragraph shape (count and rough length of paragraphs) either.
 15. Immediately after the H1, add a line: `*Last updated: {current_month_year}.*`
 16. Internal linking: include 3-5 links to the existing site pages listed above, placed naturally in-line (never a bare link list) — at least one in the first third of the article, not only in the closing CTA. Every link MUST use Markdown link syntax `[anchor text](url)` — never write the URL as bare parenthetical text like "the pricing page (https://...)". A URL that isn't inside `[...](...)`  does not count as a link.
-17. External linking: the first time you name a competitor, link to its real URL from the list above, using the same `[anchor text](url)` Markdown syntax — not a bare URL in parentheses. Don't add external links beyond the named competitors — no invented "sources" or citations you can't verify.
+17. External linking: the first time you name a competitor, link to its real URL from the list above, using the same `[anchor text](url)` Markdown syntax — not a bare URL in parentheses. You may also link only to the approved evidence sources listed above, and only where the linked source directly supports the claim. Do not invent sources or citations.
 18. Use "we/our" brand-voice phrasing naturally a few times ("our take," "our guide," "we recommend") — this is the brand speaking in third person about its own judgment, not a fabricated first-person founder anecdote (those stay governed by rule 10's voice setting). Do this even when `voice.first_person` is false.
+19. Never promise or imply a specific search ranking, traffic outcome, financial saving, legal outcome, or product capability that is not in the verified facts above. A location or audience label is not evidence by itself.
 
 This variation must be planned before drafting, not fixed in a rewrite pass afterward — write out your per-H2 opening-function plan first (rule 4), then write the full article in markdown, including the H1. Note: this prompt-level instruction alone is not a guarantee — `scripts/check_article.py`'s structural-repetition check and a separate fresh-context audit pass (see RULES.md §12) are the actual verification, not this instruction by itself.

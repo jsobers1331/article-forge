@@ -10,6 +10,11 @@ import argparse
 import json
 import os
 
+try:  # Supports both `python scripts/generate_prompt.py` and module imports in tests.
+    from .validate_content_brief import validate_config
+except ImportError:
+    from validate_content_brief import validate_config
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_PATH = os.path.join(REPO_ROOT, "prompts", "article_prompt_template.md")
 
@@ -60,6 +65,48 @@ def format_differentiator(d):
     return f"  - {d}"
 
 
+def format_targeting_brief(config, topic):
+    """Render only explicitly configured targeting context.
+
+    Audience segments are life situations, jobs-to-be-done, or roles; the
+    targeting schema deliberately excludes named individuals and sensitive
+    demographic profiling.
+    """
+    audiences_by_id = {item["id"]: item for item in config.get("audience_segments", [])}
+    locations_by_id = {item["id"]: item for item in config.get("locations", [])}
+    sources_by_id = {item["id"]: item for item in config.get("evidence_sources", [])}
+
+    audiences = [audiences_by_id[item_id] for item_id in topic.get("audience_segment_ids", [])]
+    audience_text = "\n".join(
+        f"  - {item['label']} ({item['type']}): needs — {', '.join(item['needs'])}"
+        for item in audiences
+    ) or "  - No audience segment supplied — write for the verified ICP only."
+
+    location = locations_by_id.get(topic.get("location_id"), {})
+    if location:
+        location_parts = [location.get("label", location.get("id", "")), location.get("scope", "")]
+        if location.get("country_code"):
+            location_parts.append(location["country_code"])
+        if location.get("language"):
+            location_parts.append(location["language"])
+        location_text = " — ".join(part for part in location_parts if part)
+    else:
+        location_text = "No locale supplied — do not add local claims."
+
+    sources = [sources_by_id[item_id] for item_id in topic.get("evidence_source_ids", [])]
+    sources_text = "\n".join(
+        f"  - [{item['label']}]({item['url']}) — verified {item['verified_on']}; supports: {', '.join(item.get('claims', []))}"
+        for item in sources
+    ) or "  - No external source is approved. Do not invent a location-specific fact or citation."
+
+    images = topic.get("image_plan", [])
+    image_text = "\n".join(
+        f"  - {item['role']}: {item['subject']}; {item['composition']}; alt: {item['alt']}"
+        for item in images
+    ) or "  - No image plan supplied."
+    return audience_text, location_text, sources_text, image_text
+
+
 def render(config, topic):
     with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
         template = f.read()
@@ -67,6 +114,12 @@ def render(config, topic):
     facts = config.get("verified_facts", {})
     voice = config.get("voice", {})
     ban_words = DEFAULT_BAN_WORDS + voice.get("extra_ban_words", [])
+    errors, warnings = validate_config(config, strict=bool(config.get("content_targeting")))
+    if errors:
+        raise ValueError("Content brief validation failed: " + "; ".join(errors))
+    if warnings:
+        print("Content brief warnings: " + "; ".join(warnings), file=os.sys.stderr)
+    audience_brief, locale_brief, evidence_sources, image_plan = format_targeting_brief(config, topic)
 
     voice_instructions = (
         "write in first person, include one true specific anecdote"
@@ -97,6 +150,10 @@ def render(config, topic):
         "target_length": target_length_for(topic.get("type", "standard")),
         "voice_instructions": voice_instructions,
         "ban_words": ", ".join(ban_words),
+        "audience_brief": audience_brief,
+        "locale_brief": locale_brief,
+        "evidence_sources": evidence_sources,
+        "image_plan": image_plan,
     }
 
     return template.format(**values)
