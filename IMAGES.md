@@ -153,6 +153,24 @@ screenshots (which are separate and should dominate):
 - Do not exceed 2. More than that dilutes the "screenshots are the real proof, mood
   images are supporting" hierarchy and starts to look like stock-photo padding.
 
+### 5a. Give every image a different job
+
+Before generating, put a topic-level `image_plan` in the site config. Each item
+must name a role, literal subject, composition, named props, and accessible alt
+text. Valid roles are `editorial_hero`, `contextual_editorial`,
+`feature_proof_screenshot`, `explanatory_visual`, and `data_visualization`.
+
+- The hero is a representative editorial image, never a blank placeholder or a
+  product dashboard by default.
+- A feature-proof screenshot is allowed only when it proves the exact verified
+  feature described nearby; name the feature and its tier in the plan.
+- An explanatory visual or data visualization must be based on supplied,
+  verifiable data. Do not use an image model to invent a chart.
+- No two images in a topic may share a role, and no two topics may reuse the
+  same role + subject + composition + prop fingerprint. The deterministic
+  `scripts/validate_content_brief.py` preflight enforces this planning guard;
+  still inspect the finished pixels with the checklist below.
+
 ## 6. Post-generation QC checklist
 
 Every image, before it ships:

@@ -86,6 +86,31 @@ hoc:
 python scripts/generate_prompt.py --title "How to X without Y" --query "how to x without y" --type standard
 ```
 
+## Targeting an audience or location without creating doorway pages
+
+Article Forge can attach each topic to a verified audience need and location
+brief. It targets a life situation, job-to-be-done, or role (for example,
+households sharing bills with unequal incomes), not a named person, sensitive
+personal data, or protected characteristic. Locations are not a bulk-page
+generator: country, regional, and city content requires independent evidence
+and unique local value. A city name swapped into the same article is rejected
+as a doorway-page risk.
+
+Add `content_targeting`, `audience_segments`, `locations`,
+`evidence_sources`, and a topic-level `image_plan` using
+`site-config.example.json` as the schema. Then run this hard preflight before
+generation:
+
+```bash
+python scripts/validate_content_brief.py --config site-config.<yourproject>.json --strict
+```
+
+The validator blocks personal-data targeting, protected-class targeting,
+programmatic location pages, unknown sources, under-sourced local claims, and
+repeated visual fingerprints. It cannot determine whether a source really
+supports a claim; the source must still be read and manually checked before
+publication.
+
 ## Adding a new LLM provider
 
 `call_llm.py`'s `PROVIDERS` dict covers the common OpenAI-compatible APIs and
