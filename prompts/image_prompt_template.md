@@ -16,16 +16,20 @@ You are generating one supporting image for an article on {site_name}.
 2. Exactly one accent color across the whole scene: {accent_color}. Every other surface
    is warm-neutral/muted (cream, charcoal, walnut wood, or equivalent for this site's
    palette).
-3. No people, no hands, unless this specific placement explicitly calls for one (rare —
-   confirm before including either).
+3. People and hands are allowed when this placement benefits from a human-centered
+   scene. If included, use a fictional, non-identifiable editorial subject with a
+   natural action and expression; never imply a real customer, testimonial, or review.
+   If the placement is object-only, omit people and hands entirely.
 4. No logos, no bank/financial-institution branding, no fake app UI, no charts, no
    graphs, no data visualizations, no legible numbers anywhere in frame.
 5. No glossy 3D-render look — this must read as real photography: name a lens (e.g.
    50mm), a light source (e.g. soft morning window light from the left), and one small
    real-world imperfection (a coffee ring, a folded corner, a worn edge).
-6. If a social-proof read is even remotely possible (a person, a device that could look
-   like it's displaying a review), do not include it — this site has zero real
-   testimonials and no image may imply otherwise.
+6. If a social-proof read is even remotely possible (a posed person, a device that
+   could look like it's displaying a review, or a caption naming a subject), remove
+   that implication — this site has zero real testimonials and no image may imply
+   otherwise. A candid fictional person is fine when the scene's action clearly
+   supports the article rather than the product's claimed usage.
 
 ## Scene
 
