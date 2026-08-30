@@ -94,9 +94,11 @@ instructing the model not to render text on a visible surface.
 4. **Natural light + material texture cues**: "soft morning window light," "a faint
    coffee ring," "a folded corner" — small imperfections that read as real rather than
    rendered.
-5. **The same hard negative list every time**: no people, no hands (unless the
-   placement specifically calls for a hand/person — see §5), no glossy 3D render look,
-   no charts/graphs/data visualizations, no logos, no legible text anywhere.
+5. **The same hard negative list every time**: no glossy 3D render look, no
+   charts/graphs/data visualizations, no logos, no legible text anywhere. People and
+   hands are allowed when the placement specifically calls for a human-centered scene;
+   when they appear, use fictional editorial subjects and a natural action or
+   expression, never implied customer proof.
 
 **Corrected on 2026-08-09 — the unifying thread must NOT be the whole composition.**
 The first four images generated with this pattern all used the identical scene
@@ -121,6 +123,31 @@ combination.** If you catch yourself reaching for the same "overhead tablescape"
 setup for a second image, that's the signal to write the shot list instead.
 
 See `prompts/image_prompt_template.md` for the fillable version of this pattern.
+
+### 3a. Human-centered scenes and emotional variation
+
+For articles about decisions, workflow pressure, client relationships, pricing, or
+creative work, prefer a human-centered scene when it gives the reader an emotional
+entry point. A face is useful when it shows a real moment — concentration, relief,
+uncertainty, welcome, or pride — rather than posing as generic stock photography.
+
+For a six-image article set, target **four to six images with a visible fictional
+person or face**, while keeping one or two object/detail scenes when that better fits
+the topic. Write the shot list before prompting and specify the person's role,
+action, expression, setting, angle, and distance. Do not reuse the same face, pose,
+camera-at-desk setup, or emotional beat across articles.
+
+Use this variation rule alongside the prop rule above:
+
+- Vary the visual mode across the set: candid working moment, conversation, portrait,
+  movement/transition, client-facing interaction, and detail/still life.
+- Vary age, presentation, setting, crop, lens distance, and light direction naturally;
+  do not turn diversity into a checklist or stereotype a type of photographer.
+- A visible face must belong to the scene's subject, not function as a testimonial,
+  review, named customer, or claim of real usage. Never caption it as a real person.
+- When a face or hands are included, inspect eyes, teeth, fingers, joints, and posture
+  at 200% before shipping. Regenerate obvious artifacts rather than retouching around
+  them.
 
 ## 4. Cost — real, not estimated
 
@@ -160,8 +187,9 @@ Every image, before it ships:
 1. **Garbled text/fake data — the #1 failure mode.** Zoom to 200% on every paper,
    screen, or book-like surface. Any pseudo-text, pseudo-chart, or garbled numbers
    means regenerate with the blank/closed/face-down framing from §3, not a patch.
-2. **Anatomy** — if a hand or person appears, check finger count, joints, proportions
-   at 200% zoom.
+2. **Anatomy and expression** — if a hand or person appears, check finger count,
+   joints, proportions, eyes, teeth, facial symmetry, and whether the expression reads
+   naturally at 200% zoom.
 3. **No accidental logos, bank branding, or fake UI** on any object (phones, laptops,
    packaging).
 4. **No social-proof implication** — no image + caption combination that reads as a
@@ -174,6 +202,8 @@ Every image, before it ships:
 7. **House-style consistency** — images used across the same article, or across an
    article set, should read as one photographer's work (same grain, warmth, mattness),
    not visibly different generation runs.
+8. **Article-specific emotional fit** — a human scene must show an action or feeling
+   that connects to the article's promise; reject generic smiling-at-camera stock poses.
 
 This checklist has no automatable pattern — it requires actually looking at the image,
 the same way RULES.md §11 requires actually reading a draft against `verified_facts`.
@@ -187,4 +217,5 @@ An automated file-size or dimension check is necessary but not sufficient.
 - Descriptive, kebab-case filenames matching the article/placement (e.g.
   `best-tracker-hero.webp`, not `image1.webp`).
 - Alt text describes the literal scene, written the same way you'd describe it to
-  someone who can't see it — never a caption implying a real person or event.
+  someone who can't see it — never a caption implying a real person or event. For
+  fictional people, describe the visible role or action without inventing an identity.
