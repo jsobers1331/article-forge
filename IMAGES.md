@@ -187,9 +187,32 @@ Every image, before it ships:
 1. **Garbled text/fake data — the #1 failure mode.** Zoom to 200% on every paper,
    screen, or book-like surface. Any pseudo-text, pseudo-chart, or garbled numbers
    means regenerate with the blank/closed/face-down framing from §3, not a patch.
-2. **Anatomy and expression** — if a hand or person appears, check finger count,
-   joints, proportions, eyes, teeth, facial symmetry, and whether the expression reads
-   naturally at 200% zoom.
+2. **Anatomy and expression** — if a hand or person appears ANYWHERE in the frame,
+   check finger count, joints, proportions, eyes, teeth, facial symmetry, and whether
+   the expression reads naturally at 200% zoom. **This applies regardless of which
+   category you mentally filed the image under.** A "device" or "object" shot that
+   happens to include an incidental hand (someone picking up a phone, reaching for a
+   mug) is not exempt just because the image's primary subject is the object, not the
+   person — the hand still needs the same 200% zoom check as a full people-scene.
+   **Corrected on 2026-08-30** — a hand-reaching-for-a-phone image, generated for a
+   "device-forward" comparison article (not a "people" article), shipped to production
+   with a malformed hand (three finger-shapes plus a fused digit near the phone,
+   not a normal four-finger-plus-thumb grasp) because the zoom-QC pass was applied to
+   the four people-category images in the same batch but skipped on this one — the
+   checklist wasn't missing, it was applied inconsistently based on category, not
+   presence of a hand. **Rule of thumb going forward: before shipping any image, ask
+   "does this frame contain a hand or body part, at all?" as a separate yes/no gate
+   BEFORE consulting which category the image belongs to.** A "yes" always triggers
+   the full anatomy zoom-check, no exceptions.
+   - **Prefer avoiding dynamic grasping/reaching poses when a hands-free composition
+     would serve the same purpose.** A hand mid-motion (reaching, grasping, curling
+     around an object) is a substantially higher-risk pose than a relaxed, fully open,
+     non-foreshortened hand, because foreshortening and overlapping fingers are exactly
+     where generation models produce fused or missing digits. If the placement doesn't
+     specifically need the sense of motion, generate the object alone, or a person with
+     hands at rest/visible in full, rather than a grasping hand — the object-alone
+     version of this exact scene (a phone lying on a desk, no hand) shipped clean on
+     the first attempt.
 3. **No accidental logos, bank branding, or fake UI** on any object (phones, laptops,
    packaging).
 4. **No social-proof implication** — no image + caption combination that reads as a
