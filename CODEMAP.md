@@ -6,11 +6,11 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-readiness`
 - **branch:** `fix/article-forge-readiness`
-- **commit:** `e50fb95f233897d2ce0f11d7c949a561cdcc59dd`
-- **short:** `e50fb95`
-- **last commit:** 2026-08-30T18:40:50-04:00
-- **map generated:** 2026-09-03T20:06:24+00:00
-- **tracked files:** 21
+- **commit:** `81ffb196afeca9a00d5ee5e34c856d198db96d6e`
+- **short:** `81ffb19`
+- **last commit:** 2026-09-03T16:06:24-04:00
+- **map generated:** 2026-09-03T23:16:52+00:00
+- **tracked files:** 26
 
 ## Tech Stack
 
@@ -20,8 +20,8 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 | Directory | Files | Purpose |
 |-----------|-------|---------|
-| `./` | 9 | _ |
-| `scripts/` | 8 | Automation scripts |
+| `./` | 12 | _ |
+| `scripts/` | 10 | Automation scripts |
 | `prompts/` | 2 | _ |
 | `output/` | 1 | _ |
 | `tests/` | 1 | Tests |

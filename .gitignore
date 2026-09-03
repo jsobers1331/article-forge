@@ -6,6 +6,8 @@ site-config.*.json
 discovery-snapshot.*.json
 discovery-report.*.json
 serp-snapshot.*.json
+serp/*.json
+serp/.cache/
 output/*.md
 !output/.gitkeep
 output/.quarantine/

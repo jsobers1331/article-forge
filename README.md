@@ -98,9 +98,11 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
 | `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, and style signals. Run before publishing every draft; human meaning review remains required. |
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
+| `scripts/collect_serper.py` | Direct personal Serper adapter: collects timestamped Google organic results, hosts, snippets, People Also Ask, related searches, visible SERP features, and raw intent signals into a disk-backed `article-forge.serp.v1` evidence record. It never calculates Google keyword difficulty. |
+| `scripts/import_demand.py` | Normalizes Keyword Planner or Search Console CSV/JSON exports while preserving market-demand versus site-opportunity semantics and source units. |
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
-| `scripts/score_opportunities.py` | Score a versioned, provider-neutral opportunity dataset. Missing/stale demand or organic-competition evidence becomes `needs-data`; paid advertiser competition is never substituted for organic difficulty. |
+| `scripts/score_opportunities.py` | Score a versioned, provider-neutral opportunity dataset. Missing/stale demand or organic-competition evidence becomes `needs-data`; paid advertiser competition is never substituted for organic difficulty. Editorial difficulty, intent, fit, freshness, and evidence confidence remain explicit. |
 
 ## Adding a topic
 
@@ -110,6 +112,43 @@ candidate in the `article-forge.opportunity.v1` schema and run
 Search Console is a site signal, Keyword Planner competition is an advertising
 signal, and neither is organic ranking difficulty. A candidate without measured
 demand and a five-result organic SERP sample cannot be scored.
+
+For a live SERP evidence pass:
+
+```bash
+python scripts/collect_serper.py --config site-config.<yourproject>.json \
+  --query "what is a [category]" --out serp/<yourproject>-serper.json
+```
+
+The collector reads `SERPER_API_KEY` from the project environment (or the
+configured env name), uses a versioned 24-hour disk cache, caps each run at 50
+requests, and handles transient failures with bounded retry/backoff and a
+three-failure circuit breaker. Cache files contain the provider response and
+normalized observation but never request headers. Query, country, language,
+location, and result count are part of the cache key. Use `--refresh` only for a
+deliberately fresh paid request.
+
+Serper observations include organic titles, links, snippets, positions, hosts,
+People Also Ask, related searches, SERP features, and raw intent signals. They
+do not become Google keyword difficulty, domain authority, or ranking
+probability. Add any editorial difficulty estimate separately with a rationale
+and evidence beyond result counts.
+
+To import demand evidence from exports:
+
+```bash
+python scripts/import_demand.py --input keyword-planner.csv \
+  --source keyword_planner --observed-at YYYY-MM-DD --sample-size 12 \
+  --out demand.json
+python scripts/import_demand.py --input search-console.csv \
+  --source search_console --metric impressions --observed-at YYYY-MM-DD \
+  --sample-size 28 --out demand.json
+```
+
+Keyword Planner records are market-demand observations. Search Console records
+are site-opportunity observations for the selected property and period. The
+importer preserves raw units and paid-competition fields; normalized scores are
+relative to the supplied candidate set.
 
 ## Readiness boundary
 
@@ -126,17 +165,24 @@ separate evidence records:
 
 ```json
 {
-  "demand": {"source": "keyword_planner", "normalization": "relative-to-candidate-set", "value": 1000, "unit": "searches", "score": 70, "observed_at": "YYYY-MM-DD", "sample_size": 12},
+  "demand": {"source": "keyword_planner", "role": "market_demand", "normalization": "max-value-within-imported-candidate-set", "value": 1000, "unit": "searches", "score": 70, "observed_at": "YYYY-MM-DD", "sample_size": 12},
   "paid_competition": {"source": "keyword_planner", "value": "low", "observed_at": "YYYY-MM-DD"},
-  "organic_competition": {"source": "serp_analysis", "difficulty_score": 40, "observed_at": "YYYY-MM-DD", "sample_size": 10},
-  "product_fit": {"rubric_version": "1.0", "score": 90, "rationale": "Verified product fit.", "evidence": ["fact-id"]},
-  "content_fit": {"rubric_version": "1.0", "score": 85, "rationale": "A distinct useful angle exists.", "evidence": ["original-framework"]}
+  "organic_competition": {"source": "serper", "observed_at": "YYYY-MM-DD", "sample_size": 10, "serp_cache_key": "sha256", "serp_retrieved_at": "YYYY-MM-DD", "observations": {"organic_result_count": 10, "unique_hosts": 9}, "editorial_difficulty": {"semantics": "editorial_estimate", "score": 40, "rationale": "Manual comparison of the observed pages found a narrow but defeatable gap.", "evidence_types": ["manual_page_review", "content_depth_assessment"], "evidence": ["serp-record", "manual-page-review"]}},
+  "intent_evidence": {"source": "serper", "signals": ["people_also_ask", "query modifier: what"], "observed_at": "YYYY-MM-DD"},
+  "product_fit": {"rubric_version": "1.0", "score_semantics": "editorial", "score": 90, "rationale": "Verified product fit.", "evidence_types": ["first_party_fact", "verified_claim"], "evidence": ["fact-id", "claim-id"]},
+  "content_fit": {"rubric_version": "1.0", "score_semantics": "editorial", "score": 85, "rationale": "A distinct useful angle exists.", "original_angle": "A decision framework based on the reader's workflow.", "limitation": "The article cannot claim measured ranking difficulty without an external source.", "unanswered_question": "Which workflow criteria matter before choosing a CRM?", "source_dates": ["YYYY-MM-DD"], "evidence_types": ["original_angle", "limitation", "unanswered_question"], "evidence": ["original-framework"]},
+  "freshness": {"source": "research-review", "status": "current", "observed_at": "YYYY-MM-DD", "refresh_after_days": 90, "evidence": ["current-source-review"]},
+  "evidence_confidence": {"score": 85, "rationale": "Demand and SERP evidence are current and the editorial judgments are traceable.", "evidence": ["demand-record", "serp-record", "fit-review"]}
 }
 ```
 
-The initial formula is `0.30D + 0.25(100-organic difficulty) + 0.25F +
+The initial formula is `0.30D + 0.25(100-editorial difficulty) + 0.25F +
 0.20CF`. Keep component scores, sources, dates, sample sizes, and rationales
-visible so the model cannot turn a guess into a fact.
+visible so the model cannot turn a guess into a fact. Editorial difficulty must
+also name a manual/page-depth/intent/freshness/first-party assessment; raw SERP
+counts alone are rejected. If editorial difficulty is omitted, raw SERP
+evidence remains useful but the numeric opportunity score is `needs-data`. A
+score below 80 evidence confidence cannot be promoted to `pursue`.
 
 Either add entries to `topic_backlog` in your `site-config.<project>.json`, or pass one ad
 hoc:
@@ -210,12 +256,14 @@ score was raised by adding anything unverifiable.
 
 ## What this does NOT do
 
-- It does not check real keyword search volume — validate the topic backlog
-  against Google Search Console, Keyword Planner, or similar before
-  committing writing time to a topic.
+- It does not check real keyword search volume without an imported demand
+  record — validate the topic backlog against Google Search Console, Keyword
+  Planner, or similar before committing writing time to a topic.
 - It does not fact-check the article against the live site — that's on you,
   via `verified_facts`, `claim_evidence`, and the pre-publish gate.
-- It does not connect to Search Console, Keyword Planner, or a CMS. Those
-  remain provider-specific adapters and human-owned integrations.
+- It does not connect directly to Search Console or Keyword Planner APIs, or a
+  CMS. The demand importer accepts exports; direct API integrations remain
+  provider-specific and human-owned. Serper collection is available through
+  the direct personal adapter described above.
 - It does not publish anything — all-PASS output lands in `output/` as markdown
   for you to review and place into your own site/CMS.

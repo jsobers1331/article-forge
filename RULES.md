@@ -233,7 +233,22 @@ Use `scripts/score_opportunities.py` with an
 paid advertiser competition, organic competition, product fit, and content fit
 are separate fields. Missing or stale demand/organic evidence returns
 `needs-data`; organic consensus also requires at least five independent domains.
-The score is a transparent prioritization aid, never a ranking prediction.
+`scripts/collect_serper.py` may supply current SERP observations, but it must
+not manufacture Google keyword difficulty or domain authority from result
+counts. `organic_competition.editorial_difficulty` is optional evidence; it is
+required only if a numeric prioritization score is requested, and it must carry
+editorial semantics, rationale, evidence types, and evidence beyond a raw Serper
+count. Counts and host totals alone are rejected. Content fit must also name an
+unanswered question and at least one dated supporting source.
+
+`intent_evidence` stores raw observed signals and may carry a reviewable
+hypothesis. The hypothesis is never treated as ground truth; confidence over
+90 requires at least three corroborating signals. `product_fit` must include a
+first-party fact and a verified claim. `content_fit` must include an original
+angle and a limitation. `freshness` records the refresh window and evidence,
+while `evidence_confidence` is confidence in the evidence packet, not a
+probability of ranking or citation. A score below 80 confidence can never
+remain a `pursue` decision.
 
 ## 12. Rewriting an already-published article
 
