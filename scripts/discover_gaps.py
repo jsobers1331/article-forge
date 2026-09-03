@@ -20,7 +20,12 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from generate_prompt import load_config  # noqa: E402
-from score_article import _norm, _phrase_covered, consensus_items  # noqa: E402
+from score_article import (  # noqa: E402
+    CONSENSUS_MIN_PAGES,
+    _norm,
+    _phrase_covered,
+    consensus_items,
+)
 
 SEED_TEMPLATES = [
     "what is {category_frame}",
@@ -30,9 +35,19 @@ SEED_TEMPLATES = [
 ]
 
 MARKETING_BUZZWORDS = {
-    "ai-powered", "enterprise-grade", "best-in-class", "industry-leading",
-    "cutting-edge", "all-in-one", "game-changing", "revolutionary",
-    "next-generation", "world-class", "seamless", "robust", "turnkey",
+    "ai-powered",
+    "enterprise-grade",
+    "best-in-class",
+    "industry-leading",
+    "cutting-edge",
+    "all-in-one",
+    "game-changing",
+    "revolutionary",
+    "next-generation",
+    "world-class",
+    "seamless",
+    "robust",
+    "turnkey",
 }
 
 
@@ -62,15 +77,21 @@ def dedupe_by_domain(competitors):
     consensus counts without adding real independent signal)."""
     seen = {}
     for c in competitors:
-        domain = c.get("domain") or re.sub(r"^https?://(www\.)?", "", c.get("url", "")).split("/")[0]
-        if domain not in seen or c.get("position", 999) < seen[domain].get("position", 999):
+        domain = (
+            c.get("domain")
+            or re.sub(r"^https?://(www\.)?", "", c.get("url", "")).split("/")[0]
+        )
+        domain = domain.lower().split(":", 1)[0].removeprefix("www.")
+        if domain not in seen or c.get("position", 999) < seen[domain].get(
+            "position", 999
+        ):
             seen[domain] = c
     return list(seen.values())
 
 
 def cluster_consensus(cluster, key):
     competitors = dedupe_by_domain(cluster.get("competitors", []))
-    if len(competitors) < 2:
+    if len(competitors) < CONSENSUS_MIN_PAGES:
         return set(), {}
     return consensus_items(competitors, key)
 
@@ -90,7 +111,10 @@ def feasibility_text(config):
     matches a not-yet-real feature must NOT be marked feasible, or this
     would recommend writing about something that doesn't exist yet."""
     facts = config.get("verified_facts", {})
-    parts = [config.get("canonical_definition_sentence", ""), config.get("category_frame", "")]
+    parts = [
+        config.get("canonical_definition_sentence", ""),
+        config.get("category_frame", ""),
+    ]
     for d in facts.get("real_differentiators", []):
         parts.append(d["feature"] if isinstance(d, dict) else d)
     parts.append(facts.get("pricing_and_billing", {}).get("note", ""))
@@ -118,8 +142,8 @@ def build_gap_candidates(config, clusters):
     site_corpus = site_corpus_text(config)
     feas_corpus = feasibility_text(config)
 
-    item_clusters = {}   # normalized item -> {cluster_id: within_cluster_count}
-    item_display = {}    # normalized item -> original display string
+    item_clusters = {}  # normalized item -> {cluster_id: within_cluster_count}
+    item_display = {}  # normalized item -> original display string
 
     for cluster in clusters:
         cid = cluster.get("cluster_id", "unlabeled")
@@ -142,7 +166,9 @@ def build_gap_candidates(config, clusters):
             "feasibility": feasibility_label(item, feas_corpus),
             "coverage_note": "no title/query overlap found in your existing_pages/topic_backlog — unconfirmed gap, read your own pages to confirm",
         }
-        (cross_cluster if n_clusters >= 2 else single_cluster).append((n_clusters, total_count, entry))
+        (cross_cluster if n_clusters >= 2 else single_cluster).append(
+            (n_clusters, total_count, entry)
+        )
 
     cross_cluster.sort(key=lambda x: (-x[0], -x[1]))
     single_cluster.sort(key=lambda x: -x[1])
@@ -151,14 +177,20 @@ def build_gap_candidates(config, clusters):
 
 def build_market_language(config, clusters):
     known_names = [c["name"] for c in config.get("competitors", [])]
-    own_text = _norm(" ".join([
-        config.get("canonical_definition_sentence", ""),
-        config.get("category_frame", ""),
+    own_text = _norm(
         " ".join(
-            (d["feature"] if isinstance(d, dict) else d)
-            for d in config.get("verified_facts", {}).get("real_differentiators", [])
-        ),
-    ]))
+            [
+                config.get("canonical_definition_sentence", ""),
+                config.get("category_frame", ""),
+                " ".join(
+                    (d["feature"] if isinstance(d, dict) else d)
+                    for d in config.get("verified_facts", {}).get(
+                        "real_differentiators", []
+                    )
+                ),
+            ]
+        )
+    )
 
     seen_terms = {}
     for cluster in clusters:
@@ -172,10 +204,12 @@ def build_market_language(config, clusters):
     for norm_term, display_term in seen_terms.items():
         if _phrase_covered(norm_term, own_text):
             continue
-        findings.append({
-            "term": display_term,
-            "classification": classify_market_term(display_term, known_names),
-        })
+        findings.append(
+            {
+                "term": display_term,
+                "classification": classify_market_term(display_term, known_names),
+            }
+        )
     findings.sort(key=lambda f: f["classification"])
     return findings
 
@@ -202,7 +236,9 @@ def build_report(config, snapshot):
 def print_report(report):
     print(report["disclaimer"])
     print()
-    print(f"=== Topical authority gaps (recur across 2+ distinct clusters) — {len(report['topical_authority_gaps'])} found ===")
+    print(
+        f"=== Topical authority gaps (recur across 2+ distinct clusters) — {len(report['topical_authority_gaps'])} found ==="
+    )
     for g in report["topical_authority_gaps"]:
         print(f"  - {g['item']!r} — seen in clusters: {', '.join(g['clusters'])}")
         print(f"      {g['feasibility']}")
@@ -213,16 +249,31 @@ def print_report(report):
         print(f"  - {g['item']!r} — cluster: {g['clusters'][0]}")
         print(f"      {g['feasibility']}")
     print()
-    print(f"=== Market language observed (do not auto-adopt) — {len(report['market_language_observed'])} found ===")
+    print(
+        f"=== Market language observed (do not auto-adopt) — {len(report['market_language_observed'])} found ==="
+    )
     for f in report["market_language_observed"]:
         print(f"  - {f['term']!r} [{f['classification']}]")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Pre-topic-selection coverage-gap discovery — see DISCOVERY.md")
-    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
-    parser.add_argument("--suggest-seeds", action="store_true", help="Print a starter seed-keyword list (needs only identity fields, not verified_facts)")
-    parser.add_argument("--snapshot", help="Path to discovery_snapshot.json (see DISCOVERY.md for schema)")
+    parser = argparse.ArgumentParser(
+        description="Pre-topic-selection coverage-gap discovery — see DISCOVERY.md"
+    )
+    parser.add_argument(
+        "--config",
+        required=True,
+        help="Path to your project's config, e.g. site-config.<project>.json",
+    )
+    parser.add_argument(
+        "--suggest-seeds",
+        action="store_true",
+        help="Print a starter seed-keyword list (needs only identity fields, not verified_facts)",
+    )
+    parser.add_argument(
+        "--snapshot",
+        help="Path to discovery_snapshot.json (see DISCOVERY.md for schema)",
+    )
     parser.add_argument("--out", help="Also write the full report as JSON to this path")
     args = parser.parse_args()
 

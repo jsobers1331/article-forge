@@ -8,4 +8,5 @@ discovery-report.*.json
 serp-snapshot.*.json
 output/*.md
 !output/.gitkeep
+output/.quarantine/
 .DS_Store

@@ -53,9 +53,10 @@ For each seed query, group near-duplicate/same-intent queries into one
 **cluster** — pooling raw query count across unrelated intents invalidates
 the frequency math later (a term common to 5 near-identical "cost" queries
 isn't 5 independent signals, it's 1). For each cluster: search it, open the
-top-organic-result pages, extract structure. One entry per **distinct
-domain** per cluster — the same domain ranking twice in one cluster is one
-data point, not two.
+top-organic-result pages, extract structure. Use at least five independent
+organic result domains per cluster. One entry per **distinct domain** per
+cluster — the same domain ranking twice in one cluster is one data point, not
+two. Do not count syndicated or boilerplate-only copies as independent evidence.
 
 ```json
 {
@@ -97,7 +98,7 @@ python scripts/discover_gaps.py --config site-config.<project>.json \
 Three sections, always in this order:
 
 1. **Topical authority gaps** — subtopics/entities that reach consensus
-   (RULES.md-consistent threshold, same as `score_article.py`) *within* a
+   (at least 60% of at least five distinct domains, same as `score_article.py`) *within* a
    cluster, and recur across **2 or more distinct clusters**. These are the
    closest thing to "own a whole theme" signal this tool can produce. Ranked
    by number of distinct clusters, then by within-cluster consensus count.
@@ -132,6 +133,15 @@ actual page before trusting the label:
 - `no title/query overlap found — unconfirmed gap, read your own pages to confirm`
 
 ## Promoting a candidate to `topic_backlog`
+
+Coverage gaps are not keyword opportunities. Before promotion, create an
+`article-forge.opportunity.v1` candidate and run
+`python scripts/score_opportunities.py --input opportunities.json`. Record
+demand separately from organic competition: Search Console impressions/clicks
+are site-performance signals, Keyword Planner competition is advertiser
+competition, and neither alone proves organic difficulty. The scorer returns
+`needs-data` unless measured demand and at least five organic SERP observations
+are present; it never manufactures a volume or “low competition” label.
 
 Manual, always. Add it to `site-config.<project>.json` like any other
 backlog entry; optionally note where it came from:

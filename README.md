@@ -1,6 +1,6 @@
 # article-forge
 
-A model-agnostic, site-agnostic framework for generating articles that rank
+A model-agnostic, site-agnostic framework for generating guarded article drafts that can rank
 in traditional search **and** get cited by AI answer engines (ChatGPT,
 Perplexity, Google AI Overviews, Claude).
 
@@ -48,7 +48,7 @@ cp .env.example .env
 
 cp site-config.example.json site-config.<yourproject>.json
 # fill in ONLY the identity fields for now: site_name, domain, category_frame, icp.
-# verified_facts/topic_backlog come later, informed by Step 0 below.
+# verified_facts, claim_evidence, and topic_backlog come later, informed by Step 0 below.
 ```
 
 **Step 0 — Discovery (new project, or topic_backlog running low):** find out
@@ -77,7 +77,9 @@ auto-applied) plus your own judgment — and generate:
 python scripts/generate_prompt.py --config site-config.<yourproject>.json --topic-index 0
 # paste the output into any LLM chat interface yourself
 
-# Option B — let the script call a provider for you:
+# Option B — let the script call a provider for you. DeepSeek defaults to
+# `deepseek-v4-pro`. Only an all-PASS draft is
+# written to normal output; blocked drafts go to output/.quarantine/:
 python scripts/generate_article.py --config site-config.<yourproject>.json --topic-index 0 --provider deepseek
 ```
 
@@ -90,16 +92,51 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `prompts/article_prompt_template.md` | The master prompt template, filled in by `generate_prompt.py`. |
 | `scripts/generate_prompt.py` | Renders `site-config.<project>.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
 | `scripts/call_llm.py` | One function that calls any OpenAI-compatible endpoint (DeepSeek, OpenAI, OpenRouter, Groq, local Ollama) or native Anthropic — swap providers via a flag, not new code. Runnable standalone too. |
-| `scripts/generate_article.py` | Ties the above together: render prompt → call provider → save draft → run the pre-publish fabrication/placeholder gate. |
+| `scripts/generate_article.py` | Render prompt → call provider → run the full gate → atomically save only an all-PASS draft, or quarantine it with a receipt. |
 | `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
-| `scripts/check_article.py` | Automated compliance gate — fabrication grep, word count, banned words, structured-element presence, H1/query match, tier-gating heuristic, and structural-repetition heuristic. Run before publishing every draft. Not a substitute for the manual checklists in `RULES.md`/`IMAGES.md` — it catches shape, not meaning. |
+| `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, and style signals. Run before publishing every draft; human meaning review remains required. |
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
+| `scripts/score_opportunities.py` | Score a versioned, provider-neutral opportunity dataset. Missing/stale demand or organic-competition evidence becomes `needs-data`; paid advertiser competition is never substituted for organic difficulty. |
 
 ## Adding a topic
+
+Before adding a topic because it appears in a competitor gap report, populate a
+candidate in the `article-forge.opportunity.v1` schema and run
+`scripts/score_opportunities.py`. The score is a prioritization aid only:
+Search Console is a site signal, Keyword Planner competition is an advertising
+signal, and neither is organic ranking difficulty. A candidate without measured
+demand and a five-result organic SERP sample cannot be scored.
+
+## Readiness boundary
+
+Forge is suitable for guarded draft generation once the site config has current
+facts plus a verified `claim_evidence` registry. It is not an autonomous
+publisher. Every article still needs human claim, comparison, originality,
+brand-voice, and legal/compliance review; published results must be measured in
+Search Console and refreshed when facts or search evidence age.
+
+### Opportunity record shape
+
+Each candidate needs `candidate_id`, `query`, `intent`, `page_type`, and these
+separate evidence records:
+
+```json
+{
+  "demand": {"source": "keyword_planner", "normalization": "relative-to-candidate-set", "value": 1000, "unit": "searches", "score": 70, "observed_at": "YYYY-MM-DD", "sample_size": 12},
+  "paid_competition": {"source": "keyword_planner", "value": "low", "observed_at": "YYYY-MM-DD"},
+  "organic_competition": {"source": "serp_analysis", "difficulty_score": 40, "observed_at": "YYYY-MM-DD", "sample_size": 10},
+  "product_fit": {"rubric_version": "1.0", "score": 90, "rationale": "Verified product fit.", "evidence": ["fact-id"]},
+  "content_fit": {"rubric_version": "1.0", "score": 85, "rationale": "A distinct useful angle exists.", "evidence": ["original-framework"]}
+}
+```
+
+The initial formula is `0.30D + 0.25(100-organic difficulty) + 0.25F +
+0.20CF`. Keep component scores, sources, dates, sample sizes, and rationales
+visible so the model cannot turn a guess into a fact.
 
 Either add entries to `topic_backlog` in your `site-config.<project>.json`, or pass one ad
 hoc:
@@ -177,6 +214,8 @@ score was raised by adding anything unverifiable.
   against Google Search Console, Keyword Planner, or similar before
   committing writing time to a topic.
 - It does not fact-check the article against the live site — that's on you,
-  via `verified_facts` in the config and the pre-publish gate.
-- It does not publish anything — output lands in `output/` as markdown for
-  you to review and place into your own site/CMS.
+  via `verified_facts`, `claim_evidence`, and the pre-publish gate.
+- It does not connect to Search Console, Keyword Planner, or a CMS. Those
+  remain provider-specific adapters and human-owned integrations.
+- It does not publish anything — all-PASS output lands in `output/` as markdown
+  for you to review and place into your own site/CMS.

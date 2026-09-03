@@ -24,6 +24,16 @@
     "has_real_press_mentions": false,
     "has_real_usage_stats": false
   },
+  "claim_evidence": [
+    {
+      "claim_id": "replace-with-stable-id",
+      "claim": "The exact product claim this source verifies.",
+      "source_url": "https://example.com/product-source",
+      "verified_on": "YYYY-MM-DD",
+      "status": "verified",
+      "regions": ["global"]
+    }
+  ],
   "competitors": [
     {
       "name": "Competitor A",
