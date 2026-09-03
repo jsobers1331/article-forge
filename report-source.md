@@ -7,14 +7,17 @@ Branch: `fix/article-forge-readiness`
 ## Bottom line
 
 Article Forge is B+ (85/100) for guarded draft generation after the hardening
-and evidence-pipeline changes. It is B (78/100) for opportunity selection, C
+and evidence-pipeline changes. It is B+ (82/100) for opportunity selection, C
 for a fresh ShootMuse production run until product facts and claim evidence are
 re-attested, and F for autonomous publishing or ranking guarantees.
 
-The direct Serper adapter is implemented but could not be live-verified: the
-approved Article Forge project environment contains `DEEPSEEK_API_KEY` and
-`OPENAI_API_KEY`, but no `SERPER_API_KEY`. The missing-key path was exercised
-without making a paid request. No credential value is included here.
+The direct Serper adapter is live-verified. The Article Forge repo `.env`
+contains `DEEPSEEK_API_KEY` and `OPENAI_API_KEY`, but no `SERPER_API_KEY`; the
+separate personal `/Users/jasonsobers/.claude/secrets.env` contains the
+`SERPER_API_KEY` variable. Five candidate queries plus one query using the
+existing ShootMuse config succeeded with zero errors, and a second run returned
+five cache hits with zero new API requests. No credential value is included
+here.
 
 ## Research matrix
 
@@ -64,8 +67,11 @@ as a plan critique from domain knowledge rather than independent browsing.
 
 - `pytest -q`: 21 passed.
 - Ruff check and format check: passed on all changed Python files.
-- Credential-safe Serper CLI smoke: exits 1 with `SERPER_API_KEY is missing
-  from the supplied project environment`; no provider request is made.
+- Live Serper CLI batch using the personal secrets file: five candidate queries
+  plus one ShootMuse-config query succeeded with zero errors. A second run
+  returned five cache hits with zero new API requests. The adapter is verified,
+  but search volume, organic difficulty, rankings, and traffic remain
+  unverified.
 - Main checkout `/Users/jasonsobers/Personal/article-forge` was not modified;
   its existing dirty files remain preserved.
 

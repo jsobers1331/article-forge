@@ -14,12 +14,13 @@ keyword will rank or that a numeric difficulty score is a Google metric.
 
 - Article Forge remains generalized across products, services, and brands.
 - Serper is the user's personal Google SERP provider. Its credential is loaded
-  from the Article Forge project's runtime environment only; no key is logged,
-  printed, persisted, or committed.
-- The current approved Article Forge environment did not expose a Serper
-  variable, so implementation can be tested with fixtures but live Serper
-  verification remains a separate evidence state until the canonical variable
-  appears.
+  at runtime from the user's personal `/Users/jasonsobers/.claude/secrets.env`
+  through the explicit `--env-file` option; no key is logged, printed,
+  persisted, or committed.
+- The Article Forge repo `.env` does not contain a Serper variable, while the
+  separate personal secrets file contains `SERPER_API_KEY`. Five candidate
+  queries plus one query using the existing ShootMuse config succeeded through
+  the adapter, and a second run returned five cache hits.
 - Search Console and Keyword Planner credentials are not currently available
   for direct API calls. Implement import-ready demand records rather than
   inventing OAuth or silently substituting another account.
@@ -57,8 +58,9 @@ keyword will rank or that a numeric difficulty score is a Google metric.
 5. Update the prompt, rules, README, example config, and regression tests so
    the opportunity brief is evidence-first and remains generalized.
 6. Run deterministic tests, Ruff, compilation, and a credential-safe smoke
-   path. If the project environment still lacks Serper, report the live smoke
-   test as blocked by credential availability, not as a failure of the code.
+   path. The live personal Serper batch and cache-hit verification both passed;
+   continue to treat search volume, organic difficulty, rankings, and traffic
+   as separate unverified outcomes.
 
 ## DeepSeek convergence
 
