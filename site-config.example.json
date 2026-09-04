@@ -24,6 +24,16 @@
     "has_real_press_mentions": false,
     "has_real_usage_stats": false
   },
+  "claim_evidence": [
+    {
+      "claim_id": "replace-with-stable-id",
+      "claim": "The exact product claim this source verifies.",
+      "source_url": "https://example.com/product-source",
+      "verified_on": "YYYY-MM-DD",
+      "status": "verified",
+      "regions": ["global"]
+    }
+  ],
   "competitors": [
     {
       "name": "Competitor A",
@@ -57,5 +67,19 @@
     "notes": "see IMAGES.md before generating anything \u2014 the prompt pattern that avoids garbled pseudo-text is to describe every paper/screen as blank, closed, or face-down, not just to say 'no text'"
   },
   "current_month_year": "Month Year \u2014 set this per generation",
-  "facts_last_verified": "YYYY-MM-DD \u2014 set this whenever you (re)confirm verified_facts against the live site. scripts/check_article.py WARNs once this is more than 30 days old."
+  "facts_last_verified": "YYYY-MM-DD \u2014 set this whenever you (re)confirm verified_facts against the live site. scripts/check_article.py WARNs once this is more than 30 days old.",
+  "research": {
+    "serper": {
+      "api_key_env": "SERPER_API_KEY",
+      "gl": "us",
+      "hl": "en",
+      "location": "",
+      "num": 10,
+      "cache_ttl_seconds": 86400,
+      "max_requests_per_run": 50,
+      "max_retries": 3,
+      "timeout_seconds": 30,
+      "delay_seconds": 0.2
+    }
+  }
 }

@@ -5,13 +5,13 @@ anything in it (first time you point article-forge at a new site), and again
 periodically (~90 days, same cadence as RULES.md §10) once the backlog runs
 low.
 
-Same division of labor as `scripts/score_article.py`: the Python scripts here
-have no web-search/SEO-API access by design. An **orchestrating agent** (you,
-or an LLM with real search/fetch tools) does the actual research — searching
-keywords, fetching competitor pages, extracting their structure — and hands
-the result to a deterministic script as structured JSON. The script never
-guesses at what's actually ranking; it only does the arithmetic on what you
-found.
+`scripts/collect_serper.py` can now collect current Google SERP observations
+through the project's personal Serper credential. The collector is deliberately
+limited to evidence capture: an **orchestrating agent** (you, or an LLM with
+real search/fetch tools) still decides which queries to research, fetches
+competitor pages when needed, extracts their structure, and hands structured
+evidence to deterministic scripts. No collector or scorer guesses that a
+keyword will rank.
 
 ## What this tool tells you — and what it doesn't
 
@@ -24,10 +24,35 @@ not a ranked opportunity list — validate against Google Search Console /
 Keyword Planner before committing real writing time, same caveat the main
 README already states for `topic_backlog` generally.
 
+For live SERP collection:
+
+```bash
+python scripts/collect_serper.py --config site-config.<yourproject>.json \
+  --query "what is a [category]" --out serp/<yourproject>-discovery.json
+```
+
+The command requires `SERPER_API_KEY` in the project environment (or the env
+name configured under `research.serper.api_key_env`). It uses a 24-hour disk
+cache by default, caps a run at 50 requests, records raw and normalized
+responses without request headers, and handles transient failures with bounded
+retries. The cache key includes query, country, language, location, and result
+count. Use `--refresh` only when a fresh paid request is justified.
+
+The normalized record includes organic titles, links, snippets, positions,
+hosts, People Also Ask questions, related searches, visible SERP features, and
+raw intent signals. It does not convert `searchInformation.totalResults`, host
+counts, or result counts into keyword difficulty.
+
 Every finding below is a candidate for a human to read and decide on, never
 an instruction to auto-write anything. Nothing in `discovery_snapshot.json`
 or its report is ever wired into `generate_prompt.py`'s template — that
 pipeline only ever reads from `verified_facts`.
+
+`import_demand.py` normalizes Keyword Planner exports as market-demand
+records and Search Console exports as site-opportunity records. It preserves
+the original units and paid-competition fields; normalized scores are only
+relative to the imported candidate set. Search Console data cannot be relabeled
+as market searches.
 
 ## Step 0: identity fields only (no verified_facts required yet)
 
@@ -53,9 +78,10 @@ For each seed query, group near-duplicate/same-intent queries into one
 **cluster** — pooling raw query count across unrelated intents invalidates
 the frequency math later (a term common to 5 near-identical "cost" queries
 isn't 5 independent signals, it's 1). For each cluster: search it, open the
-top-organic-result pages, extract structure. One entry per **distinct
-domain** per cluster — the same domain ranking twice in one cluster is one
-data point, not two.
+top-organic-result pages, extract structure. Use at least five independent
+organic result domains per cluster. One entry per **distinct domain** per
+cluster — the same domain ranking twice in one cluster is one data point, not
+two. Do not count syndicated or boilerplate-only copies as independent evidence.
 
 ```json
 {
@@ -97,7 +123,7 @@ python scripts/discover_gaps.py --config site-config.<project>.json \
 Three sections, always in this order:
 
 1. **Topical authority gaps** — subtopics/entities that reach consensus
-   (RULES.md-consistent threshold, same as `score_article.py`) *within* a
+   (at least 60% of at least five distinct domains, same as `score_article.py`) *within* a
    cluster, and recur across **2 or more distinct clusters**. These are the
    closest thing to "own a whole theme" signal this tool can produce. Ranked
    by number of distinct clusters, then by within-cluster consensus count.
@@ -132,6 +158,15 @@ actual page before trusting the label:
 - `no title/query overlap found — unconfirmed gap, read your own pages to confirm`
 
 ## Promoting a candidate to `topic_backlog`
+
+Coverage gaps are not keyword opportunities. Before promotion, create an
+`article-forge.opportunity.v1` candidate and run
+`python scripts/score_opportunities.py --input opportunities.json`. Record
+demand separately from organic competition: Search Console impressions/clicks
+are site-performance signals, Keyword Planner competition is advertiser
+competition, and neither alone proves organic difficulty. The scorer returns
+`needs-data` unless measured demand and at least five organic SERP observations
+are present; it never manufactures a volume or “low competition” label.
 
 Manual, always. Add it to `site-config.<project>.json` like any other
 backlog entry; optionally note where it came from:

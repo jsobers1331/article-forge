@@ -30,6 +30,11 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
    30 days old, so staleness surfaces every run instead of relying on someone
    remembering to check. See DISCOVERY.md for the pre-topic-selection
    research pass that also depends on these facts being current.
+   A live config should also carry a `claim_evidence` registry: each record
+   names the claim, its first-party source URL, verification date, and
+   `status: "verified"`. The generator blocks a missing or malformed registry;
+   the registry is provenance metadata, not a substitute for reading the
+   source and the final prose.
 2b. **Tier-gated features must name their tier.** A feature being real and
    live is not the same as it being universally available. If a
    differentiator in `verified_facts.real_differentiators` carries a `tier`
@@ -41,10 +46,10 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
    reader through "create a household, invite your roommate, split bills"
    without noting that splitting/invite/settle-up was gated to a specific
    paid plan — a reader following the free-tier instructions would have hit
-   a paywall mid-task. The automated pre-publish gate (§11) does NOT catch
-   this class of error — it's a facts-accuracy gap, not a fabrication or
-   placeholder — so treat tier-gating as a mandatory manual cross-check on
-   every draft, not just an automated one.
+   a paywall mid-task. The automated pre-publish gate (§11) catches common
+   unscoped and universal forms of this error, but it is still a facts-accuracy
+   gap rather than a complete semantic proof — treat tier-gating as a
+   mandatory manual cross-check on every draft too.
 3. **Stay in the chosen category frame.** Use `category_frame` and
    `not_positioned_as` from the config on every article — don't let an
    article drift the product into an adjacent category the business has
@@ -198,15 +203,10 @@ grep -inE "example\.com|lorem ipsum|TBD|FIXME|555-|Jane (S|Smith)|John (S|Smith)
 Any hit means a value that should have come from `site-config.<project>.json` was
 left as a stand-in. Fix before publishing — don't ship placeholders.
 
-**This grep only catches fabrication/placeholder tells. It does not catch
-facts-accuracy errors** — a claim that's real but wrongly scoped (see §2b).
-Before publishing, also manually cross-check: for every feature the draft
-describes someone using, does `verified_facts.real_differentiators` gate
-that feature to a specific tier? If so, does the draft name that tier
-wherever it matters (setup instructions, pricing recap), not just once in
-passing? This check has no automatable pattern — it requires actually
-reading the draft against the config, which is why it's separate from the
-grep above rather than folded into it.
+**This grep only catches fabrication/placeholder tells.** The automated gate
+also validates config shape, claim-evidence metadata, coming-soon mentions,
+and nearby tier scope. These are conservative signals, not semantic proof
+that the draft is true.
 
 **Tested, not just theorized:** after adding `[TIER: ...]` tagging to
 `verified_facts` and the matching prompt instruction (§2b), regenerating
@@ -214,20 +214,41 @@ the same article correctly named the gated tier in 2 of 3 places it
 mattered — a real improvement over the untagged version, which named it
 nowhere. The third mention still blurred two separate upgrade paths
 ("more bills" vs. "multiple members") into one muddled sentence. Tagging
-reduces this error class; it does not eliminate it. Keep doing the manual
-cross-check above even on a fully tier-tagged config.
+reduces this error class; it does not eliminate it. Keep doing a manual
+claim-and-tier read even on a fully tier-tagged config.
 
 **Automated gate:** run `scripts/check_article.py --draft <file> --config
-site-config.<project>.json --type <type> --query "<target query>"` before publishing.
-It automates what CAN be automated — the fabrication grep, word count range,
-banned words, presence of a structured element, H1/query match, and a
-word-overlap heuristic for tier-gating gaps — and exits non-zero on a hard
-fabrication failure. It does NOT replace the manual read above: automated
-checks catch shape (is there a table? is the word count right?), not
-meaning (does this sentence actually match `verified_facts`?). Tested
-against a deliberately bad draft ("invite your roommate to split bills...
-all for free" — no tier named) and it correctly flagged the gap; tested
-against both real shipped articles and both passed clean.
+site-config.<project>.json --type <type> --query "<target query>" --strict` before publishing.
+Generation runs the same checks and writes non-PASS drafts only to
+`output/.quarantine/` with a JSON receipt; it returns non-zero. The gate catches
+config/evidence shape, placeholders, H1/query mismatch, coming-soon and
+unscoped tier mentions, links, structure, and style signals. It still does NOT
+prove that prose matches reality, intent, originality, or legal meaning: read
+the final draft against the current source of truth every time.
+
+## 11b. Opportunity evidence gate
+
+Use `scripts/score_opportunities.py` with an
+`article-forge.opportunity.v1` document before promoting a topic. Demand,
+paid advertiser competition, organic competition, product fit, and content fit
+are separate fields. Missing or stale demand/organic evidence returns
+`needs-data`; organic consensus also requires at least five independent domains.
+`scripts/collect_serper.py` may supply current SERP observations, but it must
+not manufacture Google keyword difficulty or domain authority from result
+counts. `organic_competition.editorial_difficulty` is optional evidence; it is
+required only if a numeric prioritization score is requested, and it must carry
+editorial semantics, rationale, evidence types, and evidence beyond a raw Serper
+count. Counts and host totals alone are rejected. Content fit must also name an
+unanswered question and at least one dated supporting source.
+
+`intent_evidence` stores raw observed signals and may carry a reviewable
+hypothesis. The hypothesis is never treated as ground truth; confidence over
+90 requires at least three corroborating signals. `product_fit` must include a
+first-party fact and a verified claim. `content_fit` must include an original
+angle and a limitation. `freshness` records the refresh window and evidence,
+while `evidence_confidence` is confidence in the evidence packet, not a
+probability of ranking or citation. A score below 80 confidence can never
+remain a `pursue` decision.
 
 ## 12. Rewriting an already-published article
 

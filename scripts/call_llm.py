@@ -13,7 +13,7 @@ PROVIDERS = {
     "deepseek": {
         "base_url": "https://api.deepseek.com/chat/completions",
         "api_key_env": "DEEPSEEK_API_KEY",
-        "default_model": "deepseek-chat",
+        "default_model": "deepseek-v4-pro",
         "kind": "openai_compatible",
     },
     "openai": {
@@ -49,8 +49,17 @@ PROVIDERS = {
 }
 
 
-def call_llm(prompt, provider=None, model=None, base_url=None, api_key_env=None,
-             kind=None, max_tokens=4000, temperature=0.4, timeout=180):
+def call_llm(
+    prompt,
+    provider=None,
+    model=None,
+    base_url=None,
+    api_key_env=None,
+    kind=None,
+    max_tokens=4000,
+    temperature=0.4,
+    timeout=180,
+):
     """Send `prompt` to a chat model and return the response text.
 
     Pass a known `provider` name (see PROVIDERS) to use its defaults, or
@@ -72,26 +81,38 @@ def call_llm(prompt, provider=None, model=None, base_url=None, api_key_env=None,
         raise RuntimeError(f"{api_key_env} not set (check your .env file)")
 
     if kind == "openai_compatible":
-        body = json.dumps({
+        payload = {
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "max_tokens": max_tokens,
             "temperature": temperature,
-        }).encode("utf-8")
+        }
+        # DeepSeek's current Chat Completions API enables thinking by default.
+        # Article generation needs the visible answer, not reasoning_content;
+        # explicitly disable thinking so the provider returns article text in
+        # message.content.
+        if provider == "deepseek":
+            payload["thinking"] = {"type": "disabled"}
+        body = json.dumps(payload).encode("utf-8")
         headers = {"content-type": "application/json"}
         if api_key:
             headers["Authorization"] = f"Bearer {api_key}"
         req = urllib.request.Request(base_url, data=body, headers=headers)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-        return data["choices"][0]["message"]["content"]
+        content = data["choices"][0]["message"].get("content")
+        if not isinstance(content, str) or not content.strip():
+            raise RuntimeError("LLM returned no visible content")
+        return content
 
     if kind == "anthropic":
-        body = json.dumps({
-            "model": model,
-            "max_tokens": max_tokens,
-            "messages": [{"role": "user", "content": prompt}],
-        }).encode("utf-8")
+        body = json.dumps(
+            {
+                "model": model,
+                "max_tokens": max_tokens,
+                "messages": [{"role": "user", "content": prompt}],
+            }
+        ).encode("utf-8")
         headers = {
             "content-type": "application/json",
             "x-api-key": api_key,
@@ -100,7 +121,9 @@ def call_llm(prompt, provider=None, model=None, base_url=None, api_key_env=None,
         req = urllib.request.Request(base_url, data=body, headers=headers)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-        return "".join(block["text"] for block in data["content"] if block["type"] == "text")
+        return "".join(
+            block["text"] for block in data["content"] if block["type"] == "text"
+        )
 
     raise ValueError(f"Unknown kind: {kind}")
 
@@ -108,26 +131,45 @@ def call_llm(prompt, provider=None, model=None, base_url=None, api_key_env=None,
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Send a prompt to any configured LLM provider")
-    parser.add_argument("--provider", choices=sorted(PROVIDERS), help="Known provider shortcut")
+    parser = argparse.ArgumentParser(
+        description="Send a prompt to any configured LLM provider"
+    )
+    parser.add_argument(
+        "--provider", choices=sorted(PROVIDERS), help="Known provider shortcut"
+    )
     parser.add_argument("--model", help="Override the provider's default model")
-    parser.add_argument("--base-url", help="Custom OpenAI-compatible/Anthropic endpoint")
-    parser.add_argument("--api-key-env", help="Env var name holding the API key for --base-url")
-    parser.add_argument("--kind", choices=["openai_compatible", "anthropic"], help="Request shape for --base-url")
-    parser.add_argument("--prompt-file", required=True, help="Path to a text/markdown file containing the prompt")
+    parser.add_argument(
+        "--base-url", help="Custom OpenAI-compatible/Anthropic endpoint"
+    )
+    parser.add_argument(
+        "--api-key-env", help="Env var name holding the API key for --base-url"
+    )
+    parser.add_argument(
+        "--kind",
+        choices=["openai_compatible", "anthropic"],
+        help="Request shape for --base-url",
+    )
+    parser.add_argument(
+        "--prompt-file",
+        required=True,
+        help="Path to a text/markdown file containing the prompt",
+    )
     args = parser.parse_args()
 
     from dotenv import load_dotenv
+
     load_dotenv()
 
     with open(args.prompt_file, "r", encoding="utf-8") as f:
         prompt_text = f.read()
 
-    print(call_llm(
-        prompt_text,
-        provider=args.provider,
-        model=args.model,
-        base_url=args.base_url,
-        api_key_env=args.api_key_env,
-        kind=args.kind,
-    ))
+    print(
+        call_llm(
+            prompt_text,
+            provider=args.provider,
+            model=args.model,
+            base_url=args.base_url,
+            api_key_env=args.api_key_env,
+            kind=args.kind,
+        )
+    )

@@ -1,13 +1,10 @@
 """Automated compliance gate for a generated article draft.
 
-This is a CHECK, not a rewrite tool — it verifies a draft against RULES.md
-before publishing, the same way generate_article.py's fabrication grep does,
-but broader: word count, banned words, structure, and (heuristically)
-tier-gated feature mentions. Exit code is non-zero on any HARD failure
-(fabrication placeholders). Everything else is a WARNING for human judgment —
-this script narrows what a human has to check by hand, it does not replace
-the manual QC checklist in RULES.md §11 or IMAGES.md §6. Those require
-actually reading the draft against verified_facts; no script does that.
+This is a CHECK, not a rewrite tool. It validates config/evidence shape,
+freshness, placeholders, scope, links, structure, and style before a draft can
+leave generation quarantine. A passing result is necessary but not sufficient:
+the manual QC checklist still requires reading the draft against verified_facts
+and the current source of truth.
 """
 
 import argparse
@@ -15,9 +12,15 @@ import json
 import re
 import sys
 from datetime import date
+from urllib.parse import urlsplit
 
 DEFAULT_BAN_WORDS = [
-    "delve", "landscape", "robust", "seamless", "elevate", "game-changer",
+    "delve",
+    "landscape",
+    "robust",
+    "seamless",
+    "elevate",
+    "game-changer",
     "in today's fast-paced world",
 ]
 
@@ -40,6 +43,128 @@ WORD_COUNT_RANGES = {
 }
 
 
+def check_config_integrity(config):
+    """Validate the minimum shape needed to safely render product claims."""
+    required = [
+        "site_name",
+        "domain",
+        "category_frame",
+        "icp",
+        "canonical_definition_sentence",
+    ]
+    missing = [
+        key
+        for key in required
+        if not isinstance(config.get(key), str) or not config[key].strip()
+    ]
+    facts = config.get("verified_facts")
+    errors = [f"missing required config field: {key}" for key in missing]
+    if not isinstance(facts, dict):
+        errors.append("verified_facts must be an object")
+        facts = {}
+    if not isinstance(facts.get("real_differentiators", []), list):
+        errors.append("verified_facts.real_differentiators must be a list")
+    else:
+        for index, item in enumerate(facts["real_differentiators"]):
+            if isinstance(item, dict) and (
+                not item.get("feature") or not item.get("tier")
+            ):
+                errors.append(
+                    f"real_differentiators[{index}] needs both feature and tier"
+                )
+            elif not isinstance(item, (str, dict)):
+                errors.append(
+                    f"real_differentiators[{index}] must be a string or object"
+                )
+    if not isinstance(facts.get("coming_soon_features", []), list):
+        errors.append("verified_facts.coming_soon_features must be a list")
+    if not isinstance(facts.get("pricing_and_billing", {}), dict):
+        errors.append("verified_facts.pricing_and_billing must be an object")
+    if not isinstance(config.get("existing_pages", []), list) or not all(
+        isinstance(page, str) and page.startswith("/")
+        for page in config.get("existing_pages", [])
+    ):
+        errors.append("existing_pages must be a list of relative paths")
+    if errors:
+        return "FAIL", "; ".join(errors)
+    return "PASS", "config has the required product, facts, pages, and tier fields"
+
+
+def check_claim_evidence(config):
+    """Require a provenance registry before a draft can leave quarantine."""
+    evidence = config.get("claim_evidence")
+    if evidence is None:
+        return (
+            "WARN",
+            "no claim_evidence registry supplied — every product claim still needs a human source attestation",
+        )
+    if not isinstance(evidence, list):
+        return "FAIL", "claim_evidence must be a list"
+    if not evidence:
+        return (
+            "WARN",
+            "claim_evidence is empty — attest the product claims before generation",
+        )
+    errors = []
+    stale = []
+    for index, item in enumerate(evidence):
+        if not isinstance(item, dict):
+            errors.append(f"claim_evidence[{index}] must be an object")
+            continue
+        if not item.get("claim_id") or not item.get("claim"):
+            errors.append(f"claim_evidence[{index}] needs claim_id and claim")
+        source_url = item.get("source_url", "")
+        parsed = urlsplit(source_url)
+        if parsed.scheme not in {"http", "https"} or not parsed.hostname:
+            errors.append(
+                f"claim_evidence[{index}] needs an absolute http(s) source_url"
+            )
+        else:
+            source_host = parsed.hostname.lower().removeprefix("www.")
+            site_host = config.get("domain", "").lower().removeprefix("www.")
+            if not (source_host == site_host or source_host.endswith(f".{site_host}")):
+                errors.append(
+                    f"claim_evidence[{index}] source_url must be first-party for {config.get('domain', '')}"
+                )
+        try:
+            verified_on = date.fromisoformat(item.get("verified_on", ""))
+        except (TypeError, ValueError):
+            errors.append(
+                f"claim_evidence[{index}] needs verified_on in YYYY-MM-DD form"
+            )
+        else:
+            if (date.today() - verified_on).days > 30:
+                stale.append(item.get("claim_id", str(index)))
+        if item.get("status") != "verified":
+            errors.append(
+                f"claim_evidence[{index}] must have status=verified before generation"
+            )
+    if errors:
+        return "FAIL", "; ".join(errors)
+    if stale:
+        return (
+            "WARN",
+            "stale claim-evidence record(s) need re-attestation: " + ", ".join(stale),
+        )
+    return (
+        "PASS",
+        f"{len(evidence)} claim-evidence record(s) have source and verification metadata",
+    )
+
+
+def check_current_month_year(config):
+    value = config.get("current_month_year")
+    expected = date.today().strftime("%B %Y")
+    if not isinstance(value, str) or not value.strip():
+        return (
+            "WARN",
+            f"current_month_year is missing — set it to {expected} before generation",
+        )
+    if value.strip() != expected:
+        return "WARN", f"current_month_year is {value!r}; current month is {expected!r}"
+    return "PASS", f"current_month_year is current ({expected})"
+
+
 def word_count(text):
     return len(re.findall(r"\b\w+\b", text))
 
@@ -48,9 +173,15 @@ def check_word_count(text, article_type):
     lo, hi = WORD_COUNT_RANGES.get(article_type, WORD_COUNT_RANGES["standard"])
     n = word_count(text)
     if n < lo:
-        return "WARN", f"word count {n} is below the {lo}-{hi} range for '{article_type}' — topic may be too narrow to stand alone"
+        return (
+            "WARN",
+            f"word count {n} is below the {lo}-{hi} range for '{article_type}' — topic may be too narrow to stand alone",
+        )
     if n > hi:
-        return "WARN", f"word count {n} is above the {lo}-{hi} range for '{article_type}' — consider splitting into two articles"
+        return (
+            "WARN",
+            f"word count {n} is above the {lo}-{hi} range for '{article_type}' — consider splitting into two articles",
+        )
     return "PASS", f"word count {n} is within {lo}-{hi} for '{article_type}'"
 
 
@@ -65,8 +196,15 @@ def check_banned_words(text, extra_ban_words):
 
 
 OPENING_FUNCTION_LABELS = [
-    "answer", "assertion", "scenario", "contrast", "continuation", "evidence", "question",
-    "common mistakes", "verdict",
+    "answer",
+    "assertion",
+    "scenario",
+    "contrast",
+    "continuation",
+    "evidence",
+    "question",
+    "common mistakes",
+    "verdict",
 ]
 
 
@@ -83,12 +221,43 @@ def check_visible_function_labels(text):
     """
     hits = []
     for label in OPENING_FUNCTION_LABELS:
-        for m in re.finditer(rf"^\*\*{re.escape(label)}\.\*\*", text, re.IGNORECASE | re.MULTILINE):
+        for m in re.finditer(
+            rf"^\*\*{re.escape(label)}\.\*\*", text, re.IGNORECASE | re.MULTILINE
+        ):
             line_no = text[: m.start()].count("\n") + 1
             hits.append(f"line {line_no}: {m.group(0)!r}")
     if hits:
-        return "FAIL", "visible opening-function labels found (should be internal planning only): " + "; ".join(hits)
+        return (
+            "FAIL",
+            "visible opening-function labels found (should be internal planning only): "
+            + "; ".join(hits),
+        )
     return "PASS", "no visible opening-function labels found"
+
+
+def check_internal_planning_artifacts(text):
+    """Reject prompt-planning notes that a model accidentally prints.
+
+    A prior pilot included a useful article preceded by a visible per-H2
+    opening-function plan. It was not caught by the label check because the
+    function names appeared in a planning bullet rather than as section labels.
+    Planning metadata is not reader-facing content and must not reach output.
+    """
+    patterns = [
+        r"^\s*\*\*Per-H2 opening-function plan\b",
+        r"^\s*-\s*\*\*H2:\s+.+?\*\*\s+[—-]\s+\*(?:answer|assertion|scenario|contrast|continuation|evidence|question|common mistakes|verdict)\.?\*",
+    ]
+    hits = []
+    for pattern in patterns:
+        for match in re.finditer(pattern, text, re.IGNORECASE | re.MULTILINE):
+            line_no = text[: match.start()].count("\n") + 1
+            hits.append(f"line {line_no}: {match.group(0).strip()!r}")
+    if hits:
+        return (
+            "FAIL",
+            "internal planning artifact found in visible draft: " + "; ".join(hits),
+        )
+    return "PASS", "no internal planning artifacts found"
 
 
 def check_facts_freshness(config, max_age_days=30):
@@ -99,16 +268,28 @@ def check_facts_freshness(config, max_age_days=30):
     """
     verified = config.get("facts_last_verified")
     if not verified:
-        return "WARN", "no facts_last_verified set on this config — add one (YYYY-MM-DD) and treat this as immediately due for a re-check against the live site"
+        return (
+            "WARN",
+            "no facts_last_verified set on this config — add one (YYYY-MM-DD) and treat this as immediately due for a re-check against the live site",
+        )
     try:
         verified_date = date.fromisoformat(verified)
     except ValueError:
-        return "WARN", f"facts_last_verified {verified!r} is not a valid YYYY-MM-DD date"
+        return (
+            "WARN",
+            f"facts_last_verified {verified!r} is not a valid YYYY-MM-DD date",
+        )
     age = (date.today() - verified_date).days
     if age < 0:
-        return "WARN", f"facts_last_verified {verified} is in the future — check for a typo"
+        return (
+            "WARN",
+            f"facts_last_verified {verified} is in the future — check for a typo",
+        )
     if age > max_age_days:
-        return "WARN", f"verified_facts last confirmed {age} days ago (>{max_age_days}) — re-read the live site's source of truth and update facts_last_verified before publishing"
+        return (
+            "WARN",
+            f"verified_facts last confirmed {age} days ago (>{max_age_days}) — re-read the live site's source of truth and update facts_last_verified before publishing",
+        )
     return "PASS", f"verified_facts confirmed {age} day(s) ago"
 
 
@@ -119,7 +300,9 @@ def check_fabrication_placeholders(text):
             line_no = text[: m.start()].count("\n") + 1
             hits.append(f"line {line_no}: /{pattern}/ -> {m.group(0)!r}")
     if hits:
-        return "FAIL", "placeholder/fabrication patterns found:\n    " + "\n    ".join(hits)
+        return "FAIL", "placeholder/fabrication patterns found:\n    " + "\n    ".join(
+            hits
+        )
     return "PASS", "no placeholder/fabrication patterns found"
 
 
@@ -129,7 +312,10 @@ def check_structured_element(text):
     if has_table or has_numbered_list:
         kind = "table" if has_table else "numbered list"
         return "PASS", f"found a structured element ({kind})"
-    return "WARN", "no markdown table or numbered list found — RULES.md §2 wants at least one structured element"
+    return (
+        "WARN",
+        "no markdown table or numbered list found — RULES.md §2 wants at least one structured element",
+    )
 
 
 def check_bare_urls(text):
@@ -138,7 +324,9 @@ def check_bare_urls(text):
     link. It reads fine to a human but registers as zero links to the linking
     scorer and to any real crawler looking for an anchor tag. See RULES.md §16/17.
     """
-    markdown_link_spans = [m.span() for m in re.finditer(r"\[[^\]]+\]\(https?://[^)]+\)", text)]
+    markdown_link_spans = [
+        m.span() for m in re.finditer(r"\[[^\]]+\]\(https?://[^)]+\)", text)
+    ]
 
     def _inside_markdown_link(pos):
         return any(start <= pos < end for start, end in markdown_link_spans)
@@ -148,7 +336,10 @@ def check_bare_urls(text):
         if not _inside_markdown_link(m.start()):
             bare.append(m.group(0))
     if bare:
-        return "FAIL", f"{len(bare)} bare URL(s) in parentheses, not Markdown links: {bare[:3]}"
+        return (
+            "FAIL",
+            f"{len(bare)} bare URL(s) in parentheses, not Markdown links: {bare[:3]}",
+        )
     return "PASS", "no bare parenthetical URLs found"
 
 
@@ -161,11 +352,28 @@ def check_h1_present(text, target_query):
     h1_words = set(re.findall(r"\w+", h1))
     overlap = len(query_words & h1_words) / max(len(query_words), 1)
     if overlap < 0.5:
-        return "WARN", f"H1 ({h1!r}) overlaps only {overlap:.0%} with target query ({target_query!r})"
+        return (
+            "WARN",
+            f"H1 ({h1!r}) overlaps only {overlap:.0%} with target query ({target_query!r})",
+        )
     return "PASS", f"H1 matches target query closely ({overlap:.0%} word overlap)"
 
 
-STOPWORDS = {"the", "a", "an", "and", "or", "to", "of", "up", "only", "not", "on", "for", "with"}
+STOPWORDS = {
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "to",
+    "of",
+    "up",
+    "only",
+    "not",
+    "on",
+    "for",
+    "with",
+}
 
 
 def check_structural_repetition(text):
@@ -194,7 +402,9 @@ def check_structural_repetition(text):
     repeats = []
     for i in range(1, len(first_words)):
         if first_words[i] and first_words[i] == first_words[i - 1]:
-            repeats.append(f"'{headings[i-1]}' and '{headings[i]}' both open with {first_words[i]!r}")
+            repeats.append(
+                f"'{headings[i - 1]}' and '{headings[i]}' both open with {first_words[i]!r}"
+            )
 
     flat_sections = []
     for h, lengths in zip(headings, sentence_lengths_per_section):
@@ -205,13 +415,20 @@ def check_structural_repetition(text):
 
     warnings = []
     if repeats:
-        warnings.append("adjacent sections share an opening word: " + "; ".join(repeats))
+        warnings.append(
+            "adjacent sections share an opening word: " + "; ".join(repeats)
+        )
     if len(flat_sections) >= max(2, len(headings) // 2):
-        warnings.append(f"{len(flat_sections)}/{len(headings)} sections have near-uniform sentence length in their opening paragraph")
+        warnings.append(
+            f"{len(flat_sections)}/{len(headings)} sections have near-uniform sentence length in their opening paragraph"
+        )
 
     if warnings:
         return "WARN", "; ".join(warnings)
-    return "PASS", "no obvious structural repetition detected (coarse heuristic — still worth a human skim)"
+    return (
+        "PASS",
+        "no obvious structural repetition detected (coarse heuristic — still worth a human skim)",
+    )
 
 
 def _keywords(phrase):
@@ -219,20 +436,52 @@ def _keywords(phrase):
     return {w for w in words if len(w) > 3 and w not in STOPWORDS}
 
 
+def _contains_token(token, text):
+    return (
+        re.search(rf"(?<![a-z0-9]){re.escape(token)}(?![a-z0-9])", text, re.IGNORECASE)
+        is not None
+    )
+
+
+def _segments(text):
+    return [
+        segment.strip()
+        for segment in re.split(r"(?<=[.!?])\s+|\n+", text)
+        if segment.strip()
+    ]
+
+
+def _mentions_feature(segment, feature):
+    words = _keywords(feature)
+    return bool(words) and sum(_contains_token(word, segment) for word in words) >= min(
+        2, len(words)
+    )
+
+
+def check_coming_soon_mentions(text, coming_soon_features):
+    hits = []
+    for feature in coming_soon_features:
+        if any(_mentions_feature(segment, feature) for segment in _segments(text)):
+            hits.append(feature)
+    if hits:
+        return "FAIL", "coming-soon/roadmap feature mentioned in draft: " + ", ".join(
+            repr(hit) for hit in hits
+        )
+    return "PASS", "no configured coming-soon features mentioned"
+
+
 def check_tier_gated_mentions(text, real_differentiators):
-    """Heuristic only, word-overlap based (not exact-phrase matching, which
-    misses paraphrased mentions almost entirely). If enough of a tier-gated
-    feature's keywords show up in the text, treat that feature as
-    "discussed" and check whether the tier's own keyword also appears
-    anywhere in the text. This catches the exact bug class from 2026-08-09
-    (a Family-only feature described without naming the tier) but remains
-    NOT a substitute for the manual cross-check in RULES.md §2b — word
-    overlap is a coarse signal, not comprehension. It can both miss real
-    instances (a feature discussed with zero shared keywords) and flag
-    false positives (keywords present for an unrelated reason).
+    """Fail closed on unscoped or universal claims about tier-gated features.
+
+    A feature mention must carry a tier in the same sentence or line. This is
+    intentionally conservative; a human still reviews the final meaning.
     """
-    text_lower = text.lower()
-    warnings = []
+    failures = []
+    universal_pattern = re.compile(
+        r"\b(?:every|all|any|each)\s+(?:plan|tier|subscription)s?\b|"
+        r"\b(?:on|for)\s+all\s+plans?\b",
+        re.IGNORECASE,
+    )
     for d in real_differentiators:
         if not isinstance(d, dict):
             continue
@@ -240,47 +489,77 @@ def check_tier_gated_mentions(text, real_differentiators):
         tier = d.get("tier", "")
         if not feature or not tier:
             continue
-        feature_kw = _keywords(feature)
-        if not feature_kw:
-            continue
-        matched = {w for w in feature_kw if w in text_lower}
-        if len(matched) >= min(2, len(feature_kw)):
-            tier_kw = _keywords(tier)
-            if not any(w in text_lower for w in tier_kw):
-                warnings.append(
-                    f"feature keywords {sorted(matched)} appear (from {feature!r}) but no tier keyword "
-                    f"from {tier!r} was found anywhere in the text — verify manually"
+        tier_kw = _keywords(tier)
+        for segment in _segments(text):
+            if not _mentions_feature(segment, feature):
+                continue
+            if universal_pattern.search(segment) and not re.search(
+                r"\b(?:not|never|except|excluding)\b", segment, re.IGNORECASE
+            ):
+                failures.append(f"universal scope near {feature!r}: {segment[:180]!r}")
+            if not any(_contains_token(word, segment) for word in tier_kw):
+                failures.append(
+                    f"{feature!r} needs nearby tier {tier!r}: {segment[:180]!r}"
                 )
-    if warnings:
-        return "WARN", "; ".join(warnings)
-    return "PASS", "no obvious tier-gating gaps found (heuristic only — still do the manual check)"
+    if failures:
+        return "FAIL", "tier-gated claim requires correction: " + "; ".join(failures)
+    return "PASS", "tier-gated mentions carry nearby plan evidence"
 
 
 def run_checks(text, article_type, target_query, config):
     voice = config.get("voice", {})
-    real_differentiators = config.get("verified_facts", {}).get("real_differentiators", [])
+    real_differentiators = config.get("verified_facts", {}).get(
+        "real_differentiators", []
+    )
 
     checks = [
+        ("Config integrity", check_config_integrity(config)),
         ("Facts freshness", check_facts_freshness(config)),
+        ("Claim evidence registry", check_claim_evidence(config)),
+        ("Dateline freshness", check_current_month_year(config)),
         ("Fabrication/placeholder gate", check_fabrication_placeholders(text)),
         ("Visible opening-function labels", check_visible_function_labels(text)),
+        ("Internal planning artifacts", check_internal_planning_artifacts(text)),
         ("H1 matches target query", check_h1_present(text, target_query)),
         ("Bare URLs (not Markdown links)", check_bare_urls(text)),
+        (
+            "Coming-soon features",
+            check_coming_soon_mentions(
+                text, config.get("verified_facts", {}).get("coming_soon_features", [])
+            ),
+        ),
         ("Word count", check_word_count(text, article_type)),
         ("Banned words", check_banned_words(text, voice.get("extra_ban_words", []))),
         ("Structured element present", check_structured_element(text)),
-        ("Tier-gating mentions (heuristic)", check_tier_gated_mentions(text, real_differentiators)),
+        ("Tier-gating mentions", check_tier_gated_mentions(text, real_differentiators)),
         ("Structural repetition (heuristic)", check_structural_repetition(text)),
     ]
     return checks
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run the automated compliance gate against an article draft")
+    parser = argparse.ArgumentParser(
+        description="Run the automated compliance gate against an article draft"
+    )
     parser.add_argument("--draft", required=True, help="Path to the markdown draft")
-    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
-    parser.add_argument("--type", default="standard", choices=["pillar", "standard", "supporting"])
-    parser.add_argument("--query", required=True, help="The target query this article is meant to answer")
+    parser.add_argument(
+        "--config",
+        required=True,
+        help="Path to your project's config, e.g. site-config.<project>.json",
+    )
+    parser.add_argument(
+        "--type", default="standard", choices=["pillar", "standard", "supporting"]
+    )
+    parser.add_argument(
+        "--query",
+        required=True,
+        help="The target query this article is meant to answer",
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Return non-zero for warnings as well as failures",
+    )
     args = parser.parse_args()
 
     with open(args.draft, "r", encoding="utf-8") as f:
@@ -290,18 +569,25 @@ def main():
 
     checks = run_checks(text, args.type, args.query, config)
 
-    hard_fail = False
+    blocked = False
     for name, (status, detail) in checks:
         marker = {"PASS": "✓", "WARN": "⚠", "FAIL": "✗"}[status]
         print(f"{marker} [{status}] {name}: {detail}")
-        if status == "FAIL":
-            hard_fail = True
+        if status == "FAIL" or (args.strict and status == "WARN"):
+            blocked = True
 
     print()
-    if hard_fail:
-        print("HARD FAIL — do not publish until fabrication/placeholder issues are fixed.")
+    if blocked and args.strict:
+        print(
+            "STRICT FAIL — resolve every warning/failure before generation or publishing."
+        )
         sys.exit(1)
-    print("No hard failures. WARN items still need a human read against RULES.md/IMAGES.md before publishing.")
+    if blocked:
+        print("HARD FAIL — resolve the failures before publishing.")
+        sys.exit(1)
+    print(
+        "No hard failures. WARN items still need a human read against RULES.md/IMAGES.md before publishing."
+    )
 
 
 if __name__ == "__main__":

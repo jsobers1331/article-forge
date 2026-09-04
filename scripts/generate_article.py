@@ -1,45 +1,153 @@
-"""End-to-end: render the prompt, call a chosen LLM provider, save the draft,
-and run the pre-publish fabrication/placeholder gate from RULES.md section 11.
+"""Generate one article and fail closed before it reaches the output folder.
 
-This is a convenience wrapper. You do not need this script at all if you'd
-rather run generate_prompt.py and paste the result into any LLM by hand.
+Non-PASS drafts are retained in ``output/.quarantine`` with a JSON receipt so
+they can be fixed without being mistaken for publishable material.
 """
 
 import argparse
+import hashlib
+import json
 import os
 import re
 import sys
+import tempfile
+from datetime import datetime, timezone
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from call_llm import call_llm, PROVIDERS
+from call_llm import PROVIDERS, call_llm
+from check_article import check_fabrication_placeholders, run_checks
 from generate_prompt import REPO_ROOT, load_config, pick_topic, render
-
-PLACEHOLDER_PATTERNS = [
-    r"example\.com",
-    r"lorem ipsum",
-    r"\bTBD\b",
-    r"\bFIXME\b",
-    r"555-\d{4}",
-    r"Jane (S\b|Smith)",
-    r"John (S\b|Smith)",
-    r"Sample (Customer|Client)",
-    r"PLACEHOLDER: needs real value",
-]
 
 
 def run_fabrication_gate(text):
-    hits = []
-    for pattern in PLACEHOLDER_PATTERNS:
-        for m in re.finditer(pattern, text, re.IGNORECASE):
-            line_no = text[: m.start()].count("\n") + 1
-            hits.append(f"line {line_no}: matched /{pattern}/ -> {m.group(0)!r}")
-    return hits
+    """Keep the legacy helper while sharing the canonical checker."""
+    status, detail = check_fabrication_placeholders(text)
+    return [] if status == "PASS" else [detail]
+
+
+def slugify(value):
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "article"
+
+
+def _atomic_write(path, content):
+    path = Path(path)
+    fd, temporary = tempfile.mkstemp(
+        prefix=f".{path.name}.", suffix=".tmp", dir=path.parent
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(content)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
+
+
+def _safe_output_dir(out_dir, config_path):
+    out_dir = Path(out_dir).expanduser()
+    if out_dir.exists() and out_dir.is_symlink():
+        raise RuntimeError(f"refusing symlink output directory: {out_dir}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    resolved = out_dir.resolve()
+    protected_roots = {
+        Path(REPO_ROOT).resolve(),
+        (Path(REPO_ROOT) / "scripts").resolve(),
+        (Path(REPO_ROOT) / "prompts").resolve(),
+    }
+    if any(root == resolved or root in resolved.parents for root in protected_roots):
+        raise RuntimeError(f"refusing protected output directory: {resolved}")
+    config_file = Path(config_path).expanduser().resolve()
+    if resolved == config_file or config_file.parent == resolved:
+        raise RuntimeError(
+            f"refusing output directory containing config file: {resolved}"
+        )
+    return resolved
+
+
+def _target_path(out_dir, slug, force=False):
+    target = out_dir / f"{slug}.md"
+    if target.is_symlink():
+        raise RuntimeError(f"refusing symlink output target: {target}")
+    if target.exists() and not force:
+        raise FileExistsError(
+            f"draft already exists: {target}; use --force only to replace a passing draft"
+        )
+    return target
+
+
+def _unique_quarantine_path(out_dir, slug):
+    quarantine = out_dir / ".quarantine"
+    if quarantine.exists() and quarantine.is_symlink():
+        raise RuntimeError(f"refusing symlink quarantine directory: {quarantine}")
+    quarantine.mkdir(exist_ok=True)
+    candidate = quarantine / f"{slug}.md"
+    index = 1
+    while candidate.exists() or candidate.is_symlink():
+        candidate = quarantine / f"{slug}-{index}.md"
+        index += 1
+    return candidate
+
+
+def _sha256_text(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _checks_payload(checks):
+    return [
+        {"name": name, "status": status, "detail": detail}
+        for name, (status, detail) in checks
+    ]
+
+
+def persist_checked_article(
+    article, out_dir, slug, checks, prompt, config_path, force=False
+):
+    """Persist only an all-PASS article to normal output.
+
+    A blocked draft and a receipt are written to quarantine. The receipt makes
+    the failure reproducible without retaining credentials or the API request.
+    """
+    out_dir = _safe_output_dir(out_dir, config_path)
+    payload = _checks_payload(checks)
+    non_pass = [item for item in payload if item["status"] != "PASS"]
+    if non_pass:
+        draft_path = _unique_quarantine_path(out_dir, slug)
+        _atomic_write(draft_path, article)
+        receipt = {
+            "schema_version": "article-forge.quarantine.v1",
+            "quarantined_at": datetime.now(timezone.utc).isoformat(),
+            "draft_sha256": _sha256_text(article),
+            "prompt_sha256": _sha256_text(prompt),
+            "config_sha256": hashlib.sha256(Path(config_path).read_bytes()).hexdigest(),
+            "checks": payload,
+            "normal_output_blocked": True,
+        }
+        _atomic_write(
+            draft_path.with_suffix(".json"), json.dumps(receipt, indent=2) + "\n"
+        )
+        return False, draft_path, payload
+
+    target = _target_path(out_dir, slug, force=force)
+    _atomic_write(target, article)
+    return True, target, payload
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate one article end-to-end and gate it before publish")
-    parser.add_argument("--config", required=True, help="Path to your project's config, e.g. site-config.<project>.json")
+    parser = argparse.ArgumentParser(
+        description="Generate one article and gate it before normal output"
+    )
+    parser.add_argument(
+        "--config",
+        required=True,
+        help="Path to your project's config, e.g. site-config.<project>.json",
+    )
     parser.add_argument("--topic-index", type=int)
     parser.add_argument("--title")
     parser.add_argument("--query")
@@ -47,33 +155,42 @@ def main():
     parser.add_argument("--provider", choices=sorted(PROVIDERS), required=True)
     parser.add_argument("--model")
     parser.add_argument("--out-dir", default=os.path.join(REPO_ROOT, "output"))
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Replace an existing passing draft; never bypass checks",
+    )
     args = parser.parse_args()
 
     from dotenv import load_dotenv
+
     load_dotenv()
 
     config = load_config(args.config)
     topic = pick_topic(config, args.topic_index, args.title, args.query, args.type)
     prompt = render(config, topic)
+    slug = slugify(topic.get("target_query", topic.get("title", "article")))
+    out_dir = _safe_output_dir(args.out_dir, args.config)
+    _target_path(out_dir, slug, force=args.force)
 
     print(f"Calling {args.provider}...", file=sys.stderr)
     article = call_llm(prompt, provider=args.provider, model=args.model)
-
-    os.makedirs(args.out_dir, exist_ok=True)
-    slug = re.sub(r"[^a-z0-9]+", "-", topic.get("target_query", topic.get("title", "article")).lower()).strip("-")
-    out_path = os.path.join(args.out_dir, f"{slug}.md")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(article)
-    print(f"Saved draft to {out_path}", file=sys.stderr)
-
-    hits = run_fabrication_gate(article)
-    if hits:
-        print("\n⚠️  Pre-publish gate found possible placeholders/fabrication tells:", file=sys.stderr)
-        for h in hits:
-            print(f"  - {h}", file=sys.stderr)
-        print("Review and fix before publishing.", file=sys.stderr)
-    else:
-        print("Pre-publish gate: no placeholder/fabrication patterns found.", file=sys.stderr)
+    checks = run_checks(
+        article, topic.get("type", "standard"), topic.get("target_query", ""), config
+    )
+    passed, saved_path, payload = persist_checked_article(
+        article, out_dir, slug, checks, prompt, args.config, force=args.force
+    )
+    if not passed:
+        print(f"Draft blocked and quarantined at {saved_path}", file=sys.stderr)
+        for item in payload:
+            if item["status"] != "PASS":
+                print(
+                    f"  - [{item['status']}] {item['name']}: {item['detail']}",
+                    file=sys.stderr,
+                )
+        sys.exit(1)
+    print(f"Saved passing draft to {saved_path}", file=sys.stderr)
 
 
 if __name__ == "__main__":
