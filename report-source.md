@@ -1,8 +1,9 @@
 # Article Forge readiness report source
 
-Updated: 2026-09-03
+Updated: 2026-09-04
 Repository: Article Forge
-Branch: `feat/article-forge-google-demand`
+Branch: `main`
+Commit: `62fde41` (PR #6)
 
 ## Bottom line
 
