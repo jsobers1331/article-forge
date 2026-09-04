@@ -69,6 +69,9 @@
   "current_month_year": "Month Year \u2014 set this per generation",
   "facts_last_verified": "YYYY-MM-DD \u2014 set this whenever you (re)confirm verified_facts against the live site. scripts/check_article.py WARNs once this is more than 30 days old.",
   "research": {
+    "search_console": {
+      "property": ""
+    },
     "serper": {
       "api_key_env": "SERPER_API_KEY",
       "gl": "us",

@@ -2,7 +2,7 @@
 
 Updated: 2026-09-03
 Repository: Article Forge
-Branch: `fix/article-forge-readiness`
+Branch: `feat/article-forge-google-demand`
 
 ## Bottom line
 
@@ -17,10 +17,11 @@ separate personal `/Users/jasonsobers/.claude/secrets.env` contains the
 `SERPER_API_KEY` variable. Five candidate queries plus one query using the
 existing ShootMuse config succeeded with zero errors, and a second run returned
 five cache hits with zero new API requests. The local ShootMuse config was
-re-attested against the current site source. A live DeepSeek pilot produced a
-draft; the stricter gate quarantined it for one structural warning, and a
-one-sentence human editorial correction then passed the standalone strict
-checker. No credential value is included here.
+re-attested against the current site source. Search Console OAuth refresh,
+property listing, final Search Analytics, and URL Inspection are now live
+verified through the personal authorized environment. ShootMuse is indexed but
+returned zero query rows for the tested 365-day period; a control property
+returned 129 rows. No credential value is included here.
 
 ## Research matrix
 
@@ -59,6 +60,13 @@ as a plan critique from domain knowledge rather than independent browsing.
 - `scripts/import_demand.py`: Keyword Planner and Search Console CSV/JSON
   importer with preserved units, source roles, raw paid-competition fields,
   and candidate-set-relative normalization.
+- `scripts/collect_search_console.py`: direct read-only Search Console OAuth
+  collector with final web-data requests, versioned provenance, atomic output,
+  overwrite protection, query aggregation, and optional normalized demand
+  output.
+- `scripts/collect_keyword_planner.py`: direct Google Ads Keyword Planner
+  collector with explicit seed/geography inputs, versioned market-demand
+  output, optional normalized demand output, and fail-closed credential checks.
 - `scripts/score_opportunities.py`: evidence validation for demand roles,
   Serper provenance, editorial difficulty semantics, raw intent, product fit,
   original angle, unanswered question, dated support, freshness, and an
@@ -76,7 +84,7 @@ as a plan critique from domain knowledge rather than independent browsing.
 
 ## Verification
 
-- `pytest -q`: 24 passed.
+- `pytest -q`: 30 passed.
 - Ruff check and format check: passed on all changed Python files.
 - Live Serper CLI batch using the personal secrets file: five candidate queries
   plus one ShootMuse-config query succeeded with zero errors. A second run
@@ -92,9 +100,11 @@ as a plan critique from domain knowledge rather than independent browsing.
   outside the repository at
   `/tmp/article-forge-shootmuse-pilot-final3/.quarantine/what-is-a-photography-crm.md`.
 - Feedback loop: `FEEDBACK_LOOP.md` records the reusable measurement and
-  refresh workflow. No Search Console/Keyword Planner export was available, so
-  the opportunity dataset remains intentionally unscored rather than inventing
-  volume or low-competition evidence.
+  refresh workflow. Search Console live access is verified, but ShootMuse has
+  no query rows in the tested period, so no market-demand score was invented.
+  Keyword Planner code is present and locally tested, but its live path remains
+  unverified until Google Ads developer-token/OAuth/customer credentials are
+  supplied.
 - Tracked files in the main checkout `/Users/jasonsobers/Personal/article-forge`
   were not modified; its existing dirty files remain preserved. The ignored
   `site-config.shootmuse.json` there was intentionally updated with the local
@@ -103,7 +113,9 @@ as a plan critique from domain knowledge rather than independent browsing.
 ## Sources
 
 - https://serper.dev/
+- https://developers.google.com/webmaster-tools/v1/how-tos/authorizing
 - https://developers.google.com/webmaster-tools/v1/searchanalytics/query
+- https://developers.google.com/google-ads/api/docs/rest/auth
 - https://developers.google.com/google-ads/api/docs/keyword-planning/generate-historical-metrics
 - https://support.google.com/google-ads/answer/3022575?hl=en
 - https://developers.google.com/search/docs/fundamentals/creating-helpful-content
