@@ -7,7 +7,7 @@ You are writing one article for {site_name} ({domain}).
 - Canonical definition (reuse verbatim wherever a one-sentence definition is needed): "{canonical_definition_sentence}"
 - Real, live differentiators (safe to claim — some carry a [TIER: ...] tag; if a differentiator has one, you MUST name that exact tier/plan anywhere you describe using that feature, not just once in passing):
 {real_differentiators}
-- Coming-soon / roadmap features — NEVER claim these are available:
+- Coming-soon / roadmap features — do not name, describe, compare, or mention these anywhere in the article, even to say they are unavailable. If a limitation matters, describe the reader-facing limitation generically. NEVER claim these are available:
 {coming_soon_features}
 - Pricing/billing reality — describe billing exactly this way, no other framing:
   {pricing_note}
@@ -51,4 +51,4 @@ You are writing one article for {site_name} ({domain}).
 20. Treat `intent_evidence.intent_hypothesis` as a reviewable hypothesis, not fact. Preserve mixed intent when the observed signals disagree. Treat `organic_competition.editorial_difficulty` as an editorial estimate only; if it is absent, do not invent one from result counts, host counts, or total-result strings.
 21. Use `content_fit.original_angle`, `content_fit.unanswered_question`, `content_fit.limitation`, `content_fit.source_dates`, and `evidence_confidence` to shape a genuinely useful brief. If the brief lacks a first-party product fact, verified claim, original angle, limitation, unanswered question, or current evidence, omit the unsupported claim and surface the gap for human review.
 
-This variation must be planned before drafting, not fixed in a rewrite pass afterward — write out your per-H2 opening-function plan first (rule 4), then write the full article in markdown, including the H1. Note: this prompt-level instruction alone is not a guarantee — `scripts/check_article.py`'s structural-repetition check and a separate fresh-context audit pass (see RULES.md §12) are the actual verification, not this instruction by itself.
+Plan this variation silently before drafting, not in a rewrite pass afterward. Output only the full article in markdown, including the H1; never output your planning notes or an opening-function plan. Note: this prompt-level instruction alone is not a guarantee — `scripts/check_article.py`'s structural-repetition check and a separate fresh-context audit pass (see RULES.md §12) are the actual verification, not this instruction by itself.

@@ -235,6 +235,31 @@ def check_visible_function_labels(text):
     return "PASS", "no visible opening-function labels found"
 
 
+def check_internal_planning_artifacts(text):
+    """Reject prompt-planning notes that a model accidentally prints.
+
+    A prior pilot included a useful article preceded by a visible per-H2
+    opening-function plan. It was not caught by the label check because the
+    function names appeared in a planning bullet rather than as section labels.
+    Planning metadata is not reader-facing content and must not reach output.
+    """
+    patterns = [
+        r"^\s*\*\*Per-H2 opening-function plan\b",
+        r"^\s*-\s*\*\*H2:\s+.+?\*\*\s+[—-]\s+\*(?:answer|assertion|scenario|contrast|continuation|evidence|question|common mistakes|verdict)\.?\*",
+    ]
+    hits = []
+    for pattern in patterns:
+        for match in re.finditer(pattern, text, re.IGNORECASE | re.MULTILINE):
+            line_no = text[: match.start()].count("\n") + 1
+            hits.append(f"line {line_no}: {match.group(0).strip()!r}")
+    if hits:
+        return (
+            "FAIL",
+            "internal planning artifact found in visible draft: " + "; ".join(hits),
+        )
+    return "PASS", "no internal planning artifacts found"
+
+
 def check_facts_freshness(config, max_age_days=30):
     """Enforced, not just documented — DISCOVERY.md's whole premise is that
     verified_facts can drift (a price change, a paused promo) between runs.
@@ -494,6 +519,7 @@ def run_checks(text, article_type, target_query, config):
         ("Dateline freshness", check_current_month_year(config)),
         ("Fabrication/placeholder gate", check_fabrication_placeholders(text)),
         ("Visible opening-function labels", check_visible_function_labels(text)),
+        ("Internal planning artifacts", check_internal_planning_artifacts(text)),
         ("H1 matches target query", check_h1_present(text, target_query)),
         ("Bare URLs (not Markdown links)", check_bare_urls(text)),
         (

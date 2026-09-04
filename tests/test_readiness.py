@@ -8,8 +8,10 @@ from check_article import (  # noqa: E402
     check_claim_evidence,
     check_coming_soon_mentions,
     check_config_integrity,
+    check_internal_planning_artifacts,
     check_tier_gated_mentions,
 )
+import call_llm as call_llm_module  # noqa: E402
 from call_llm import PROVIDERS  # noqa: E402
 from collect_serper import (  # noqa: E402
     SerperError,
@@ -202,6 +204,18 @@ def test_coming_soon_feature_is_blocked():
     assert "multi-brand" in detail
 
 
+def test_internal_opening_plan_is_blocked_from_visible_draft():
+    text = """**Per-H2 opening-function plan:**
+
+- **H2: What is a CRM?** — *Answer.* Direct definition.
+
+# What is a CRM?
+"""
+    status, detail = check_internal_planning_artifacts(text)
+    assert status == "FAIL"
+    assert "planning artifact" in detail
+
+
 def test_config_requires_evidence_registry_for_generation():
     config = valid_config()
     assert check_config_integrity(config)[0] == "PASS"
@@ -313,6 +327,64 @@ def test_opportunity_score_expires_stale_evidence():
 
 def test_deepseek_provider_uses_current_model_default():
     assert PROVIDERS["deepseek"]["default_model"] == "deepseek-v4-pro"
+
+
+def test_deepseek_generation_disables_thinking_for_visible_content(monkeypatch):
+    requests = []
+
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc_value, traceback):
+            return False
+
+        def read(self):
+            return json.dumps(
+                {"choices": [{"message": {"content": "# Draft"}}]}
+            ).encode("utf-8")
+
+    def fake_urlopen(request, timeout):
+        requests.append(json.loads(request.data.decode("utf-8")))
+        return FakeResponse()
+
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
+    monkeypatch.setattr(call_llm_module.urllib.request, "urlopen", fake_urlopen)
+
+    content = call_llm_module.call_llm(
+        "Write a draft.", provider="deepseek", max_tokens=20, timeout=1
+    )
+
+    assert content == "# Draft"
+    assert requests[0]["thinking"] == {"type": "disabled"}
+
+
+def test_openai_compatible_empty_content_is_rejected(monkeypatch):
+    class FakeResponse:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc_value, traceback):
+            return False
+
+        def read(self):
+            return json.dumps({"choices": [{"message": {"content": ""}}]}).encode(
+                "utf-8"
+            )
+
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
+    monkeypatch.setattr(
+        call_llm_module.urllib.request,
+        "urlopen",
+        lambda request, timeout: FakeResponse(),
+    )
+
+    try:
+        call_llm_module.call_llm("Write a draft.", provider="deepseek")
+    except RuntimeError as exc:
+        assert str(exc) == "LLM returned no visible content"
+    else:
+        raise AssertionError("empty provider content should be rejected")
 
 
 def test_serper_normalization_preserves_observations_without_fake_difficulty():

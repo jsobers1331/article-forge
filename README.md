@@ -103,6 +103,7 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
 | `scripts/score_opportunities.py` | Score a versioned, provider-neutral opportunity dataset. Missing/stale demand or organic-competition evidence becomes `needs-data`; paid advertiser competition is never substituted for organic difficulty. Editorial difficulty, intent, fit, freshness, and evidence confidence remain explicit. |
+| `FEEDBACK_LOOP.md` | Measurement contract and review cadence for Search Console, qualified actions, conversions, indexation, and observed LLM citations after publication. |
 
 ## Adding a topic
 
@@ -149,6 +150,11 @@ Keyword Planner records are market-demand observations. Search Console records
 are site-opportunity observations for the selected property and period. The
 importer preserves raw units and paid-competition fields; normalized scores are
 relative to the supplied candidate set.
+
+After publication, use [`FEEDBACK_LOOP.md`](FEEDBACK_LOOP.md) to collect
+outcomes and recalibrate the opportunity weights. The feedback loop is
+measurement-only: it does not publish pages or turn a rank/citation observation
+into a guarantee.
 
 ## Readiness boundary
 

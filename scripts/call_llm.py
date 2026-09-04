@@ -81,21 +81,29 @@ def call_llm(
         raise RuntimeError(f"{api_key_env} not set (check your .env file)")
 
     if kind == "openai_compatible":
-        body = json.dumps(
-            {
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-            }
-        ).encode("utf-8")
+        payload = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+        }
+        # DeepSeek's current Chat Completions API enables thinking by default.
+        # Article generation needs the visible answer, not reasoning_content;
+        # explicitly disable thinking so the provider returns article text in
+        # message.content.
+        if provider == "deepseek":
+            payload["thinking"] = {"type": "disabled"}
+        body = json.dumps(payload).encode("utf-8")
         headers = {"content-type": "application/json"}
         if api_key:
             headers["Authorization"] = f"Bearer {api_key}"
         req = urllib.request.Request(base_url, data=body, headers=headers)
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-        return data["choices"][0]["message"]["content"]
+        content = data["choices"][0]["message"].get("content")
+        if not isinstance(content, str) or not content.strip():
+            raise RuntimeError("LLM returned no visible content")
+        return content
 
     if kind == "anthropic":
         body = json.dumps(

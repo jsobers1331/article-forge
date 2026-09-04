@@ -7,17 +7,20 @@ Branch: `fix/article-forge-readiness`
 ## Bottom line
 
 Article Forge is B+ (85/100) for guarded draft generation after the hardening
-and evidence-pipeline changes. It is B+ (82/100) for opportunity selection, C
-for a fresh ShootMuse production run until product facts and claim evidence are
-re-attested, and F for autonomous publishing or ranking guarantees.
+and evidence-pipeline changes. It is B+ (82/100) for opportunity selection, B
+for a guarded ShootMuse pilot run, and F for autonomous publishing or ranking
+guarantees.
 
 The direct Serper adapter is live-verified. The Article Forge repo `.env`
 contains `DEEPSEEK_API_KEY` and `OPENAI_API_KEY`, but no `SERPER_API_KEY`; the
 separate personal `/Users/jasonsobers/.claude/secrets.env` contains the
 `SERPER_API_KEY` variable. Five candidate queries plus one query using the
 existing ShootMuse config succeeded with zero errors, and a second run returned
-five cache hits with zero new API requests. No credential value is included
-here.
+five cache hits with zero new API requests. The local ShootMuse config was
+re-attested against the current site source. A live DeepSeek pilot produced a
+draft; the stricter gate quarantined it for one structural warning, and a
+one-sentence human editorial correction then passed the standalone strict
+checker. No credential value is included here.
 
 ## Research matrix
 
@@ -60,18 +63,38 @@ as a plan critique from domain knowledge rather than independent browsing.
   Serper provenance, editorial difficulty semantics, raw intent, product fit,
   original angle, unanswered question, dated support, freshness, and an
   evidence-confidence gate that downgrades sub-80 pursue decisions.
+- `scripts/call_llm.py` and `prompts/article_prompt_template.md`: DeepSeek
+  visible-content handling and explicit suppression of internal planning notes
+  and roadmap-feature mentions.
+- `scripts/check_article.py`: fail-closed detection for leaked per-H2 planning
+  artifacts.
 - Prompt, rules, README, discovery guidance, example environment/config, and
   regression tests updated to preserve the editorial contract.
+- `FEEDBACK_LOOP.md`: reusable post-publication measurement contract, owner
+  boundaries, cadence, and decision labels for Search Console and observed LLM
+  citations.
 
 ## Verification
 
-- `pytest -q`: 21 passed.
+- `pytest -q`: 24 passed.
 - Ruff check and format check: passed on all changed Python files.
 - Live Serper CLI batch using the personal secrets file: five candidate queries
   plus one ShootMuse-config query succeeded with zero errors. A second run
   returned five cache hits with zero new API requests. The adapter is verified,
   but search volume, organic difficulty, rankings, and traffic remain
   unverified.
+- ShootMuse config attestation: 9 claim-evidence records, current dates, and
+  Serper research settings were added locally against the current
+  `focal-studio-website` source review. A live DeepSeek pilot generated a
+  10,627-byte “What Is a Photography CRM?” draft. The gate quarantined it for
+  one structural warning; after one human editorial sentence correction, the
+  standalone strict checker returned all PASS. The reviewed draft remains
+  outside the repository at
+  `/tmp/article-forge-shootmuse-pilot-final3/.quarantine/what-is-a-photography-crm.md`.
+- Feedback loop: `FEEDBACK_LOOP.md` records the reusable measurement and
+  refresh workflow. No Search Console/Keyword Planner export was available, so
+  the opportunity dataset remains intentionally unscored rather than inventing
+  volume or low-competition evidence.
 - Main checkout `/Users/jasonsobers/Personal/article-forge` was not modified;
   its existing dirty files remain preserved.
 
