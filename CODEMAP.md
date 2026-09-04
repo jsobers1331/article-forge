@@ -6,10 +6,10 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-ci`
 - **branch:** `chore/article-forge-ci`
-- **commit:** `ad2685298f6609aef4467cb6af9c2807c57993a7`
-- **short:** `ad26852`
-- **last commit:** 2026-09-03T21:56:24-04:00
-- **map generated:** 2026-09-04T01:58:07+00:00
+- **commit:** `dc26bfeaebc51cf3edce54b87fb37502bc98141d`
+- **short:** `dc26bfe`
+- **last commit:** 2026-09-03T21:58:06-04:00
+- **map generated:** 2026-09-04T01:59:51+00:00
 - **tracked files:** 30
 
 ## Tech Stack
