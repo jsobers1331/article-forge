@@ -5,11 +5,11 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 ## Identity
 
 - **path:** `~/Personal/article-forge-readiness`
-- **branch:** `fix/article-forge-readiness`
-- **commit:** `936817712dfe9dc80913d8c135295dac3eeb800a`
-- **short:** `9368177`
-- **last commit:** 2026-09-03T19:35:25-04:00
-- **map generated:** 2026-09-04T00:14:13+00:00
+- **branch:** `fix/article-forge-report-accuracy`
+- **commit:** `2bea1263e42d09d0a34df59c1b59fba247ca6d88`
+- **short:** `2bea126`
+- **last commit:** 2026-09-03T20:15:13-04:00
+- **map generated:** 2026-09-04T00:17:03+00:00
 - **tracked files:** 27
 
 ## Tech Stack

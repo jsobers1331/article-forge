@@ -95,8 +95,10 @@ as a plan critique from domain knowledge rather than independent browsing.
   refresh workflow. No Search Console/Keyword Planner export was available, so
   the opportunity dataset remains intentionally unscored rather than inventing
   volume or low-competition evidence.
-- Main checkout `/Users/jasonsobers/Personal/article-forge` was not modified;
-  its existing dirty files remain preserved.
+- Tracked files in the main checkout `/Users/jasonsobers/Personal/article-forge`
+  were not modified; its existing dirty files remain preserved. The ignored
+  `site-config.shootmuse.json` there was intentionally updated with the local
+  claim attestation and Serper settings described above.
 
 ## Sources
 
