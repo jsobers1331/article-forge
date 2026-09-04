@@ -6,10 +6,10 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-google-demand`
 - **branch:** `feat/article-forge-google-demand`
-- **commit:** `5dad3ab04d3c69d56af3175ac3919db9bfb37876`
-- **short:** `5dad3ab`
-- **last commit:** 2026-09-03T20:17:21-04:00
-- **map generated:** 2026-09-04T01:52:52+00:00
+- **commit:** `296326fff28f5e5c467a109b3dbeffefa93114d5`
+- **short:** `296326f`
+- **last commit:** 2026-09-03T21:52:52-04:00
+- **map generated:** 2026-09-04T01:53:02+00:00
 - **tracked files:** 29
 
 ## Tech Stack
