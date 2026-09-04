@@ -13,11 +13,22 @@ from check_article import (  # noqa: E402
 )
 import call_llm as call_llm_module  # noqa: E402
 from call_llm import PROVIDERS  # noqa: E402
+import collect_keyword_planner as keyword_planner_module  # noqa: E402
 from collect_serper import (  # noqa: E402
     SerperError,
     collect_queries,
     normalize_response,
 )
+from collect_search_console import (  # noqa: E402
+    _atomic_write_json,
+    _check_output_paths,
+    _query_demand_rows,
+    normalize_rows as normalize_gsc_rows,
+    parse_dimensions,
+    query_search_analytics,
+    validate_window,
+)
+from collect_keyword_planner import build_request, normalize_results  # noqa: E402
 from generate_article import persist_checked_article  # noqa: E402
 from import_demand import build_demand_document  # noqa: E402
 from score_article import (  # noqa: E402
@@ -562,6 +573,155 @@ def test_serper_difficulty_is_optional_raw_evidence_but_not_scoreable_without_ed
     result = score_candidate(candidate)
     assert result["status"] == "needs-data"
     assert result["opportunity_score"] is None
+
+
+def test_search_console_request_is_final_web_data():
+    requests = []
+
+    class Query:
+        def execute(self):
+            return {"rows": []}
+
+    class Analytics:
+        def query(self, **kwargs):
+            requests.append(kwargs)
+            return Query()
+
+    class Service:
+        def searchanalytics(self):
+            return Analytics()
+
+    assert (
+        query_search_analytics(
+            Service(),
+            "sc-domain:example.com",
+            "2026-01-01",
+            "2026-01-30",
+            ["query"],
+            100,
+        )
+        == []
+    )
+    body = requests[0]["body"]
+    assert body["type"] == "web"
+    assert body["dataState"] == "final"
+    assert body["dimensions"] == ["query"]
+
+
+def test_search_console_validation_and_query_aggregation():
+    assert parse_dimensions("query,page") == ["query", "page"]
+    validate_window(1, 25_000)
+    try:
+        parse_dimensions("query,unknown")
+    except ValueError as exc:
+        assert "unsupported" in str(exc)
+    else:
+        raise AssertionError("unknown Search Console dimensions must be rejected")
+
+    rows = normalize_gsc_rows(
+        [
+            {"keys": ["crm", "/one"], "clicks": 2, "impressions": 10, "position": 4},
+            {"keys": ["crm", "/two"], "clicks": 1, "impressions": 5, "position": 8},
+        ],
+        ["query", "page"],
+    )
+    aggregated = _query_demand_rows(rows, ["query", "page"])
+    assert aggregated == [
+        {
+            "query": "crm",
+            "clicks": 3.0,
+            "impressions": 15.0,
+            "ctr": 0.2,
+            "position": 5.333333333333333,
+        }
+    ]
+
+
+def test_keyword_planner_normalization_preserves_paid_semantics():
+    class EnumValue:
+        name = "LOW"
+
+    class Metrics:
+        avg_monthly_searches = 1234
+        competition = EnumValue()
+        competition_index = 17
+        low_top_of_page_bid_micros = 100000
+
+    class Idea:
+        text = "crm for photographers"
+        keyword_idea_metrics = Metrics()
+
+    rows = normalize_results([Idea()])
+    assert rows == [
+        {
+            "keyword": "crm for photographers",
+            "avg_monthly_searches": 1234,
+            "competition": "LOW",
+            "competition_index": 17,
+            "low_top_of_page_bid_micros": 100000,
+        }
+    ]
+
+
+def test_keyword_planner_request_uses_explicit_seed_and_geo():
+    from types import SimpleNamespace
+
+    class FakeClient:
+        enums = SimpleNamespace(
+            KeywordPlanNetworkEnum=SimpleNamespace(GOOGLE_SEARCH="search")
+        )
+
+        def get_type(self, name):
+            assert name == "GenerateKeywordIdeasRequest"
+            return SimpleNamespace(
+                keyword_seed=SimpleNamespace(keywords=[]),
+                keyword_and_url_seed=SimpleNamespace(keywords=[], url=""),
+                url_seed=SimpleNamespace(url=""),
+                geo_target_constants=[],
+            )
+
+    request = build_request(
+        FakeClient(),
+        "123-456-7890",
+        "2840",
+        "1000",
+        "GOOGLE_SEARCH",
+        ["household bill tracker"],
+        None,
+    )
+    assert request.customer_id == "1234567890"
+    assert request.language == "languageConstants/1000"
+    assert request.geo_target_constants == ["geoTargetConstants/2840"]
+    assert request.keyword_seed.keywords == ["household bill tracker"]
+    assert request.keyword_plan_network == "search"
+
+
+def test_evidence_writes_are_atomic_and_do_not_overwrite_by_default(tmp_path):
+    output = tmp_path / "evidence.json"
+    _atomic_write_json(output, {"schema_version": "test.v1"})
+    assert json.loads(output.read_text(encoding="utf-8"))["schema_version"] == "test.v1"
+    try:
+        _check_output_paths([output])
+    except SystemExit as exc:
+        assert "--force" in str(exc)
+    else:
+        raise AssertionError("existing evidence must require explicit overwrite")
+    _atomic_write_json(output, {"schema_version": "test.v2"}, force=True)
+    assert json.loads(output.read_text(encoding="utf-8"))["schema_version"] == "test.v2"
+    assert not list(tmp_path.glob("*.tmp"))
+
+
+def test_keyword_planner_missing_credentials_fails_before_artifact_creation(
+    monkeypatch,
+):
+    for name in keyword_planner_module.REQUIRED_ENV:
+        monkeypatch.delenv(name, raising=False)
+    try:
+        keyword_planner_module._required_environment()
+    except RuntimeError as exc:
+        assert "GOOGLE_ADS_DEVELOPER_TOKEN" in str(exc)
+    else:
+        raise AssertionError("Keyword Planner must fail closed without credentials")
 
 
 def test_serper_counts_alone_cannot_be_editorial_difficulty():

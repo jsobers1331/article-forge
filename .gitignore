@@ -8,6 +8,10 @@ discovery-report.*.json
 serp-snapshot.*.json
 serp/*.json
 serp/.cache/
+gsc-snapshot.*.json
+keyword-planner-snapshot.*.json
+demand-search-console.*.json
+demand-keyword-planner.*.json
 output/*.md
 !output/.gitkeep
 output/.quarantine/

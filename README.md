@@ -99,6 +99,8 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, and style signals. Run before publishing every draft; human meaning review remains required. |
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
 | `scripts/collect_serper.py` | Direct personal Serper adapter: collects timestamped Google organic results, hosts, snippets, People Also Ask, related searches, visible SERP features, and raw intent signals into a disk-backed `article-forge.serp.v1` evidence record. It never calculates Google keyword difficulty. |
+| `scripts/collect_search_console.py` | Direct read-only Search Console adapter: collects final web query/page data into `article-forge.gsc.v1` and can aggregate it into scorer-ready site-opportunity demand evidence. |
+| `scripts/collect_keyword_planner.py` | Direct Google Ads Keyword Planner adapter: collects average monthly searches and paid advertiser competition into `article-forge.keyword-planner.v1`, with optional normalized market-demand output. |
 | `scripts/import_demand.py` | Normalizes Keyword Planner or Search Console CSV/JSON exports while preserving market-demand versus site-opportunity semantics and source units. |
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
@@ -150,6 +152,49 @@ Keyword Planner records are market-demand observations. Search Console records
 are site-opportunity observations for the selected property and period. The
 importer preserves raw units and paid-competition fields; normalized scores are
 relative to the supplied candidate set.
+
+## Live Google demand connectors
+
+The connectors load credentials from the local project `.env`, never write them
+to evidence files, and refuse to overwrite an existing artifact unless
+`--force` is supplied. They are collectors, not rank predictors: Search
+Console measures the selected site's visibility, while Keyword Planner reports
+an approximate market search signal and paid advertiser competition.
+
+After Search Console OAuth is configured:
+
+```bash
+python scripts/collect_search_console.py --config site-config.<yourproject>.json \
+  --days 90 --dimensions query,page \
+  --out gsc-snapshot.<yourproject>.json \
+  --demand-out demand-search-console.<yourproject>.json
+```
+
+The Search Console artifact requests `type=web` and `dataState=final`, records
+the property, date range, retrieval time, dimensions, and row limit, and
+aggregates query/page rows when producing the optional demand document. The
+default property is `sc-domain:<domain>`; set
+`research.search_console.property` in a project config when a URL-prefix
+property is required. Use `--authorize` once with a Desktop OAuth client and
+the read-only Search Console scope.
+
+Keyword Planner requires a Google Ads developer token plus OAuth credentials,
+a customer ID, and sometimes a manager login customer ID. Supply an explicit
+seed and Google Ads geo target; no site-wide crawl is started implicitly:
+
+```bash
+python scripts/collect_keyword_planner.py \
+  --config site-config.<yourproject>.json \
+  --seed "what is a [category]" --seed "[category] for [audience]" \
+  --geo-target-id 2840 --language-id 1000 \
+  --out keyword-planner-snapshot.<yourproject>.json \
+  --demand-out demand-keyword-planner.<yourproject>.json
+```
+
+Keyword Planner's `competition` and `competition_index` are paid advertising
+fields. They must remain in `paid_competition`; Article Forge requires a
+separate five-result organic SERP sample plus editorial difficulty evidence
+before an opportunity can be scored.
 
 After publication, use [`FEEDBACK_LOOP.md`](FEEDBACK_LOOP.md) to collect
 outcomes and recalibrate the opportunity weights. The feedback loop is
@@ -262,14 +307,14 @@ score was raised by adding anything unverifiable.
 
 ## What this does NOT do
 
-- It does not check real keyword search volume without an imported demand
-  record — validate the topic backlog against Google Search Console, Keyword
-  Planner, or similar before committing writing time to a topic.
+- It does not guarantee market demand or rankings — use the live Search Console
+  and Keyword Planner connectors (or reviewed exports) to add demand evidence
+  before committing writing time to a topic.
 - It does not fact-check the article against the live site — that's on you,
   via `verified_facts`, `claim_evidence`, and the pre-publish gate.
-- It does not connect directly to Search Console or Keyword Planner APIs, or a
-  CMS. The demand importer accepts exports; direct API integrations remain
-  provider-specific and human-owned. Serper collection is available through
-  the direct personal adapter described above.
+- It does not connect to a CMS or publish anything. Google API connectors are
+  available for evidence capture, but credentials, Google Ads developer-token
+  approval, property selection, seed selection, editorial difficulty review,
+  and publication remain human-owned.
 - It does not publish anything — all-PASS output lands in `output/` as markdown
   for you to review and place into your own site/CMS.

@@ -48,11 +48,14 @@ an instruction to auto-write anything. Nothing in `discovery_snapshot.json`
 or its report is ever wired into `generate_prompt.py`'s template — that
 pipeline only ever reads from `verified_facts`.
 
-`import_demand.py` normalizes Keyword Planner exports as market-demand
-records and Search Console exports as site-opportunity records. It preserves
-the original units and paid-competition fields; normalized scores are only
-relative to the imported candidate set. Search Console data cannot be relabeled
-as market searches.
+`collect_search_console.py` can collect final web data through the read-only
+Search Console API and optionally aggregate it into normalized site-opportunity
+records. `collect_keyword_planner.py` can collect average monthly searches and
+paid advertiser competition through Google Ads when the account has the
+required developer token and OAuth access. `import_demand.py` remains the
+export path for reviewed CSV/JSON files. All paths preserve original units and
+source roles; Search Console data cannot be relabeled as market searches, and
+Google Ads competition cannot be relabeled as organic difficulty.
 
 ## Step 0: identity fields only (no verified_facts required yet)
 
@@ -166,7 +169,9 @@ demand separately from organic competition: Search Console impressions/clicks
 are site-performance signals, Keyword Planner competition is advertiser
 competition, and neither alone proves organic difficulty. The scorer returns
 `needs-data` unless measured demand and at least five organic SERP observations
-are present; it never manufactures a volume or “low competition” label.
+are present; it never manufactures a volume or “low competition” label. A
+live connector passing authentication still does not prove that a property has
+search demand: a valid property can legitimately return zero rows.
 
 Manual, always. Add it to `site-config.<project>.json` like any other
 backlog entry; optionally note where it came from:

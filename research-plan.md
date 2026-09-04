@@ -21,9 +21,11 @@ keyword will rank or that a numeric difficulty score is a Google metric.
   separate personal secrets file contains `SERPER_API_KEY`. Five candidate
   queries plus one query using the existing ShootMuse config succeeded through
   the adapter, and a second run returned five cache hits.
-- Search Console and Keyword Planner credentials are not currently available
-  for direct API calls. Implement import-ready demand records rather than
-  inventing OAuth or silently substituting another account.
+- Search Console has a direct read-only OAuth connector and has been live
+  verified against the owner's authorized properties. Google Ads Keyword
+  Planner now has a direct connector, but this workstation has no
+  `GOOGLE_ADS_*` credentials, so live access remains unverified. The export
+  importer remains available for either provider.
 - Scores are prioritization aids. They are never ranking predictions.
 
 ## Evidence-backed recommendations
@@ -52,15 +54,18 @@ keyword will rank or that a numeric difficulty score is a Google metric.
    carry Serper evidence, intent evidence, editorial difficulty with explicit
    manual/depth/intent/freshness/first-party evidence, originality/freshness
    evidence, confidence, and clear site-signal versus market-demand semantics.
-4. Add a standard-library demand importer for Keyword Planner and Search
-   Console exports. It will preserve source units and normalize scores only
-   relative to the supplied candidate set.
+4. Add direct `scripts/collect_search_console.py` and
+   `scripts/collect_keyword_planner.py` adapters with versioned raw artifacts,
+   optional normalized demand output, safe secret handling, and fail-closed
+   credential checks. Keep the standard-library demand importer for reviewed
+   Keyword Planner and Search Console exports.
 5. Update the prompt, rules, README, example config, and regression tests so
    the opportunity brief is evidence-first and remains generalized.
-6. Run deterministic tests, Ruff, compilation, and a credential-safe smoke
-   path. The live personal Serper batch and cache-hit verification both passed;
-   continue to treat search volume, organic difficulty, rankings, and traffic
-   as separate unverified outcomes.
+6. Run deterministic tests, Ruff, compilation, and credential-safe smoke paths.
+   The live personal Serper batch/cache-hit verification and the Search Console
+   OAuth/API/URL Inspection verification passed. Keyword Planner still needs a
+   Google Ads developer token and OAuth/customer authorization before its live
+   path can be verified.
 
 ## DeepSeek convergence
 
