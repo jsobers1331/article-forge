@@ -18,6 +18,7 @@ You are writing one article for {site_name} ({domain}).
 {claim_evidence}
 - Competitors to reference honestly (praise them where they genuinely win), with their real URL — link to it in Markdown the first time you name each one: {competitors}
 - Existing site pages you can link to (Markdown, relative paths): {existing_pages}
+- Article image policy (apply when preparing the accompanying image prompt and asset): {article_image_policy}
 - Current month/year for the dateline: {current_month_year}
 
 ## This article
@@ -50,5 +51,6 @@ You are writing one article for {site_name} ({domain}).
 19. Never describe a topic as "high volume," "low competition," or likely to rank unless the opportunity brief contains the relevant measured field and source. Paid advertiser competition is not organic competition. The opportunity score is a prioritization aid, never a ranking prediction.
 20. Treat `intent_evidence.intent_hypothesis` as a reviewable hypothesis, not fact. Preserve mixed intent when the observed signals disagree. Treat `organic_competition.editorial_difficulty` as an editorial estimate only; if it is absent, do not invent one from result counts, host counts, or total-result strings.
 21. Use `content_fit.original_angle`, `content_fit.unanswered_question`, `content_fit.limitation`, `content_fit.source_dates`, and `evidence_confidence` to shape a genuinely useful brief. If the brief lacks a first-party product fact, verified claim, original angle, limitation, unanswered question, or current evidence, omit the unsupported claim and surface the gap for human review.
+22. If an image accompanies this article, use an AI-generated editorial image for tone or context when the policy allows it. Use a real, topic-specific screenshot only when the image must prove a real product feature. Never reuse a prior article asset without running `scripts/check_image.py`, and never use image alt text as keyword stuffing.
 
 Plan this variation silently before drafting, not in a rewrite pass afterward. Output only the full article in markdown, including the H1; never output your planning notes or an opening-function plan. Note: this prompt-level instruction alone is not a guarantee — `scripts/check_article.py`'s structural-repetition check and a separate fresh-context audit pass (see RULES.md §12) are the actual verification, not this instruction by itself.

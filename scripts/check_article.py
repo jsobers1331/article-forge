@@ -359,6 +359,42 @@ def check_h1_present(text, target_query):
     return "PASS", f"H1 matches target query closely ({overlap:.0%} word overlap)"
 
 
+def check_visible_dateline(text):
+    """Require the freshness signal the prompt asks the renderer to expose.
+
+    A config date by itself is not visible to a reader or crawler. Keeping this
+    check beside the H1 also catches a model that silently drops the dateline
+    while leaving the rest of the draft intact.
+    """
+    h1 = re.search(r"^#\s+.+$", text, re.MULTILINE)
+    if not h1:
+        return "FAIL", "cannot verify dateline without an H1"
+    after_h1 = text[h1.end() :].splitlines()[:5]
+    if not any(
+        re.search(r"\blast updated\b", line, re.IGNORECASE) for line in after_h1
+    ):
+        return (
+            "FAIL",
+            "missing visible 'Last updated' dateline immediately after the H1",
+        )
+    return "PASS", "visible 'Last updated' dateline is present after the H1"
+
+
+PROCESS_INTENT = re.compile(
+    r"\b(?:how to|book(?:ing)?|process|step(?:s)?|setup|install|plan)\b",
+    re.IGNORECASE,
+)
+
+
+def check_process_structure(text, target_query):
+    """Require numbered steps when the target query describes a process."""
+    if not PROCESS_INTENT.search(target_query):
+        return "PASS", "target query does not signal a process article"
+    if re.search(r"^\s*\d+\.\s", text, re.MULTILINE):
+        return "PASS", "process article contains a numbered step list"
+    return "FAIL", "process-intent article must contain a numbered step list"
+
+
 STOPWORDS = {
     "the",
     "a",
@@ -521,6 +557,7 @@ def run_checks(text, article_type, target_query, config):
         ("Visible opening-function labels", check_visible_function_labels(text)),
         ("Internal planning artifacts", check_internal_planning_artifacts(text)),
         ("H1 matches target query", check_h1_present(text, target_query)),
+        ("Visible dateline", check_visible_dateline(text)),
         ("Bare URLs (not Markdown links)", check_bare_urls(text)),
         (
             "Coming-soon features",
@@ -531,6 +568,7 @@ def run_checks(text, article_type, target_query, config):
         ("Word count", check_word_count(text, article_type)),
         ("Banned words", check_banned_words(text, voice.get("extra_ban_words", []))),
         ("Structured element present", check_structured_element(text)),
+        ("Process structure", check_process_structure(text, target_query)),
         ("Tier-gating mentions", check_tier_gated_mentions(text, real_differentiators)),
         ("Structural repetition (heuristic)", check_structural_repetition(text)),
     ]

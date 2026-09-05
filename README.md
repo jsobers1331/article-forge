@@ -36,6 +36,11 @@ $0.006–$0.02/image, not the $0.10+ estimates the initial cross-model consultat
 verify cost/model claims against a real test call the same way this framework verifies
 content claims against `verified_facts`.
 
+AI-generated editorial heroes are supported when they are the right contextual image for
+the article. The image path is guarded separately from article prose: generated assets
+must be converted to WebP/AVIF, carry descriptive alt text, pass duplicate and dimension
+checks, and still receive a human visual QC pass before publication.
+
 ## Quick start
 
 This repo is shared across every product you use it for — name your config per project so
@@ -83,6 +88,17 @@ python scripts/generate_prompt.py --config site-config.<yourproject>.json --topi
 python scripts/generate_article.py --config site-config.<yourproject>.json --topic-index 0 --provider deepseek
 ```
 
+Generate and gate an accompanying editorial image:
+
+```bash
+python scripts/generate_image.py \
+  --prompt-file prompts/image-prompt.md \
+  --out output/images/article-hero.webp \
+  --alt "A topic-specific description of the visible scene" \
+  --against output/images \
+  --receipt output/images/article-hero.quality.json
+```
+
 ## Files
 
 | Path | Purpose |
@@ -95,7 +111,8 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `scripts/generate_article.py` | Render prompt → call provider → run the full gate → atomically save only an all-PASS draft, or quarantine it with a receipt. |
 | `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
-| `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
+| `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default), converts it to WebP, and runs the image quality/duplicate gate. |
+| `scripts/check_image.py` | Deterministic image gate for WebP/AVIF format, dimensions, decodability, alt text, and duplicate reuse; visual QC remains human-owned. |
 | `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, and style signals. Run before publishing every draft; human meaning review remains required. |
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
 | `scripts/collect_serper.py` | Direct personal Serper adapter: collects timestamped Google organic results, hosts, snippets, People Also Ask, related searches, visible SERP features, and raw intent signals into a disk-backed `article-forge.serp.v1` evidence record. It never calculates Google keyword difficulty. |

@@ -68,6 +68,15 @@
   },
   "current_month_year": "Month Year \u2014 set this per generation",
   "facts_last_verified": "YYYY-MM-DD \u2014 set this whenever you (re)confirm verified_facts against the live site. scripts/check_article.py WARNs once this is more than 30 days old.",
+  "article_image_policy": {
+    "mode": "ai_generated_for_editorial_context",
+    "hero_required": true,
+    "max_images_per_article": 2,
+    "avoid_duplicate_assets": true,
+    "minimum_dimensions": "1200x800",
+    "output_format": "webp",
+    "alt_text_required": true
+  },
   "research": {
     "search_console": {
       "property": ""

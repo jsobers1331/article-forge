@@ -6,6 +6,10 @@ You are generating one supporting image for an article on {site_name}.
 - Placement: {placement} (e.g. "hero", "mood — <section name>")
 - This image supports the article; it is NOT a product screenshot and must not imply
   one. Do not attempt to render any app UI, dashboard, or interface.
+- Make the composition distinct from prior article assets: vary the camera angle,
+  subject distance, and named props while keeping the site's palette and light quality
+  coherent. Run `scripts/check_image.py` after export with the final alt text and prior
+  asset directory.
 
 ## Hard rules (see IMAGES.md for full rationale)
 
