@@ -25,6 +25,7 @@ import argparse
 import json
 import math
 import re
+from datetime import datetime, timezone
 from urllib.parse import urlsplit
 
 # Consensus is deliberately conservative. A small SERP sample is not enough to
@@ -40,6 +41,18 @@ WEIGHTS = {
     "eeat": 15,
     "linking": 10,
 }
+
+# These weights deliberately exclude SERP-only pillars. A report without a
+# current organic snapshot must still be useful, but it must not pretend that
+# editorial checks are a ranking prediction.
+READINESS_WEIGHTS = {
+    "structure_extractability": 30,
+    "eeat": 30,
+    "linking": 20,
+    "gate_compliance": 20,
+}
+
+REPORT_SCHEMA_VERSION = "article-forge.report.v1"
 
 
 def _norm(s):
@@ -304,12 +317,365 @@ def score_draft(draft_text, snapshot, article_type, verified_facts, domain=None)
     }
 
 
+def _gate_compliance_score(checks):
+    """Turn the deterministic gate result into a report-only signal.
+
+    WARN is intentionally partial credit rather than a pass. This score is
+    not used to decide whether a draft may be published; ``check_article``
+    remains the authority for that decision.
+    """
+    if not checks:
+        return None
+    points = {"PASS": 1.0, "WARN": 0.5, "FAIL": 0.0}
+    return (
+        100.0 * sum(points.get(status, 0.0) for _, (status, _) in checks) / len(checks)
+    )
+
+
+def score_readiness(draft_text, article_type, verified_facts, domain=None, checks=None):
+    """Score the evidence available before a SERP consensus snapshot exists.
+
+    This is intentionally a separate score from :func:`score_draft`. It gives
+    generation runs a useful deterministic result while making the unavailable
+    intent, topical, and entity evidence explicit instead of treating missing
+    research as a zero-quality article.
+    """
+    del article_type  # The pre-SERP score cannot prove query intent alignment.
+    verified_facts = verified_facts or {}
+    eeat_score = score_eeat(
+        draft_text,
+        verified_facts.get("has_real_usage_stats", False),
+        verified_facts.get("has_real_testimonials", False),
+        verified_facts.get("has_real_sources", False),
+        verified_facts.get("has_real_first_hand_evidence", False),
+    )
+    linking_score, linking_notes = score_linking(draft_text, domain)
+    pillars = {
+        "structure_extractability": score_structure_extractability(draft_text),
+        "eeat": eeat_score,
+        "linking": linking_score,
+    }
+    weights = dict(READINESS_WEIGHTS)
+    gate_score = _gate_compliance_score(checks)
+    if gate_score is not None:
+        pillars["gate_compliance"] = gate_score
+    else:
+        weights.pop("gate_compliance")
+
+    weight_total = sum(weights.values())
+    total = sum(pillars[name] * weight / 100 for name, weight in weights.items())
+    unassessed_pillars = [
+        "intent_match",
+        "topical_comprehensiveness",
+        "entity_coverage",
+    ]
+    if gate_score is None:
+        unassessed_pillars.append("gate_compliance")
+    return {
+        "total_score": round(total * 100 / weight_total, 1),
+        "pillars": {name: round(score, 1) for name, score in pillars.items()},
+        "topical_gaps": [],
+        "entity_gaps": [],
+        "linking_notes": linking_notes,
+        "consensus_ready": False,
+        "consensus_min_pages": CONSENSUS_MIN_PAGES,
+        "hard_gate_failed": bool(
+            checks and any(status == "FAIL" for status, _ in checks)
+        ),
+        "score_kind": "readiness",
+        "evidence_status": "serp_snapshot_missing",
+        "score_semantics": (
+            "Pre-SERP editorial readiness based only on deterministic checks and "
+            "configured evidence; not a ranking or traffic prediction."
+        ),
+        "assessed_pillars": list(pillars),
+        "unassessed_pillars": unassessed_pillars,
+    }
+
+
+def _check_payload(checks):
+    return [
+        {"name": name, "status": status, "detail": detail}
+        for name, (status, detail) in (checks or [])
+    ]
+
+
+_PILLAR_FIXES = {
+    "intent_match": "Align the article format and answer depth with the observed query intent.",
+    "topical_comprehensiveness": "Address the highest-frequency consensus subtopics that are relevant and supported by verified facts.",
+    "entity_coverage": "Define the relevant entities readers need to understand, without adding unsupported claims.",
+    "structure_extractability": "Strengthen the answer capsule, question-led headings, and a real table or numbered process so key answers are easy to extract.",
+    "eeat": "Add only verifiable dates, first-party evidence, source links, or real usage evidence; never fill gaps with invented proof.",
+    "linking": "Review link destinations and anchor relevance; keep links useful, safe, and connected to the article's next reader action.",
+    "gate_compliance": "Resolve every warning or failure and rerun the full article gate before publication.",
+}
+
+
+def build_improvements(score_result, checks=None, snapshot_supplied=False):
+    """Build prioritized, evidence-linked actions for a generated article."""
+    improvements = []
+    payload = _check_payload(checks)
+    for check in payload:
+        if check["status"] == "PASS":
+            continue
+        priority = "P0" if check["status"] == "FAIL" else "P1"
+        improvements.append(
+            {
+                "priority": priority,
+                "category": "publish_gate",
+                "issue": f"{check['name']} is {check['status']}: {check['detail']}",
+                "fix": "Resolve this gate result, then regenerate or rerun check_article.py.",
+                "evidence": check["detail"],
+            }
+        )
+
+    has_gate_failure = any(check["status"] == "FAIL" for check in payload)
+    if not snapshot_supplied and not has_gate_failure:
+        improvements.append(
+            {
+                "priority": "P1",
+                "category": "research_evidence",
+                "issue": "No organic SERP snapshot was supplied, so intent, topical consensus, and entity coverage were not assessed.",
+                "fix": "Collect a current serp_snapshot.json with at least five independent organic domains, then rerun the report.",
+                "evidence": f"Required independent-domain sample: {CONSENSUS_MIN_PAGES}; supplied: 0.",
+            }
+        )
+    elif (
+        snapshot_supplied
+        and not score_result.get("consensus_ready")
+        and not has_gate_failure
+    ):
+        supplied = score_result.get("competitor_count", 0)
+        improvements.append(
+            {
+                "priority": "P1",
+                "category": "research_evidence",
+                "issue": "The supplied SERP snapshot is below the independent-domain consensus threshold.",
+                "fix": f"Collect at least {CONSENSUS_MIN_PAGES} independent organic domains and rerun the report.",
+                "evidence": f"Independent domains supplied: {supplied}; required: {CONSENSUS_MIN_PAGES}.",
+            }
+        )
+
+    for gap in score_result.get("topical_gaps", [])[:10]:
+        improvements.append(
+            {
+                "priority": "P1",
+                "category": "topical_gap",
+                "issue": f"Consensus subtopic is missing: {gap}",
+                "fix": "Add a genuinely useful answer only if it fits the query and is supported by verified facts.",
+                "evidence": "Observed in the supplied independent-domain SERP consensus.",
+            }
+        )
+    for gap in score_result.get("entity_gaps", [])[:10]:
+        improvements.append(
+            {
+                "priority": "P1",
+                "category": "entity_gap",
+                "issue": f"Consensus entity is missing: {gap}",
+                "fix": "Explain the entity's relevance in plain language without inventing a relationship or claim.",
+                "evidence": "Observed in the supplied independent-domain SERP consensus.",
+            }
+        )
+    for note in score_result.get("linking_notes", []):
+        improvements.append(
+            {
+                "priority": "P2",
+                "category": "linking",
+                "issue": note,
+                "fix": _PILLAR_FIXES["linking"],
+                "evidence": note,
+            }
+        )
+
+    for pillar, score in score_result.get("pillars", {}).items():
+        if score is None or score >= 95:
+            continue
+        priority = "P0" if score < 80 else "P2"
+        improvements.append(
+            {
+                "priority": priority,
+                "category": "score_pillar",
+                "issue": f"{pillar} scored {score}/100.",
+                "fix": _PILLAR_FIXES.get(
+                    pillar, "Review this pillar against the current evidence."
+                ),
+                "evidence": f"Deterministic {score_result.get('score_kind', 'article')} scorer.",
+            }
+        )
+
+    priority_order = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
+    return sorted(improvements, key=lambda item: priority_order[item["priority"]])
+
+
+def score_for_report(
+    draft_text,
+    snapshot,
+    article_type,
+    verified_facts,
+    domain=None,
+    checks=None,
+):
+    """Return the right score mode for an always-on article report."""
+    snapshot_supplied = snapshot is not None
+    if snapshot_supplied and not isinstance(snapshot, dict):
+        raise ValueError("SERP snapshot must be a JSON object")
+    verified_facts = verified_facts or {}
+    competitors = dedupe_competitors((snapshot or {}).get("competitors", []))
+    if snapshot_supplied and len(competitors) >= CONSENSUS_MIN_PAGES:
+        result = score_draft(
+            draft_text,
+            snapshot,
+            article_type,
+            verified_facts,
+            domain=domain,
+        )
+        result.update(
+            {
+                "score_kind": "serp_parity",
+                "evidence_status": "serp_consensus_ready",
+                "score_semantics": (
+                    "Deterministic comparison with the supplied SERP snapshot; "
+                    "not a ranking or traffic prediction."
+                ),
+                "assessed_pillars": list(result["pillars"]),
+                "unassessed_pillars": [],
+                "competitor_count": len(competitors),
+            }
+        )
+    else:
+        result = score_readiness(
+            draft_text,
+            article_type,
+            verified_facts,
+            domain=domain,
+            checks=checks,
+        )
+        result["evidence_status"] = (
+            "serp_snapshot_insufficient"
+            if snapshot_supplied
+            else "serp_snapshot_missing"
+        )
+        if snapshot_supplied:
+            result["score_semantics"] = (
+                "Pre-consensus editorial readiness; the supplied SERP snapshot "
+                "does not contain enough independent domains for topical/entity "
+                "consensus, so this is not a ranking or traffic prediction."
+            )
+        result["competitor_count"] = len(competitors)
+    result["improvements"] = build_improvements(
+        result, checks=checks, snapshot_supplied=snapshot_supplied
+    )
+    if checks:
+        result["hard_gate_failed"] = result["hard_gate_failed"] or any(
+            status == "FAIL" for status, _ in checks
+        )
+    return result
+
+
+def build_article_report(
+    draft_text,
+    config,
+    topic,
+    checks,
+    snapshot=None,
+    draft_filename=None,
+    snapshot_source=None,
+):
+    """Create a durable, safe-to-share report for every generated draft."""
+    score = score_for_report(
+        draft_text,
+        snapshot,
+        topic.get("type", "standard"),
+        config.get("verified_facts", {}),
+        domain=config.get("domain"),
+        checks=checks,
+    )
+    non_pass = [item for item in _check_payload(checks) if item["status"] != "PASS"]
+    improvements = score["improvements"]
+    score_payload = {
+        key: value for key, value in score.items() if key != "improvements"
+    }
+    return {
+        "schema_version": REPORT_SCHEMA_VERSION,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "draft_filename": draft_filename,
+        "target_query": topic.get("target_query"),
+        "article_type": topic.get("type", "standard"),
+        "serp_evidence": {
+            "supplied": snapshot is not None,
+            "source": snapshot_source,
+            "keyword": (snapshot or {}).get("keyword") if snapshot else None,
+            "schema_version": (snapshot or {}).get("schema_version")
+            if snapshot
+            else None,
+            "competitor_count": score.get("competitor_count", 0),
+            "consensus_min_pages": score["consensus_min_pages"],
+        },
+        "score": score_payload,
+        "gate_checks": _check_payload(checks),
+        "what_to_fix_next": improvements,
+        "score_status": "improvements_available"
+        if improvements
+        else "no_automated_gaps_found",
+        "human_review_required": [
+            "Confirm every claim, date, pricing or tier statement, and CTA against current first-party sources.",
+            "Review originality, usefulness, voice, legal meaning, and any editorial image/alt text before publication.",
+        ],
+        "publication_status": "blocked" if non_pass else "ready_for_human_review",
+        "limits": [
+            "An automated gate and score do not prove factual accuracy, originality, legal safety, indexing, or ranking.",
+            "A SERP-parity score is evidence-relative to the supplied snapshot and is not a ranking probability.",
+        ],
+    }
+
+
+def render_report_markdown(report):
+    """Render a concise human-readable companion to the JSON report."""
+    score = report["score"]
+    lines = [
+        "# Article Forge report",
+        "",
+        f"- Score: **{score['total_score']}/100** ({score['score_kind']})",
+        f"- Evidence: **{score['evidence_status']}**",
+        f"- Score meaning: {score['score_semantics']}",
+        f"- Query: {report.get('target_query') or 'not supplied'}",
+        f"- Publication status: **{report['publication_status']}**",
+        "",
+        "## Pillars",
+        "",
+    ]
+    for pillar, value in score.get("pillars", {}).items():
+        lines.append(f"- {pillar}: {value}/100")
+    lines.extend(["", "## What to fix next", ""])
+    improvements = report.get("what_to_fix_next", [])
+    if improvements:
+        for item in improvements:
+            lines.append(
+                f"- **{item['priority']} — {item['category']}:** {item['issue']} "
+                f"Fix: {item['fix']}"
+            )
+    else:
+        lines.append(
+            "- No automated improvement was identified in the measured evidence."
+        )
+    lines.extend(["", "## Gate checks", ""])
+    for check in report.get("gate_checks", []):
+        lines.append(f"- **{check['status']}** {check['name']}: {check['detail']}")
+    lines.extend(["", "## Human review required", ""])
+    lines.extend(f"- {item}" for item in report.get("human_review_required", []))
+    lines.extend(["", "## Limits", ""])
+    lines.extend(f"- {item}" for item in report.get("limits", []))
+    return "\n".join(lines) + "\n"
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Score a draft against a SERP snapshot"
     )
     parser.add_argument("--draft", required=True)
-    parser.add_argument("--snapshot", required=True, help="Path to serp_snapshot.json")
+    parser.add_argument(
+        "--snapshot", help="Optional path to serp_snapshot.json for SERP-parity scoring"
+    )
     parser.add_argument(
         "--config",
         required=True,
@@ -322,12 +688,14 @@ def main():
 
     with open(args.draft, "r", encoding="utf-8") as f:
         draft_text = f.read()
-    with open(args.snapshot, "r", encoding="utf-8") as f:
-        snapshot = json.load(f)
+    snapshot = None
+    if args.snapshot:
+        with open(args.snapshot, "r", encoding="utf-8") as f:
+            snapshot = json.load(f)
     with open(args.config, "r", encoding="utf-8") as f:
         config = json.load(f)
 
-    result = score_draft(
+    result = score_for_report(
         draft_text,
         snapshot,
         args.type,
@@ -336,7 +704,7 @@ def main():
     )
 
     print(
-        f"TOTAL SCORE: {result['total_score']}/100"
+        f"TOTAL SCORE: {result['total_score']}/100 [{result['score_kind']}]"
         + (
             "  [HARD GATE FAILED — wrong format for search intent]"
             if result["hard_gate_failed"]
@@ -344,7 +712,8 @@ def main():
         )
     )
     for pillar, score in result["pillars"].items():
-        print(f"  {pillar}: {score}/100 (weight {WEIGHTS[pillar]}%)")
+        weight = WEIGHTS.get(pillar, READINESS_WEIGHTS.get(pillar, 0))
+        print(f"  {pillar}: {score}/100 (weight {weight}%)")
     if result["topical_gaps"]:
         print(
             "\nTopical gaps (consensus subtopics we don't cover, highest-frequency first):"
@@ -359,6 +728,11 @@ def main():
         print("\nLinking:")
         for n in result["linking_notes"]:
             print(f"  - {n}")
+
+    if result["improvements"]:
+        print("\nWhat to fix next:")
+        for item in result["improvements"][:10]:
+            print(f"  - [{item['priority']}] {item['fix']}")
 
     print(json.dumps(result, indent=2))
 

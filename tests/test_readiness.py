@@ -35,14 +35,17 @@ from collect_search_console import (  # noqa: E402
 )
 from collect_keyword_planner import build_request, normalize_results  # noqa: E402
 from generate_article import persist_checked_article  # noqa: E402
+import generate_article as generate_article_module  # noqa: E402
 from generate_prompt import render as render_article_prompt  # noqa: E402
 from import_demand import build_demand_document  # noqa: E402
 from score_article import (  # noqa: E402
     CONSENSUS_MIN_PAGES,
     _phrase_covered,
+    build_article_report,
     consensus_items,
     score_eeat,
     score_linking,
+    score_for_report,
 )
 from score_opportunities import score_candidate  # noqa: E402
 
@@ -382,6 +385,214 @@ def test_all_pass_article_is_saved_and_existing_draft_is_protected(tmp_path):
         pass
     else:
         raise AssertionError("existing draft should require --force")
+
+
+def test_report_always_scores_without_mislabeling_missing_serp_evidence():
+    article = """# How to choose a photography CRM
+
+*Last updated: September 4, 2026.*
+
+Choosing a photography CRM means comparing the workflow, evidence, and support a studio actually needs. Start with the client record, then check whether inquiries, sessions, invoices, and follow-up live in one reliable place. A useful decision should fit the studio's current process rather than promising a generic solution.
+
+## Which workflow should the CRM support?
+
+The best choice follows the work from first inquiry to delivery. Review the handoffs before choosing a tool.
+
+1. List the client details you must keep current.
+2. Map the inquiry, booking, and follow-up steps.
+3. Test the workflow with a real example.
+
+## What should you compare before choosing?
+
+Compare the features that change daily work, not a long checklist of vague benefits.
+
+| Area | Question |
+| --- | --- |
+| Workflow | Does it fit the studio's process? |
+| Evidence | Can you verify the claim? |
+
+We tested this workflow on 2026-09-03. Read the [pricing page](https://example.com/pricing) before deciding.
+"""
+    result = score_for_report(
+        article,
+        None,
+        "pillar",
+        valid_config()["verified_facts"],
+        domain="example.com",
+        checks=[("gate", ("PASS", "ok"))],
+    )
+    assert result["score_kind"] == "readiness"
+    assert result["evidence_status"] == "serp_snapshot_missing"
+    assert 0 <= result["total_score"] <= 100
+    assert result["unassessed_pillars"] == [
+        "intent_match",
+        "topical_comprehensiveness",
+        "entity_coverage",
+    ]
+    assert any(
+        item["category"] == "research_evidence" for item in result["improvements"]
+    )
+
+
+def test_insufficient_serp_report_uses_actual_domain_count():
+    snapshot = {
+        "competitors": [competitor(f"{letter}.example.org") for letter in "abcd"]
+    }
+    result = score_for_report(
+        "# Draft\n\n*Last updated: September 2026.*",
+        snapshot,
+        "standard",
+        None,
+    )
+    evidence = next(
+        item["evidence"]
+        for item in result["improvements"]
+        if item["category"] == "research_evidence"
+    )
+    assert "supplied: 4" in evidence
+    assert result["evidence_status"] == "serp_snapshot_insufficient"
+
+
+def test_serp_report_turns_consensus_gaps_into_fix_actions():
+    snapshot = {
+        "serp_intent": "informational",
+        "competitors": [
+            competitor(
+                f"{letter}.example.org",
+                subtopics=["budget planning", "privacy settings"],
+                entities=["YNAB", "Monarch"],
+            )
+            for letter in "abcde"
+        ],
+    }
+    article = """# How to choose a photography CRM
+
+*Last updated: September 4, 2026.*
+
+This guide covers budget planning for choosing a photography CRM and explains the workflow a studio should review before committing.
+
+## What should you compare?
+
+Start with budget planning and test the workflow against a real example.
+"""
+    result = score_for_report(
+        article,
+        snapshot,
+        "pillar",
+        valid_config()["verified_facts"],
+        domain="example.com",
+    )
+    assert result["score_kind"] == "serp_parity"
+    assert result["evidence_status"] == "serp_consensus_ready"
+    assert result["competitor_count"] == 5
+    assert "privacy settings" in result["topical_gaps"]
+    assert "monarch" in result["entity_gaps"]
+    assert any(item["category"] == "topical_gap" for item in result["improvements"])
+    assert any(item["category"] == "entity_gap" for item in result["improvements"])
+
+
+def test_generated_article_report_is_persisted_for_pass_and_quarantine(tmp_path):
+    config_path = tmp_path / "config.json"
+    config = valid_config()
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    topic = {"target_query": "how to choose a photography CRM", "type": "pillar"}
+    report = build_article_report(
+        "# How to choose a photography CRM\n\n*Last updated: September 2026.*\n",
+        config,
+        topic,
+        [("Rule", ("PASS", "ok"))],
+    )
+
+    passed, passing_path, _ = persist_checked_article(
+        "# Draft",
+        tmp_path / "passing",
+        "draft",
+        [("Rule", ("PASS", "ok"))],
+        "prompt",
+        config_path,
+        report=report,
+    )
+    assert passed
+    passing_report = json.loads(
+        passing_path.with_suffix(".report.json").read_text(encoding="utf-8")
+    )
+    assert passing_report["score"]["total_score"] >= 0
+    assert "improvements" not in passing_report["score"]
+    assert "Score meaning:" in passing_path.with_suffix(".report.md").read_text(
+        encoding="utf-8"
+    )
+    assert passing_path.with_suffix(".report.md").exists()
+
+    blocked_report = build_article_report(
+        "# Draft", config, topic, [("Rule", ("FAIL", "placeholder found"))]
+    )
+    passed, blocked_path, _ = persist_checked_article(
+        "# Draft",
+        tmp_path / "blocked",
+        "draft",
+        [("Rule", ("FAIL", "placeholder found"))],
+        "prompt",
+        config_path,
+        report=blocked_report,
+    )
+    assert not passed
+    blocked_payload = json.loads(
+        blocked_path.with_suffix(".report.json").read_text(encoding="utf-8")
+    )
+    assert blocked_payload["publication_status"] == "blocked"
+    assert blocked_payload["what_to_fix_next"][0]["priority"] == "P0"
+    assert not any(
+        item["category"] == "research_evidence"
+        for item in blocked_payload["what_to_fix_next"]
+    )
+    assert blocked_path.with_suffix(".report.md").exists()
+
+
+def test_generate_article_cli_emits_report_on_quarantine_path(
+    tmp_path, monkeypatch, capsys
+):
+    config = valid_config()
+    config["current_month_year"] = date.today().strftime("%B %Y")
+    config["topic_backlog"] = [
+        {
+            "title": "How to choose a photography CRM",
+            "target_query": "how to choose a photography CRM",
+            "type": "pillar",
+        }
+    ]
+    config_path = tmp_path / "config.json"
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    out_dir = tmp_path / "generated"
+    monkeypatch.setattr(
+        generate_article_module, "call_llm", lambda *args, **kwargs: "# Draft"
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "generate_article.py",
+            "--config",
+            str(config_path),
+            "--topic-index",
+            "0",
+            "--provider",
+            "deepseek",
+            "--out-dir",
+            str(out_dir),
+        ],
+    )
+
+    try:
+        generate_article_module.main()
+    except SystemExit as error:
+        assert error.code == 1
+    captured = capsys.readouterr()
+    assert "Article score:" in captured.err
+    reports = list((out_dir / ".quarantine").glob("*.report.json"))
+    assert len(reports) == 1
+    report = json.loads(reports[0].read_text(encoding="utf-8"))
+    assert report["publication_status"] == "blocked"
+    assert report["score"]["score_kind"] == "readiness"
 
 
 def test_opportunity_score_requires_measured_data_and_separates_paid_competition():
