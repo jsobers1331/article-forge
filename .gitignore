@@ -5,6 +5,8 @@ site-config.*.json
 !site-config.example.json
 discovery-snapshot.*.json
 discovery-report.*.json
+opportunity-plan.*.json
+opportunity-serp.*.json
 serp-snapshot.*.json
 serp/*.json
 serp/.cache/

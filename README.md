@@ -58,15 +58,20 @@ cp site-config.example.json site-config.<yourproject>.json
 
 **Step 0 — Discovery (new project, or topic_backlog running low):** find out
 what's actually worth writing about before guessing. Needs only the identity
-fields above, not the full config — see `DISCOVERY.md` for the full
-walkthrough (seed-keyword suggestion → orchestrating-agent research →
-coverage-gap report). Skippable if you already know your topics; recommended
-otherwise.
+fields above, not the full config — see `DISCOVERY.md` for the deterministic
+coverage-gap report, or `OPPORTUNITY_PIPELINE.md` for the automatic Serper
+seed → PAA/related-query → bounded follow-up workflow. Skippable if you
+already know your topics; recommended otherwise.
 
 ```bash
 python scripts/discover_gaps.py --config site-config.<yourproject>.json --suggest-seeds
 # ... orchestrating agent researches those seeds, builds discovery_snapshot.json ...
 python scripts/discover_gaps.py --config site-config.<yourproject>.json --snapshot discovery_snapshot.json
+
+# Automatic query discovery with the configured personal Serper credential:
+python scripts/plan_opportunities.py --config site-config.<yourproject>.json \
+  --live-serp --out opportunity-plan.<yourproject>.json \
+  --serp-out opportunity-serp.<yourproject>.json
 ```
 
 Now finish filling in `site-config.<yourproject>.json` — `verified_facts` from
@@ -139,6 +144,8 @@ python scripts/generate_image.py \
 | `scripts/import_demand.py` | Normalizes Keyword Planner or Search Console CSV/JSON exports while preserving market-demand versus site-opportunity semantics and source units. |
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
+| `OPPORTUNITY_PIPELINE.md` | Automatic, bounded Serper discovery and explicit evidence limitations, including how to generate a guarded draft from a selected candidate. |
+| `scripts/plan_opportunities.py` | Two-pass opportunity planner: configured seeds → People Also Ask/related queries → cached follow-up SERPs, with deterministic discovery triage and missing-evidence reporting. |
 | `scripts/score_opportunities.py` | Score a versioned, provider-neutral opportunity dataset. Missing/stale demand or organic-competition evidence becomes `needs-data`; paid advertiser competition is never substituted for organic difficulty. Editorial difficulty, intent, fit, freshness, and evidence confidence remain explicit. |
 | `FEEDBACK_LOOP.md` | Measurement contract and review cadence for Search Console, qualified actions, conversions, indexation, and observed LLM citations after publication. |
 
@@ -150,6 +157,13 @@ candidate in the `article-forge.opportunity.v1` schema and run
 Search Console is a site signal, Keyword Planner competition is an advertising
 signal, and neither is organic ranking difficulty. A candidate without measured
 demand and a five-result organic SERP sample cannot be scored.
+
+For automatic query discovery, use `scripts/plan_opportunities.py` and select
+a candidate from its output. It can feed a selected candidate directly to
+`generate_article.py` with `--opportunity-plan` and `--candidate-id`, so the
+site config's backlog stays unchanged until you deliberately promote a topic.
+The plan's triage score is not the final opportunity score; use the evidence
+contract below before calling a topic measured or low-competition.
 
 For a live SERP evidence pass:
 

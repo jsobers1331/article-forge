@@ -185,7 +185,24 @@ def score_intent_match(draft_type, serp_intent):
 def score_structure_extractability(text):
     points = 0
     total = 4
-    first_para = text.strip().split("\n\n")[0] if text.strip() else ""
+    # The generated format requires an H1 and a visible dateline before the
+    # answer capsule. Skip those metadata blocks so the first-paragraph signal
+    # measures the actual answer, not the document wrapper.
+    first_para = ""
+    for block in text.strip().split("\n\n") if text.strip() else []:
+        candidate = block.strip()
+        candidate = re.sub(
+            r"^\s*#{1,6}\s+[^\n]+\s*$", "", candidate, flags=re.MULTILINE
+        )
+        candidate = re.sub(
+            r"^\s*[*_]?Last updated:\s*[^\n]+[*_]?\s*$",
+            "",
+            candidate,
+            flags=re.IGNORECASE | re.MULTILINE,
+        ).strip()
+        if re.search(r"\w", candidate):
+            first_para = candidate
+            break
     if (
         30
         <= len(re.findall(r"\w+", re.sub(r"^#.*$", "", first_para, flags=re.MULTILINE)))

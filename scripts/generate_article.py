@@ -123,6 +123,39 @@ def _report_paths(draft_path):
     return draft_path.with_suffix(".report.json"), draft_path.with_suffix(".report.md")
 
 
+def _topic_from_opportunity_plan(path, candidate_id):
+    """Load one discovery-plan topic without silently changing the backlog."""
+    plan_path = Path(path)
+    try:
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"could not read opportunity plan {path}: {exc}") from exc
+    if plan.get("schema_version") != "article-forge.opportunity-plan.v1":
+        raise ValueError(
+            "opportunity plan must use schema article-forge.opportunity-plan.v1"
+        )
+    if not candidate_id:
+        raise ValueError("--candidate-id is required with --opportunity-plan")
+    candidate = next(
+        (
+            item
+            for item in plan.get("candidates", [])
+            if item.get("candidate_id") == candidate_id
+        ),
+        None,
+    )
+    if not isinstance(candidate, dict) or not isinstance(candidate.get("topic"), dict):
+        raise ValueError(f"candidate {candidate_id!r} was not found in {path}")
+    topic = dict(candidate["topic"])
+    topic["opportunity"] = {
+        **(topic.get("opportunity") or {}),
+        "plan_path": str(plan_path),
+        "review_status": candidate.get("review_status"),
+        "missing_evidence": candidate.get("missing_evidence", []),
+    }
+    return topic
+
+
 def persist_checked_article(
     article,
     out_dir,
@@ -180,6 +213,11 @@ def main():
     parser.add_argument("--title")
     parser.add_argument("--query")
     parser.add_argument("--type", choices=["pillar", "standard", "supporting"])
+    parser.add_argument(
+        "--opportunity-plan",
+        help="Use a candidate from plan_opportunities.py without editing topic_backlog",
+    )
+    parser.add_argument("--candidate-id", help="candidate_id from --opportunity-plan")
     parser.add_argument("--provider", choices=sorted(PROVIDERS), required=True)
     parser.add_argument("--model")
     parser.add_argument(
@@ -193,6 +231,19 @@ def main():
     )
     args = parser.parse_args()
 
+    direct_topic_args = [
+        args.topic_index is not None,
+        bool(args.title),
+        bool(args.query),
+        bool(args.type),
+    ]
+    if args.opportunity_plan and any(direct_topic_args):
+        parser.error(
+            "--opportunity-plan cannot be combined with topic-index, title, or query"
+        )
+    if args.candidate_id and not args.opportunity_plan:
+        parser.error("--candidate-id requires --opportunity-plan")
+
     from dotenv import load_dotenv
 
     load_dotenv()
@@ -202,7 +253,11 @@ def main():
     if args.snapshot:
         with open(args.snapshot, "r", encoding="utf-8") as stream:
             snapshot = json.load(stream)
-    topic = pick_topic(config, args.topic_index, args.title, args.query, args.type)
+    topic = (
+        _topic_from_opportunity_plan(args.opportunity_plan, args.candidate_id)
+        if args.opportunity_plan
+        else pick_topic(config, args.topic_index, args.title, args.query, args.type)
+    )
     prompt = render(config, topic)
     slug = slugify(topic.get("target_query", topic.get("title", "article")))
     out_dir = _safe_output_dir(args.out_dir, args.config)
