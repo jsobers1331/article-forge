@@ -46,6 +46,7 @@ from score_article import (  # noqa: E402
     score_eeat,
     score_linking,
     score_for_report,
+    score_structure_extractability,
 )
 from score_opportunities import score_candidate  # noqa: E402
 
@@ -432,6 +433,39 @@ We tested this workflow on 2026-09-03. Read the [pricing page](https://example.c
     assert any(
         item["category"] == "research_evidence" for item in result["improvements"]
     )
+
+
+def test_structure_score_ignores_required_title_and_dateline_wrapper():
+    article = """# A useful article title
+
+*Last updated: September 4, 2026.*
+
+This is the direct answer capsule with enough words to be extractable by a reader or a search system before the article explains the decision in detail and gives the reader a practical basis for choosing between a paper system, spreadsheet, and app.
+
+## What should the reader compare?
+
+Use the table and the numbered process below.
+
+## Which option fits?
+
+Choose the smallest useful workflow.
+
+## When should you review it?
+
+Review it when the household changes.
+
+## What should you avoid?
+
+Avoid features that add maintenance without helping the workflow.
+
+1. Compare the current options.
+2. Choose the smallest useful workflow.
+
+| Option | Fit |
+| --- | --- |
+| A | Good |
+"""
+    assert score_structure_extractability(article) == 100.0
 
 
 def test_insufficient_serp_report_uses_actual_domain_count():

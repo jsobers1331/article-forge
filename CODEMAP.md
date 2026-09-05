@@ -6,10 +6,10 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-opportunity-planner`
 - **branch:** `feat/keyword-opportunity-planner`
-- **commit:** `9f92a72a7fd28a0cd160cef8b86709cd58b9caa9`
-- **short:** `9f92a72`
-- **last commit:** 2026-09-04T22:47:03-04:00
-- **map generated:** 2026-09-05T03:18:33+00:00
+- **commit:** `ed60e7e12ec9be725b0af1743f412c9807445ee4`
+- **short:** `ed60e7e`
+- **last commit:** 2026-09-04T23:18:33-04:00
+- **map generated:** 2026-09-05T03:49:10+00:00
 - **tracked files:** 34
 
 ## Tech Stack
