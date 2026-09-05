@@ -123,6 +123,21 @@ def render(config, topic):
         ),
         "existing_pages": ", ".join(config.get("existing_pages", []))
         or "(none listed)",
+        "article_image_policy": json.dumps(
+            config.get(
+                "article_image_policy",
+                {
+                    "mode": "ai_generated_for_editorial_context",
+                    "hero_required": True,
+                    "max_images_per_article": 2,
+                    "avoid_duplicate_assets": True,
+                    "minimum_dimensions": "1200x800",
+                    "output_format": "webp",
+                    "alt_text_required": True,
+                },
+            ),
+            sort_keys=True,
+        ),
         "target_query": topic.get("target_query", topic.get("title", "")),
         "article_type": topic.get("type", "standard"),
         "target_length": target_length_for(topic.get("type", "standard")),

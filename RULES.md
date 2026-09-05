@@ -74,6 +74,10 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
   grid) for comparisons, or a numbered step list for how-tos. Structured
   elements get extracted and cited by AI engines disproportionately more
   than prose paragraphs saying the same thing.
+- **Process intent needs process structure**: when the target query is a how-to,
+  booking, setup, planning, or other procedural question, include a numbered
+  step list. A pricing table alone does not explain the sequence a reader must
+  follow, and the automated gate fails a process-intent draft without one.
 - **An honest "who this isn't for" / "common mistakes" section.** Builds
   trust; also reads as a non-absolute claim, which AI engines weight
   favorably.
@@ -180,6 +184,8 @@ footer.
   crawlers don't execute client-side JS, so client-only rendering makes
   content invisible to them even though it looks fine in a browser.
 - Show a visible last-updated / `dateModified` date.
+- Keep that date visible immediately after the H1 so it survives rendering and
+  can be checked in the raw draft as well as in the browser.
 - Consider adding a `llms.txt` file at the site root — cheap, emerging
   convention, no known downside.
 

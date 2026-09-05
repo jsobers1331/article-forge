@@ -44,6 +44,26 @@ already there, even when the already-there one is perfectly real and unfabricate
   mood/lifestyle photography that doesn't claim to depict a real customer is fine; a
   photo captioned "HomeWeal user Sarah" would not be.
 
+### 1b. AI-generated editorial images and SEO
+
+AI-generated imagery is allowed for a hero or mood placement when it adds relevant
+context or atmosphere. It is not a ranking shortcut, and it must not replace a real
+screenshot when the image's job is to prove a feature. Google's guidance emphasizes
+helpful, people-first content and relevant image context rather than a preferred image
+origin; avoid scaled, low-value output and describe the visible scene accurately in alt
+text. See [Google's helpful-content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+and [Google Images guidance](https://developers.google.com/search/docs/appearance/google-images).
+
+Every AI image shipped by this framework must therefore have:
+
+- a topic-specific scene and a distinct composition, not a recycled inventory asset;
+- a descriptive kebab-case `.webp` or `.avif` filename and scene alt text;
+- a rendered URL that is actually used by the page, plus the normal image sitemap/schema
+  treatment used by that site;
+- a measurable duplicate scan using `scripts/check_image.py`; and
+- a human visual QC pass for realism, accidental text/logos, anatomy, brand fit, and
+  truthful context. The script cannot prove those semantic properties.
+
 ## 2. Model choice
 
 **Primary: OpenAI GPT Image 2** (`gpt-image-2`, via the Images API,
@@ -232,6 +252,21 @@ This checklist has no automatable pattern — it requires actually looking at th
 the same way RULES.md §11 requires actually reading a draft against `verified_facts`.
 An automated file-size or dimension check is necessary but not sufficient.
 
+Run the deterministic gate before the human review:
+
+```bash
+python scripts/check_image.py \
+  --image output/images/article-hero.webp \
+  --alt "Warm editorial still life with a closed blank album and camera lenses" \
+  --against output/images \
+  --receipt output/images/article-hero.quality.json
+```
+
+The gate proves format, dimensions, decodability, alt-text presence, and exact/near
+duplicate reuse. It cannot prove photographic quality, anatomy, or whether the scene
+truthfully supports the article; those still require actually looking at the image, the
+same way RULES.md §11 requires reading the draft against `verified_facts`.
+
 ## 7. Format and delivery
 
 - Convert to WebP (or AVIF) before shipping; the raw PNG from most generators is far
@@ -242,3 +277,6 @@ An automated file-size or dimension check is necessary but not sufficient.
 - Alt text describes the literal scene, written the same way you'd describe it to
   someone who can't see it — never a caption implying a real person or event. For
   fictional people, describe the visible role or action without inventing an identity.
+- `scripts/generate_image.py` now requires `--alt`, runs the same quality gate after
+  conversion, and accepts repeatable `--against` paths so a generated image cannot be
+  mistaken for publishable output when it is too small, malformed, generic, or reused.

@@ -2,6 +2,8 @@ import json
 import sys
 from datetime import date, timedelta
 
+from PIL import Image
+
 sys.path.insert(0, "scripts")
 
 from check_article import (  # noqa: E402
@@ -9,8 +11,11 @@ from check_article import (  # noqa: E402
     check_coming_soon_mentions,
     check_config_integrity,
     check_internal_planning_artifacts,
+    check_process_structure,
     check_tier_gated_mentions,
+    check_visible_dateline,
 )
+from check_image import check_image_asset  # noqa: E402
 import call_llm as call_llm_module  # noqa: E402
 from call_llm import PROVIDERS  # noqa: E402
 import collect_keyword_planner as keyword_planner_module  # noqa: E402
@@ -30,6 +35,7 @@ from collect_search_console import (  # noqa: E402
 )
 from collect_keyword_planner import build_request, normalize_results  # noqa: E402
 from generate_article import persist_checked_article  # noqa: E402
+from generate_prompt import render as render_article_prompt  # noqa: E402
 from import_demand import build_demand_document  # noqa: E402
 from score_article import (  # noqa: E402
     CONSENSUS_MIN_PAGES,
@@ -225,6 +231,76 @@ def test_internal_opening_plan_is_blocked_from_visible_draft():
     status, detail = check_internal_planning_artifacts(text)
     assert status == "FAIL"
     assert "planning artifact" in detail
+
+
+def test_process_intent_requires_numbered_steps():
+    assert (
+        check_process_structure(
+            "# How to book a photographer\n\nA table.", "how to book a photographer"
+        )[0]
+        == "FAIL"
+    )
+    assert (
+        check_process_structure(
+            "# How to book a photographer\n\n1. Check availability.",
+            "how to book a photographer",
+        )[0]
+        == "PASS"
+    )
+    assert (
+        check_process_structure("# Pricing guide\n\nA table.", "photographer pricing")[
+            0
+        ]
+        == "PASS"
+    )
+
+
+def test_visible_dateline_is_required_after_h1():
+    assert (
+        check_visible_dateline("# A guide\n\n*Last updated: September 2026.*\n")[0]
+        == "PASS"
+    )
+    assert check_visible_dateline("# A guide\n\nIntroductory paragraph.\n")[0] == "FAIL"
+
+
+def test_image_gate_checks_dimensions_format_alt_and_duplicate_reuse(tmp_path):
+    image_path = tmp_path / "barbados-wedding-hero.webp"
+    Image.new("RGB", (1536, 1024), (180, 140, 95)).save(image_path, "WEBP", quality=85)
+
+    status, detail, receipt = check_image_asset(
+        image_path,
+        "Warm editorial still life with camera lenses and a blank wedding album",
+    )
+    assert status == "PASS"
+    assert receipt["format"] == "WEBP"
+    assert receipt["width"] == 1536
+    assert "passed image" in detail
+
+    duplicate_path = tmp_path / "previous-article.webp"
+    duplicate_path.write_bytes(image_path.read_bytes())
+    status, detail, receipt = check_image_asset(
+        image_path,
+        "Warm editorial still life with camera lenses and a blank wedding album",
+        [duplicate_path],
+    )
+    assert status == "FAIL"
+    assert "duplicate" in detail
+    assert receipt["duplicate"]["path"] == str(duplicate_path)
+
+
+def test_rendered_prompt_carries_the_ai_image_contract():
+    config = valid_config()
+    config["current_month_year"] = "September 2026"
+    prompt = render_article_prompt(
+        config,
+        {
+            "title": "How to choose a photographer",
+            "target_query": "how to choose a photographer",
+        },
+    )
+    assert '"mode": "ai_generated_for_editorial_context"' in prompt
+    assert '"avoid_duplicate_assets": true' in prompt
+    assert "scripts/check_image.py" in prompt
 
 
 def test_config_requires_evidence_registry_for_generation():
