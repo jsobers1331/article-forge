@@ -88,6 +88,24 @@ python scripts/generate_prompt.py --config site-config.<yourproject>.json --topi
 python scripts/generate_article.py --config site-config.<yourproject>.json --topic-index 0 --provider deepseek
 ```
 
+Every `generate_article.py` run also writes a companion `<article>.report.json`
+and `<article>.report.md`, including when the draft is quarantined. The report
+always includes a 0–100 score and prioritized, evidence-linked fixes. Without
+`--snapshot`, the score is explicitly `readiness` and leaves SERP intent,
+topical consensus, and entity coverage unassessed. Add a current snapshot to
+get `serp_parity` scoring:
+
+```bash
+python scripts/generate_article.py \
+  --config site-config.<yourproject>.json \
+  --topic-index 0 --provider deepseek \
+  --snapshot serp/<yourproject>-serp-snapshot.json
+```
+
+The SERP-parity mode requires at least five independent organic domains. Neither
+score is a ranking probability; both remain subordinate to the publish gate and
+the human claim, originality, usefulness, voice, legal, and image-QC review.
+
 Generate and gate an accompanying editorial image:
 
 ```bash
@@ -108,13 +126,13 @@ python scripts/generate_image.py \
 | `prompts/article_prompt_template.md` | The master prompt template, filled in by `generate_prompt.py`. |
 | `scripts/generate_prompt.py` | Renders `site-config.<project>.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
 | `scripts/call_llm.py` | One function that calls any OpenAI-compatible endpoint (DeepSeek, OpenAI, OpenRouter, Groq, local Ollama) or native Anthropic — swap providers via a flag, not new code. Runnable standalone too. |
-| `scripts/generate_article.py` | Render prompt → call provider → run the full gate → atomically save only an all-PASS draft, or quarantine it with a receipt. |
+| `scripts/generate_article.py` | Render prompt → call provider → run the full gate and always produce a score/fix report → atomically save only an all-PASS draft, or quarantine it with a receipt. |
 | `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default), converts it to WebP, and runs the image quality/duplicate gate. |
 | `scripts/check_image.py` | Deterministic image gate for WebP/AVIF format, dimensions, decodability, alt text, and duplicate reuse; visual QC remains human-owned. |
 | `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, and style signals. Run before publishing every draft; human meaning review remains required. |
-| `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
+| `scripts/score_article.py` | Always-on article scorer/report builder. Uses a deterministic pre-SERP readiness score when no snapshot is available, or a weighted 0–100 SERP-parity rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) once a five-domain `serp_snapshot.json` is supplied. No live SEO API. |
 | `scripts/collect_serper.py` | Direct personal Serper adapter: collects timestamped Google organic results, hosts, snippets, People Also Ask, related searches, visible SERP features, and raw intent signals into a disk-backed `article-forge.serp.v1` evidence record. It never calculates Google keyword difficulty. |
 | `scripts/collect_search_console.py` | Direct read-only Search Console adapter: collects final web query/page data into `article-forge.gsc.v1` and can aggregate it into scorer-ready site-opportunity demand evidence. |
 | `scripts/collect_keyword_planner.py` | Direct Google Ads Keyword Planner adapter: collects average monthly searches and paid advertiser competition into `article-forge.keyword-planner.v1`, with optional normalized market-demand output. |

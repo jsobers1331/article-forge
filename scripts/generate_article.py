@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from call_llm import PROVIDERS, call_llm
 from check_article import check_fabrication_placeholders, run_checks
 from generate_prompt import REPO_ROOT, load_config, pick_topic, render
+from score_article import build_article_report, render_report_markdown
 
 
 def run_fabrication_gate(text):
@@ -106,8 +107,31 @@ def _checks_payload(checks):
     ]
 
 
+def _persist_report(draft_path, report):
+    """Write JSON and Markdown report companions beside the draft."""
+    if report is None:
+        return None
+    report_path, markdown_path = _report_paths(draft_path)
+    _atomic_write(report_path, json.dumps(report, indent=2) + "\n")
+    _atomic_write(markdown_path, render_report_markdown(report))
+    return report_path, markdown_path
+
+
+def _report_paths(draft_path):
+    """Keep persisted and displayed report paths on one naming contract."""
+    draft_path = Path(draft_path)
+    return draft_path.with_suffix(".report.json"), draft_path.with_suffix(".report.md")
+
+
 def persist_checked_article(
-    article, out_dir, slug, checks, prompt, config_path, force=False
+    article,
+    out_dir,
+    slug,
+    checks,
+    prompt,
+    config_path,
+    force=False,
+    report=None,
 ):
     """Persist only an all-PASS article to normal output.
 
@@ -116,6 +140,8 @@ def persist_checked_article(
     """
     out_dir = _safe_output_dir(out_dir, config_path)
     payload = _checks_payload(checks)
+    # WARN is intentionally held in quarantine too: only an all-PASS draft may
+    # enter normal output, matching the repo's fail-closed publication contract.
     non_pass = [item for item in payload if item["status"] != "PASS"]
     if non_pass:
         draft_path = _unique_quarantine_path(out_dir, slug)
@@ -132,9 +158,11 @@ def persist_checked_article(
         _atomic_write(
             draft_path.with_suffix(".json"), json.dumps(receipt, indent=2) + "\n"
         )
+        _persist_report(draft_path, report)
         return False, draft_path, payload
 
     target = _target_path(out_dir, slug, force=force)
+    _persist_report(target, report)
     _atomic_write(target, article)
     return True, target, payload
 
@@ -154,6 +182,9 @@ def main():
     parser.add_argument("--type", choices=["pillar", "standard", "supporting"])
     parser.add_argument("--provider", choices=sorted(PROVIDERS), required=True)
     parser.add_argument("--model")
+    parser.add_argument(
+        "--snapshot", help="Optional serp_snapshot.json for SERP-parity reporting"
+    )
     parser.add_argument("--out-dir", default=os.path.join(REPO_ROOT, "output"))
     parser.add_argument(
         "--force",
@@ -167,6 +198,10 @@ def main():
     load_dotenv()
 
     config = load_config(args.config)
+    snapshot = None
+    if args.snapshot:
+        with open(args.snapshot, "r", encoding="utf-8") as stream:
+            snapshot = json.load(stream)
     topic = pick_topic(config, args.topic_index, args.title, args.query, args.type)
     prompt = render(config, topic)
     slug = slugify(topic.get("target_query", topic.get("title", "article")))
@@ -178,9 +213,31 @@ def main():
     checks = run_checks(
         article, topic.get("type", "standard"), topic.get("target_query", ""), config
     )
-    passed, saved_path, payload = persist_checked_article(
-        article, out_dir, slug, checks, prompt, args.config, force=args.force
+    report = build_article_report(
+        article,
+        config,
+        topic,
+        checks,
+        snapshot=snapshot,
+        snapshot_source=args.snapshot,
     )
+    passed, saved_path, payload = persist_checked_article(
+        article,
+        out_dir,
+        slug,
+        checks,
+        prompt,
+        args.config,
+        force=args.force,
+        report=report,
+    )
+    report_json, report_markdown = _report_paths(saved_path)
+    print(
+        f"Article score: {report['score']['total_score']}/100 "
+        f"[{report['score']['score_kind']}; {report['score']['evidence_status']}]",
+        file=sys.stderr,
+    )
+    print(f"Article report: {report_json} and {report_markdown}", file=sys.stderr)
     if not passed:
         print(f"Draft blocked and quarantined at {saved_path}", file=sys.stderr)
         for item in payload:
