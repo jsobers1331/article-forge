@@ -6,6 +6,11 @@ site-config.*.json
 discovery-snapshot.*.json
 discovery-report.*.json
 serp-snapshot.*.json
+gsc-snapshot.*.json
 output/*.md
 !output/.gitkeep
 .DS_Store
+
+# Autonomous verification artifacts (local, dated evidence)
+claim-verification.*.json
+evidence/
