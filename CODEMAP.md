@@ -6,11 +6,11 @@ A model-agnostic, site-agnostic framework for generating articles that rank
 
 - **path:** `~/Personal/article-forge-autonomy`
 - **branch:** `feat/autonomous-fact-verification`
-- **commit:** `e50fb95f233897d2ce0f11d7c949a561cdcc59dd`
-- **short:** `e50fb95`
-- **last commit:** 2026-08-30T18:40:50-04:00
-- **map generated:** 2026-09-15T23:25:25+00:00
-- **tracked files:** 24
+- **commit:** `1ac9a786dce9cebe791326f6e97a75aab9a36264`
+- **short:** `1ac9a78`
+- **last commit:** 2026-09-15T19:25:25-04:00
+- **map generated:** 2026-09-15T23:40:54+00:00
+- **tracked files:** 26
 
 ## Tech Stack
 
@@ -21,8 +21,8 @@ A model-agnostic, site-agnostic framework for generating articles that rank
 | Directory | Files | Purpose |
 |-----------|-------|---------|
 | `./` | 10 | _ |
-| `scripts/` | 8 | Automation scripts |
-| `tests/` | 3 | Tests |
+| `scripts/` | 9 | Automation scripts |
+| `tests/` | 4 | Tests |
 | `prompts/` | 2 | _ |
 | `output/` | 1 | _ |
 

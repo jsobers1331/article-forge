@@ -7,15 +7,23 @@ For every `claim_evidence` entry in a site config this script:
 2. Snapshots the tag-stripped source (JSON-LD/microdata pulled out and
    prepended as a structured section) to
    `evidence/<project>/<claim_id>-<YYYYMMDD>.txt`.
-3. Asks DeepSeek (temperature 0) whether the source supports the claim,
-   requiring verbatim quotes for a `verified` verdict.
-4. Writes `claim-verification.<project>.json` next to the config.
+3. Asks a judge model (temperature 0) whether the source supports the claim,
+   requiring verbatim quotes for a `verified` verdict. The judge defaults to
+   OpenAI `gpt-4o-mini` (--provider/--model) — deliberately a different model
+   family from the DeepSeek writer, so no model grades its own prose. The
+   prompt is blind: claim, scope, source label and source text only, never a
+   prior verdict, `status`, or `verified_on`.
+4. Applies a programmatic numeric cross-check when the source carries
+   JSON-LD Offer/Product prices: claim amounts sharing no value with them
+   cannot stay `verified`.
+5. Writes `claim-verification.<project>.json` next to the config.
 
 Entries younger than `--max-age-days` are carried forward without a new LLM
 call; the ledger is merged by claim_id. Exit code is 0 even when claims come
 back unsupported or inconclusive — check_article.py turns those into FAIL and
 WARN. Exit code 2 covers config/ledger IO or parse errors, an unknown
---claim-id, and a missing DEEPSEEK_API_KEY.
+--claim-id, and a missing API key for the selected provider (openai →
+OPENAI_API_KEY, deepseek → DEEPSEEK_API_KEY).
 """
 
 import argparse
@@ -31,7 +39,7 @@ from urllib.request import Request, urlopen
 
 from dotenv import load_dotenv
 
-from call_llm import call_llm
+from call_llm import PROVIDERS, call_llm
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,8 +48,17 @@ FETCH_TIMEOUT = 10
 MIN_FETCH_INTERVAL = 1.0
 MAX_SOURCE_CHARS = 200_000
 DEFAULT_MAX_AGE_DAYS = 30
+DEFAULT_PROVIDER = "openai"
+DEFAULT_MODEL = "gpt-4o-mini"
 VALID_STATUSES = ("verified", "unsupported", "inconclusive")
 STATUS_MARKERS = {"verified": "✓", "unsupported": "✗", "inconclusive": "⚠"}
+CURRENCY_AMOUNT_RE = re.compile(r"\$\s*(\d[\d,]*(?:\.\d+)?)")
+STRUCTURED_SECTION_RE = re.compile(
+    r"=== STRUCTURED DATA \(JSON-LD / microdata\) ===\n(.*?)\n\n=== PAGE TEXT ===",
+    re.DOTALL,
+)
+OFFER_TYPES = {"Offer", "Product", "SoftwareApplication", "AggregateOffer"}
+OFFER_PRICE_KEYS = ("price", "lowPrice", "highPrice")
 
 LD_JSON_RE = re.compile(
     r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -277,10 +294,85 @@ def quotes_in_source(quotes, source_text):
     return False
 
 
-def judge_claim(claim, scope, source_label, source_text):
+def currency_amounts(text):
+    """Amounts (as numbers) of every `$...` figure in `text`."""
+    return {
+        round(float(match.group(1).replace(",", "")), 2)
+        for match in CURRENCY_AMOUNT_RE.finditer(text)
+    }
+
+
+def _collect_offer_prices(node, prices, under_offers=False):
+    """Walk a parsed JSON-LD tree, collecting Offer/Product price numbers.
+
+    `under_offers` carries the schema.org shape `Product -> offers -> {price}`,
+    where the nested offer object has no `@type` of its own.
+    """
+    if isinstance(node, list):
+        for item in node:
+            _collect_offer_prices(item, prices, under_offers)
+        return
+    if not isinstance(node, dict):
+        return
+    raw_types = node.get("@type")
+    if isinstance(raw_types, str):
+        raw_types = [raw_types]
+    types = set(raw_types) if isinstance(raw_types, list) else set()
+    if under_offers or types & OFFER_TYPES:
+        for key in OFFER_PRICE_KEYS:
+            value = node.get(key)
+            if isinstance(value, str):
+                value = value.strip().lstrip("$").replace(",", "")
+            if isinstance(value, bool) or not isinstance(value, (str, int, float)):
+                continue
+            try:
+                prices.add(round(float(value), 2))
+            except ValueError:
+                continue
+    for key, value in node.items():
+        _collect_offer_prices(value, prices, under_offers or key == "offers")
+
+
+def jsonld_offer_prices(source_text):
+    """Numeric prices in JSON-LD Offer/Product/SoftwareApplication nodes."""
+    section = STRUCTURED_SECTION_RE.search(source_text)
+    if not section:
+        return set()
+    prices = set()
+    for block in section.group(1).split("\n\n"):
+        try:
+            parsed = json.loads(block.strip())
+        except json.JSONDecodeError:
+            continue
+        _collect_offer_prices(parsed, prices)
+    return prices
+
+
+def numeric_mismatch(claim, source_text):
+    """Note when the claim's amounts and the source's JSON-LD prices share nothing."""
+    claim_prices = currency_amounts(claim)
+    if not claim_prices:
+        return None
+    source_prices = jsonld_offer_prices(source_text)
+    if not source_prices or claim_prices & source_prices:
+        return None
+    return (
+        "numeric cross-check: claim amounts "
+        f"{sorted(claim_prices)} share no value with structured-data prices "
+        f"{sorted(source_prices)}"
+    )
+
+
+def judge_claim(claim, scope, source_label, source_text, provider=None, model=None):
     prompt = build_prompt(claim, scope, source_label, source_text)
     try:
-        raw = call_llm(prompt, provider="deepseek", temperature=0.0, max_tokens=1500)
+        raw = call_llm(
+            prompt,
+            provider=provider or DEFAULT_PROVIDER,
+            model=model,
+            temperature=0.0,
+            max_tokens=1500,
+        )
     except Exception as exc:  # an LLM/network failure is reported, not fatal
         return {
             "status": "inconclusive",
@@ -297,6 +389,11 @@ def judge_claim(claim, scope, source_label, source_text):
     if judgment["status"] == "verified" and not quotes_in_source(judgment["evidence_quotes"], source_text):
         judgment["status"] = "inconclusive"
         judgment["missing_aspects"].append("verified verdict had no quote matching the source")
+    mismatch = numeric_mismatch(claim, source_text)
+    if mismatch:
+        if judgment["status"] == "verified":
+            judgment["status"] = "inconclusive"
+        judgment["missing_aspects"].append(mismatch)
     return judgment
 
 
@@ -351,7 +448,25 @@ def main(argv=None):
         default=DEFAULT_MAX_AGE_DAYS,
         help="Carry forward ledger entries younger than this many days (default 30)",
     )
+    parser.add_argument(
+        "--provider",
+        choices=sorted(PROVIDERS),
+        default=DEFAULT_PROVIDER,
+        help=(
+            f"Provider for the judge model (default {DEFAULT_PROVIDER}: a different "
+            "model family from the DeepSeek writer, so the judge never grades its own prose)"
+        ),
+    )
+    parser.add_argument(
+        "--model",
+        help=(
+            f"Override the judge model (default {DEFAULT_MODEL} for {DEFAULT_PROVIDER}, "
+            "otherwise the provider's own default)"
+        ),
+    )
     args = parser.parse_args(argv)
+
+    args.model = args.model or PROVIDERS[args.provider]["default_model"]
 
     load_dotenv()
 
@@ -375,8 +490,9 @@ def main(argv=None):
         sys.stderr.write(f"Unknown --claim-id: {args.claim_id}\n")
         return 2
 
-    if not args.dry_run and not os.environ.get("DEEPSEEK_API_KEY"):
-        sys.stderr.write("DEEPSEEK_API_KEY not set (check your .env file)\n")
+    api_key_env = PROVIDERS[args.provider]["api_key_env"]
+    if not args.dry_run and api_key_env and not os.environ.get(api_key_env):
+        sys.stderr.write(f"{api_key_env} not set (check your .env file)\n")
         return 2
 
     previous_by_id = {}
@@ -439,6 +555,8 @@ def main(argv=None):
                 entry.get("verification_scope") or "",
                 source_label,
                 cap_source_text(source_text),
+                provider=args.provider,
+                model=args.model,
             )
 
         result = make_result(claim_id, judgment, source_label, status_field, now_iso, snapshot_path)
@@ -455,7 +573,7 @@ def main(argv=None):
     ledger_out = {
         "generated_at": now_iso,
         "project": slug,
-        "verifier": "scripts/verify_facts.py (provider=deepseek)",
+        "verifier": f"scripts/verify_facts.py (provider={args.provider}, model={args.model})",
         "results": results,
     }
     try:

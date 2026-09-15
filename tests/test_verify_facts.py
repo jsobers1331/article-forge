@@ -1,3 +1,4 @@
+import inspect
 import json
 from datetime import datetime, timedelta, timezone
 
@@ -9,6 +10,7 @@ import verify_facts
 @pytest.fixture(autouse=True)
 def isolated_env(monkeypatch):
     monkeypatch.setattr(verify_facts, "load_dotenv", lambda *a, **k: None)
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
     monkeypatch.setenv("DEEPSEEK_API_KEY", "test-key")
 
 
@@ -286,10 +288,16 @@ def test_unknown_claim_id_exits_two(tmp_path, monkeypatch):
 
 def test_missing_api_key_exits_two(tmp_path, monkeypatch):
     monkeypatch.setattr(verify_facts, "REPO_ROOT", str(tmp_path))
-    monkeypatch.delenv("DEEPSEEK_API_KEY", raising=False)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     config = write_config(tmp_path, [make_entry()])
     assert verify_facts.main(["--config", str(config)]) == 2
     assert verify_facts.main(["--config", str(config), "--dry-run"]) == 0
+    # the key that matters is the selected provider's
+    monkeypatch.setattr(verify_facts, "fetch_url", lambda url: ("<html>costs $10 per month</html>", 200))
+    monkeypatch.setattr(
+        verify_facts, "call_llm", lambda *a, **k: llm_json("verified", quotes=["costs $10 per month"])
+    )
+    assert verify_facts.main(["--config", str(config), "--provider", "deepseek"]) == 0
 
 
 def test_config_without_claims_is_a_noop(tmp_path, monkeypatch):
@@ -338,3 +346,128 @@ def test_html_to_text_strips_real_tags_and_keeps_structured_data():
     assert "<strong>" not in text
     assert "costs $10 per month" in text
     assert "Pricing" in text
+
+
+def test_judge_defaults_to_openai_gpt_4o_mini_and_honours_overrides(tmp_path, monkeypatch):
+    monkeypatch.setattr(verify_facts, "REPO_ROOT", str(tmp_path))
+    config = write_config(tmp_path, [make_entry()])
+    monkeypatch.setattr(verify_facts, "fetch_url", lambda url: ("<html>costs $10 per month</html>", 200))
+    calls = []
+
+    def capture(prompt, **kwargs):
+        calls.append(kwargs)
+        return llm_json("verified", quotes=["costs $10 per month"])
+
+    monkeypatch.setattr(verify_facts, "call_llm", capture)
+    force = ["--max-age-days", "0"]
+
+    assert verify_facts.main(["--config", str(config), *force]) == 0
+    assert calls[-1]["provider"] == "openai"
+    assert calls[-1]["model"] == "gpt-4o-mini"
+    assert "provider=openai, model=gpt-4o-mini" in read_ledger(tmp_path)["verifier"]
+
+    assert verify_facts.main(
+        ["--config", str(config), "--provider", "deepseek", "--model", "deepseek-reasoner", *force]
+    ) == 0
+    assert calls[-1]["provider"] == "deepseek"
+    assert calls[-1]["model"] == "deepseek-reasoner"
+
+    # --provider alone falls back to that provider's default model, not gpt-4o-mini
+    assert verify_facts.main(["--config", str(config), "--provider", "deepseek", *force]) == 0
+    assert calls[-1]["provider"] == "deepseek"
+    assert calls[-1]["model"] == "deepseek-chat"
+
+
+def test_build_prompt_is_blind_to_verdicts_and_prior_results():
+    prompt = verify_facts.build_prompt(
+        "The demo product costs $10 per month.",
+        "live pricing page",
+        "https://example.com/pricing",
+        "Our demo plan costs $10 per month.",
+    )
+
+    assert "The demo product costs $10 per month." in prompt
+    assert "https://example.com/pricing" in prompt
+    assert "Our demo plan costs $10 per month." in prompt
+
+    # Verdict words appear only in the fixed answer template; none of the
+    # ledger/prior-result fields are handed to the judge.
+    blind = verify_facts.build_prompt("", "", "", "")
+    for token in ("verified", "unsupported", "inconclusive", "status"):
+        assert prompt.count(token) == blind.count(token)
+    for field in ("checked_at", "snapshot_path", "carried_forward", "generated_at", "verified_on"):
+        assert field not in prompt
+
+    params = set(inspect.signature(verify_facts.build_prompt).parameters)
+    assert params == {"claim", "scope", "source_label", "source_text"}
+
+
+def test_numeric_cross_check_keeps_verified_when_a_claim_price_matches_jsonld(tmp_path, monkeypatch):
+    monkeypatch.setattr(verify_facts, "REPO_ROOT", str(tmp_path))
+    entry = make_entry(claim="The demo product costs $10 per month.")
+    config = write_config(tmp_path, [entry])
+    monkeypatch.setattr(
+        verify_facts, "fetch_url",
+        lambda url: (
+            '<html><head><script type="application/ld+json">'
+            '{"@type": "Product", "offers": {"@type": "Offer", "price": "10.00"}}'
+            "</script></head><body>Our demo plan costs $10 per month.</body></html>",
+            200,
+        ),
+    )
+    monkeypatch.setattr(verify_facts, "call_llm", lambda *a, **k: llm_json("verified", quotes=["costs $10 per month"]))
+
+    assert verify_facts.main(["--config", str(config)]) == 0
+    assert read_ledger(tmp_path)["results"][0]["status"] == "verified"
+
+
+def test_numeric_cross_check_demotes_verified_when_no_claim_price_matches_jsonld(tmp_path, monkeypatch):
+    monkeypatch.setattr(verify_facts, "REPO_ROOT", str(tmp_path))
+    entry = make_entry(claim="The demo product costs $1,000 per month.")
+    config = write_config(tmp_path, [entry])
+    monkeypatch.setattr(
+        verify_facts, "fetch_url",
+        lambda url: (
+            '<html><head><script type="application/ld+json">'
+            '{"@type": "Offer", "price": "50"}'
+            "</script></head><body>The demo product costs $50 per month.</body></html>",
+            200,
+        ),
+    )
+    monkeypatch.setattr(verify_facts, "call_llm", lambda *a, **k: llm_json("verified", quotes=["costs $50 per month"]))
+
+    assert verify_facts.main(["--config", str(config)]) == 0
+    result = read_ledger(tmp_path)["results"][0]
+    assert result["status"] == "inconclusive"
+    assert any("numeric cross-check" in note for note in result["missing_aspects"])
+
+
+def test_numeric_cross_check_ignores_sources_without_structured_prices(tmp_path, monkeypatch):
+    monkeypatch.setattr(verify_facts, "REPO_ROOT", str(tmp_path))
+    entry = make_entry(claim="The demo product costs $1,000 per month.")
+    config = write_config(tmp_path, [entry])
+    monkeypatch.setattr(
+        verify_facts, "fetch_url",
+        lambda url: ("<html><body>The demo product costs $1,000 per month.</body></html>", 200),
+    )
+    monkeypatch.setattr(
+        verify_facts, "call_llm", lambda *a, **k: llm_json("verified", quotes=["costs $1,000 per month"])
+    )
+
+    assert verify_facts.main(["--config", str(config)]) == 0
+    assert read_ledger(tmp_path)["results"][0]["status"] == "verified"
+
+
+def test_jsonld_offer_prices_reads_nested_offers_and_ignores_microdata():
+    source = verify_facts.html_to_text(
+        '<html><head><script type="application/ld+json">'
+        '{"@type": "Product", "offers": {"price": "1,750"}, "priceRange": "$$-$$$"}'
+        "</script></head><body>"
+        '<div itemprop="price" content="$2,500">two thousand five hundred</div>'
+        "</body></html>"
+    )
+
+    assert verify_facts.jsonld_offer_prices(source) == {1750.0}
+    assert verify_facts.currency_amounts("$1,000 and $1,750.50") == {1000.0, 1750.5}
+    assert verify_facts.numeric_mismatch("Costs $2,500.", source) is not None
+    assert verify_facts.numeric_mismatch("Costs $1,750.", source) is None
