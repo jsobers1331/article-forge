@@ -6,6 +6,8 @@ site-config.*.json
 discovery-snapshot.*.json
 discovery-report.*.json
 serp-snapshot.*.json
+claim-verification.*.json
+evidence/
 output/*.md
 !output/.gitkeep
 .DS_Store

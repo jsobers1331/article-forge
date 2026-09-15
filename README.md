@@ -86,6 +86,7 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | Path | Purpose |
 |---|---|
 | `RULES.md` | The full ruleset — structure, schema/JSON-LD guidance, voice, word counts, cadence, the pre-publish integrity gate. Read this first. |
+| `AUTONOMY.md` | The autonomy ruleset — how each configured claim gets machine-verified against its source, what each verdict means, staleness, and the ledger/`evidence/` files it writes. |
 | `site-config.example.json` | Template for a site's facts: positioning, ICP, verified differentiators, what's NOT real yet, competitors, topic backlog. Copy to `site-config.<project>.json` and fill in. |
 | `prompts/article_prompt_template.md` | The master prompt template, filled in by `generate_prompt.py`. |
 | `scripts/generate_prompt.py` | Renders `site-config.<project>.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
@@ -94,7 +95,8 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `IMAGES.md` | Rules for AI-generated supporting imagery (hero/mood images) — model choice, the prompt pattern that avoids garbled text, real cost data, images-per-article guidance, QC checklist. Screenshots are separate and out of scope here. |
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default) and converts it to WebP. Prints real token-based cost. |
-| `scripts/check_article.py` | Automated compliance gate — fabrication grep, word count, banned words, structured-element presence, H1/query match, tier-gating heuristic, and structural-repetition heuristic. Run before publishing every draft. Not a substitute for the manual checklists in `RULES.md`/`IMAGES.md` — it catches shape, not meaning. |
+| `scripts/check_article.py` | Automated compliance gate — fabrication grep, claim-verification ledger (hard-fails on an `unsupported` claim), word count, banned words, structured-element presence, H1/query match, tier-gating heuristic, and structural-repetition heuristic. Run before publishing every draft. Not a substitute for the manual checklists in `RULES.md`/`IMAGES.md` — it catches shape, not meaning. |
+| `scripts/verify_facts.py` | Autonomous claim verifier: fetches or reads each `claim_evidence` source (live URL or local file), has DeepSeek (temperature 0) judge support/contradiction/inconclusive with required verbatim quotes, snapshots sources to `evidence/`, and writes `claim-verification.<project>.json`. Exit 0 even with unsupported claims; exit 2 only on config/ledger errors. |
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
@@ -171,12 +173,44 @@ verifiable additions (naming a competitor already being discussed, linking a
 URL that was already named, adding one already-true "our take" phrase). No
 score was raised by adding anything unverifiable.
 
+## Autonomous operation
+
+The fact-checking loop now closes itself, so an agent can run the whole thing
+end-to-end without a human in the middle:
+
+1. `site-config.<project>.json` lists each factual claim in `claim_evidence`,
+   with a `source_url` (live page) or a `source_local` (path to the claim's
+   source file in the site repo — takes precedence when both are present,
+   since local source is version-exact and works offline).
+2. `python scripts/verify_facts.py --config site-config.<project>.json` reads
+   or fetches each source, asks DeepSeek (temperature 0) whether the source
+   supports, contradicts, or is silent on the claim — verbatim quotes required
+   for a `verified` verdict — and writes `claim-verification.<project>.json`
+   next to the config. Entries younger than `--max-age-days` (default 30) are
+   carried forward without re-checking; pass `--claim-id <id>` to force one
+   claim through again.
+3. `check_article.py` reads that ledger on every run: an `unsupported` claim
+   is a hard fail (replace the sentence with
+   `<!-- PLACEHOLDER: claim <id> not verifiable -->` or drop it), while a
+   missing, stale, or inconclusive ledger is a warning. `--no-ledger` opts out.
+4. Every source is snapshotted to `evidence/<project>/<claim_id>-<date>.txt`
+   (tag-stripped text, plus any JSON-LD/microdata it carried, prepended) so
+   each verdict points at the exact words it judged.
+
+Exit codes: `verify_facts.py` exits 0 even when claims come back `unsupported`
+— the ledger is the record, and `check_article.py` is what fails the run. It
+exits 2 only on config/ledger IO or parse errors and unknown `--claim-id`
+values. The full ruleset is in `AUTONOMY.md`.
+
 ## What this does NOT do
 
 - It does not check real keyword search volume — validate the topic backlog
   against Google Search Console, Keyword Planner, or similar before
   committing writing time to a topic.
-- It does not fact-check the article against the live site — that's on you,
-  via `verified_facts` in the config and the pre-publish gate.
+- It does not fact-check the whole article against the live site — only the
+  claims listed in `claim_evidence` get machine-verified (against a live URL
+  or local source file), and support-by-source is all that's checked, not
+  tier-scoping (RULES.md §2b). Everything else in the draft is still on you,
+  via `verified_facts` and the pre-publish gate.
 - It does not publish anything — output lands in `output/` as markdown for
   you to review and place into your own site/CMS.

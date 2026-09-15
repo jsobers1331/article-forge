@@ -24,6 +24,15 @@
     "has_real_press_mentions": false,
     "has_real_usage_stats": false
   },
+  "claim_evidence": [
+    {
+      "claim_id": "example-pricing",
+      "claim": "Example Co's Pro plan costs $29/month billed monthly or $24/month billed annually, with a 14-day free trial and a 30-day money-back guarantee.",
+      "source_url": "https://example.com/pricing",
+      "source_local": "path/to/your-site-repo/app/pricing/page.tsx",
+      "verification_scope": "site source review \u2014 when both source_url and source_local are present, the local file wins; run scripts/verify_facts.py to check it"
+    }
+  ],
   "competitors": [
     {
       "name": "Competitor A",
