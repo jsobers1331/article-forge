@@ -1,0 +1,49 @@
+Sitemap https://www.jsobersphotography.com/sitemap.xml: 97 URL(s), 14 match ['/blog/']
+[1/14] https://www.jsobersphotography.com/blog/barbados-wedding-photographer-cost
+    ⚠ 0 hard, 4 warn
+[2/14] https://www.jsobersphotography.com/blog/engagement-photography-barbados-cost
+    ⚠ 0 hard, 4 warn
+[3/14] https://www.jsobersphotography.com/blog/wedding-welcome-dinner-photography-barbados
+    ⚠ 0 hard, 3 warn
+[4/14] https://www.jsobersphotography.com/blog/how-long-wedding-photos-barbados
+    ⚠ 0 hard, 5 warn
+[5/14] https://www.jsobersphotography.com/blog/plan-barbados-destination-wedding
+    ⚠ 0 hard, 5 warn
+[6/14] https://www.jsobersphotography.com/blog/crane-beach-golden-hour
+    ⚠ 0 hard, 4 warn
+[7/14] https://www.jsobersphotography.com/blog/outdoor-ceremony-barbados-what-to-expect
+    ⚠ 0 hard, 5 warn
+[8/14] https://www.jsobersphotography.com/blog/caribbean-engagement-portrait-style
+    ⚠ 0 hard, 5 warn
+[9/14] https://www.jsobersphotography.com/blog/husband-wife-photography-team
+    ⚠ 0 hard, 4 warn
+[10/14] https://www.jsobersphotography.com/blog/wedding-album-printing-guide
+    ⚠ 0 hard, 4 warn
+[11/14] https://www.jsobersphotography.com/blog/how-to-choose-a-barbados-wedding-photographer
+    ⚠ 0 hard, 3 warn
+[12/14] https://www.jsobersphotography.com/blog/how-to-book-a-barbados-wedding-photographer-from-abroad
+    ⚠ 0 hard, 5 warn
+[13/14] https://www.jsobersphotography.com/blog/barbados-wedding-venues-how-to-choose
+    ⚠ 0 hard, 6 warn
+[14/14] https://www.jsobersphotography.com/blog/best-time-to-get-married-in-barbados
+    ⚠ 0 hard, 6 warn
+
+STATUS  HARD  WARN  URL
+WARN       0     4  https://www.jsobersphotography.com/blog/barbados-wedding-photographer-cost
+WARN       0     4  https://www.jsobersphotography.com/blog/engagement-photography-barbados-cost
+WARN       0     3  https://www.jsobersphotography.com/blog/wedding-welcome-dinner-photography-barbados
+WARN       0     5  https://www.jsobersphotography.com/blog/how-long-wedding-photos-barbados
+WARN       0     5  https://www.jsobersphotography.com/blog/plan-barbados-destination-wedding
+WARN       0     4  https://www.jsobersphotography.com/blog/crane-beach-golden-hour
+WARN       0     5  https://www.jsobersphotography.com/blog/outdoor-ceremony-barbados-what-to-expect
+WARN       0     5  https://www.jsobersphotography.com/blog/caribbean-engagement-portrait-style
+WARN       0     4  https://www.jsobersphotography.com/blog/husband-wife-photography-team
+WARN       0     4  https://www.jsobersphotography.com/blog/wedding-album-printing-guide
+WARN       0     3  https://www.jsobersphotography.com/blog/how-to-choose-a-barbados-wedding-photographer
+WARN       0     5  https://www.jsobersphotography.com/blog/how-to-book-a-barbados-wedding-photographer-from-abroad
+WARN       0     6  https://www.jsobersphotography.com/blog/barbados-wedding-venues-how-to-choose
+WARN       0     6  https://www.jsobersphotography.com/blog/best-time-to-get-married-in-barbados
+
+No hard failures across 14 page(s).
+Warnings: 63 across 14 page(s).
+JSON report written to reports/publish-gate.jsobersphotography.sitemap.json

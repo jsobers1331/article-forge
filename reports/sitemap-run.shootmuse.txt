@@ -1,0 +1,326 @@
+Sitemap https://shootmuse.com/sitemap.xml: 46 URL(s), 11 match ['/blog/']
+[1/11] https://shootmuse.com/blog/what-is-a-photography-crm
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 38 chars: 'What Is a Photography CRM? | ShootMuse'
+⚠ [WARN] Meta description: 175 chars, outside the 50-160 guidance: 'What is a photography CRM? ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/what-is-a-photography-crm
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/what-is-a-photography-crm.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Aug 30, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Aug 30, 2026'
+✓ [PASS] Internal links: 10 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✗ [FAIL] Internal links: 1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fwhat-is-a-photography-crm.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...at Is a Photography CRM? ShootMuse Team Published Aug 30, 2026 12 min read Updated Aug 30...
+✓ [PASS] H1: one <h1>: 'What Is a Photography CRM?'
+⚠ [WARN] Word count: 2183 words in the content region, above the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[2/11] https://shootmuse.com/blog/switch-from-honeybook
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 53 chars: 'How to Switch from HoneyBook to ShootMuse | ShootMuse'
+⚠ [WARN] Meta description: 181 chars, outside the 50-160 guidance: "Thinking about leaving HoneyBook? Here's a complete step-by-step guide to migrating your photography business — clients, contracts, invoices, and workflows — without losing a thing."
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/switch-from-honeybook
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/switch-from-honeybook.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Apr 10, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Apr 10, 2026'
+✓ [PASS] Internal links: 9 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 9 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fswitch-from-honeybook.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...m HoneyBook to ShootMuse ShootMuse Team Published Apr 10, 2026 10 min read If you've been...
+✓ [PASS] H1: one <h1>: 'How to Switch from HoneyBook to ShootMuse'
+✓ [PASS] Word count: 1122 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[3/11] https://shootmuse.com/blog/outgrown-photography-crm
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 56 chars: "5 Signs You've Outgrown Your Photography CRM | ShootMuse"
+✓ [PASS] Meta description: 158 chars: "Your CRM should grow with your business, not hold it back. Here are five red flags that it's time for an upgrade — and what to look for in your next platform."
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/outgrown-photography-crm
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/outgrown-photography-crm.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Apr 3, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Apr 3, 2026'
+✓ [PASS] Internal links: 8 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 8 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Foutgrown-photography-crm.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...own Your Photography CRM ShootMuse Team Published Apr 3, 2026 8 min read When you first s...
+✓ [PASS] H1: one <h1>: "5 Signs You've Outgrown Your Photography CRM"
+✓ [PASS] Word count: 1174 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[4/11] https://shootmuse.com/blog/ai-for-photographers
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 51 chars: 'AI for Photographers: A Practical Guide | ShootMuse'
+✓ [PASS] Meta description: 158 chars: "Cut through the hype. Here's what AI can actually do for your photography business today — from email drafting to rebook predictions to business intelligence."
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/ai-for-photographers
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/ai-for-photographers.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Mar 27, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Mar 27, 2026'
+✓ [PASS] Internal links: 7 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 7 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fai-for-photographers.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...phers: A Practical Guide ShootMuse Team Published Mar 27, 2026 9 min read Every software...
+✓ [PASS] H1: one <h1>: 'AI for Photographers: A Practical Guide'
+✓ [PASS] Word count: 1385 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[5/11] https://shootmuse.com/blog/gallery-delivery-best-practices
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 68 chars: 'Gallery Delivery Best Practices for Client Photographers | ShootMuse'
+⚠ [WARN] Meta description: 174 chars, outside the 50-160 guidance: "Your gallery delivery is your biggest referral driver. Here's how to choose gallery software, present images beautifully, and turn every delivery into a word-of-mouth moment."
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/gallery-delivery-best-practices
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/gallery-delivery-best-practices.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Mar 20, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Mar 20, 2026'
+✓ [PASS] Internal links: 8 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 8 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fgallery-delivery-best-practices.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...for Client Photographers ShootMuse Team Published Mar 20, 2026 11 min read You spent hour...
+✓ [PASS] H1: one <h1>: 'Gallery Delivery Best Practices for Client Photographers'
+✓ [PASS] Word count: 1400 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[6/11] https://shootmuse.com/blog/pricing-photography-packages
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 61 chars: 'How to Price Your Photography Packages for Profit | ShootMuse'
+✓ [PASS] Meta description: 159 chars: "Stop undercharging. Learn how to calculate your true costs, structure profitable packages, use pricing psychology, and know when it's time to raise your rates."
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/pricing-photography-packages
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/pricing-photography-packages.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Mar 13, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Mar 13, 2026'
+✓ [PASS] Internal links: 7 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 7 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fpricing-photography-packages.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...aphy Packages for Profit ShootMuse Team Published Mar 13, 2026 12 min read Pricing is the...
+✓ [PASS] H1: one <h1>: 'How to Price Your Photography Packages for Profit'
+✓ [PASS] Word count: 1609 words, within 1000-2000 for 'standard'
+⚠ [WARN] Banned words: banned words present in the served copy: seamless
+[7/11] https://shootmuse.com/blog/photography-workflow-automation
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 97 chars, outside the 15-70 guidance: 'Photography Workflow Automation: What to Automate (and What Not To) for Small Studios | ShootMuse'
+✓ [PASS] Meta description: 153 chars: 'Learn which photography workflow tasks to automate first, what should stay human, and how to build a reliable client workflow without over-automating it.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/photography-workflow-automation
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/photography-workflow-automation.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Sep 6, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Sep 6, 2026'
+✓ [PASS] Internal links: 10 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 10 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-workflow-automation.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...ot To) for Small Studios ShootMuse Team Published Sep 6, 2026 9 min read Updated Sep 6, 2...
+✓ [PASS] H1: one <h1>: 'Photography Workflow Automation: What to Automate (and What Not To) for Small Studios'
+✓ [PASS] Word count: 1750 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[8/11] https://shootmuse.com/blog/photography-client-onboarding-workflow
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 70 chars: 'Photography Client Onboarding Workflow: Inquiry to Booking | ShootMuse'
+⚠ [WARN] Meta description: 167 chars, outside the 50-160 guidance: 'Build a photography client onboarding workflow from inquiry to booked session with clear stages, reminders, contracts, payments, questionnaires, and human checkpoints.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/photography-client-onboarding-workflow
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/photography-client-onboarding-workflow.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Sep 9, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Sep 9, 2026'
+✓ [PASS] Internal links: 10 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 10 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-client-onboarding-workflow.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...flow: Inquiry to Booking ShootMuse Team Published Sep 9, 2026 12 min read Updated Sep 9,...
+✓ [PASS] H1: one <h1>: 'Photography Client Onboarding Workflow: Inquiry to Booking'
+⚠ [WARN] Word count: 2114 words in the content region, above the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[9/11] https://shootmuse.com/blog/choose-photography-crm
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 67 chars: 'How to Choose a Photography CRM: A Workflow-First Guide | ShootMuse'
+⚠ [WARN] Meta description: 162 chars, outside the 50-160 guidance: 'Learn how to choose a photography CRM by testing the full client journey: inquiries, contracts, payments, galleries, automation, support, limits, and data export.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/choose-photography-crm
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/choose-photography-crm.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Sep 9, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Sep 9, 2026'
+✓ [PASS] Internal links: 10 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✓ [PASS] Internal links: all 10 checked internal link(s) return 200
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fchoose-photography-crm.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...: A Workflow-First Guide ShootMuse Team Published Sep 9, 2026 13 min read Updated Sep 9,...
+✓ [PASS] H1: one <h1>: 'How to Choose a Photography CRM: A Workflow-First Guide'
+✓ [PASS] Word count: 1874 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[10/11] https://shootmuse.com/blog/photography-contract-checklist
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 75 chars, outside the 15-70 guidance: 'Photography Contract Checklist: What to Include Before You Book | ShootMuse'
+⚠ [WARN] Meta description: 172 chars, outside the 50-160 guidance: 'A practical photography contract checklist covering scope, payment, cancellation, delivery, usage and signatures — plus the workflow that makes it easy to use consistently.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/photography-contract-checklist
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/photography-workflow-automation.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Sep 13, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Sep 13, 2026'
+✓ [PASS] Internal links: 7 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✗ [FAIL] Internal links: 1 internal link(s) do not resolve: https://shootmuse.com/features/contracts -> HTTP 404
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-workflow-automation.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...Include Before You Book ShootMuse Team Published Sep 13, 2026 9 min read A photography c...
+✓ [PASS] H1: one <h1>: 'Photography Contract Checklist: What to Include Before You Book'
+⚠ [WARN] Word count: 896 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[11/11] https://shootmuse.com/blog/how-to-get-photography-clients
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 80 chars, outside the 15-70 guidance: 'How to Get Photography Clients: A Practical System That Builds Trust | ShootMuse'
+⚠ [WARN] Meta description: 167 chars, outside the 50-160 guidance: 'How to get photography clients without chasing every platform: choose a clear offer, make inquiry easy, follow up thoughtfully, and turn delivery into future bookings.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog/how-to-get-photography-clients
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+✓ [PASS] Open Graph / Twitter: og:type: 'article'
+✓ [PASS] JSON-LD: 6 JSON-LD block(s) parse; 20 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✓ [PASS] JSON-LD: Article.author -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.publisher -> https://shootmuse.com/#org (resolves on this page)
+✓ [PASS] JSON-LD: Article.image: https://shootmuse.com/images/blog/photography-client-onboarding-workflow.jpg
+⚠ [WARN] JSON-LD: datePublished is not ISO-8601: 'Sep 13, 2026'
+⚠ [WARN] JSON-LD: dateModified is not ISO-8601: 'Sep 13, 2026'
+✓ [PASS] Internal links: 7 in-body internal link(s)
+✓ [PASS] Internal links: links up to the hub (/blog)
+✗ [FAIL] Internal links: 1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404
+✓ [PASS] Images: all 4 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-client-onboarding-workflow.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...System That Builds Trust ShootMuse Team Published Sep 13, 2026 10 min read Getting photog...
+✓ [PASS] H1: one <h1>: 'How to Get Photography Clients: A Practical System That Builds Trust'
+⚠ [WARN] Word count: 879 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+
+STATUS  HARD  WARN  URL
+FAIL       3     5  https://shootmuse.com/blog/what-is-a-photography-crm
+FAIL       2     4  https://shootmuse.com/blog/switch-from-honeybook
+FAIL       2     3  https://shootmuse.com/blog/outgrown-photography-crm
+FAIL       2     3  https://shootmuse.com/blog/ai-for-photographers
+FAIL       2     4  https://shootmuse.com/blog/gallery-delivery-best-practices
+FAIL       2     4  https://shootmuse.com/blog/pricing-photography-packages
+FAIL       2     4  https://shootmuse.com/blog/photography-workflow-automation
+FAIL       2     5  https://shootmuse.com/blog/photography-client-onboarding-workflow
+FAIL       2     4  https://shootmuse.com/blog/choose-photography-crm
+FAIL       3     6  https://shootmuse.com/blog/photography-contract-checklist
+FAIL       3     6  https://shootmuse.com/blog/how-to-get-photography-clients
+
+HARD FAILURES on 11 of 11 page(s) — fix before treating this set as publishable.
+Warnings: 48 across 11 page(s).
+JSON report written to reports/publish-gate.shootmuse.sitemap.json

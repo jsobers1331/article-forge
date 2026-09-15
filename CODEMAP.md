@@ -5,12 +5,12 @@ A model-agnostic, site-agnostic framework for generating articles that rank
 ## Identity
 
 - **path:** `~/Personal/article-forge`
-- **branch:** `docs/human-centered-image-guidance`
-- **commit:** `9140121de480b754b7984058a9d7c6f96e156cf2`
-- **short:** `9140121`
-- **last commit:** 2026-08-30T17:58:56-04:00
-- **map generated:** 2026-08-30T22:39:40+00:00
-- **tracked files:** 18
+- **branch:** `feat/publish-gate-20260915`
+- **commit:** `e50fb95f233897d2ce0f11d7c949a561cdcc59dd`
+- **short:** `e50fb95`
+- **last commit:** 2026-08-30T18:40:50-04:00
+- **map generated:** 2026-09-15T23:16:02+00:00
+- **tracked files:** 66
 
 ## Tech Stack
 
@@ -20,10 +20,12 @@ A model-agnostic, site-agnostic framework for generating articles that rank
 
 | Directory | Files | Purpose |
 |-----------|-------|---------|
-| `./` | 8 | _ |
-| `scripts/` | 7 | Automation scripts |
+| `reports/` | 45 | Generated reports |
+| `./` | 9 | _ |
+| `scripts/` | 8 | Automation scripts |
 | `prompts/` | 2 | _ |
 | `output/` | 1 | _ |
+| `tests/` | 1 | Tests |
 
 ## Config & Key Files
 

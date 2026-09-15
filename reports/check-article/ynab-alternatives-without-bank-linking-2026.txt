@@ -1,0 +1,12 @@
+⚠ [WARN] Facts freshness: verified_facts last confirmed 37 days ago (>30) — re-read the live site's source of truth and update facts_last_verified before publishing
+✓ [PASS] Fabrication/placeholder gate: no placeholder/fabrication patterns found
+✓ [PASS] Visible opening-function labels: no visible opening-function labels found
+✓ [PASS] H1 matches target query: H1 matches target query closely (100% word overlap)
+✗ [FAIL] Bare URLs (not Markdown links): 4 bare URL(s) in parentheses, not Markdown links: ['(https://ynab.com)', '(https://monarchmoney.com)', '(https://copilot.money)']
+⚠ [WARN] Word count: word count 2154 is above the 1000-2000 range for 'standard' — consider splitting into two articles
+✓ [PASS] Banned words: no banned words found
+✓ [PASS] Structured element present: found a structured element (table)
+⚠ [WARN] Tier-gating mentions (heuristic): feature keywords ['debt', 'each', 'side'] appear (from 'Debt payoff planner — snowball vs. avalanche side by side, months to debt-free and total interest for each') but no tier keyword from 'Pro' was found anywhere in the text — verify manually
+⚠ [WARN] Structural repetition (heuristic): adjacent sections share an opening word: 'What does the Health Score actually tell you?' and 'How do you actually split bills with roommates using HomeWeal?' both open with 'the'
+
+HARD FAIL — do not publish until fabrication/placeholder issues are fixed.

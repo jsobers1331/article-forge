@@ -1,0 +1,25 @@
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 37 chars: 'Photography Business Blog | ShootMuse'
+✓ [PASS] Meta description: 141 chars: 'Tips, guides, and insights to help you build a thriving photography business. CRM comparisons, pricing strategies, workflow guides, and more.'
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com/blog
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✓ [PASS] Open Graph / Twitter: twitter:title: 'ShootMuse | AI Photography Business Software — CRM, Galleries & Invoicing'
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 4 JSON-LD block(s) parse; 13 node(s)
+✓ [PASS] JSON-LD: site-level node present: ['Organization', 'SoftwareApplication', 'WebSite']
+✓ [PASS] Internal links: 13 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/blog)
+✓ [PASS] Internal links: all 13 checked internal link(s) return 200
+✓ [PASS] Images: all 11 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-workflow-automation.jpg&w=3840&q=75
+✓ [PASS] Visible dates: visible date text: ...ude Before You Book By ShootMuse Team · Published Sep 13, 2026 A practical photography co...
+✓ [PASS] H1: 1 <h1>: 'The ShootMuse Blog'
+✓ [PASS] Word count: word count skipped for non-article pages
+✓ [PASS] Banned words: banned words skipped for non-article pages
+
+HARD FAIL — Open Graph / Twitter: og:image missing — social/link previews have no image
+1 hard failure(s), 3 warning(s), 17 passing check(s).
+JSON report written to reports/publish-gate.shootmuse.hub.json

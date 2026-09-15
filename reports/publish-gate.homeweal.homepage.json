@@ -1,0 +1,175 @@
+{
+  "generated_at": "2026-09-15T19:08:44-04:00",
+  "config": "site-config.homeweal.json",
+  "site": "homeweal.com",
+  "kind": "page",
+  "article_type": "standard",
+  "pages": [
+    {
+      "url": "https://homeweal.com/",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "64 chars: 'HomeWeal | Calm household bill tracker for couples and roommates'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "192 chars, outside the 50-160 guidance: 'Track recurring household bills, due dates, payments, and who owes what. HomeWeal is a shared bill tracker for couples, roommates, and families with multi-currency support and no bank linking.'"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'HomeWeal | Shared bill tracker for households'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'website'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "site-level node present: ['Organization', 'SoftwareApplication', 'WebSite']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "1 external/competitor link(s) in the body: ['https://app.homeweal.com/signup']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 7 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 5 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fvideos%2Fhomeweal-demo-poster.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: .../mo Family \u2014 for life. Subscribe before January 1, 2027 and keep your early-bird rate forever,..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "1 <h1>: 'The calm household bill tracker.'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "word count skipped for non-article pages"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "banned words skipped for non-article pages"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "192 chars, outside the 50-160 guidance: 'Track recurring household bills, due dates, payments, and who owes what. HomeWeal is a shared bill tracker for couples, roommates, and families with multi-currency support and no bank linking.'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "1 external/competitor link(s) in the body: ['https://app.homeweal.com/signup']"
+        }
+      ],
+      "pass": 19
+    }
+  ],
+  "summary": {
+    "pages_checked": 1,
+    "pages_with_hard_failures": 0,
+    "pages_with_warnings": 1,
+    "hard_items": 0,
+    "warn_items": 3
+  }
+}

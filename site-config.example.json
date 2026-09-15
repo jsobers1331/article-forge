@@ -37,6 +37,10 @@
     "/pricing",
     "/vs/competitor-a"
   ],
+  "hub_path": "the section of the site that indexes every article, e.g. /blog \u2014 check_publish.py expects each article to link back to it",
+  "article_path_prefixes": [
+    "the URL prefix that marks a page as an article, e.g. /blog/ \u2014 check_publish.py --sitemap-url uses these to pick which sitemap URLs to gate"
+  ],
   "topic_backlog": [
     {
       "title": "Definitional pillar \u2014 what is a [category]?",

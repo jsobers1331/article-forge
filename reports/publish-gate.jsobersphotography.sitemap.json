@@ -1,0 +1,2708 @@
+{
+  "generated_at": "2026-09-15T19:07:29-04:00",
+  "config": "site-config.jsobersphotography.json",
+  "site": "jsobersphotography.com",
+  "sitemap_url": "https://www.jsobersphotography.com/sitemap.xml",
+  "kind": "article",
+  "article_type": "standard",
+  "article_prefixes": [
+    "/blog/"
+  ],
+  "pages": [
+    {
+      "url": "https://www.jsobersphotography.com/blog/barbados-wedding-photographer-cost",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "72 chars, outside the 15-70 guidance: 'How much does a Barbados wedding photographer cost? | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "143 chars: \"Real numbers on our three wedding collections \u2014 $1,000 to $2,500 \u2014 what's actually included at each tier, and what drives the price up or down.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/barbados-wedding-photographer-cost"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/922100023"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/922100023"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'How much does a Barbados wedding photographer cost? | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/wedding/922100023"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/wedding/922100023?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...arbados wedding photographer cost? Last updated August 2026 Words by Jason Sobers Real..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How much does a Barbados wedding photographer cost?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1961 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "72 chars, outside the 15-70 guidance: 'How much does a Barbados wedding photographer cost? | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/engagement-photography-barbados-cost",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "90 chars, outside the 15-70 guidance: \"Engagement photography in Barbados: what it costs and what's included | JSobersPhotography\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "159 chars: \"Standalone engagement sessions run $450; adding one to a wedding package drops it to $200. Here's exactly what determines the cost and what you get either way.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/engagement-photography-barbados-cost"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/gallery/17926095-e31b3d63931ec20b31c77857350ab738-d5433f50.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/gallery/17926095-e31b3d63931ec20b31c77857350ab738-d5433f50.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: \"Engagement photography in Barbados: what it costs and what's included | JSobersPhotography\""
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/home/17926095"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/home/17926095?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...what it costs and what's included Last updated August 2026 Words by Jason Sobers Stand..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: \"Engagement photography in Barbados: what it costs and what's included\""
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1250 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "90 chars, outside the 15-70 guidance: \"Engagement photography in Barbados: what it costs and what's included | JSobersPhotography\""
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/wedding-welcome-dinner-photography-barbados",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "67 chars: 'Wedding welcome dinner photography in Barbados | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "160 chars: 'The welcome dinner is where your two families actually meet \u2014 and where the most unguarded moments of your wedding weekend happen. Coverage starts at $400/hour.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/wedding-welcome-dinner-photography-barbados"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/gallery/07149712-5dbefe33bafcb2b12369b0185731b6a2-3b9bfd25.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/gallery/07149712-5dbefe33bafcb2b12369b0185731b6a2-3b9bfd25.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Wedding welcome dinner photography in Barbados | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/home/07149712"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/home/07149712?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...ome dinner photography in Barbados Last updated August 2026 Words by Jason Sobers The w..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Wedding welcome dinner photography in Barbados'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1123 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        }
+      ],
+      "pass": 23
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/how-long-wedding-photos-barbados",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "73 chars, outside the 15-70 guidance: 'How long until you get your Barbados wedding photos? | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "169 chars, outside the 50-160 guidance: \"A 10\u201320 image sneak peek within 48\u201372 hours, and your full edited gallery within 6\u20138 weeks \u2014 on every wedding collection we offer. Here's exactly why it takes that long.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/how-long-wedding-photos-barbados"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/gallery/15043934-8ba9ea89a778587b3c2bc26fe485acc6-5645445e.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/gallery/15043934-8ba9ea89a778587b3c2bc26fe485acc6-5645445e.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'How long until you get your Barbados wedding photos? | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/home/15043934"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/home/15043934?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...get your Barbados wedding photos? Last updated August 2026 Words by Jason Sobers A 10\u2013..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How long until you get your Barbados wedding photos?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1089 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "73 chars, outside the 15-70 guidance: 'How long until you get your Barbados wedding photos? | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "169 chars, outside the 50-160 guidance: \"A 10\u201320 image sneak peek within 48\u201372 hours, and your full edited gallery within 6\u20138 weeks \u2014 on every wedding collection we offer. Here's exactly why it takes that long.\""
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/plan-barbados-destination-wedding",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "81 chars, outside the 15-70 guidance: 'How to plan a Barbados destination wedding from the US or UK | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "143 chars: 'The real logistics of marrying in Barbados from abroad \u2014 the marriage licence process, timeline, and what to lock down before you book flights.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/plan-barbados-destination-wedding"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/671200023"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/671200023"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'How to plan a Barbados destination wedding from the US or UK | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/wedding/671200023"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/wedding/671200023?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...tination wedding from the US or UK Last updated August 2026 Words by Jason Sobers The r..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to plan a Barbados destination wedding from the US or UK'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "662 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "81 chars, outside the 15-70 guidance: 'How to plan a Barbados destination wedding from the US or UK | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "662 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/crane-beach-golden-hour",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "69 chars: 'Crane Beach at golden hour \u2014 a venue field guide | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "154 chars: \"The Crane is one of the venues I know best on this island \u2014 here's what actually matters about its light, its cliffs, and its weather, honestly described.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/crane-beach-golden-hour"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/947899913"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/947899913"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Crane Beach at golden hour \u2014 a venue field guide | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/wedding/947899913"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/wedding/947899913?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...golden hour \u2014 a venue field guide Last updated August 2026 Words by Jason Sobers The C..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Crane Beach at golden hour \u2014 a venue field guide'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "433 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "433 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/outdoor-ceremony-barbados-what-to-expect",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "74 chars, outside the 15-70 guidance: 'What to expect from your outdoor ceremony in Barbados | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "137 chars: 'Beach, garden, or plantation lawn \u2014 the real logistics of an outdoor Barbados ceremony, and the backup plan every good venue already has.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/outdoor-ceremony-barbados-what-to-expect"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/portfolio/26476081"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/portfolio/26476081"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'What to expect from your outdoor ceremony in Barbados | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/portfolio/26476081"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "2 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 2 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/portfolio/26476081?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...your outdoor ceremony in Barbados Last updated August 2026 Words by Jason Sobers Beach..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'What to expect from your outdoor ceremony in Barbados'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "412 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "74 chars, outside the 15-70 guidance: 'What to expect from your outdoor ceremony in Barbados | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "412 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/caribbean-engagement-portrait-style",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "73 chars, outside the 15-70 guidance: 'What to wear for your Caribbean engagement portraits | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "144 chars: 'Practical styling guidance for engagement photos in tropical light and heat \u2014 what actually photographs well here, not generic Pinterest advice.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/caribbean-engagement-portrait-style"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/portfolio/4456202"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/portfolio/4456202"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'What to wear for your Caribbean engagement portraits | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/portfolio/4456202"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/portfolio/4456202?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...our Caribbean engagement portraits Last updated August 2026 Words by Jason Sobers Pract..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'What to wear for your Caribbean engagement portraits'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "347 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "73 chars, outside the 15-70 guidance: 'What to wear for your Caribbean engagement portraits | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "347 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/husband-wife-photography-team",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "69 chars: 'Working with a husband-and-wife photography team | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "109 chars: 'What actually changes when two photographers who work together \u2014 not just two photographers \u2014 cover your day.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/husband-wife-photography-team"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/510799913"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/wedding/510799913"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Working with a husband-and-wife photography team | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/wedding/510799913"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "2 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 2 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/wedding/510799913?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...husband-and-wife photography team Last updated August 2026 Words by Jason Sobers What..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Working with a husband-and-wife photography team'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "327 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "327 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/wedding-album-printing-guide",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "62 chars: 'An honest guide to wedding album printing | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "135 chars: 'Why a printed album still matters when every gallery is digital now \u2014 and what actually separates a real photo album from a photo book.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/wedding-album-printing-guide"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/home/60585102"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_jpg,c_fill,g_auto,w_1200,h_630/jsobers/home/60585102"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'An honest guide to wedding album printing | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://res.cloudinary.com/dugnhr5f3/image/upload/q_auto,f_auto,c_fill,g_auto,w_1600,h_900/jsobers/home/60585102"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2160,g_auto/f_auto/q_auto/v1/jsobers/home/60585102?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...st guide to wedding album printing Last updated August 2026 Words by Jason Sobers Why a..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'An honest guide to wedding album printing'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "382 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-02T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "382 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/how-to-choose-a-barbados-wedding-photographer",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "66 chars: 'How to choose a Barbados wedding photographer | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "119 chars: 'A practical guide to comparing style, team size, pricing, communication, delivery, and backup planning before you book.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/how-to-choose-a-barbados-wedding-photographer"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/blog/choose-barbados-wedding-photographer-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/blog/choose-barbados-wedding-photographer-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'How to choose a Barbados wedding photographer | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://www.jsobersphotography.com/images/blog/choose-barbados-wedding-photographer-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-04T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "6 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 6 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fchoose-barbados-wedding-photographer-hero.webp&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...se a Barbados wedding photographer Last updated September 2026 Words by Jason Sobers A..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to choose a Barbados wedding photographer'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1760 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-04T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        }
+      ],
+      "pass": 23
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/how-to-book-a-barbados-wedding-photographer-from-abroad",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "76 chars, outside the 15-70 guidance: 'How to book a Barbados wedding photographer from abroad | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'How to book a Barbados wedding photographer from abroad, from checking availability and scheduling a Zoom consultation to securing your date and planning the timeline.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/how-to-book-a-barbados-wedding-photographer-from-abroad"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/blog/book-barbados-wedding-photographer-from-abroad-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/blog/book-barbados-wedding-photographer-from-abroad-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'How to book a Barbados wedding photographer from abroad | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://www.jsobersphotography.com/images/blog/book-barbados-wedding-photographer-from-abroad-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-04T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 7 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fbook-barbados-wedding-photographer-from-abroad-hero.webp&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...s wedding photographer from abroad Last updated September 2026 Words by Jason Sobers Ho..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to book a Barbados wedding photographer from abroad'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1370 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "76 chars, outside the 15-70 guidance: 'How to book a Barbados wedding photographer from abroad | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'How to book a Barbados wedding photographer from abroad, from checking availability and scheduling a Zoom consultation to securing your date and planning the timeline.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-04T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/barbados-wedding-venues-how-to-choose",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "90 chars, outside the 15-70 guidance: 'Barbados wedding venues: how to choose the right setting for your day | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "181 chars, outside the 50-160 guidance: 'A practical way to compare beach, garden, cliffside and hotel wedding venues in Barbados \u2014 with the weather, light, privacy and logistics questions that prevent expensive surprises.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/barbados-wedding-venues-how-to-choose"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/blog/choose-barbados-wedding-photographer-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/blog/choose-barbados-wedding-photographer-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Barbados wedding venues: how to choose the right setting for your day | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://www.jsobersphotography.com/images/blog/choose-barbados-wedding-photographer-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fchoose-barbados-wedding-photographer-hero.webp&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...ose the right setting for your day Last updated September 2026 Words by Jason Sobers A..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Barbados wedding venues: how to choose the right setting for your day'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "959 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "90 chars, outside the 15-70 guidance: 'Barbados wedding venues: how to choose the right setting for your day | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "181 chars, outside the 50-160 guidance: 'A practical way to compare beach, garden, cliffside and hotel wedding venues in Barbados \u2014 with the weather, light, privacy and logistics questions that prevent expensive surprises.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "959 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 20
+    },
+    {
+      "url": "https://www.jsobersphotography.com/blog/best-time-to-get-married-in-barbados",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "97 chars, outside the 15-70 guidance: 'Best time to get married in Barbados: weather, crowds and planning timelines | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "170 chars, outside the 50-160 guidance: 'How to choose a Barbados wedding date around weather, guest travel, venue availability and the kind of experience you want \u2014 without relying on a \u201cperfect month\u201d promise.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com/blog/best-time-to-get-married-in-barbados"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/blog/book-barbados-wedding-photographer-from-abroad-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/blog/book-barbados-wedding-photographer-from-abroad-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Best time to get married in Barbados: weather, crowds and planning timelines | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 18 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: BlogPosting"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://www.jsobersphotography.com#jason (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://www.jsobersphotography.com#business (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://www.jsobersphotography.com/images/blog/book-barbados-wedding-photographer-from-abroad-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fbook-barbados-wedding-photographer-from-abroad-hero.webp&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...her, crowds and planning timelines Last updated September 2026 Words by Jason Sobers Ho..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Best time to get married in Barbados: weather, crowds and planning timelines'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "756 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "97 chars, outside the 15-70 guidance: 'Best time to get married in Barbados: weather, crowds and planning timelines | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "170 chars, outside the 50-160 guidance: 'How to choose a Barbados wedding date around weather, guest travel, venue availability and the kind of experience you want \u2014 without relying on a \u201cperfect month\u201d promise.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type is 'website', expected 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13T00:00:00.000Z) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "756 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 20
+    }
+  ],
+  "summary": {
+    "pages_checked": 14,
+    "pages_with_hard_failures": 0,
+    "pages_with_warnings": 14,
+    "hard_items": 0,
+    "warn_items": 63
+  }
+}

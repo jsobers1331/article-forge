@@ -1,0 +1,38 @@
+TOTAL SCORE: 84.8/100
+  intent_match: 100.0/100 (weight 20%)
+  topical_comprehensiveness: 100.0/100 (weight 25%)
+  entity_coverage: 40.0/100 (weight 15%)
+  structure_extractability: 75.0/100 (weight 15%)
+  eeat: 100.0/100 (weight 15%)
+  linking: 75.0/100 (weight 10%)
+
+Entity gaps:
+  - everydollar
+  - empower
+  - plaid
+
+Linking:
+  - 6 internal links may be excessive (want 3-5)
+  - 5 external links risks looking spammy (want 2-4)
+{
+  "total_score": 84.8,
+  "pillars": {
+    "intent_match": 100.0,
+    "topical_comprehensiveness": 100.0,
+    "entity_coverage": 40.0,
+    "structure_extractability": 75.0,
+    "eeat": 100.0,
+    "linking": 75.0
+  },
+  "topical_gaps": [],
+  "entity_gaps": [
+    "everydollar",
+    "empower",
+    "plaid"
+  ],
+  "linking_notes": [
+    "6 internal links may be excessive (want 3-5)",
+    "5 external links risks looking spammy (want 2-4)"
+  ],
+  "hard_gate_failed": false
+}

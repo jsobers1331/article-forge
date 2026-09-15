@@ -1,0 +1,175 @@
+{
+  "generated_at": "2026-09-15T19:08:52-04:00",
+  "config": "site-config.homeweal.json",
+  "site": "homeweal.com",
+  "kind": "page",
+  "article_type": "standard",
+  "pages": [
+    {
+      "url": "https://homeweal.com/articles",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "28 chars: 'Guides \u2014 HomeWeal | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "123 chars: 'Guides on household bill tracking, splitting bills without a spreadsheet, and choosing a bill tracker without bank linking.'"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'HomeWeal | Shared bill tracker for households'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'website'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "1 JSON-LD block(s) parse; 3 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "no Organization/WebSite node (types present: ['BreadcrumbList', 'ListItem'])"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "20 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 20 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 16 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "WARN",
+          "detail": "no visible publish or update date anywhere in the page text"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "1 <h1>: 'Household bill tracking, explained'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "word count skipped for non-article pages"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "banned words skipped for non-article pages"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "no Organization/WebSite node (types present: ['BreadcrumbList', 'ListItem'])"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "WARN",
+          "detail": "no visible publish or update date anywhere in the page text"
+        }
+      ],
+      "pass": 17
+    }
+  ],
+  "summary": {
+    "pages_checked": 1,
+    "pages_with_hard_failures": 0,
+    "pages_with_warnings": 1,
+    "hard_items": 0,
+    "warn_items": 4
+  }
+}

@@ -1,0 +1,25 @@
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 79 chars, outside the 15-70 guidance: 'Journal — Field Notes from a Barbados Wedding Photographer | JSobersPhotography'
+✓ [PASS] Meta description: 151 chars: 'Planning guides, venue write-ups, and reflections on craft from JSobersPhotography. Honest reading for couples planning a Barbados destination wedding.'
+✓ [PASS] Canonical: self-referencing canonical: https://www.jsobersphotography.com/blog
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✓ [PASS] Open Graph / Twitter: twitter:title: 'Journal — Field Notes from a Barbados Wedding Photographer | JSobersPhotography'
+✓ [PASS] Open Graph / Twitter: og:type: 'website'
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 10 node(s)
+✓ [PASS] JSON-LD: site-level node present: ['LocalBusiness']
+✓ [PASS] Internal links: 15 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/blog)
+✓ [PASS] Internal links: all 15 checked internal link(s) return 200
+✓ [PASS] Images: all 14 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2880,g_auto/f_auto/q_auto/v1/jsobers/wedding/922100023?_a=BAVMn6E70
+⚠ [WARN] Visible dates: no visible publish or update date anywhere in the page text
+✓ [PASS] H1: 1 <h1>: 'Notes from thework.'
+✓ [PASS] Word count: word count skipped for non-article pages
+✓ [PASS] Banned words: banned words skipped for non-article pages
+
+HARD FAIL — Open Graph / Twitter: og:image missing — social/link previews have no image
+1 hard failure(s), 4 warning(s), 16 passing check(s).
+JSON report written to reports/publish-gate.jsobersphotography.hub.json

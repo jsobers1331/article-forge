@@ -1,0 +1,24 @@
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 28 chars: 'Guides — HomeWeal | HomeWeal'
+✓ [PASS] Meta description: 123 chars: 'Guides on household bill tracking, splitting bills without a spreadsheet, and choosing a bill tracker without bank linking.'
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e
+✓ [PASS] Open Graph / Twitter: twitter:title: 'HomeWeal | Shared bill tracker for households'
+✓ [PASS] Open Graph / Twitter: og:type: 'website'
+✓ [PASS] JSON-LD: 1 JSON-LD block(s) parse; 3 node(s)
+⚠ [WARN] JSON-LD: no Organization/WebSite node (types present: ['BreadcrumbList', 'ListItem'])
+✓ [PASS] Internal links: 20 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 20 checked internal link(s) return 200
+✓ [PASS] Images: all 16 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+⚠ [WARN] Visible dates: no visible publish or update date anywhere in the page text
+✓ [PASS] H1: 1 <h1>: 'Household bill tracking, explained'
+✓ [PASS] Word count: word count skipped for non-article pages
+✓ [PASS] Banned words: banned words skipped for non-article pages
+
+0 hard failure(s), 4 warning(s), 17 passing check(s).
+JSON report written to reports/publish-gate.homeweal.hub.json

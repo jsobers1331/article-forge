@@ -1,0 +1,24 @@
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 63 chars: 'ShootMuse | AI-Powered Photography Business Management Software'
+✓ [PASS] Meta description: 155 chars: 'Replace HoneyBook, Dubsado & Pixieset with one AI-powered platform. Photography CRM, galleries, invoicing & contracts. Free plan — no credit card required.'
+✓ [PASS] Canonical: self-referencing canonical: https://shootmuse.com
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://shootmuse.com/opengraph-image?74538421285f984e
+✓ [PASS] Open Graph / Twitter: twitter:image: https://shootmuse.com/opengraph-image?74538421285f984e
+✓ [PASS] Open Graph / Twitter: twitter:title: 'ShootMuse | AI Photography Business Software — CRM, Galleries & Invoicing'
+✓ [PASS] Open Graph / Twitter: og:type: 'website'
+✓ [PASS] JSON-LD: 4 JSON-LD block(s) parse; 13 node(s)
+✓ [PASS] JSON-LD: site-level node present: ['Organization', 'SoftwareApplication', 'WebSite']
+✓ [PASS] Internal links: 4 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/blog)
+✓ [PASS] Internal links: all 4 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /images/product-tour-frame.jpg
+✓ [PASS] Visible dates: visible date text: ...idden fees. Cancel anytime. Written and reviewed by a working photographer with 8.5 year...
+✓ [PASS] H1: 1 <h1>: 'Stop letting clients slip through the cracks'
+✓ [PASS] Word count: word count skipped for non-article pages
+✓ [PASS] Banned words: banned words skipped for non-article pages
+
+0 hard failure(s), 2 warning(s), 19 passing check(s).
+JSON report written to reports/publish-gate.shootmuse.homepage.json

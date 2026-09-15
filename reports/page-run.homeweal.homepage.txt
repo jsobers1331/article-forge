@@ -1,0 +1,25 @@
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 64 chars: 'HomeWeal | Calm household bill tracker for couples and roommates'
+⚠ [WARN] Meta description: 192 chars, outside the 50-160 guidance: 'Track recurring household bills, due dates, payments, and who owes what. HomeWeal is a shared bill tracker for couples, roommates, and families with multi-currency support and no bank linking.'
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/opengraph-image?eb937e30d3a4ed9e
+✓ [PASS] Open Graph / Twitter: twitter:title: 'HomeWeal | Shared bill tracker for households'
+✓ [PASS] Open Graph / Twitter: og:type: 'website'
+✓ [PASS] JSON-LD: 4 JSON-LD block(s) parse; 18 node(s)
+✓ [PASS] JSON-LD: site-level node present: ['Organization', 'SoftwareApplication', 'WebSite']
+✓ [PASS] Internal links: 7 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 1 external/competitor link(s) in the body: ['https://app.homeweal.com/signup']
+✓ [PASS] Internal links: all 7 checked internal link(s) return 200
+✓ [PASS] Images: all 5 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fvideos%2Fhomeweal-demo-poster.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: .../mo Family — for life. Subscribe before January 1, 2027 and keep your early-bird rate forever,...
+✓ [PASS] H1: 1 <h1>: 'The calm household bill tracker.'
+✓ [PASS] Word count: word count skipped for non-article pages
+✓ [PASS] Banned words: banned words skipped for non-article pages
+
+0 hard failure(s), 3 warning(s), 19 passing check(s).
+JSON report written to reports/publish-gate.homeweal.homepage.json
