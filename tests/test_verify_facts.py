@@ -375,7 +375,8 @@ def test_judge_defaults_to_openai_gpt_4o_mini_and_honours_overrides(tmp_path, mo
     # --provider alone falls back to that provider's default model, not gpt-4o-mini
     assert verify_facts.main(["--config", str(config), "--provider", "deepseek", *force]) == 0
     assert calls[-1]["provider"] == "deepseek"
-    assert calls[-1]["model"] == "deepseek-chat"
+    from scripts.call_llm import PROVIDERS
+    assert calls[-1]["model"] == PROVIDERS["deepseek"]["default_model"]
 
 
 def test_build_prompt_is_blind_to_verdicts_and_prior_results():

@@ -65,10 +65,11 @@ def check_config_integrity(config):
     if not isinstance(facts, dict):
         errors.append("verified_facts must be an object")
         facts = {}
-    if not isinstance(facts.get("real_differentiators", []), list):
+    differentiators = facts.get("real_differentiators", [])
+    if not isinstance(differentiators, list):
         errors.append("verified_facts.real_differentiators must be a list")
     else:
-        for index, item in enumerate(facts["real_differentiators"]):
+        for index, item in enumerate(differentiators):
             if isinstance(item, dict) and (
                 not item.get("feature") or not item.get("tier")
             ):
@@ -682,7 +683,7 @@ def run_checks(text, article_type, target_query, config, config_path=None, use_l
         ("Structural repetition (heuristic)", check_structural_repetition(text)),
     ]
     if use_ledger and config_path:
-        checks.append(("Claim verification ledger", check_claim_ledger(config, config_path)))
+        checks.insert(2, ("Claim verification ledger", check_claim_ledger(config, config_path)))
     return checks
 
 

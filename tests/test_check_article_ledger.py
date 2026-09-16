@@ -23,13 +23,29 @@ def days_ago_iso(days):
 
 
 def make_config(tmp_path, claim_ids, **extra):
+    today = datetime.now(timezone.utc).date().isoformat()
     config = {
-        "facts_last_verified": datetime.now(timezone.utc).date().isoformat(),
+        "site_name": "TestProject",
+        "domain": "example.com",
+        "category_frame": "a test frame",
+        "icp": "test readers",
+        "canonical_definition_sentence": "TestProject is a test product.",
+        "existing_pages": ["/"],
+        "current_month_year": "September 2026",
+        "verified_facts": {
+            "real_differentiators": [],
+            "coming_soon_features": [],
+            "pricing_and_billing": {},
+        },
+        "facts_last_verified": today,
         "claim_evidence": [
             {
                 "claim_id": cid,
                 "claim": f"claim text for {cid}",
-                "source_url": f"https://example.invalid/{cid}",
+                "source_url": f"https://example.com/{cid}",
+                "verified_on": today,
+                "status": "verified",
+                "verification_scope": "fixture",
             }
             for cid in claim_ids
         ],
@@ -179,6 +195,7 @@ def test_missing_claim_evidence_key_passes(tmp_path):
 
 DRAFT_TEXT = (
     "# Autonomous claim verification\n\n"
+    "*Last updated: September 2026.*\n\n"
     "A short intro paragraph.\n\n"
     "| column a | column b |\n|---|---|\n| 1 | 2 |\n\n"
 ) + "filler word " * 700
