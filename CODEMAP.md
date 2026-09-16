@@ -4,13 +4,13 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 ## Identity
 
-- **path:** `~/Personal/article-forge-opportunity-planner`
-- **branch:** `feat/keyword-opportunity-planner`
-- **commit:** `ed60e7e12ec9be725b0af1743f412c9807445ee4`
-- **short:** `ed60e7e`
-- **last commit:** 2026-09-04T23:18:33-04:00
-- **map generated:** 2026-09-05T03:49:10+00:00
-- **tracked files:** 34
+- **path:** `~/Personal/article-forge`
+- **branch:** `main`
+- **commit:** merge of publish-gate + autonomous-fact-verification
+- **short:** `see git log`
+- **last commit:** 2026-09-15
+- **map generated:** 2026-09-15
+- **tracked files:** see git ls-files
 
 ## Tech Stack
 
@@ -20,12 +20,14 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 | Directory | Files | Purpose |
 |-----------|-------|---------|
+| `reports/` | 45 | Generated reports |
 | `./` | 14 | _ |
 | `scripts/` | 14 | Automation scripts |
 | `prompts/` | 2 | _ |
 | `tests/` | 2 | Tests |
 | `.github/` | 1 | GitHub workflows and templates |
 | `output/` | 1 | _ |
+| `tests/` | 1 | Tests |
 
 ## Config & Key Files
 

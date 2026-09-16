@@ -1,0 +1,659 @@
+{
+  "site": "jsobersphotography.com",
+  "built": "2026-09-15",
+  "money_queries": [
+    "barbados wedding photographer",
+    "barbados wedding photographer cost",
+    "how much does a barbados wedding photographer cost",
+    "editorial wedding photography barbados",
+    "documentary wedding photographer in barbados",
+    "barbados wedding and lifestyle photographer",
+    "engagement photographer barbados",
+    "maternity photographer barbados",
+    "family photographer barbados",
+    "luxury destination wedding photographers in barbados"
+  ],
+  "clusters": [
+    {
+      "id": "jsp-cost",
+      "name": "Barbados wedding photography cost and packages (money cluster)",
+      "intent": "local",
+      "pillar": {
+        "title": "How Much Does a Barbados Wedding Photographer Cost? (2026 Packages Guide)",
+        "type": "pillar",
+        "target_query": "how much does a barbados wedding photographer cost",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Barbados Wedding Photography Packages: What $1,200, $2,500, and $3,500 Include",
+          "type": "standard",
+          "target_query": "barbados wedding photography packages",
+          "priority": 2,
+          "source": "differentiator",
+          "note": "Real published tiers: Island Bliss $1,200; Eternal Romance $2,500 (most chosen); Signature Experience $3,500; 80+ sessions since 2018; 5.0 rating. Convert to /wedding-packages in the first third."
+        },
+        {
+          "title": "What's Included in a Barbados Wedding Photography Package?",
+          "type": "supporting",
+          "target_query": "what's included in a barbados wedding photography package",
+          "priority": 3,
+          "source": "gsc-adjacent",
+          "note": "Existing topic_backlog item (priority 6). It overlaps the tier-price spoke above \u2014 write one inclusions page and one tier-price page, or merge them if GSC shows both competing for the same query."
+        },
+        {
+          "title": "Add-On Pricing: Engagement, Maternity, Family, and Portrait Sessions in Barbados",
+          "type": "standard",
+          "target_query": "barbados engagement photography price",
+          "priority": 4,
+          "source": "differentiator",
+          "note": "Real add-on prices: engagement $450 (or $200 as a wedding add-on), portraits $250, maternity $300, family $300; travel within Barbados included."
+        },
+        {
+          "title": "Engagement Photography in Barbados: What It Costs and What's Included",
+          "type": "standard",
+          "target_query": "engagement photography barbados cost",
+          "priority": 5,
+          "source": "gsc-impression",
+          "note": "Existing topic_backlog item, but /blog/engagement-photography-barbados-cost already ranks 8.58 with 2 clicks \u2014 verify against it and upgrade rather than rewriting. Real query engagement photographer barbados sits at 11.5.",
+          "verification": {
+            "type": "live_post_upgrade_check",
+            "check": "Fetch live /blog/engagement-photography-barbados-cost first (already pos 8.6 with 2 clicks). If it covers the target query, write an upgrade pass (tighten capsule, add internal links, refresh date) instead of a competing new article."
+          }
+        },
+        {
+          "title": "Barbados Elopement Photography: What It Costs and What's Included",
+          "type": "standard",
+          "target_query": "barbados elopement photographer cost",
+          "priority": 6,
+          "source": "gsc-adjacent",
+          "note": "Existing topic_backlog item (priority 2). No published elopement pricing exists \u2014 use the real package tiers scaled to coverage hours, and only numbers Jason confirms."
+        },
+        {
+          "title": "How Long Until You Get Your Barbados Wedding Photos?",
+          "type": "supporting",
+          "target_query": "how long to get wedding photos back barbados",
+          "priority": 7,
+          "source": "differentiator",
+          "note": "Real delivery facts: 48-72 hour sneak peek, 6-8 week full gallery. Competitors advertise expedited delivery (aniyaemtage.com publishes this) so the timeline must be stated as the studio's actual one. Timelines are guidance, never a promise."
+        },
+        {
+          "title": "Welcome Dinner and Rehearsal Coverage in Barbados",
+          "type": "supporting",
+          "target_query": "wedding welcome dinner photographer barbados",
+          "priority": 8,
+          "source": "differentiator",
+          "note": "Real pricing: welcome dinner and rehearsal coverage $400 per hour. The live page /blog/wedding-welcome-dinner-photography-barbados already ranks 4.5 \u2014 upgrade it rather than creating a second page."
+        },
+        {
+          "title": "How to Budget for a Barbados Destination Wedding: Where Photography Fits",
+          "type": "standard",
+          "target_query": "barbados destination wedding budget",
+          "priority": 9,
+          "source": "competitor-gap",
+          "note": "Competitor barbados-photographers.com publishes a 12-15 percent of budget heuristic \u2014 secondary source. Either re-verify it or anchor the article on the studio's real package prices instead.",
+          "verification": {
+            "type": "competitor_claim_or_drop",
+            "check": "The 12-15%-of-budget heuristic is a secondary-source claim. At draft time fetch the cited competitor page; if not supported, DROP the number and anchor the article on the studio's real package prices from site-config verified_facts."
+          }
+        },
+        {
+          "title": "Second Photographer and Videographer Costs in Barbados",
+          "type": "standard",
+          "target_query": "barbados wedding videographer cost",
+          "priority": 10,
+          "source": "competitor-gap",
+          "note": "Second-shooter and videography pricing appear on rival sites (barbados-photographers.com, aniyaemtage.com) but are NOT in jsobersphotography verified_facts. Confirm with the owner whether these are offered and at what price before assigning this article."
+        }
+      ],
+      "internal_link_plan": "The cost pillar is the cluster hub and must be the canonical page for cost queries: it links down to all nine spokes and to /wedding-packages (the money page), /book-your-wedding-today, and /contact. Spokes link up in the first 150 words, sideways to the tier-price and inclusions pages, and down to /wedding-packages or /book-your-wedding-today in the first third. Cannibalisation fix: /wedding-packages currently splits the query barbados wedding photographer (77 impressions at 39.97) with /wedding, /portraiture, and blog pages \u2014 restrict /wedding-packages to transactional package and booking language, let the pillar own the informational cost query, then re-check GSC in 6-8 weeks.",
+      "differentiation": "Every number in this cluster is a published studio fact: Island Bliss $1,200, Eternal Romance $2,500, Signature Experience $3,500; add-ons $450 engagement ($200 as a wedding add-on), $250 portraits, $300 maternity, $300 family, $400 per hour welcome dinner and rehearsal coverage; 80+ sessions since 2018; 5.0 rating; insured and registered since 2018; travel within Barbados included; 24-hour response; 48-72 hour sneak peek; 6-8 week gallery. First-person voice with real client names where consent already covers them. Rival pricing taken from serp-snapshot.jsobersphotography-cost.json is flagged in notes for re-verification and never stated as fact."
+    },
+    {
+      "id": "jsp-venues",
+      "name": "Barbados wedding venues and locations: photographer's guides",
+      "intent": "local",
+      "pillar": {
+        "title": "Barbados Wedding Venues: A Photographer's Guide to Light, Logistics, and Timing",
+        "type": "pillar",
+        "target_query": "barbados wedding venues",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Halton Great House Weddings: A Photographer's Guide",
+          "type": "standard",
+          "target_query": "halton great house wedding",
+          "priority": 12,
+          "source": "competitor-gap",
+          "note": "The venue appears in the cost SERP via aniyaemtage.com. Owner-confirm Jason has shot it before publishing; each venue guide needs his own photos and EXIF-verified timing, never stock or generic description.",
+          "verification": {
+            "type": "first_hand_venue_evidence",
+            "check": "first_hand_evidence: grep the venue name across the site repo (src/, public/, published blog posts, gallery/portfolio data files). Require >=1 evidence hit AND >=1 usable real photo from the library (Nikon EXIF assets). On pass: proceed. On fail: auto-HOLD the spoke and record why in the ledger \u2014 no owner escalation, the spoke simply waits for evidence to exist.",
+            "evidence_files_2026_09_15": 0,
+            "status": "held_no_evidence"
+          }
+        },
+        {
+          "title": "Colleton Great House Weddings: Timing, Light, and Logistics",
+          "type": "standard",
+          "target_query": "colleton great house wedding",
+          "priority": 13,
+          "source": "competitor-gap",
+          "note": "Owner-confirm shooting history before publishing. First-hand frames are mandatory.",
+          "verification": {
+            "type": "first_hand_venue_evidence",
+            "check": "first_hand_evidence: grep the venue name across the site repo (src/, public/, published blog posts, gallery/portfolio data files). Require >=1 evidence hit AND >=1 usable real photo from the library (Nikon EXIF assets). On pass: proceed. On fail: auto-HOLD the spoke and record why in the ledger \u2014 no owner escalation, the spoke simply waits for evidence to exist.",
+            "evidence_files_2026_09_15": 0,
+            "status": "held_no_evidence"
+          }
+        },
+        {
+          "title": "Sandy Lane Weddings: What Photography Coverage Looks Like",
+          "type": "standard",
+          "target_query": "sandy lane wedding",
+          "priority": 14,
+          "source": "competitor-gap",
+          "note": "Owner-confirm shooting history. Resort policies change \u2014 pair any logistics claim with what the venue's own materials say and date the check.",
+          "verification": {
+            "type": "first_hand_venue_evidence",
+            "check": "first_hand_evidence: grep the venue name across the site repo (src/, public/, published blog posts, gallery/portfolio data files). Require >=1 evidence hit AND >=1 usable real photo from the library (Nikon EXIF assets). On pass: proceed. On fail: auto-HOLD the spoke and record why in the ledger \u2014 no owner escalation, the spoke simply waits for evidence to exist.",
+            "evidence_files_2026_09_15": 4,
+            "status": "evidenced"
+          }
+        },
+        {
+          "title": "Beach Ceremony Timing in Barbados: Reading the Light at 4pm, 5pm, and Sunset",
+          "type": "standard",
+          "target_query": "barbados beach wedding ceremony time",
+          "priority": 16,
+          "source": "differentiator",
+          "note": "The cluster's original data asset: sunset times and usable light windows month by month, taken from the studio's own EXIF-dated shoots. This is what competitors cannot copy."
+        },
+        {
+          "title": "Cobblers Cove Weddings: A Photographer's Guide",
+          "type": "supporting",
+          "target_query": "cobblers cove wedding",
+          "priority": 19,
+          "source": "competitor-gap",
+          "note": "Owner-confirm shooting history before publishing.",
+          "verification": {
+            "type": "first_hand_venue_evidence",
+            "check": "first_hand_evidence: grep the venue name across the site repo (src/, public/, published blog posts, gallery/portfolio data files). Require >=1 evidence hit AND >=1 usable real photo from the library (Nikon EXIF assets). On pass: proceed. On fail: auto-HOLD the spoke and record why in the ledger \u2014 no owner escalation, the spoke simply waits for evidence to exist.",
+            "evidence_files_2026_09_15": 1,
+            "status": "evidenced"
+          }
+        },
+        {
+          "title": "West Coast Portrait Spots: Speightstown, Saint James, and the Drive Between",
+          "type": "standard",
+          "target_query": "west coast barbados photoshoot locations",
+          "priority": 22,
+          "source": "competitor-gap",
+          "note": "Location piece anchored to the studio's own sessions. Owner-confirm which spots he actually shoots. Batch-2 venues to hold until batch 1 proves the format: Fairmont Royal Pavilion, Fustic House, Bluff House, plus a Caribbean island venue showcase.",
+          "verification": {
+            "type": "first_hand_venue_evidence",
+            "check": "first_hand_evidence: grep the venue name across the site repo (src/, public/, published blog posts, gallery/portfolio data files). Require >=1 evidence hit AND >=1 usable real photo from the library (Nikon EXIF assets). On pass: proceed. On fail: auto-HOLD the spoke and record why in the ledger \u2014 no owner escalation, the spoke simply waits for evidence to exist.",
+            "evidence_files_2026_09_15": 0,
+            "status": "held_no_evidence"
+          }
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all six spokes and up to the C1 cost pillar and /portfolio. Spokes link up, sideways to one sibling venue, and down to /book-your-wedding-today in the first third. Venue pages are not a location-page farm: 7 location-intent pages (1 pillar plus 6 spokes) against an established wedding content base keeps this well under the 30-page warning threshold the seo-leverage skill sets, and no venue page ships without first-hand photos.",
+      "differentiation": "These guides only exist because the studio has photographed at the venue: real frames, EXIF timestamps for light and ceremony timing, and logistics learned on the day (parking, ceremony direction, rain cover, backup shade). Any venue the owner has not shot is excluded from the plan. No award, press, or media claims are used because none exist in the config \u2014 the photos and timestamps are the authority."
+    },
+    {
+      "id": "jsp-planning",
+      "name": "Getting married in Barbados: paperwork, seasons, logistics",
+      "intent": "how-to",
+      "pillar": {
+        "title": "Getting Married in Barbados: Paperwork, Seasons, and What to Book First",
+        "type": "pillar",
+        "target_query": "getting married in barbados",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Marriage Paperwork for Barbados: What Couples Need to Bring",
+          "type": "standard",
+          "target_query": "getting married in barbados paperwork",
+          "priority": 17,
+          "source": "competitor-gap",
+          "note": "Legal facts must be verified before drafting \u2014 one unverified note says no advance notice is required. Cite the official Barbados government source at publish time or leave the claim out entirely."
+        },
+        {
+          "title": "Best Time of Year to Get Married in Barbados",
+          "type": "standard",
+          "target_query": "best time to get married in barbados",
+          "priority": 20,
+          "source": "competitor-gap",
+          "note": "Seasonality from the studio's own booking pattern plus dated shoots. Hurricane-season framing stays factual (season dates and practical implications) without alarmism."
+        },
+        {
+          "title": "Hurricane Season Weddings in Barbados: What Photographers Plan For",
+          "type": "supporting",
+          "target_query": "barbados hurricane season wedding",
+          "priority": 23,
+          "source": "differentiator",
+          "note": "First-hand contingency experience is the differentiator; no invented storm statistics or insurance advice."
+        },
+        {
+          "title": "Rainy-Day Wedding Photography in Barbados: Backup Plans That Photograph Well",
+          "type": "supporting",
+          "target_query": "barbados wedding rain backup plan",
+          "priority": 26,
+          "source": "differentiator",
+          "note": "Real ceremony and portrait options from actual rescheduled sessions; ties to the C2 beach-lighting spoke."
+        },
+        {
+          "title": "How Far in Advance Should You Book Your Barbados Wedding Photographer?",
+          "type": "standard",
+          "target_query": "how far in advance book wedding photographer",
+          "priority": 28,
+          "source": "competitor-gap",
+          "note": "Competitors publish booking timelines; use the studio's real calendar pattern and the 24-hour response promise instead of a copied rule of thumb. Present as guidance from experience, never as a guarantee."
+        },
+        {
+          "title": "What to Tell Your Wedding Guests About Barbados",
+          "type": "supporting",
+          "target_query": "barbados wedding guest guide",
+          "priority": 31,
+          "source": "competitor-gap",
+          "note": "Fills the discovery gap on guest experience and cultural activities. Operator knowledge only \u2014 no licensed travel, visa, or insurance advice."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all six spokes, up to C1 (cost), and across to C2 (venues). Spokes link up in the first 150 words, sideways (paperwork to seasons to booking timing), and down to /book-your-wedding-today in the first third. The existing /blog/plan-barbados-destination-wedding (31 impressions at 29.2) becomes a spoke-level page linking up to this pillar \u2014 do not create a second plan-a-Barbados-wedding article that competes with it.",
+      "differentiation": "This cluster is where first-hand operator knowledge beats AI content: the studio has photographed 80+ sessions in Barbados since 2018 and can speak to rain plans, ceremony timing, and realistic booking lead times from its own calendar and EXIF-dated archives. Legal and procedural claims are allowed only from official Barbados sources verified at publish time. Timelines are presented as guidance from experience, never as promises."
+    },
+    {
+      "id": "jsp-portraits",
+      "name": "Portrait, maternity, family, and babymoon sessions in Barbados",
+      "intent": "local",
+      "pillar": {
+        "title": "Barbados Portrait Photography: Maternity, Family, Couples, and Babymoon Sessions",
+        "type": "pillar",
+        "target_query": "barbados portrait photographer",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Maternity Photography in Barbados: What to Expect From Your Session",
+          "type": "standard",
+          "target_query": "maternity photographer barbados",
+          "priority": 21,
+          "source": "gsc-impression",
+          "note": "Existing topic_backlog item. The /maternity page already ranks 9.25 with 2 clicks \u2014 this article feeds it rather than replacing it. Real price $300."
+        },
+        {
+          "title": "Family Photography in Barbados: A Guide for Visiting Families",
+          "type": "standard",
+          "target_query": "family photographer barbados",
+          "priority": 24,
+          "source": "gsc-impression",
+          "note": "Existing topic_backlog item. The www /family page ranks 14.94 with 1 click; real price $300; 80+ sessions since 2018 is the experience anchor."
+        },
+        {
+          "title": "Babymoon Photoshoots in Barbados: The Session Most Couples Miss",
+          "type": "standard",
+          "target_query": "babymoon photographer barbados",
+          "priority": 27,
+          "source": "gsc-impression",
+          "note": "The short query babymoon already earns a click at position 4 \u2014 expand what already works instead of inventing a new angle."
+        },
+        {
+          "title": "What to Wear for a Barbados Beach Session",
+          "type": "standard",
+          "target_query": "what to wear beach photos barbados",
+          "priority": 30,
+          "source": "differentiator",
+          "note": "First-person styling guidance from real sessions (wind, sand, colour against the sea). No brand sponsorships exist, so no product links or affiliate framing."
+        },
+        {
+          "title": "Proposal Photography in Barbados: Planning a Surprise",
+          "type": "supporting",
+          "target_query": "proposal photographer barbados",
+          "priority": 33,
+          "source": "competitor-gap",
+          "note": "High intent, low competition. Mention restaurants or boat charters only as generic options unless the owner confirms real relationships."
+        },
+        {
+          "title": "Family Reunions and Group Portraits in Barbados",
+          "type": "supporting",
+          "target_query": "barbados family reunion photographer",
+          "priority": 35,
+          "source": "competitor-gap",
+          "note": "Group logistics (timing, location, breaking into smaller sets) drawn from real sessions; ties back to the family session article."
+        }
+      ],
+      "internal_link_plan": "Pillar links to /maternity, /family, and /portraiture and down to /book-your-wedding-today in the first third. Spokes link up in the first 150 words, sideways to one sibling session type, and down to /contact or /book-your-wedding-today. The published /maternity and /family pages receive links from their matching spokes \u2014 service pages stay the money pages, articles stay informational.",
+      "differentiation": "Session articles are written from real bookings and real prices: $250 portraits, $300 maternity, $300 family, $450 engagement ($200 as a wedding add-on), all with travel within Barbados included. The babymoon page exists because the query already earns a click at position 4 \u2014 evidence, not speculation. Every article uses the studio's own frames; no stock imagery and no image plans that require posed model shots."
+    },
+    {
+      "id": "jsp-trust",
+      "name": "Choosing a Barbados photographer: proof and E-E-A-T",
+      "intent": "comparison",
+      "pillar": {
+        "title": "How to Choose a Destination Wedding Photographer in Barbados",
+        "type": "pillar",
+        "target_query": "how to choose a barbados wedding photographer",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "What to Ask a Barbados Wedding Photographer Before You Book",
+          "type": "standard",
+          "target_query": "questions to ask a wedding photographer",
+          "priority": 29,
+          "source": "competitor-gap",
+          "note": "Every question is answered with the studio's real position: insured, registered since 2018, 24-hour response, travel included within Barbados."
+        },
+        {
+          "title": "Photographer Credentials in Barbados: Insurance, Registration, and Why They Matter",
+          "type": "standard",
+          "target_query": "wedding photographer insurance",
+          "priority": 32,
+          "source": "differentiator",
+          "note": "Fills the discovery gap on professional background and credentials. Real facts only: insured and registered since 2018. No awards or media features exist in the config, so the page claims none."
+        },
+        {
+          "title": "Behind the Scenes: How We Edit and Deliver a Barbados Wedding Gallery",
+          "type": "standard",
+          "target_query": "how photographers edit wedding photos",
+          "priority": 34,
+          "source": "differentiator",
+          "note": "Real workflow anchors: 48-72 hour sneak peek, 6-8 week final gallery, husband-and-wife team. The existing /blog/husband-wife-photography-team (position 3.63) links here rather than being duplicated."
+        },
+        {
+          "title": "Three Real Barbados Weddings, Told by the Couples",
+          "type": "standard",
+          "target_query": "barbados wedding photographer reviews",
+          "priority": 36,
+          "source": "differentiator",
+          "note": "Uses the three real testimonials (Julie LeBlanc; Daniel Small and Laura Powell; Karishma Sankar) and the 5.0 rating. Quote only what is already published on /testimonials \u2014 never invent new ones."
+        },
+        {
+          "title": "Why Caribbean Light Looks Different, and How We Shoot It",
+          "type": "supporting",
+          "target_query": "caribbean photography light",
+          "priority": 37,
+          "source": "differentiator",
+          "note": "Fills the discovery gap on regional light and landscape characteristics; EXIF-dated frames make every claim verifiable."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all five spokes and out to /about, /testimonials, /portfolio, and /wedding-packages. Spokes link up in the first 150 words, sideways (credentials to questions to stories), and down to /book-your-wedding-today in the first third. This cluster exists to strengthen the E-E-A-T signals every other page inherits \u2014 each claim traces to a real studio fact or a testimonial already published on the site.",
+      "differentiation": "The proof assets are real and named: a 5.0 rating, three published client testimonials, a husband-and-wife team, insured and registered since 2018, 80+ sessions since 2018, and a first-person voice. No awards, press features, or media logos exist \u2014 so none appear. That absence is respected rather than filled with generic authority language."
+    }
+  ],
+  "backlog_merge": [
+    {
+      "title": "How Much Does a Barbados Wedding Photographer Cost? (2026 Packages Guide)",
+      "type": "pillar",
+      "target_query": "how much does a barbados wedding photographer cost",
+      "priority": 1,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item)"
+    },
+    {
+      "title": "Barbados Wedding Photography Packages: What $1,200, $2,500, and $3,500 Include",
+      "type": "standard",
+      "target_query": "barbados wedding photography packages",
+      "priority": 2,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "What's Included in a Barbados Wedding Photography Package?",
+      "type": "supporting",
+      "target_query": "what's included in a barbados wedding photography package",
+      "priority": 3,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item re-sequenced)"
+    },
+    {
+      "title": "Add-On Pricing: Engagement, Maternity, Family, and Portrait Sessions in Barbados",
+      "type": "standard",
+      "target_query": "barbados engagement photography price",
+      "priority": 4,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Engagement Photography in Barbados: What It Costs and What's Included",
+      "type": "standard",
+      "target_query": "engagement photography barbados cost",
+      "priority": 5,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item re-sequenced; page already live at /blog/engagement-photography-barbados-cost \u2014 upgrade it)"
+    },
+    {
+      "title": "Barbados Elopement Photography: What It Costs and What's Included",
+      "type": "standard",
+      "target_query": "barbados elopement photographer cost",
+      "priority": 6,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item re-sequenced)"
+    },
+    {
+      "title": "How Long Until You Get Your Barbados Wedding Photos?",
+      "type": "supporting",
+      "target_query": "how long to get wedding photos back barbados",
+      "priority": 7,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item re-sequenced)"
+    },
+    {
+      "title": "Welcome Dinner and Rehearsal Coverage in Barbados",
+      "type": "supporting",
+      "target_query": "wedding welcome dinner photographer barbados",
+      "priority": 8,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item re-sequenced; page already live at /blog/wedding-welcome-dinner-photography-barbados \u2014 upgrade it)"
+    },
+    {
+      "title": "How to Budget for a Barbados Destination Wedding: Where Photography Fits",
+      "type": "standard",
+      "target_query": "barbados destination wedding budget",
+      "priority": 9,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Second Photographer and Videographer Costs in Barbados",
+      "type": "standard",
+      "target_query": "barbados wedding videographer cost",
+      "priority": 10,
+      "source": "topical-map 2026-09-15 (phase 1; owner-confirm services and pricing before drafting)"
+    },
+    {
+      "title": "Barbados Wedding Venues: A Photographer's Guide to Light, Logistics, and Timing",
+      "type": "pillar",
+      "target_query": "barbados wedding venues",
+      "priority": 11,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Halton Great House Weddings: A Photographer's Guide",
+      "type": "standard",
+      "target_query": "halton great house wedding",
+      "priority": 12,
+      "source": "topical-map 2026-09-15 (phase 1; owner-confirm shooting history)"
+    },
+    {
+      "title": "Colleton Great House Weddings: Timing, Light, and Logistics",
+      "type": "standard",
+      "target_query": "colleton great house wedding",
+      "priority": 13,
+      "source": "topical-map 2026-09-15 (phase 1; owner-confirm shooting history)"
+    },
+    {
+      "title": "Sandy Lane Weddings: What Photography Coverage Looks Like",
+      "type": "standard",
+      "target_query": "sandy lane wedding",
+      "priority": 14,
+      "source": "topical-map 2026-09-15 (phase 2; owner-confirm shooting history)"
+    },
+    {
+      "title": "Getting Married in Barbados: Paperwork, Seasons, and What to Book First",
+      "type": "pillar",
+      "target_query": "getting married in barbados",
+      "priority": 15,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Beach Ceremony Timing in Barbados: Reading the Light at 4pm, 5pm, and Sunset",
+      "type": "standard",
+      "target_query": "barbados beach wedding ceremony time",
+      "priority": 16,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Marriage Paperwork for Barbados: What Couples Need to Bring",
+      "type": "standard",
+      "target_query": "getting married in barbados paperwork",
+      "priority": 17,
+      "source": "topical-map 2026-09-15 (phase 2; verify legal facts against official Barbados sources before drafting)"
+    },
+    {
+      "title": "Barbados Portrait Photography: Maternity, Family, Couples, and Babymoon Sessions",
+      "type": "pillar",
+      "target_query": "barbados portrait photographer",
+      "priority": 18,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Cobblers Cove Weddings: A Photographer's Guide",
+      "type": "supporting",
+      "target_query": "cobblers cove wedding",
+      "priority": 19,
+      "source": "topical-map 2026-09-15 (phase 2; owner-confirm shooting history)"
+    },
+    {
+      "title": "Best Time of Year to Get Married in Barbados",
+      "type": "standard",
+      "target_query": "best time to get married in barbados",
+      "priority": 20,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Maternity Photography in Barbados: What to Expect From Your Session",
+      "type": "standard",
+      "target_query": "maternity photographer barbados",
+      "priority": 21,
+      "source": "topical-map 2026-09-15 (phase 2; existing backlog item re-sequenced)"
+    },
+    {
+      "title": "West Coast Portrait Spots: Speightstown, Saint James, and the Drive Between",
+      "type": "standard",
+      "target_query": "west coast barbados photoshoot locations",
+      "priority": 22,
+      "source": "topical-map 2026-09-15 (phase 2; owner-confirm locations)"
+    },
+    {
+      "title": "Hurricane Season Weddings in Barbados: What Photographers Plan For",
+      "type": "supporting",
+      "target_query": "barbados hurricane season wedding",
+      "priority": 23,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Family Photography in Barbados: A Guide for Visiting Families",
+      "type": "standard",
+      "target_query": "family photographer barbados",
+      "priority": 24,
+      "source": "topical-map 2026-09-15 (phase 2; existing backlog item re-sequenced)"
+    },
+    {
+      "title": "How to Choose a Destination Wedding Photographer in Barbados",
+      "type": "pillar",
+      "target_query": "how to choose a barbados wedding photographer",
+      "priority": 25,
+      "source": "topical-map 2026-09-15 (phase 2; existing backlog item re-sequenced)"
+    },
+    {
+      "title": "Rainy-Day Wedding Photography in Barbados: Backup Plans That Photograph Well",
+      "type": "supporting",
+      "target_query": "barbados wedding rain backup plan",
+      "priority": 26,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Babymoon Photoshoots in Barbados: The Session Most Couples Miss",
+      "type": "standard",
+      "target_query": "babymoon photographer barbados",
+      "priority": 27,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "How Far in Advance Should You Book Your Barbados Wedding Photographer?",
+      "type": "standard",
+      "target_query": "how far in advance book wedding photographer",
+      "priority": 28,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "What to Ask a Barbados Wedding Photographer Before You Book",
+      "type": "standard",
+      "target_query": "questions to ask a wedding photographer",
+      "priority": 29,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "What to Wear for a Barbados Beach Session",
+      "type": "standard",
+      "target_query": "what to wear beach photos barbados",
+      "priority": 30,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "What to Tell Your Wedding Guests About Barbados",
+      "type": "supporting",
+      "target_query": "barbados wedding guest guide",
+      "priority": 31,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Photographer Credentials in Barbados: Insurance, Registration, and Why They Matter",
+      "type": "standard",
+      "target_query": "wedding photographer insurance",
+      "priority": 32,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Proposal Photography in Barbados: Planning a Surprise",
+      "type": "supporting",
+      "target_query": "proposal photographer barbados",
+      "priority": 33,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Behind the Scenes: How We Edit and Deliver a Barbados Wedding Gallery",
+      "type": "standard",
+      "target_query": "how photographers edit wedding photos",
+      "priority": 34,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Family Reunions and Group Portraits in Barbados",
+      "type": "supporting",
+      "target_query": "barbados family reunion photographer",
+      "priority": 35,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Three Real Barbados Weddings, Told by the Couples",
+      "type": "standard",
+      "target_query": "barbados wedding photographer reviews",
+      "priority": 36,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Why Caribbean Light Looks Different, and How We Shoot It",
+      "type": "supporting",
+      "target_query": "caribbean photography light",
+      "priority": 37,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    }
+  ],
+  "autonomy": {
+    "contract": "No owner fact-confirmation at any stage. Every claim is verified autonomously per AUTONOMY.md: product claims -> source_local files + live site; competitor claims -> live competitor pages with archived evidence snapshots; regulatory facts -> official sources only; first-hand experience claims -> local evidence files (site repo, published posts, gallery/portfolio data); original-data claims -> computed arithmetic with archived inputs. INCONCLUSIVE always downgrades to a labeled placeholder or drops the sentence \u2014 it never blocks the pipeline and never escalates to a human question.",
+    "tooling": "scripts/verify_facts.py --config site-config.<project>.json writes claim-verification.<project>.json (dated ledger + evidence snapshots in evidence/<project>/)",
+    "gates": "check_article.py hard-fails on ledger status 'unsupported'; 'inconclusive'/'stale' are draft-time placeholder triggers; check_publish.py flags any live page asserting an unsupported claim",
+    "never_auto_assert": [
+      "invented statistics, testimonials, or press mentions",
+      "claims in disallowed_claims",
+      "claims whose only source is the draft itself",
+      "venue/experience claims with zero local evidence hits"
+    ]
+  }
+}

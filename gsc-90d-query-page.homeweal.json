@@ -1,0 +1,167 @@
+{
+  "source": "google_search_console",
+  "property": "sc-domain:homeweal.com",
+  "date_range": {
+    "start": "2026-06-16",
+    "end": "2026-09-13"
+  },
+  "dimensions": [
+    "query",
+    "page"
+  ],
+  "row_count": 19,
+  "rows": [
+    {
+      "query": "audit cost calculator",
+      "page": "https://homeweal.com/tools/subscription-audit",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "query": "budget software multiple currencies",
+      "page": "https://homeweal.com/articles/multi-currency-budgeting-app-for-couples",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 72.75
+    },
+    {
+      "query": "harmowave cancel subscription refund",
+      "page": "https://homeweal.com/refund",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "query": "line split bill alternative",
+      "page": "https://homeweal.com/articles/best-bill-tracker-without-bank-linking",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "query": "monarch bill pay",
+      "page": "https://homeweal.com/vs/monarch",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 29.5
+    },
+    {
+      "query": "monarch billing",
+      "page": "https://homeweal.com/vs/monarch",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "query": "monarch bills",
+      "page": "https://homeweal.com/vs/monarch",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "query": "monarch payment",
+      "page": "https://homeweal.com/vs/monarch",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "query": "monarch paypal",
+      "page": "https://homeweal.com/vs/monarch",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 19.875
+    },
+    {
+      "query": "multi bill",
+      "page": "https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "query": "multi currency budget app",
+      "page": "https://homeweal.com/articles/multi-currency-budgeting-app-for-couples",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "query": "multiple bill",
+      "page": "https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "query": "price increase alert subscriptions",
+      "page": "https://app.homeweal.com/help/notifications-and-reminders/price-increase-alerts",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "query": "price increase alerts",
+      "page": "https://app.homeweal.com/help/notifications-and-reminders/price-increase-alerts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "query": "split bill based on income",
+      "page": "https://homeweal.com/articles/how-to-split-bills-based-on-income",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "query": "split rent based on income",
+      "page": "https://homeweal.com/articles/how-to-split-bills-based-on-income",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "query": "splitting bills based on income calculator",
+      "page": "https://homeweal.com/articles/how-to-split-bills-based-on-income",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "query": "subscription audit",
+      "page": "https://homeweal.com/tools/subscription-audit",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 74.42857142857143
+    },
+    {
+      "query": "what is a fair way to split utility bills",
+      "page": "https://homeweal.com/articles/how-to-split-bills-based-on-income",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 78
+    }
+  ]
+}

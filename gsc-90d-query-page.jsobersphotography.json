@@ -1,0 +1,1167 @@
+{
+  "source": "google_search_console",
+  "property": "sc-domain:jsobersphotography.com",
+  "date_range": {
+    "start": "2026-06-16",
+    "end": "2026-09-13"
+  },
+  "dimensions": [
+    "query",
+    "page"
+  ],
+  "row_count": 144,
+  "rows": [
+    {
+      "query": "babymoon",
+      "page": "https://www.jsobersphotography.com/maternity",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 4
+    },
+    {
+      "query": "barbados photographer",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 1,
+      "impressions": 34,
+      "ctr": 0.029411764705882353,
+      "position": 32.08823529411765
+    },
+    {
+      "query": "barbados photography",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 17
+    },
+    {
+      "query": "barbados and caribbean destination wedding photographers",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "query": "barbados and caribbean destination wedding photographers",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 16.375
+    },
+    {
+      "query": "barbados destination wedding photographer",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 57.166666666666664
+    },
+    {
+      "query": "barbados destination wedding photographer",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 30.666666666666668
+    },
+    {
+      "query": "barbados destination wedding photographer",
+      "page": "https://jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 50.57142857142857
+    },
+    {
+      "query": "barbados destination wedding photographer",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 38.523809523809526
+    },
+    {
+      "query": "barbados destination wedding photographer",
+      "page": "https://www.jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "query": "barbados destination wedding photographers",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 15.5
+    },
+    {
+      "query": "barbados destination wedding photographers",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 28.23076923076923
+    },
+    {
+      "query": "barbados destination wedding photographers",
+      "page": "https://www.jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "query": "barbados elopement photographer",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "query": "barbados photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 8.304347826086957
+    },
+    {
+      "query": "barbados photographer",
+      "page": "https://www.jsobersphotography.com/portraiture",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "query": "barbados photographer companies",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 41.22222222222222
+    },
+    {
+      "query": "barbados photographer companies",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 44.25
+    },
+    {
+      "query": "barbados photographers",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 38.92857142857143
+    },
+    {
+      "query": "barbados photographers",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 28.444444444444443
+    },
+    {
+      "query": "barbados photographers",
+      "page": "https://www.jsobersphotography.com/portraiture",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 74
+    },
+    {
+      "query": "barbados photography",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "query": "barbados photography companies",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 38.333333333333336
+    },
+    {
+      "query": "barbados photography companies",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 44.8
+    },
+    {
+      "query": "barbados photography company",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 37.5
+    },
+    {
+      "query": "barbados photography company",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 43.25
+    },
+    {
+      "query": "barbados photoshoot",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "query": "barbados wedding and elopement photographer",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 29.5
+    },
+    {
+      "query": "barbados wedding and lifestyle photographer",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 60,
+      "ctr": 0,
+      "position": 14.816666666666666
+    },
+    {
+      "query": "barbados wedding and lifestyle photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 17.838709677419356
+    },
+    {
+      "query": "barbados wedding photographer",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 77,
+      "ctr": 0,
+      "position": 39.97402597402598
+    },
+    {
+      "query": "barbados wedding photographer",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 37.44444444444444
+    },
+    {
+      "query": "barbados wedding photographer",
+      "page": "https://jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 46,
+      "ctr": 0,
+      "position": 84.71739130434783
+    },
+    {
+      "query": "barbados wedding photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 31.928571428571427
+    },
+    {
+      "query": "barbados wedding photographer",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 56,
+      "ctr": 0,
+      "position": 55.80357142857143
+    },
+    {
+      "query": "barbados wedding photographer",
+      "page": "https://www.jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 83.85714285714286
+    },
+    {
+      "query": "barbados wedding photographers",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 38.625
+    },
+    {
+      "query": "barbados wedding photographers",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 38.25
+    },
+    {
+      "query": "barbados wedding photographers",
+      "page": "https://jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 78.04545454545455
+    },
+    {
+      "query": "barbados wedding photographers",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 48.333333333333336
+    },
+    {
+      "query": "barbados wedding photographers",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 58.5
+    },
+    {
+      "query": "barbados wedding photographers",
+      "page": "https://www.jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 86.33333333333333
+    },
+    {
+      "query": "barbados wedding photography",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 29.714285714285715
+    },
+    {
+      "query": "barbados wedding photography",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 26.0625
+    },
+    {
+      "query": "barbados wedding photography",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 26.666666666666668
+    },
+    {
+      "query": "barbados wedding photography",
+      "page": "https://www.jsobersphotography.com/blog",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "query": "barbados wedding photography",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 43.333333333333336
+    },
+    {
+      "query": "barbados wedding photography guide",
+      "page": "https://jsobersphotography.com/blog/plan-barbados-destination-wedding",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "query": "barbados wedding photography guide",
+      "page": "https://www.jsobersphotography.com/blog",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 17.25
+    },
+    {
+      "query": "barbados wedding photography guide",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 59.666666666666664
+    },
+    {
+      "query": "candid wedding photography in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 27.916666666666668
+    },
+    {
+      "query": "candid wedding photography in barbados",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "query": "candid wedding photography in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 25.5
+    },
+    {
+      "query": "candid wedding photography in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 24.142857142857142
+    },
+    {
+      "query": "celeste & reece | destination wedding photographers in barbados, trinidad & tobago, the caribbean",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 21.333333333333332
+    },
+    {
+      "query": "destination wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 28.25
+    },
+    {
+      "query": "destination wedding photographers in barbados, trinidad & tobago, the caribbean",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 15.857142857142858
+    },
+    {
+      "query": "documentary and editorial destination wedding photography in the caribbean",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 26.333333333333332
+    },
+    {
+      "query": "documentary wedding photographer in barbados",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 48,
+      "ctr": 0,
+      "position": 11.979166666666666
+    },
+    {
+      "query": "documentary wedding photographer in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 15.846153846153847
+    },
+    {
+      "query": "editorial photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "editorial photographer",
+      "page": "https://www.jsobersphotography.com/portraiture",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "editorial style wedding photography barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "query": "editorial style wedding photography barbados",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 19.647058823529413
+    },
+    {
+      "query": "editorial style wedding photography barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "query": "editorial style wedding photography barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 14.727272727272727
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 12.666666666666666
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/blog",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 12.476190476190476
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/book-your-wedding-today",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 16.22222222222222
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 19.5
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/blog",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 13.333333333333334
+    },
+    {
+      "query": "editorial wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 13.555555555555555
+    },
+    {
+      "query": "editorial wedding photography barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.333333333333333
+    },
+    {
+      "query": "editorial wedding photography barbados",
+      "page": "https://jsobersphotography.com/blog",
+      "clicks": 0,
+      "impressions": 32,
+      "ctr": 0,
+      "position": 8.375
+    },
+    {
+      "query": "editorial wedding photography barbados",
+      "page": "https://jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 8.607142857142858
+    },
+    {
+      "query": "editorial wedding photography barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 18.714285714285715
+    },
+    {
+      "query": "editorial wedding photography barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 10.095238095238095
+    },
+    {
+      "query": "elopement + wedding photographer in barbados, tobago and the caribbean | celeste & reece",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 22.666666666666668
+    },
+    {
+      "query": "elopement photographer in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 22.666666666666668
+    },
+    {
+      "query": "engagement photographer barbados",
+      "page": "https://jsobersphotography.com/blog/engagement-photography-barbados-cost",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11.5
+    },
+    {
+      "query": "engagement photos",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "getting married in barbados",
+      "page": "https://jsobersphotography.com/blog/plan-barbados-destination-wedding",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "query": "imaging",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "query": "jasons barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "luxury destination wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "query": "luxury destination wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/blog/barbados-wedding-photographer-cost",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 17.625
+    },
+    {
+      "query": "luxury destination wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "query": "luxury destination wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "query": "marriage album printing",
+      "page": "https://jsobersphotography.com/blog/wedding-album-printing-guide",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "query": "photo shoot locations near me",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "query": "photo studio barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 29.5
+    },
+    {
+      "query": "photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "query": "photographer barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 37.23076923076923
+    },
+    {
+      "query": "photographer barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 24.333333333333332
+    },
+    {
+      "query": "photographer barbados",
+      "page": "https://www.jsobersphotography.com/portraiture",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 81.75
+    },
+    {
+      "query": "photographer companies in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 31.3
+    },
+    {
+      "query": "photographer companies in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 38.25
+    },
+    {
+      "query": "photographer companies in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 74
+    },
+    {
+      "query": "photographer in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "query": "photographer in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "photographer near me",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 1.2
+    },
+    {
+      "query": "photographers",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "photographers barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "query": "photographers in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 33.666666666666664
+    },
+    {
+      "query": "photographers in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 27.857142857142858
+    },
+    {
+      "query": "photographers near me",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "query": "photography",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "photography barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0,
+      "position": 36.52777777777778
+    },
+    {
+      "query": "photography barbados",
+      "page": "https://jsobersphotography.com/portraiture",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "query": "photography barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 41.166666666666664
+    },
+    {
+      "query": "photography barbados",
+      "page": "https://www.jsobersphotography.com/portraiture",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "query": "photography barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 98
+    },
+    {
+      "query": "photography companies",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "photography companies in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 30.5
+    },
+    {
+      "query": "photography companies in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 36.75
+    },
+    {
+      "query": "photography in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 45.45454545454545
+    },
+    {
+      "query": "photography in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 42.75
+    },
+    {
+      "query": "photoshoot",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "query": "photoshoot in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "planning a wedding in barbados",
+      "page": "https://jsobersphotography.com/blog/plan-barbados-destination-wedding",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "query": "professional portrait",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "real estate photographers",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "real estate photography",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "resident photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "rihanna family photo barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0,
+      "position": 6.404255319148936
+    },
+    {
+      "query": "romantic barbados wedding photography",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "query": "romantic barbados wedding photography",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 29.5
+    },
+    {
+      "query": "trinidad & tobago, barbados wedding and elopement photographer",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 24.25
+    },
+    {
+      "query": "wedding & lifestyle photographer based in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 57,
+      "ctr": 0,
+      "position": 10.263157894736842
+    },
+    {
+      "query": "wedding & lifestyle photographer based in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "query": "wedding + elopement photographer in barbados, tobago and the caribbean | celeste & reece",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 20.166666666666668
+    },
+    {
+      "query": "wedding album printing",
+      "page": "https://jsobersphotography.com/blog/wedding-album-printing-guide",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "query": "wedding albums printing",
+      "page": "https://jsobersphotography.com/blog/wedding-album-printing-guide",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "query": "wedding photographer",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "query": "wedding photographer barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 38.166666666666664
+    },
+    {
+      "query": "wedding photographer barbados",
+      "page": "https://jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 78
+    },
+    {
+      "query": "wedding photographer barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 37.23076923076923
+    },
+    {
+      "query": "wedding photographer barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "query": "wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 33.869565217391305
+    },
+    {
+      "query": "wedding photographers in barbados",
+      "page": "https://jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 76.54545454545455
+    },
+    {
+      "query": "wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 28.5
+    },
+    {
+      "query": "wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/wedding",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 64.75
+    },
+    {
+      "query": "wedding photographers in barbados",
+      "page": "https://www.jsobersphotography.com/wedding-packages",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    }
+  ]
+}

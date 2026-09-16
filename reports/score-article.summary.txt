@@ -1,0 +1,6 @@
+best-bill-tracker-without-bank-linking-2026                score=77.2   hard_gate=False entity_gaps=3 link_notes=1 exit=0
+copilot-alternative-without-bank-linking-2026              score=85.9   hard_gate=False entity_gaps=5 link_notes=1 exit=0
+how-to-split-bills-with-a-roommate-without-a-spreadsheet   score=87.3   hard_gate=False entity_gaps=3 link_notes=1 exit=0
+monarch-alternative-without-bank-linking-2026              score=84.3   hard_gate=False entity_gaps=8 link_notes=1 exit=0
+what-is-a-household-bill-tracker                           score=84.8   hard_gate=False entity_gaps=3 link_notes=2 exit=0
+ynab-alternatives-without-bank-linking-2026                score=82.9   hard_gate=False entity_gaps=5 link_notes=2 exit=0

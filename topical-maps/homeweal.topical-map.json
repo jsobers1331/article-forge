@@ -1,0 +1,782 @@
+{
+  "site": "homeweal.com",
+  "built": "2026-09-15",
+  "money_queries": [
+    "monarch alternative without bank linking",
+    "budget app without bank linking",
+    "honeydue alternative without bank linking",
+    "ynab alternative without bank linking",
+    "copilot alternative without bank linking",
+    "how to split bills based on income",
+    "split rent based on income",
+    "fair way to split utility bills",
+    "household bill tracker",
+    "debt snowball vs avalanche",
+    "multi-currency budgeting app"
+  ],
+  "clusters": [
+    {
+      "id": "hw-no-link",
+      "name": "No-bank-linking alternatives: Monarch, YNAB, Copilot, Honeydue and the rest",
+      "intent": "comparison",
+      "pillar": {
+        "title": "Budget Apps Without Bank Linking: Every Real Option Compared (2026)",
+        "type": "pillar",
+        "target_query": "budget app without bank linking",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Monarch Money Without Bank Linking: Bill Pay, PayPal, and What Still Works",
+          "type": "standard",
+          "target_query": "monarch paypal",
+          "priority": 2,
+          "source": "gsc-impression",
+          "note": "Real query signals: monarch paypal 8 impressions at 19.9 and monarch bill pay 4 impressions at 29.5. Sibling to /articles/monarch-alternative-without-bank-linking (36 impressions, position 12.39), which stays the flagship spoke. Every Monarch-specific behaviour claim is third-party today \u2014 verify against Monarch's help docs before publish.",
+          "verification": {
+            "type": "competitor_live_check",
+            "check": "competitor_live_check: fetch the competitor's official pricing/help page at draft time; archive the snapshot in evidence/; if the specific number/policy is not directly supported, drop it from the draft (placeholder) \u2014 never publish secondary-source figures."
+          }
+        },
+        {
+          "title": "Actual Budget for Household Bills: An Honest Look",
+          "type": "standard",
+          "target_query": "actual budget for household bills",
+          "priority": 6,
+          "source": "competitor-gap",
+          "note": "YNAB alternative without bank linking is now crowded with indie apps (Goodbudget, EveryDollar, Actual Budget, offline.ltd, monthmate and others). The angle that still holds is household recurring bills, not generic privacy."
+        },
+        {
+          "title": "Goodbudget Alternative for Recurring Household Bills",
+          "type": "standard",
+          "target_query": "goodbudget alternative",
+          "priority": 9,
+          "source": "competitor-gap",
+          "note": "Goodbudget is the incumbent in this exact niche; lead with recurring bill schedules, variable-bill estimate-to-confirm, and web push reminders (available on every plan including free)."
+        },
+        {
+          "title": "EveryDollar Alternative Without Bank Linking",
+          "type": "standard",
+          "target_query": "everydollar alternative",
+          "priority": 11,
+          "source": "competitor-gap",
+          "note": "Same family angle: household bills and multi-currency rather than zero-based budgeting. Keep claims about EveryDollar's own app to what its public pages say."
+        },
+        {
+          "title": "Rocket Money Alternative Without Bank Linking",
+          "type": "standard",
+          "target_query": "rocket money alternative without bank linking",
+          "priority": 13,
+          "source": "competitor-gap",
+          "note": "Rocket Money's model depends on linking; answer the cancellation and subscription-audit questions honestly, then hand off to the bill tracker and the subscription audit tool."
+        },
+        {
+          "title": "UK Budget Apps Without Bank Linking: What UK Households Can Use",
+          "type": "standard",
+          "target_query": "uk budget app without bank linking",
+          "priority": 15,
+          "source": "competitor-gap",
+          "note": "location uk-en; requires_local_evidence true. No vetted evidence source is registered for UK app-market claims, so every UK-specific statement must be hand-checked before publish. Link across to the UK household bills cluster."
+        },
+        {
+          "title": "Honeydue Alternative Without Bank Linking",
+          "type": "standard",
+          "target_query": "honeydue alternative without bank linking",
+          "priority": 29,
+          "source": "competitor-gap",
+          "note": "Published (status in topic_backlog). Upgrade only: link up to the new pillar and sideways to the Monarch, YNAB, and Copilot siblings \u2014 do not rewrite the title or URL."
+        },
+        {
+          "title": "Monarch Alternative Without Bank Linking",
+          "type": "standard",
+          "target_query": "monarch alternative without bank linking",
+          "priority": 30,
+          "source": "gsc-impression",
+          "note": "Published; 36 impressions at position 12.39 \u2014 the closest-to-page-1 asset on the site. Keep title and URL fixed, make it the first spoke to link up to the pillar, and watch for cannibalisation between the two comparison-intent pages."
+        },
+        {
+          "title": "YNAB Alternatives Without Bank Linking",
+          "type": "standard",
+          "target_query": "ynab alternatives without bank linking",
+          "priority": 31,
+          "source": "gsc-impression",
+          "note": "Published; position 7.0, the best ranking page in the account. Strip generic privacy-app framing and re-point the page at household recurring bills so it supports the cluster differentiation."
+        },
+        {
+          "title": "Copilot Money Alternative Without Bank Linking",
+          "type": "standard",
+          "target_query": "copilot alternative without bank linking",
+          "priority": 32,
+          "source": "gsc-impression",
+          "note": "Published; position 18.6. Same hub-link upgrade path as the other published alternatives."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all ten spokes and to /features and /pricing. Every spoke links up to the pillar in the first 150 words, sideways to two sibling alternatives, and down to the tracker at /features inside the first third. Published pages (Monarch, YNAB, Copilot, Honeydue) are upgraded, not rewritten \u2014 one hub link each. /features and /pricing receive links from every spoke as the money pages. Because the Monarch page already ranks 12.39 while the pillar targets the category head term, re-check GSC in 6-8 weeks; if they trade places, re-point internal links rather than rewriting either page.",
+      "differentiation": "HomeWeal's position here is narrow and verifiable: household recurring bills with variable bills estimated then confirmed; web push payment reminders on every plan including free; per-bill multi-currency with automatic conversion on Pro or Family; equal, custom-percentage, and proportional splitting with a settle-up tracker on Family; a debt payoff planner on Pro. Pricing is Solo free, Pro $9, Family $14. No invented customer counts, ratings, or savings claims \u2014 every no-bank-linking page states plainly what manual entry still costs the user, which the crowded indie-app SERP mostly skips."
+    },
+    {
+      "id": "hw-splitting",
+      "name": "Bill splitting that feels fair: couples, roommates, unequal incomes",
+      "intent": "how-to",
+      "pillar": {
+        "title": "How to Split Household Bills Fairly: Equal, Proportional, and Custom Splits",
+        "type": "pillar",
+        "target_query": "what is a fair way to split utility bills",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "How to Split Bills Based on Income",
+          "type": "standard",
+          "target_query": "how to split bills based on income",
+          "priority": 29,
+          "source": "gsc-impression",
+          "note": "Already live at /articles/how-to-split-bills-based-on-income (8 impressions at position 70.1) although its topic_backlog entry has no status \u2014 treat as published, do not draft again. Give it the hub link and a worked-example upgrade."
+        },
+        {
+          "title": "How to Split Rent Based on Income",
+          "type": "standard",
+          "target_query": "split rent based on income",
+          "priority": 7,
+          "source": "gsc-impression",
+          "note": "Position 62 for the rent-specific variant. Reuse the same worked proportional arithmetic but keep the rent framing (housing cost versus total bills) so it does not cannibalise the income-split page."
+        },
+        {
+          "title": "50/50 or Proportional? Choosing a Split Rule You Will Not Argue About",
+          "type": "standard",
+          "target_query": "50/50 vs proportional bill split",
+          "priority": 10,
+          "source": "competitor-gap",
+          "note": "The decision page between the two models; the only page in the cluster allowed to compare split modes side by side."
+        },
+        {
+          "title": "How to Split Variable Bills When Income Changes Month to Month",
+          "type": "standard",
+          "target_query": "how to split variable bills",
+          "priority": 12,
+          "source": "differentiator",
+          "note": "Variable-bill estimate-to-confirm is a real product mechanic; splitting modes (equal, custom percentage, proportional) are Family tier and must be named. Free and Pro readers get the method, not the feature."
+        },
+        {
+          "title": "How to Square Up Shared Bills at Month End",
+          "type": "supporting",
+          "target_query": "how to settle up shared bills",
+          "priority": 14,
+          "source": "differentiator",
+          "note": "Family-tier settle-up tracker \u2014 name the tier. The arithmetic shown is the household's own; never present a HomeWeal statistic."
+        },
+        {
+          "title": "How to Split Bills With a Roommate Without a Spreadsheet",
+          "type": "standard",
+          "target_query": "how to split bills with a roommate",
+          "priority": 30,
+          "source": "gsc-impression",
+          "note": "Published and the single best-clicking page (9 impressions at position 14.89, the site's only click). Hub link plus one sibling link to the settle-up page; keep the title."
+        },
+        {
+          "title": "Best Splitwise Alternative for Recurring Household Bills",
+          "type": "standard",
+          "target_query": "splitwise alternative for recurring household bills",
+          "priority": 31,
+          "source": "gsc-impression",
+          "note": "Published; 9 impressions at 44.2. The live query line split bill alternative (position 81) should be answered by upgrading this page's copy rather than creating a new thin alternative page."
+        }
+      ],
+      "internal_link_plan": "Pillar is the fairness hub: it links down to all seven spokes and to /features (splitting lives on Family). Spokes link up in the first 150 words, sideways to one sibling (income split to rent split to roommate), and down to /pricing or /features inside the first third. The published roommate and income posts are upgraded in place. The free income-split calculator in the tools cluster is linked from every spoke as the practical next step, and the calculator links back up to the pillar \u2014 that loop is the cluster's main conversion path.",
+      "differentiation": "The cluster's original material is worked arithmetic: proportional splits computed on real household numbers (for example a 62/38 income ratio applied to a specific set of bills), not generic advice \u2014 no fabricated statistics, just maths a reader can redo. Feature honesty is the second differentiator: splitting modes and the settle-up tracker are Family tier; variable-bill estimate-to-confirm and reminders sit more broadly, and web push reminders exist on every plan including free \u2014 say so."
+    },
+    {
+      "id": "hw-debt",
+      "name": "Money dates and debt payoff for households",
+      "intent": "how-to",
+      "pillar": {
+        "title": "Debt Snowball vs Avalanche",
+        "type": "pillar",
+        "target_query": "debt snowball vs avalanche",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Debt Payoff for Couples With Unequal Incomes",
+          "type": "standard",
+          "target_query": "debt payoff couples unequal income",
+          "priority": 22,
+          "source": "differentiator",
+          "note": "The Pro debt payoff planner (snowball versus avalanche, months to debt-free, total interest) is the spine \u2014 name the tier. Combine with the Family proportional split method without implying the planner needs Family."
+        },
+        {
+          "title": "How to Plan a Debt-Free Date",
+          "type": "standard",
+          "target_query": "debt free date planner",
+          "priority": 24,
+          "source": "differentiator",
+          "note": "Months-to-debt-free and total interest are real planner outputs; show a worked schedule instead of a promise. Timelines are arithmetic, never guarantees."
+        },
+        {
+          "title": "The Monthly Money Date: A 30-Minute Structure for Couples",
+          "type": "standard",
+          "target_query": "money date for couples",
+          "priority": 25,
+          "source": "gsc-adjacent",
+          "note": "The cluster's soft entry point; links down to the payoff planner and across to the fairness pillar."
+        },
+        {
+          "title": "Snowball Payoff With Multiple Debts: A Worked Example",
+          "type": "supporting",
+          "target_query": "debt snowball worked example",
+          "priority": 27,
+          "source": "differentiator",
+          "note": "Number-by-number walkthrough of the published pillar's method; the pillar already ranks, so this page captures the example long-tail and feeds it links."
+        },
+        {
+          "title": "Paying Off Debt While Saving: How Households Do Both",
+          "type": "supporting",
+          "target_query": "pay off debt and save",
+          "priority": 28,
+          "source": "competitor-gap",
+          "note": "Honest trade-off page; no savings statistics exist, so all numbers are the household's own."
+        }
+      ],
+      "internal_link_plan": "The published debt snowball versus avalanche page is promoted to hub: add a spoke block linking down to all five spokes and a link to /pricing for Pro-tier payoff planning. Spokes link up in the first 150 words, sideways to one sibling (snowball to avalanche to couple split), and down to /features or /signup in the first third. The money-date piece links across to the fairness pillar so the debt and splitting clusters stay connected without merging intents.",
+      "differentiation": "Every claim maps to a shipped planner output \u2014 snowball versus avalanche ordering, months to debt-free, total interest \u2014 or to the Family split and settle-up mechanics for couples. No debt statistics, average-savings claims, or case studies are invented; the numbers in the articles are worked examples the reader can redo."
+    },
+    {
+      "id": "hw-uk",
+      "name": "UK household bills",
+      "intent": "local",
+      "pillar": {
+        "title": "UK Household Bills Checklist When You Move Home",
+        "type": "pillar",
+        "target_query": "UK household bills checklist moving home",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "How to Set Up Utilities When You Move Home in the UK",
+          "type": "standard",
+          "target_query": "setting up utilities moving house uk",
+          "priority": 19,
+          "source": "competitor-gap",
+          "note": "requires_local_evidence true; location uk-en. Ground every procedural claim in ofgem-moving-home (verified 2026-08-09)."
+        },
+        {
+          "title": "Council Tax Bands and Discounts for New UK Households",
+          "type": "standard",
+          "target_query": "council tax bands explained",
+          "priority": 21,
+          "source": "competitor-gap",
+          "note": "requires_local_evidence true; ground in govuk-council-tax (verified 2026-08-09). No council-specific practice beyond what the source supports."
+        },
+        {
+          "title": "Renters vs Homeowners: Which UK Household Bills Change Hands",
+          "type": "supporting",
+          "target_query": "uk household bills renters vs homeowners",
+          "priority": 23,
+          "source": "competitor-gap",
+          "note": "requires_local_evidence true; split bill responsibility by type using only ofgem-moving-home and govuk-council-tax."
+        },
+        {
+          "title": "UK Household Bills in 2026: What You Can and Cannot Control",
+          "type": "standard",
+          "target_query": "uk household bills 2026",
+          "priority": 26,
+          "source": "competitor-gap",
+          "note": "requires_local_evidence true. Any price-cap or standing-charge figure must be re-verified against Ofgem at publish time \u2014 never reuse numbers seen in secondary sources."
+        }
+      ],
+      "internal_link_plan": "The checklist pillar links down to the four spokes and to /features (recurring schedules and reminders). Spokes link up, sideways across the two registered evidence sources, and down to /pricing or /signup in the first third. Every UK page is also linked from the C1 UK budget-apps spoke so the UK audience has one internal path.",
+      "differentiation": "This cluster only runs on registered local evidence: ofgem-moving-home and govuk-council-tax, both verified 2026-08-09, with requires_local_evidence set and location uk-en. Anything the sources do not cover (current price-cap numbers, council-specific practice) is re-verified at publish time or left out \u2014 that sourcing discipline is what separates this from generic UK bills filler. Product support is real and tier-named: recurring schedules, seasonal bills, and web push reminders on every plan; multi-currency conversion is Pro or Family."
+    },
+    {
+      "id": "hw-tools",
+      "name": "Free tools and multi-currency helpers",
+      "intent": "tool",
+      "pillar": {
+        "title": "Free Household Bill Tools: Split, Audit, and Convert",
+        "type": "pillar",
+        "target_query": "free household bill calculator",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Splitting Bills Based on Income Calculator: How the Numbers Work",
+          "type": "standard",
+          "target_query": "splitting bills based on income calculator",
+          "priority": 5,
+          "source": "gsc-impression",
+          "note": "Position 81 today, and the SERP is calculator-heavy (billsplitpro, getspliteven, bepartly, spousalcalc). A genuinely free calculator with the method explained is the entry point."
+        },
+        {
+          "title": "Subscription Audit: How to Find Recurring Charges You Forgot",
+          "type": "standard",
+          "target_query": "subscription audit",
+          "priority": 8,
+          "source": "gsc-impression",
+          "note": "/tools/subscription-audit already earns 10 impressions at position 67.6 and 7 impressions at 74.4 for the exact query; this article supports it rather than replacing it."
+        },
+        {
+          "title": "Price Increase Alerts: How to Catch a Bill Going Up",
+          "type": "supporting",
+          "target_query": "price increase alerts",
+          "priority": 16,
+          "source": "gsc-impression",
+          "note": "Position 76. Web push reminders exist on every plan including free \u2014 that fact is the spine of the page."
+        },
+        {
+          "title": "Budget Software With Multiple Currencies: What to Compare",
+          "type": "standard",
+          "target_query": "budget software multiple currencies",
+          "priority": 17,
+          "source": "gsc-impression",
+          "note": "Position 72.75. Comparison-style spoke that hands off to the multi-currency tracking page and names Pro or Family for automatic conversion."
+        },
+        {
+          "title": "How to Track Household Bills in Multiple Currencies",
+          "type": "standard",
+          "target_query": "how to track household bills in multiple currencies",
+          "priority": 20,
+          "source": "differentiator",
+          "note": "Existing topic_backlog item. Pro or Family per-bill multi-currency with automatic conversion \u2014 name the tier. First check it against the published /articles/multi-currency-budgeting-app-for-couples (15 impressions, position 44.6): if that page already covers this, merge rather than publish a near-duplicate."
+        },
+        {
+          "title": "What Is a Household Bill Tracker?",
+          "type": "standard",
+          "target_query": "what is a household bill tracker",
+          "priority": 29,
+          "source": "gsc-impression",
+          "note": "Published; 13 impressions at position 19.2. Definitional spoke \u2014 give it the hub link up and a link down to /features."
+        },
+        {
+          "title": "Best Bill Tracker Without Bank Linking",
+          "type": "standard",
+          "target_query": "best bill tracker without bank linking",
+          "priority": 30,
+          "source": "gsc-impression",
+          "note": "Published; 14 impressions at position 24.5. Keep it as the bridge between this cluster and the alternatives cluster: hub link up, sideways link to the C1 pillar."
+        },
+        {
+          "title": "Multi-Currency Budgeting App for Couples",
+          "type": "standard",
+          "target_query": "multi-currency budgeting app for couples",
+          "priority": 31,
+          "source": "gsc-impression",
+          "note": "Published; 15 impressions at position 44.6. Upgrade to link up to the tools hub and to the Pro or Family multi-currency facts; audience segment multi-currency-households."
+        }
+      ],
+      "internal_link_plan": "The tools pillar is the hub for the free surfaces (the subscription audit plus the income-split, price-alert, and multi-currency pages) and links down to all eight spokes, out to /pricing for tier boundaries, and to /features. Spokes link up to the hub, sideways to one sibling tool, and down to /signup in the first third. Published tracker pages (what-is-a-household-bill-tracker, best-bill-tracker-without-bank-linking, multi-currency-budgeting-app-for-couples) are upgraded in place, not rewritten.",
+      "differentiation": "Two tools already have live query traction \u2014 subscription audit (7 impressions at 74.4) and splitting bills based on income calculator (position 81) \u2014 so the cluster's job is to make them the best free versions of themselves: no signup wall, no bank linking, and the arithmetic shown. Where a tool touches a paid feature the tier is named (Pro or Family for multi-currency with automatic conversion, Pro for the debt payoff planner, Family for splitting and settle-up) so the free tools stay honestly free."
+    }
+  ],
+  "backlog_merge": [
+    {
+      "title": "Budget Apps Without Bank Linking: Every Real Option Compared (2026)",
+      "type": "pillar",
+      "target_query": "budget app without bank linking",
+      "priority": 1,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Monarch Money Without Bank Linking: Bill Pay, PayPal, and What Still Works",
+      "type": "standard",
+      "target_query": "monarch paypal",
+      "priority": 2,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "How to Split Household Bills Fairly: Equal, Proportional, and Custom Splits",
+      "type": "pillar",
+      "target_query": "what is a fair way to split utility bills",
+      "priority": 3,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Free Household Bill Tools: Split, Audit, and Convert",
+      "type": "pillar",
+      "target_query": "free household bill calculator",
+      "priority": 4,
+      "audience_segment_ids": [
+        "unequal-income-households",
+        "multi-currency-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Splitting Bills Based on Income Calculator: How the Numbers Work",
+      "type": "standard",
+      "target_query": "splitting bills based on income calculator",
+      "priority": 5,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Actual Budget for Household Bills: An Honest Look",
+      "type": "standard",
+      "target_query": "actual budget for household bills",
+      "priority": 6,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "How to Split Rent Based on Income",
+      "type": "standard",
+      "target_query": "split rent based on income",
+      "priority": 7,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Subscription Audit: How to Find Recurring Charges You Forgot",
+      "type": "standard",
+      "target_query": "subscription audit",
+      "priority": 8,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Goodbudget Alternative for Recurring Household Bills",
+      "type": "standard",
+      "target_query": "goodbudget alternative",
+      "priority": 9,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "50/50 or Proportional? Choosing a Split Rule You Will Not Argue About",
+      "type": "standard",
+      "target_query": "50/50 vs proportional bill split",
+      "priority": 10,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "EveryDollar Alternative Without Bank Linking",
+      "type": "standard",
+      "target_query": "everydollar alternative",
+      "priority": 11,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "How to Split Variable Bills When Income Changes Month to Month",
+      "type": "standard",
+      "target_query": "how to split variable bills",
+      "priority": 12,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Rocket Money Alternative Without Bank Linking",
+      "type": "standard",
+      "target_query": "rocket money alternative without bank linking",
+      "priority": 13,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "How to Square Up Shared Bills at Month End",
+      "type": "supporting",
+      "target_query": "how to settle up shared bills",
+      "priority": 14,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "UK Budget Apps Without Bank Linking: What UK Households Can Use",
+      "type": "standard",
+      "target_query": "uk budget app without bank linking",
+      "priority": 15,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking",
+        "uk-house-movers"
+      ],
+      "location_id": "uk-en",
+      "requires_local_evidence": true,
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Price Increase Alerts: How to Catch a Bill Going Up",
+      "type": "supporting",
+      "target_query": "price increase alerts",
+      "priority": 16,
+      "audience_segment_ids": [
+        "households-paying-off-debt"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Budget Software With Multiple Currencies: What to Compare",
+      "type": "standard",
+      "target_query": "budget software multiple currencies",
+      "priority": 17,
+      "audience_segment_ids": [
+        "multi-currency-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "UK Household Bills Checklist When You Move Home",
+      "type": "pillar",
+      "target_query": "UK household bills checklist moving home",
+      "priority": 18,
+      "audience_segment_ids": [
+        "uk-house-movers"
+      ],
+      "location_id": "uk-en",
+      "requires_local_evidence": true,
+      "evidence_source_ids": [
+        "ofgem-moving-home",
+        "govuk-council-tax"
+      ],
+      "source": "topical-map 2026-09-15 (phase 2; existing backlog item re-cast standard-to-pillar)"
+    },
+    {
+      "title": "How to Set Up Utilities When You Move Home in the UK",
+      "type": "standard",
+      "target_query": "setting up utilities moving house uk",
+      "priority": 19,
+      "audience_segment_ids": [
+        "uk-house-movers"
+      ],
+      "location_id": "uk-en",
+      "requires_local_evidence": true,
+      "evidence_source_ids": [
+        "ofgem-moving-home"
+      ],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "How to Track Household Bills in Multiple Currencies",
+      "type": "standard",
+      "target_query": "how to track household bills in multiple currencies",
+      "priority": 20,
+      "audience_segment_ids": [
+        "multi-currency-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 2; existing backlog item, verify against published multi-currency article before drafting)"
+    },
+    {
+      "title": "Council Tax Bands and Discounts for New UK Households",
+      "type": "standard",
+      "target_query": "council tax bands explained",
+      "priority": 21,
+      "audience_segment_ids": [
+        "uk-house-movers"
+      ],
+      "location_id": "uk-en",
+      "requires_local_evidence": true,
+      "evidence_source_ids": [
+        "govuk-council-tax"
+      ],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Debt Payoff for Couples With Unequal Incomes",
+      "type": "standard",
+      "target_query": "debt payoff couples unequal income",
+      "priority": 22,
+      "audience_segment_ids": [
+        "households-paying-off-debt",
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Renters vs Homeowners: Which UK Household Bills Change Hands",
+      "type": "supporting",
+      "target_query": "uk household bills renters vs homeowners",
+      "priority": 23,
+      "audience_segment_ids": [
+        "uk-house-movers"
+      ],
+      "location_id": "uk-en",
+      "requires_local_evidence": true,
+      "evidence_source_ids": [
+        "ofgem-moving-home",
+        "govuk-council-tax"
+      ],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "How to Plan a Debt-Free Date",
+      "type": "standard",
+      "target_query": "debt free date planner",
+      "priority": 24,
+      "audience_segment_ids": [
+        "households-paying-off-debt"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "The Monthly Money Date: A 30-Minute Structure for Couples",
+      "type": "standard",
+      "target_query": "money date for couples",
+      "priority": 25,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "UK Household Bills in 2026: What You Can and Cannot Control",
+      "type": "standard",
+      "target_query": "uk household bills 2026",
+      "priority": 26,
+      "audience_segment_ids": [
+        "uk-house-movers"
+      ],
+      "location_id": "uk-en",
+      "requires_local_evidence": true,
+      "evidence_source_ids": [
+        "ofgem-moving-home"
+      ],
+      "source": "topical-map 2026-09-15 (phase 2; re-verify Ofgem figures at publish)"
+    },
+    {
+      "title": "Snowball Payoff With Multiple Debts: A Worked Example",
+      "type": "supporting",
+      "target_query": "debt snowball worked example",
+      "priority": 27,
+      "audience_segment_ids": [
+        "households-paying-off-debt"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Paying Off Debt While Saving: How Households Do Both",
+      "type": "supporting",
+      "target_query": "pay off debt and save",
+      "priority": 28,
+      "audience_segment_ids": [
+        "households-paying-off-debt"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "How to Split Bills Based on Income",
+      "type": "standard",
+      "target_query": "how to split bills based on income",
+      "priority": 29,
+      "audience_segment_ids": [
+        "unequal-income-households"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "status": "published",
+      "published_url": "/articles/how-to-split-bills-based-on-income",
+      "source": "topical-map 2026-09-15 (existing backlog item; status added \u2014 page confirmed live in GSC)"
+    },
+    {
+      "title": "Honeydue Alternative Without Bank Linking",
+      "type": "standard",
+      "target_query": "honeydue alternative without bank linking",
+      "priority": 30,
+      "audience_segment_ids": [
+        "couples-avoiding-bank-linking"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "status": "published",
+      "published_url": "/articles/honeydue-alternative-without-bank-linking",
+      "source": "topical-map 2026-09-15 (existing backlog item, unchanged)"
+    },
+    {
+      "title": "Debt Snowball vs Avalanche",
+      "type": "pillar",
+      "target_query": "debt snowball vs avalanche",
+      "priority": 31,
+      "audience_segment_ids": [
+        "households-paying-off-debt"
+      ],
+      "location_id": "global-en",
+      "evidence_source_ids": [],
+      "status": "published",
+      "published_url": "/articles/debt-snowball-vs-avalanche",
+      "source": "topical-map 2026-09-15 (existing backlog item re-cast standard-to-pillar)"
+    }
+  ],
+  "autonomy": {
+    "contract": "No owner fact-confirmation at any stage. Every claim is verified autonomously per AUTONOMY.md: product claims -> source_local files + live site; competitor claims -> live competitor pages with archived evidence snapshots; regulatory facts -> official sources only; first-hand experience claims -> local evidence files (site repo, published posts, gallery/portfolio data); original-data claims -> computed arithmetic with archived inputs. INCONCLUSIVE always downgrades to a labeled placeholder or drops the sentence \u2014 it never blocks the pipeline and never escalates to a human question.",
+    "tooling": "scripts/verify_facts.py --config site-config.<project>.json writes claim-verification.<project>.json (dated ledger + evidence snapshots in evidence/<project>/)",
+    "gates": "check_article.py hard-fails on ledger status 'unsupported'; 'inconclusive'/'stale' are draft-time placeholder triggers; check_publish.py flags any live page asserting an unsupported claim",
+    "never_auto_assert": [
+      "invented statistics, testimonials, or press mentions",
+      "claims in disallowed_claims",
+      "claims whose only source is the draft itself",
+      "venue/experience claims with zero local evidence hits"
+    ]
+  }
+}

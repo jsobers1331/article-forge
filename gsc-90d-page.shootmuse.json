@@ -1,0 +1,119 @@
+{
+  "source": "google_search_console",
+  "property": "sc-domain:shootmuse.com",
+  "date_range": {
+    "start": "2026-06-16",
+    "end": "2026-09-13"
+  },
+  "dimensions": [
+    "page"
+  ],
+  "row_count": 15,
+  "rows": [
+    {
+      "page": "https://shootmuse.com/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 3.8333333333333335
+    },
+    {
+      "page": "https://shootmuse.com/about",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "page": "https://shootmuse.com/careers",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "page": "https://shootmuse.com/compare/honeybook",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 16.666666666666664
+    },
+    {
+      "page": "https://shootmuse.com/compare/pixieset",
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 43.65217391304348
+    },
+    {
+      "page": "https://shootmuse.com/features",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 3.375
+    },
+    {
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 51,
+      "ctr": 0,
+      "position": 80.47058823529412
+    },
+    {
+      "page": "https://shootmuse.com/features/galleries",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 32.5
+    },
+    {
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 111,
+      "ctr": 0,
+      "position": 77.24324324324324
+    },
+    {
+      "page": "https://shootmuse.com/help",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3.5
+    },
+    {
+      "page": "https://shootmuse.com/legal/cookies",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "page": "https://shootmuse.com/legal/gdpr",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "page": "https://shootmuse.com/legal/privacy",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "page": "https://shootmuse.com/legal/terms",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "page": "https://shootmuse.com/migrate",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6
+    }
+  ]
+}

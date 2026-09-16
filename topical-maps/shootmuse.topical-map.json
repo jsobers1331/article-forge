@@ -1,0 +1,580 @@
+{
+  "site": "shootmuse.com",
+  "built": "2026-09-15",
+  "money_queries": [
+    "photography crm",
+    "crm for photographers",
+    "invoicing software for photographers",
+    "photography accounting software",
+    "accounting software for photographers",
+    "photography business software",
+    "photography crm australia",
+    "pixieset alternative",
+    "honeybook alternative"
+  ],
+  "clusters": [
+    {
+      "id": "sm-comparison",
+      "name": "Comparison and alternatives: ShootMuse vs Pixieset, HoneyBook, Dubsado and the rest",
+      "intent": "comparison",
+      "pillar": {
+        "title": "Best Photography CRM in 2026: Pixieset, HoneyBook, Dubsado, Studio Ninja and ShootMuse Compared",
+        "type": "pillar",
+        "target_query": "best photography crm",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "What Is a Photography CRM? A Practical Guide for Photographers",
+          "type": "standard",
+          "target_query": "what is a photography crm",
+          "priority": 2,
+          "source": "gsc-adjacent",
+          "note": "Already the only item in the topic_backlog (typed pillar there); re-cast as the definitional entry point that links up to the comparison hub. No CRM query on the site currently ranks better than position 75, so a clean definitional page is the fastest first win."
+        },
+        {
+          "title": "ShootMuse vs Pixieset: Invoicing, Client Galleries, and Fees Compared",
+          "type": "standard",
+          "target_query": "pixieset vs shootmuse",
+          "priority": 3,
+          "source": "gsc-impression",
+          "note": "/compare/pixieset is the closest asset to page 1 (23 impressions, position 43.65) \u2014 expand that page rather than replacing it. Pixieset's free-tier commission is a secondary-source claim; re-verify on pixieset.com before publishing any number.",
+          "verification": {
+            "type": "competitor_live_check",
+            "check": "competitor_live_check: fetch the competitor's official pricing/help page at draft time; archive the snapshot in evidence/; if the specific number/policy is not directly supported, drop it from the draft (placeholder) \u2014 never publish secondary-source figures."
+          }
+        },
+        {
+          "title": "ShootMuse vs HoneyBook: Pricing, Contracts, and Gallery Delivery Compared",
+          "type": "standard",
+          "target_query": "honeybook vs shootmuse",
+          "priority": 5,
+          "source": "gsc-impression",
+          "note": "/compare/honeybook ranks 16.7 for 6 impressions \u2014 second-closest asset. HoneyBook's 2025 price changes and its lack of gallery delivery are secondary-source claims; verify on honeybook.com before publish.",
+          "verification": {
+            "type": "competitor_live_check",
+            "check": "competitor_live_check: fetch the competitor's official pricing/help page at draft time; archive the snapshot in evidence/; if the specific number/policy is not directly supported, drop it from the draft (placeholder) \u2014 never publish secondary-source figures."
+          }
+        },
+        {
+          "title": "Dubsado Alternatives for Photographers Who Want a Shorter Setup",
+          "type": "standard",
+          "target_query": "dubsado alternative",
+          "priority": 7,
+          "source": "competitor-gap",
+          "note": "Setup-complexity complaints come from third-party reviews, not Dubsado's own docs \u2014 frame as workflow trade-offs (automation and data import on Pro and Studio), never as verified defects.",
+          "verification": {
+            "type": "competitor_live_check",
+            "check": "competitor_live_check: fetch the competitor's official pricing/help page at draft time; archive the snapshot in evidence/; if the specific number/policy is not directly supported, drop it from the draft (placeholder) \u2014 never publish secondary-source figures."
+          }
+        },
+        {
+          "title": "Sprout Studio and Bloom Alternatives for Photographers",
+          "type": "standard",
+          "target_query": "sprout studio alternative",
+          "priority": 13,
+          "source": "competitor-gap",
+          "note": "Same-scope studio managers; cover the full client-record flow (inquiry, contract, invoice, gallery) instead of feature checklists."
+        },
+        {
+          "title": "CRM for Wedding Photographers: What Actually Matters in Busy Season",
+          "type": "standard",
+          "target_query": "crm for wedding photographers",
+          "priority": 11,
+          "source": "gsc-adjacent",
+          "note": "Wedding is the highest-intent segment; anchor on pipeline stages, lead scoring, and per-image gallery analytics."
+        },
+        {
+          "title": "Photography CRM in Australia: What to Look For",
+          "type": "supporting",
+          "target_query": "photography crm australia",
+          "priority": 9,
+          "source": "gsc-impression",
+          "note": "Already earns 1 impression at position 88 \u2014 one of the few geo-modified queries in the account. The honest angles are geo-agnostic: free-forever Starter and 0% platform transaction fees on invoice payments."
+        },
+        {
+          "title": "High-Volume Photography Business Software: Schools, Sports, and Events",
+          "type": "standard",
+          "target_query": "high volume photography software",
+          "priority": 15,
+          "source": "competitor-gap",
+          "note": "Volume studios are underserved by the wedding-centric listicles owning this SERP; galleries, automation, and expense tracking carry the argument. No usage statistics exist anywhere \u2014 no invented client counts."
+        }
+      ],
+      "internal_link_plan": "Pillar is the hub: it links down to all 8 spokes and out to /features/crm, /features/invoicing, and /features/galleries. Every spoke links up to the pillar in the first 150 words, sideways to 2-3 sibling comparisons (Pixieset to HoneyBook to Dubsado), and down to /pricing or /signup inside the first third. /features/crm links up to the pillar. One intent per page: the pillar and /features/crm must not both target the same CRM query.",
+      "differentiation": "Comparison claims come only from shootmuse verified_facts and the live product pages: 0% platform transaction fees on invoice payments; a Starter plan that is free forever alongside Pro $49/mo ($39 annual) and Studio $99/mo ($79 annual), 14-day trial, 30-day money-back, USD price lock; CRM pipeline with lead scoring; AI email composer on Starter; reply drafts and gallery AI tools on Pro and Studio. Plan boundaries are the honest wedge against bigger-budget rivals \u2014 name the tier every time a gated feature appears. There are no testimonials, press mentions, or usage statistics on record, so no comparison page may use invented customer quotes or user counts. Any rival pricing or policy cited is flagged in the note for re-verification before publish."
+    },
+    {
+      "id": "sm-pricing",
+      "name": "Pricing, invoicing, and getting paid",
+      "intent": "how-to",
+      "pillar": {
+        "title": "Photography Invoicing Software: What to Check Before You Pay for One",
+        "type": "pillar",
+        "target_query": "invoicing software for photographers",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Photography Accounting Software: What Bookkeeping Actually Requires From You",
+          "type": "standard",
+          "target_query": "accounting software for photographers",
+          "priority": 6,
+          "source": "gsc-impression",
+          "note": "33 impressions at position 76.5 \u2014 the single biggest impression pool in the account. The page must answer the bookkeeping workflow question first and sell second."
+        },
+        {
+          "title": "Photography Accounting Software vs Invoicing Tools: What Is the Difference?",
+          "type": "supporting",
+          "target_query": "photography accounting software",
+          "priority": 12,
+          "source": "gsc-impression",
+          "note": "12 impressions at 76.1 for the exact-match query. Keep it definitionally distinct from the workflow spoke above, or merge the two if GSC later shows them competing."
+        },
+        {
+          "title": "What 0% Platform Fees on Invoice Payments Are Worth Over a Year",
+          "type": "standard",
+          "target_query": "photography payment processing fees",
+          "priority": 8,
+          "source": "differentiator",
+          "note": "Worked example built strictly on the verified 0% platform transaction fee on invoice payments. Do not extrapolate to third-party card-network or processor fees \u2014 only claim what verified_facts supports.",
+          "verification": {
+            "type": "competitor_live_check",
+            "check": "competitor_live_check: fetch the competitor's official pricing/help page at draft time; archive the snapshot in evidence/; if the specific number/policy is not directly supported, drop it from the draft (placeholder) \u2014 never publish secondary-source figures."
+          }
+        },
+        {
+          "title": "Pixieset Pricing: What the Free Tier Really Costs You Over a Year",
+          "type": "supporting",
+          "target_query": "pixieset pricing",
+          "priority": 10,
+          "source": "gsc-impression",
+          "note": "3 impressions at 69.7. The free-tier commission rate is a secondary-source claim \u2014 verify on pixieset.com before publishing any number, and cost the year out with arithmetic instead of assertions.",
+          "verification": {
+            "type": "competitor_live_check",
+            "check": "competitor_live_check: fetch the competitor's official pricing/help page at draft time; archive the snapshot in evidence/; if the specific number/policy is not directly supported, drop it from the draft (placeholder) \u2014 never publish secondary-source figures."
+          }
+        },
+        {
+          "title": "ShootMuse Pricing Explained: Free Starter, Pro, and Studio",
+          "type": "supporting",
+          "target_query": "shootmuse pricing",
+          "priority": 14,
+          "source": "differentiator",
+          "note": "Real pricing only: Starter free forever; Pro $49/mo ($39 annual); Studio $99/mo ($79 annual); 14-day trial; 30-day money-back; USD price lock. Multi-brand support is coming_soon \u2014 label it as roadmap, never as available."
+        },
+        {
+          "title": "How to Price Photography Sessions Without Undercharging",
+          "type": "standard",
+          "target_query": "how to price photography sessions",
+          "priority": 16,
+          "source": "gsc-adjacent",
+          "note": "Top-of-funnel money-adjacent query. No invented rate statistics \u2014 use cost-structure arithmetic, then hand off to the invoicing and contract mechanics."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all six spokes and to /features/invoicing and /pricing. Spokes link up in the first 150 words, sideways to one sibling (accounting vs invoicing, fees vs pricing), and down to /signup (free Starter) or /pricing inside the first third. /pricing receives a link from every page in this cluster; the Pixieset pricing page links sideways to the C1 Pixieset comparison.",
+      "differentiation": "Every claim maps to a verified product fact: 0% platform transaction fees on invoice payments; Starter free forever; Pro $49/$39 annual; Studio $99/$79 annual; 14-day trial; 30-day money-back; USD price lock; contracts, e-signature, automation, and data import on Pro and Studio. The plan-boundary article is deliberately candid about what the free tier does not include \u2014 that honesty is the differentiator, because testimonials and usage stats do not exist on this site."
+    },
+    {
+      "id": "sm-get-clients",
+      "name": "Getting photography clients: marketing and lead flow",
+      "intent": "how-to",
+      "pillar": {
+        "title": "How Photographers Get Clients in 2026: The Inquiry-to-Booking System",
+        "type": "pillar",
+        "target_query": "how to get photography clients",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "How to Get Photography Clients Without Paid Ads",
+          "type": "standard",
+          "target_query": "get photography clients without paid ads",
+          "priority": 19,
+          "source": "gsc-adjacent",
+          "note": "Broadest spoke; it funnels to the lead follow-up and inquiry-tracking pages rather than trying to win the head term alone."
+        },
+        {
+          "title": "Photographer Lead Follow-Up: A Cadence and Email Templates That Book",
+          "type": "standard",
+          "target_query": "photography lead follow up",
+          "priority": 22,
+          "source": "differentiator",
+          "note": "The AI email composer is on Starter; reply drafts are Pro and Studio. Name the tier so a free-plan reader can follow the workflow."
+        },
+        {
+          "title": "Instagram DMs to Bookings: An AI-Assisted Reply Workflow for Photographers",
+          "type": "supporting",
+          "target_query": "photography instagram leads",
+          "priority": 26,
+          "source": "differentiator",
+          "note": "Reply drafts are Pro and Studio \u2014 say so. No engagement or growth statistics exist on the site; keep the workflow concrete instead of citing numbers."
+        },
+        {
+          "title": "Track Photography Inquiries Without a Spreadsheet",
+          "type": "standard",
+          "target_query": "photography inquiry tracker",
+          "priority": 28,
+          "source": "differentiator",
+          "note": "The CRM pipeline with lead scoring is the real mechanic; show the stages and what moves a lead between them, without claiming conversion lifts."
+        },
+        {
+          "title": "A Seasonal Marketing Calendar for Photographers: Mini Sessions, Holidays, Weddings",
+          "type": "supporting",
+          "target_query": "photography marketing calendar",
+          "priority": 31,
+          "source": "competitor-gap",
+          "note": "Seasonality page that links to the AI rebook-prediction spoke; rebook predictions are Studio tier and must be named as such."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all five spokes and to /features/crm and /features/ai. Spokes link up in the first 150 words, sideways to one sibling (lead follow-up to inquiry tracking), and down to /signup (free Starter) or /pricing inside the first third. /pricing receives links from every spoke; free-plan CTAs go to /signup.",
+      "differentiation": "The cluster is built on product mechanics a reader can verify in-app: the CRM pipeline with lead scoring, the AI email composer on Starter, reply drafts and gallery AI tools on Pro and Studio, and Studio-tier rebook predictions and business insights. ShootMuse has no published testimonials, press, or usage numbers, so no growth claims, client counts, or photographer-count lines are allowed \u2014 honest plan boundaries (what is free forever versus what needs Pro or Studio) do the work that social proof would do for a competitor."
+    },
+    {
+      "id": "sm-workflow",
+      "name": "Studio workflow and operations",
+      "intent": "how-to",
+      "pillar": {
+        "title": "The Photography Studio Workflow: From Inquiry to Gallery Delivery",
+        "type": "pillar",
+        "target_query": "photography studio management software",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "Migrating Your Photography Business Off Pixieset, HoneyBook, or Spreadsheets",
+          "type": "standard",
+          "target_query": "migrate from pixieset",
+          "priority": 20,
+          "source": "gsc-impression",
+          "note": "/migrate already ranks position 6 for 3 impressions with almost no content \u2014 grow it into a real migration guide (data import is Pro and Studio; name the tier) and let the pillar and spokes link to it as a conversion surface."
+        },
+        {
+          "title": "Photography Business Automation: What to Automate First",
+          "type": "standard",
+          "target_query": "photography business automation",
+          "priority": 21,
+          "source": "differentiator",
+          "note": "Automation lives on Pro and Studio \u2014 name the tier. Order tasks by time saved, not by tool features."
+        },
+        {
+          "title": "Client Galleries With Per-Image Analytics: What Photographers Learn",
+          "type": "supporting",
+          "target_query": "photography gallery analytics",
+          "priority": 25,
+          "source": "differentiator",
+          "note": "Per-image analytics exist in the product; there are no benchmark statistics, so present the questions the data answers rather than performance claims."
+        },
+        {
+          "title": "Second Shooters and Assistants: Coordinating a Team Inside Your CRM",
+          "type": "supporting",
+          "target_query": "second shooter workflow",
+          "priority": 30,
+          "source": "competitor-gap",
+          "note": "Multi-brand support is coming_soon \u2014 mention it as roadmap only. The team-coordination angle must rest on existing CRM and contract mechanics."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all four spokes plus /features, /migrate, and /pricing. Spokes link up, sideways to the migration piece where relevant, and down to /signup or /pricing in the first third. /migrate is treated as a money page and receives a link from every page in this cluster.",
+      "differentiation": "Grounded in verified workflow facts: contracts and e-signature, automation and data import on Pro and Studio; per-image gallery analytics; encrypted storage that never trains external models and lets clients export. Named tier boundaries again do the work that testimonials would do for a competitor."
+    },
+    {
+      "id": "sm-ai",
+      "name": "AI for photography businesses",
+      "intent": "tool",
+      "pillar": {
+        "title": "AI for Photographers: What Saves Time and What Does Not",
+        "type": "pillar",
+        "target_query": "ai for photographers",
+        "priority": 1
+      },
+      "spokes": [
+        {
+          "title": "AI Email Composer for Photographers: Drafting Client Replies in Your Own Voice",
+          "type": "standard",
+          "target_query": "ai email writer for photographers",
+          "priority": 24,
+          "source": "differentiator",
+          "note": "Email composer is on Starter; reply drafts are Pro and Studio \u2014 name the tier so free users know what they get."
+        },
+        {
+          "title": "Using AI Rebook Predictions to Fill Next Season",
+          "type": "supporting",
+          "target_query": "client rebooking photography",
+          "priority": 29,
+          "source": "differentiator",
+          "note": "Studio-tier AI rebook predictions \u2014 the tier must be named. No outcome statistics exist, so show the workflow, not results."
+        },
+        {
+          "title": "Revenue Forecasting for Solo Photographers",
+          "type": "supporting",
+          "target_query": "photography revenue forecast",
+          "priority": 32,
+          "source": "differentiator",
+          "note": "Studio-tier revenue forecasting and business insights; work from the inputs a solo photographer actually has (booked jobs, invoices, recurring costs)."
+        },
+        {
+          "title": "Is It Safe to Put Client Data in AI Tools? Encryption and Model Training",
+          "type": "standard",
+          "target_query": "ai photography client data privacy",
+          "priority": 27,
+          "source": "differentiator",
+          "note": "Use only the verified privacy facts: encrypted, never used to train external models, data is exportable. This is the cluster's trust page and the strongest E-E-A-T asset."
+        },
+        {
+          "title": "Advanced Expense Tracking for Photographers",
+          "type": "supporting",
+          "target_query": "photography expense tracking",
+          "priority": 33,
+          "source": "differentiator",
+          "note": "Studio-tier advanced expense tracking; link back to the invoicing cluster so money pages stay connected."
+        }
+      ],
+      "internal_link_plan": "Pillar links down to all five spokes, to /features/ai, and to /pricing. Spokes link up, sideways to one sibling (email composer to reply workflow, rebook predictions to forecasting), and down to /signup or /pricing in the first third. The privacy page is linked from every spoke as the trust anchor, and links sideways to the migration page as the data-portability proof.",
+      "differentiation": "Everything here is a named, tier-gated product mechanic: AI email composer on Starter; reply drafts and gallery AI tools on Pro and Studio; rebook predictions, business insights, revenue forecasting, and advanced expense tracking on Studio. The privacy page uses only verified facts (encrypted, never trains external models, exportable) \u2014 with no testimonials or press on record, verifiable data handling is the entire authority argument, and it is stated plainly instead of being implied."
+    }
+  ],
+  "backlog_merge": [
+    {
+      "title": "Best Photography CRM in 2026: Pixieset, HoneyBook, Dubsado, Studio Ninja and ShootMuse Compared",
+      "type": "pillar",
+      "target_query": "best photography crm",
+      "priority": 1,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "What Is a Photography CRM? A Practical Guide for Photographers",
+      "type": "standard",
+      "target_query": "what is a photography crm",
+      "priority": 2,
+      "source": "topical-map 2026-09-15 (phase 1; existing backlog item re-cast pillar-to-standard)"
+    },
+    {
+      "title": "ShootMuse vs Pixieset: Invoicing, Client Galleries, and Fees Compared",
+      "type": "standard",
+      "target_query": "pixieset vs shootmuse",
+      "priority": 3,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Photography Invoicing Software: What to Check Before You Pay for One",
+      "type": "pillar",
+      "target_query": "invoicing software for photographers",
+      "priority": 4,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "ShootMuse vs HoneyBook: Pricing, Contracts, and Gallery Delivery Compared",
+      "type": "standard",
+      "target_query": "honeybook vs shootmuse",
+      "priority": 5,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Photography Accounting Software: What Bookkeeping Actually Requires From You",
+      "type": "standard",
+      "target_query": "accounting software for photographers",
+      "priority": 6,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Dubsado Alternatives for Photographers Who Want a Shorter Setup",
+      "type": "standard",
+      "target_query": "dubsado alternative",
+      "priority": 7,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "What 0% Platform Fees on Invoice Payments Are Worth Over a Year",
+      "type": "standard",
+      "target_query": "photography payment processing fees",
+      "priority": 8,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Photography CRM in Australia: What to Look For",
+      "type": "supporting",
+      "target_query": "photography crm australia",
+      "priority": 9,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Pixieset Pricing: What the Free Tier Really Costs You Over a Year",
+      "type": "supporting",
+      "target_query": "pixieset pricing",
+      "priority": 10,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "CRM for Wedding Photographers: What Actually Matters in Busy Season",
+      "type": "standard",
+      "target_query": "crm for wedding photographers",
+      "priority": 11,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Photography Accounting Software vs Invoicing Tools: What Is the Difference?",
+      "type": "supporting",
+      "target_query": "photography accounting software",
+      "priority": 12,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "Sprout Studio and Bloom Alternatives for Photographers",
+      "type": "standard",
+      "target_query": "sprout studio alternative",
+      "priority": 13,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "ShootMuse Pricing Explained: Free Starter, Pro, and Studio",
+      "type": "supporting",
+      "target_query": "shootmuse pricing",
+      "priority": 14,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "High-Volume Photography Business Software: Schools, Sports, and Events",
+      "type": "standard",
+      "target_query": "high volume photography software",
+      "priority": 15,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "How to Price Photography Sessions Without Undercharging",
+      "type": "standard",
+      "target_query": "how to price photography sessions",
+      "priority": 16,
+      "source": "topical-map 2026-09-15 (phase 1)"
+    },
+    {
+      "title": "How Photographers Get Clients in 2026: The Inquiry-to-Booking System",
+      "type": "pillar",
+      "target_query": "how to get photography clients",
+      "priority": 17,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "The Photography Studio Workflow: From Inquiry to Gallery Delivery",
+      "type": "pillar",
+      "target_query": "photography studio management software",
+      "priority": 18,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "How to Get Photography Clients Without Paid Ads",
+      "type": "standard",
+      "target_query": "get photography clients without paid ads",
+      "priority": 19,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Migrating Your Photography Business Off Pixieset, HoneyBook, or Spreadsheets",
+      "type": "standard",
+      "target_query": "migrate from pixieset",
+      "priority": 20,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Photography Business Automation: What to Automate First",
+      "type": "standard",
+      "target_query": "photography business automation",
+      "priority": 21,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Photographer Lead Follow-Up: A Cadence and Email Templates That Book",
+      "type": "standard",
+      "target_query": "photography lead follow up",
+      "priority": 22,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "AI for Photographers: What Saves Time and What Does Not",
+      "type": "pillar",
+      "target_query": "ai for photographers",
+      "priority": 23,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "AI Email Composer for Photographers: Drafting Client Replies in Your Own Voice",
+      "type": "standard",
+      "target_query": "ai email writer for photographers",
+      "priority": 24,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Client Galleries With Per-Image Analytics: What Photographers Learn",
+      "type": "supporting",
+      "target_query": "photography gallery analytics",
+      "priority": 25,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Instagram DMs to Bookings: An AI-Assisted Reply Workflow for Photographers",
+      "type": "supporting",
+      "target_query": "photography instagram leads",
+      "priority": 26,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Is It Safe to Put Client Data in AI Tools? Encryption and Model Training",
+      "type": "standard",
+      "target_query": "ai photography client data privacy",
+      "priority": 27,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Track Photography Inquiries Without a Spreadsheet",
+      "type": "standard",
+      "target_query": "photography inquiry tracker",
+      "priority": 28,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Using AI Rebook Predictions to Fill Next Season",
+      "type": "supporting",
+      "target_query": "client rebooking photography",
+      "priority": 29,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Second Shooters and Assistants: Coordinating a Team Inside Your CRM",
+      "type": "supporting",
+      "target_query": "second shooter workflow",
+      "priority": 30,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "A Seasonal Marketing Calendar for Photographers: Mini Sessions, Holidays, Weddings",
+      "type": "supporting",
+      "target_query": "photography marketing calendar",
+      "priority": 31,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Revenue Forecasting for Solo Photographers",
+      "type": "supporting",
+      "target_query": "photography revenue forecast",
+      "priority": 32,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    },
+    {
+      "title": "Advanced Expense Tracking for Photographers",
+      "type": "supporting",
+      "target_query": "photography expense tracking",
+      "priority": 33,
+      "source": "topical-map 2026-09-15 (phase 2)"
+    }
+  ],
+  "autonomy": {
+    "contract": "No owner fact-confirmation at any stage. Every claim is verified autonomously per AUTONOMY.md: product claims -> source_local files + live site; competitor claims -> live competitor pages with archived evidence snapshots; regulatory facts -> official sources only; first-hand experience claims -> local evidence files (site repo, published posts, gallery/portfolio data); original-data claims -> computed arithmetic with archived inputs. INCONCLUSIVE always downgrades to a labeled placeholder or drops the sentence \u2014 it never blocks the pipeline and never escalates to a human question.",
+    "tooling": "scripts/verify_facts.py --config site-config.<project>.json writes claim-verification.<project>.json (dated ledger + evidence snapshots in evidence/<project>/)",
+    "gates": "check_article.py hard-fails on ledger status 'unsupported'; 'inconclusive'/'stale' are draft-time placeholder triggers; check_publish.py flags any live page asserting an unsupported claim",
+    "never_auto_assert": [
+      "invented statistics, testimonials, or press mentions",
+      "claims in disallowed_claims",
+      "claims whose only source is the draft itself",
+      "venue/experience claims with zero local evidence hits"
+    ]
+  }
+}

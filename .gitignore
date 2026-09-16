@@ -18,3 +18,7 @@ output/*.md
 !output/.gitkeep
 output/.quarantine/
 .DS_Store
+
+# Autonomous verification artifacts (local, dated evidence)
+claim-verification.*.json
+evidence/

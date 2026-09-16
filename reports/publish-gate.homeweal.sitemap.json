@@ -1,0 +1,3702 @@
+{
+  "generated_at": "2026-09-15T19:07:29-04:00",
+  "config": "site-config.homeweal.json",
+  "site": "homeweal.com",
+  "sitemap_url": "https://homeweal.com/sitemap.xml",
+  "kind": "article",
+  "article_type": "standard",
+  "article_prefixes": [
+    "/articles/"
+  ],
+  "pages": [
+    {
+      "url": "https://homeweal.com/articles/how-to-make-a-monthly-budget",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "73 chars, outside the 15-70 guidance: 'How to Make a Monthly Budget That Accounts for Your Real Bills | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "160 chars: 'A straightforward monthly budgeting method: start with take-home income, reserve recurring bills, plan variable essentials, then give flexible spending a limit.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/how-to-make-a-monthly-budget"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-09-13 How to Make a Monthly Budget..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Make a Monthly Budget That Accounts for Your Real Bills'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "714 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "73 chars, outside the 15-70 guidance: 'How to Make a Monthly Budget That Accounts for Your Real Bills | HomeWeal'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "714 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 17
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-track-expenses",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "76 chars, outside the 15-70 guidance: 'How to Track Expenses: A Simple System You Will Actually Maintain | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "147 chars: 'A practical way to track expenses without making a spreadsheet your second job: separate fixed bills, variable spending, and a short weekly review.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/how-to-track-expenses"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/household-tracker-pillar-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/household-tracker-pillar-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/household-tracker-pillar-hero-v2.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhousehold-tracker-pillar-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-09-13 How to Track Expenses: A Sim..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Track Expenses: A Simple System You Will Actually Maintain'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "666 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "76 chars, outside the 15-70 guidance: 'How to Track Expenses: A Simple System You Will Actually Maintain | HomeWeal'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhousehold-tracker-pillar-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "666 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 17
+    },
+    {
+      "url": "https://homeweal.com/articles/what-is-a-good-monthly-planner-for-bills",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "52 chars: 'What Is a Good Monthly Planner for Bills? | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "143 chars: 'A practical guide to choosing a monthly bill planner that stays current, handles variable and shared bills, and helps you see what is due next.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/what-is-a-good-monthly-planner-for-bills"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-04) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-09-04 What Is a Good Monthly Plann..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'What Is a Good Monthly Planner for Bills?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1551 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-09-04) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 19
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-split-bills-based-on-income",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "45 chars: 'How to Split Bills Based on Income | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "148 chars: 'A practical way for households with different incomes to agree on proportional shared-bill splits, calculate them, and keep the arrangement current.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/how-to-split-bills-based-on-income"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/income-split-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/income-split-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/income-split-hero-v2.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fincome-split-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 How to Split Bills Based on..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Split Bills Based on Income'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1101 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fincome-split-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 19
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-track-household-bills-in-multiple-currencies",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "62 chars: 'How to Track Household Bills in Multiple Currencies | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "142 chars: 'A practical system for households with recurring bills in more than one currency: keep original amounts, real due dates, and a shared routine.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/how-to-track-household-bills-in-multiple-currencies"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/multi-currency-bills-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/multi-currency-bills-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/multi-currency-bills-hero-v2.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmulti-currency-bills-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 How to Track Household Bills..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Track Household Bills in Multiple Currencies'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1090 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmulti-currency-bills-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 19
+    },
+    {
+      "url": "https://homeweal.com/articles/uk-household-bills-checklist-moving-home",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "58 chars: 'UK Household Bills Checklist When You Move Home | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "125 chars: 'A source-backed first-month checklist for organising council tax, energy, and the household bills that apply after a UK move.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/uk-household-bills-checklist-moving-home"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/uk-moving-bills-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/uk-moving-bills-hero-v2.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/uk-moving-bills-hero-v2.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "2 external/competitor link(s) in the body: ['https://www.gov.uk/guidance/your-property-and-council-tax', 'https://www.ofgem.gov.uk/get-energy-if-you-are-moving-home-or-business-premises']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fuk-moving-bills-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 UK Household Bills Checklist..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'UK Household Bills Checklist When You Move Home'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1170 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "2 external/competitor link(s) in the body: ['https://www.gov.uk/guidance/your-property-and-council-tax', 'https://www.ofgem.gov.uk/get-energy-if-you-are-moving-home-or-business-premises']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fuk-moving-bills-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 19
+    },
+    {
+      "url": "https://homeweal.com/articles/best-bill-tracker-without-bank-linking",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "56 chars: 'Best Bill Tracker Without Bank Linking (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "155 chars: 'A manual-first, no-bank-linking bill tracker compared against YNAB, Monarch, Copilot, and Splitwise \u2014 what to look for and which tool fits which household.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/best-bill-tracker-without-bank-linking"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fbest-tracker-hero-v3.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 Best Bill Tracker Without Ba..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Best Bill Tracker Without Bank Linking (2026)'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1277 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fbest-tracker-hero-v3.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 16
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-split-bills-with-a-roommate-without-a-spreadsheet",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "67 chars: 'How to Split Bills With a Roommate Without a Spreadsheet | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "170 chars, outside the 50-160 guidance: 'Stop reconciling a shared spreadsheet. How a household bill tracker logs each bill once, auto-converts currencies, and tells you who owes whom \u2014 no bank linking required.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/how-to-split-bills-with-a-roommate-without-a-spreadsheet"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://splitwise.com', 'https://ynab.com', 'https://monarchmoney.com']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fsplit-bills-hero-v3.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 How to Split Bills With a Ro..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Split Bills With a Roommate Without a Spreadsheet'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1104 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "170 chars, outside the 50-160 guidance: 'Stop reconciling a shared spreadsheet. How a household bill tracker logs each bill once, auto-converts currencies, and tells you who owes whom \u2014 no bank linking required.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://splitwise.com', 'https://ynab.com', 'https://monarchmoney.com']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fsplit-bills-hero-v3.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 15
+    },
+    {
+      "url": "https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "74 chars, outside the 15-70 guidance: 'Best Splitwise Alternative for Recurring Household Bills (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'Splitwise is built for one-off shared expenses. For recurring rent, utilities, and cross-currency bills, see how HomeWeal, YNAB, Monarch, and Copilot actually compare.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://splitwise.com', 'https://ynab.com', 'https://monarchmoney.com']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fsplitwise-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 Best Splitwise Alternative f..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Best Splitwise Alternative for Recurring Household Bills (2026)'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1127 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "74 chars, outside the 15-70 guidance: 'Best Splitwise Alternative for Recurring Household Bills (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'Splitwise is built for one-off shared expenses. For recurring rent, utilities, and cross-currency bills, see how HomeWeal, YNAB, Monarch, and Copilot actually compare.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://splitwise.com', 'https://ynab.com', 'https://monarchmoney.com']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fsplitwise-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 14
+    },
+    {
+      "url": "https://homeweal.com/articles/multi-currency-budgeting-app-for-couples",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "58 chars: 'Multi-Currency Budgeting App for Couples (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "157 chars: 'Most budgeting apps bolt multi-currency on as an afterthought. See why a per-bill approach fits cross-currency couples better than YNAB, Monarch, or Copilot.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/multi-currency-budgeting-app-for-couples"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmulticurrency-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 Multi-Currency Budgeting App..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Multi-Currency Budgeting App for Couples (2026): The Honest Guide'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1100 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmulticurrency-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 16
+    },
+    {
+      "url": "https://homeweal.com/articles/ynab-alternatives-without-bank-linking",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "56 chars: 'YNAB Alternatives Without Bank Linking (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "146 chars: 'YNAB, Monarch, and Copilot all assume a linked bank account. For a household bill tracker that works entirely manually, see how HomeWeal compares.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/ynab-alternatives-without-bank-linking"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fynab-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 YNAB Alternatives Without Ba..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'YNAB Alternatives Without Bank Linking (2026)'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "972 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fynab-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "972 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 15
+    },
+    {
+      "url": "https://homeweal.com/articles/what-is-a-household-bill-tracker",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "44 chars: 'What Is a Household Bill Tracker? | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "161 chars, outside the 50-160 guidance: 'A household bill tracker logs, splits, and settles recurring shared bills without bank linking \u2014 how it differs from a budgeting app, and who actually needs one.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/what-is-a-household-bill-tracker"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhousehold-tracker-pillar-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 What Is a Household Bill Tra..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'What Is a Household Bill Tracker?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "975 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "161 chars, outside the 50-160 guidance: 'A household bill tracker logs, splits, and settles recurring shared bills without bank linking \u2014 how it differs from a budgeting app, and who actually needs one.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhousehold-tracker-pillar-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "975 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 14
+    },
+    {
+      "url": "https://homeweal.com/articles/monarch-alternative-without-bank-linking",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "58 chars: 'Monarch Alternative Without Bank Linking (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "148 chars: 'Monarch requires connecting your bank accounts to work at all. For a household bill tracker that works entirely manually, see how HomeWeal compares.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/monarch-alternative-without-bank-linking"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "3 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://monarchmoney.com', 'https://splitwise.com', 'https://ynab.com']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 3 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonarch-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 Monarch Alternative Without..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Monarch Alternative Without Bank Linking (2026)'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1117 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://monarchmoney.com', 'https://splitwise.com', 'https://ynab.com']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonarch-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 16
+    },
+    {
+      "url": "https://homeweal.com/articles/copilot-alternative-without-bank-linking",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "58 chars: 'Copilot Alternative Without Bank Linking (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "158 chars: 'Copilot is iOS-only and requires bank linking to function. For a household bill tracker that works entirely manually on any device, see how HomeWeal compares.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/copilot-alternative-without-bank-linking"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "4 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://copilot.money', 'https://splitwise.com', 'https://ynab.com']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 4 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fcopilot-alt-hero-v4.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-09 Copilot Alternative Without..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Copilot Alternative Without Bank Linking (2026)'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1086 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-09) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "4 external/competitor link(s) in the body: ['https://copilot.money', 'https://splitwise.com', 'https://ynab.com']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fcopilot-alt-hero-v4.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 16
+    },
+    {
+      "url": "https://homeweal.com/articles/honeydue-alternative-without-bank-linking",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "59 chars: 'Honeydue Alternative Without Bank Linking (2026) | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "177 chars, outside the 50-160 guidance: 'Honeydue is free but requires linking your accounts across 20,000+ banks to work. For a couples\u2019 bill tracker that runs entirely without bank linking, see how HomeWeal compares.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/honeydue-alternative-without-bank-linking"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-30) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "5 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "1 external/competitor link(s) in the body: ['https://www.honeydue.com']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 5 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 2 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhoneydue-alt-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-30 Honeydue Alternative Without..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Honeydue Alternative Without Bank Linking (2026)'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1075 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "177 chars, outside the 50-160 guidance: 'Honeydue is free but requires linking your accounts across 20,000+ banks to work. For a couples\u2019 bill tracker that runs entirely without bank linking, see how HomeWeal compares.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "Article.image missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-30) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "1 external/competitor link(s) in the body: ['https://www.honeydue.com']"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhoneydue-alt-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 15
+    },
+    {
+      "url": "https://homeweal.com/articles/debt-snowball-vs-avalanche",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "74 chars, outside the 15-70 guidance: 'Debt Snowball vs Avalanche: Which Payoff Method Should You Use? | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "156 chars: 'A worked comparison of the debt snowball and avalanche payoff methods \u2014 the real math behind total interest and payoff time, and how to choose between them.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/debt-snowball-vs-avalanche"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/debt-snowball-avalanche-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/debt-snowball-avalanche-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "2 JSON-LD block(s) parse; 8 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/debt-snowball-avalanche-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-30) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "2 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 2 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fdebt-snowball-avalanche-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated 2026-08-30 Debt Snowball vs Avalanche:..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Debt Snowball vs Avalanche: Which Payoff Method Should You Use?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1126 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "FAIL",
+          "detail": "Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "74 chars, outside the 15-70 guidance: 'Debt Snowball vs Avalanche: Which Payoff Method Should You Use? | HomeWeal'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "og:type missing"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-08-30) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/articles)"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "WARN",
+          "detail": "hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fdebt-snowball-avalanche-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k"
+        }
+      ],
+      "pass": 18
+    }
+  ],
+  "summary": {
+    "pages_checked": 16,
+    "pages_with_hard_failures": 16,
+    "pages_with_warnings": 16,
+    "hard_items": 57,
+    "warn_items": 104
+  }
+}

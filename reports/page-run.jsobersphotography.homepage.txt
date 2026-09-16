@@ -1,0 +1,24 @@
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 61 chars: 'Barbados Wedding & Portrait Photographer | JSobersPhotography'
+⚠ [WARN] Meta description: 166 chars, outside the 50-160 guidance: 'Jason Sobers is a Barbados wedding photographer creating honest, editorial photographs for destination weddings, couples, families and portraits across the Caribbean.'
+✓ [PASS] Canonical: self-referencing canonical: https://www.jsobersphotography.com
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://www.jsobersphotography.com/images/gallery/15043934-8ba9ea89a778587b3c2bc26fe485acc6-5645445e.jpg
+✓ [PASS] Open Graph / Twitter: twitter:image: https://www.jsobersphotography.com/images/gallery/15043934-8ba9ea89a778587b3c2bc26fe485acc6-5645445e.jpg
+✓ [PASS] Open Graph / Twitter: twitter:title: 'Barbados Wedding & Portrait Photographer | JSobersPhotography'
+✓ [PASS] Open Graph / Twitter: og:type: 'website'
+✓ [PASS] JSON-LD: 3 JSON-LD block(s) parse; 12 node(s)
+✓ [PASS] JSON-LD: site-level node present: ['LocalBusiness']
+✓ [PASS] Internal links: 7 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/blog)
+✓ [PASS] Internal links: all 7 checked internal link(s) return 200
+✓ [PASS] Images: all 8 image(s) have alt text
+✓ [PASS] Images: hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2880,g_auto/f_auto/q_auto/v1/jsobers/home/15043934?_a=BAVMn6E70
+⚠ [WARN] Visible dates: no visible publish or update date anywhere in the page text
+✓ [PASS] H1: 1 <h1>: 'Barbados weddings.Beautifully kept.'
+✓ [PASS] Word count: word count skipped for non-article pages
+✓ [PASS] Banned words: banned words skipped for non-article pages
+
+0 hard failure(s), 3 warning(s), 18 passing check(s).
+JSON report written to reports/publish-gate.jsobersphotography.homepage.json

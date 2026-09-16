@@ -1,0 +1,16 @@
+what-is-a-photography-crm                                      site-config.shootmuse.json pillar     PASS=10  WARN=0  FAIL=0  exit=0
+how-to-split-bills-based-on-income                             site-config.homeweal.json standard   PASS=7   WARN=3  FAIL=0  exit=0
+how-to-track-household-bills-in-multiple-currencies            site-config.homeweal.json standard   PASS=7   WARN=3  FAIL=0  exit=0
+uk-household-bills-checklist-moving-home                       site-config.homeweal.json standard   PASS=8   WARN=2  FAIL=0  exit=0
+best-bill-tracker-without-bank-linking-2026                    site-config.homeweal.json standard   PASS=8   WARN=2  FAIL=0  exit=0
+best-splitwise-alternative-for-recurring-household-bills-2026  site-config.homeweal.json standard   PASS=7   WARN=2  FAIL=1  exit=1
+copilot-alternative-without-bank-linking-2026                  site-config.homeweal.json standard   PASS=5   WARN=4  FAIL=1  exit=1
+how-to-split-bills-with-a-roommate-without-a-spreadsheet       site-config.homeweal.json standard   PASS=8   WARN=2  FAIL=0  exit=0
+monarch-alternative-without-bank-linking-2026                  site-config.homeweal.json standard   PASS=6   WARN=3  FAIL=1  exit=1
+multi-currency-budgeting-app-for-couples-2026                  site-config.homeweal.json standard   PASS=8   WARN=2  FAIL=0  exit=0
+what-is-a-household-bill-tracker                               site-config.homeweal.json standard   PASS=7   WARN=3  FAIL=0  exit=0
+ynab-alternatives-without-bank-linking-2026                    site-config.homeweal.json standard   PASS=5   WARN=4  FAIL=1  exit=1
+engagement-photography-barbados-cost                           site-config.jsobersphotography.json standard   PASS=9   WARN=1  FAIL=0  exit=0
+how-long-to-get-wedding-photos-back-barbados                   site-config.jsobersphotography.json supporting PASS=9   WARN=1  FAIL=0  exit=0
+how-much-does-a-barbados-wedding-photographer-cost             site-config.jsobersphotography.json pillar     PASS=9   WARN=1  FAIL=0  exit=0
+wedding-welcome-dinner-photographer-barbados                   site-config.jsobersphotography.json supporting PASS=8   WARN=2  FAIL=0  exit=0

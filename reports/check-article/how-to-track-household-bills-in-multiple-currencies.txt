@@ -1,0 +1,12 @@
+⚠ [WARN] Facts freshness: verified_facts last confirmed 37 days ago (>30) — re-read the live site's source of truth and update facts_last_verified before publishing
+✓ [PASS] Fabrication/placeholder gate: no placeholder/fabrication patterns found
+✓ [PASS] Visible opening-function labels: no visible opening-function labels found
+✓ [PASS] H1 matches target query: H1 matches target query closely (100% word overlap)
+✓ [PASS] Bare URLs (not Markdown links): no bare parenthetical URLs found
+✓ [PASS] Word count: word count 1710 is within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words found
+✓ [PASS] Structured element present: found a structured element (numbered list)
+⚠ [WARN] Tier-gating mentions (heuristic): feature keywords ['each', 'months', 'side', 'total'] appear (from 'Debt payoff planner — snowball vs. avalanche side by side, months to debt-free and total interest for each') but no tier keyword from 'Pro' was found anywhere in the text — verify manually
+⚠ [WARN] Structural repetition (heuristic): adjacent sections share an opening word: 'Handling seasonal bills without wrecking your household statistics' and 'When bill splitting and settle-up trackers become essential' both open with 'multi'
+
+No hard failures. WARN items still need a human read against RULES.md/IMAGES.md before publishing.

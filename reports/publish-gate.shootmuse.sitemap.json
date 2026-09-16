@@ -1,0 +1,2350 @@
+{
+  "generated_at": "2026-09-15T19:07:25-04:00",
+  "config": "site-config.shootmuse.json",
+  "site": "shootmuse.com",
+  "sitemap_url": "https://shootmuse.com/sitemap.xml",
+  "kind": "article",
+  "article_type": "standard",
+  "article_prefixes": [
+    "/blog/"
+  ],
+  "pages": [
+    {
+      "url": "https://shootmuse.com/blog/what-is-a-photography-crm",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "38 chars: 'What Is a Photography CRM? | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "175 chars, outside the 50-160 guidance: 'What is a photography CRM? ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/what-is-a-photography-crm"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/what-is-a-photography-crm.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "10 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fwhat-is-a-photography-crm.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...at Is a Photography CRM? ShootMuse Team Published Aug 30, 2026 12 min read Updated Aug 30..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'What Is a Photography CRM?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "2183 words in the content region, above the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "175 chars, outside the 50-160 guidance: 'What is a photography CRM? ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "2183 words in the content region, above the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 19
+    },
+    {
+      "url": "https://shootmuse.com/blog/switch-from-honeybook",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "53 chars: 'How to Switch from HoneyBook to ShootMuse | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "181 chars, outside the 50-160 guidance: \"Thinking about leaving HoneyBook? Here's a complete step-by-step guide to migrating your photography business \u2014 clients, contracts, invoices, and workflows \u2014 without losing a thing.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/switch-from-honeybook"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/switch-from-honeybook.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Apr 10, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Apr 10, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "9 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 9 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fswitch-from-honeybook.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...m HoneyBook to ShootMuse ShootMuse Team Published Apr 10, 2026 10 min read If you've been..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Switch from HoneyBook to ShootMuse'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1122 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "181 chars, outside the 50-160 guidance: \"Thinking about leaving HoneyBook? Here's a complete step-by-step guide to migrating your photography business \u2014 clients, contracts, invoices, and workflows \u2014 without losing a thing.\""
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Apr 10, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Apr 10, 2026'"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://shootmuse.com/blog/outgrown-photography-crm",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "56 chars: \"5 Signs You've Outgrown Your Photography CRM | ShootMuse\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "158 chars: \"Your CRM should grow with your business, not hold it back. Here are five red flags that it's time for an upgrade \u2014 and what to look for in your next platform.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/outgrown-photography-crm"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/outgrown-photography-crm.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Apr 3, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Apr 3, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "8 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 8 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Foutgrown-photography-crm.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...own Your Photography CRM ShootMuse Team Published Apr 3, 2026 8 min read When you first s..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: \"5 Signs You've Outgrown Your Photography CRM\""
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1174 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Apr 3, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Apr 3, 2026'"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://shootmuse.com/blog/ai-for-photographers",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "51 chars: 'AI for Photographers: A Practical Guide | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "158 chars: \"Cut through the hype. Here's what AI can actually do for your photography business today \u2014 from email drafting to rebook predictions to business intelligence.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/ai-for-photographers"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/ai-for-photographers.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Mar 27, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Mar 27, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 7 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fai-for-photographers.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...phers: A Practical Guide ShootMuse Team Published Mar 27, 2026 9 min read Every software..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'AI for Photographers: A Practical Guide'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1385 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Mar 27, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Mar 27, 2026'"
+        }
+      ],
+      "pass": 22
+    },
+    {
+      "url": "https://shootmuse.com/blog/gallery-delivery-best-practices",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "68 chars: 'Gallery Delivery Best Practices for Client Photographers | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "174 chars, outside the 50-160 guidance: \"Your gallery delivery is your biggest referral driver. Here's how to choose gallery software, present images beautifully, and turn every delivery into a word-of-mouth moment.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/gallery-delivery-best-practices"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/gallery-delivery-best-practices.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Mar 20, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Mar 20, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "8 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 8 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fgallery-delivery-best-practices.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...for Client Photographers ShootMuse Team Published Mar 20, 2026 11 min read You spent hour..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Gallery Delivery Best Practices for Client Photographers'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1400 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "174 chars, outside the 50-160 guidance: \"Your gallery delivery is your biggest referral driver. Here's how to choose gallery software, present images beautifully, and turn every delivery into a word-of-mouth moment.\""
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Mar 20, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Mar 20, 2026'"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://shootmuse.com/blog/pricing-photography-packages",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "61 chars: 'How to Price Your Photography Packages for Profit | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "159 chars: \"Stop undercharging. Learn how to calculate your true costs, structure profitable packages, use pricing psychology, and know when it's time to raise your rates.\""
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/pricing-photography-packages"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/pricing-photography-packages.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Mar 13, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Mar 13, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 7 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fpricing-photography-packages.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...aphy Packages for Profit ShootMuse Team Published Mar 13, 2026 12 min read Pricing is the..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Price Your Photography Packages for Profit'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1609 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "WARN",
+          "detail": "banned words present in the served copy: seamless"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Mar 13, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Mar 13, 2026'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "WARN",
+          "detail": "banned words present in the served copy: seamless"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-workflow-automation",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "97 chars, outside the 15-70 guidance: 'Photography Workflow Automation: What to Automate (and What Not To) for Small Studios | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "153 chars: 'Learn which photography workflow tasks to automate first, what should stay human, and how to build a reliable client workflow without over-automating it.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/photography-workflow-automation"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/photography-workflow-automation.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 6, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 6, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "10 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 10 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-workflow-automation.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...ot To) for Small Studios ShootMuse Team Published Sep 6, 2026 9 min read Updated Sep 6, 2..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Photography Workflow Automation: What to Automate (and What Not To) for Small Studios'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1750 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "97 chars, outside the 15-70 guidance: 'Photography Workflow Automation: What to Automate (and What Not To) for Small Studios | ShootMuse'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 6, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 6, 2026'"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-client-onboarding-workflow",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "70 chars: 'Photography Client Onboarding Workflow: Inquiry to Booking | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'Build a photography client onboarding workflow from inquiry to booked session with clear stages, reminders, contracts, payments, questionnaires, and human checkpoints.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/photography-client-onboarding-workflow"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/photography-client-onboarding-workflow.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "10 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 10 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-client-onboarding-workflow.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...flow: Inquiry to Booking ShootMuse Team Published Sep 9, 2026 12 min read Updated Sep 9,..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Photography Client Onboarding Workflow: Inquiry to Booking'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "2114 words in the content region, above the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'Build a photography client onboarding workflow from inquiry to booked session with clear stages, reminders, contracts, payments, questionnaires, and human checkpoints.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "2114 words in the content region, above the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 20
+    },
+    {
+      "url": "https://shootmuse.com/blog/choose-photography-crm",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "67 chars: 'How to Choose a Photography CRM: A Workflow-First Guide | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "162 chars, outside the 50-160 guidance: 'Learn how to choose a photography CRM by testing the full client journey: inquiries, contracts, payments, galleries, automation, support, limits, and data export.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/choose-photography-crm"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/choose-photography-crm.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "10 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 10 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fchoose-photography-crm.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...: A Workflow-First Guide ShootMuse Team Published Sep 9, 2026 13 min read Updated Sep 9,..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Choose a Photography CRM: A Workflow-First Guide'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "1874 words, within 1000-2000 for 'standard'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "162 chars, outside the 50-160 guidance: 'Learn how to choose a photography CRM by testing the full client journey: inquiries, contracts, payments, galleries, automation, support, limits, and data export.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 9, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 9, 2026'"
+        }
+      ],
+      "pass": 21
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-contract-checklist",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "75 chars, outside the 15-70 guidance: 'Photography Contract Checklist: What to Include Before You Book | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "172 chars, outside the 50-160 guidance: 'A practical photography contract checklist covering scope, payment, cancellation, delivery, usage and signatures \u2014 plus the workflow that makes it easy to use consistently.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/photography-contract-checklist"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/photography-workflow-automation.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/contracts -> HTTP 404"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-workflow-automation.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Include Before You Book ShootMuse Team Published Sep 13, 2026 9 min read A photography c..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Photography Contract Checklist: What to Include Before You Book'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "896 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/contracts -> HTTP 404"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "75 chars, outside the 15-70 guidance: 'Photography Contract Checklist: What to Include Before You Book | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "172 chars, outside the 50-160 guidance: 'A practical photography contract checklist covering scope, payment, cancellation, delivery, usage and signatures \u2014 plus the workflow that makes it easy to use consistently.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "896 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 18
+    },
+    {
+      "url": "https://shootmuse.com/blog/how-to-get-photography-clients",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "80 chars, outside the 15-70 guidance: 'How to Get Photography Clients: A Practical System That Builds Trust | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'How to get photography clients without chasing every platform: choose a clear offer, make inquiry easy, follow up thoughtfully, and turn delivery into future bookings.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/how-to-get-photography-clients"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/photography-client-onboarding-workflow.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-client-onboarding-workflow.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...System That Builds Trust ShootMuse Team Published Sep 13, 2026 10 min read Getting photog..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'How to Get Photography Clients: A Practical System That Builds Trust'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "879 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "WARN",
+          "detail": "80 chars, outside the 15-70 guidance: 'How to Get Photography Clients: A Practical System That Builds Trust | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "167 chars, outside the 50-160 guidance: 'How to get photography clients without chasing every platform: choose a clear offer, make inquiry easy, follow up thoughtfully, and turn delivery into future bookings.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Sep 13, 2026'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "WARN",
+          "detail": "879 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic \u2014 confirm by eye)"
+        }
+      ],
+      "pass": 18
+    }
+  ],
+  "summary": {
+    "pages_checked": 11,
+    "pages_with_hard_failures": 11,
+    "pages_with_warnings": 11,
+    "hard_items": 25,
+    "warn_items": 48
+  }
+}

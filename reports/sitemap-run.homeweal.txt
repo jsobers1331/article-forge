@@ -1,0 +1,465 @@
+Sitemap https://homeweal.com/sitemap.xml: 28 URL(s), 16 match ['/articles/']
+[1/16] https://homeweal.com/articles/how-to-make-a-monthly-budget
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 73 chars, outside the 15-70 guidance: 'How to Make a Monthly Budget That Accounts for Your Real Bills | HomeWeal'
+✓ [PASS] Meta description: 160 chars: 'A straightforward monthly budgeting method: start with take-home income, reserve recurring bills, plan variable essentials, then give flexible spending a limit.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/how-to-make-a-monthly-budget
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-09-13) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-09-13 How to Make a Monthly Budget...
+✓ [PASS] H1: one <h1>: 'How to Make a Monthly Budget That Accounts for Your Real Bills'
+⚠ [WARN] Word count: 714 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[2/16] https://homeweal.com/articles/how-to-track-expenses
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 76 chars, outside the 15-70 guidance: 'How to Track Expenses: A Simple System You Will Actually Maintain | HomeWeal'
+✓ [PASS] Meta description: 147 chars: 'A practical way to track expenses without making a spreadsheet your second job: separate fixed bills, variable spending, and a short weekly review.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/how-to-track-expenses
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/household-tracker-pillar-hero-v2.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/household-tracker-pillar-hero-v2.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/household-tracker-pillar-hero-v2.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-09-13) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhousehold-tracker-pillar-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-09-13 How to Track Expenses: A Sim...
+✓ [PASS] H1: one <h1>: 'How to Track Expenses: A Simple System You Will Actually Maintain'
+⚠ [WARN] Word count: 666 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[3/16] https://homeweal.com/articles/what-is-a-good-monthly-planner-for-bills
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 52 chars: 'What Is a Good Monthly Planner for Bills? | HomeWeal'
+✓ [PASS] Meta description: 143 chars: 'A practical guide to choosing a monthly bill planner that stays current, handles variable and shared bills, and helps you see what is due next.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/what-is-a-good-monthly-planner-for-bills
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/monthly-bill-planner-hero.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-09-04) — modified date carries no signal
+✓ [PASS] Internal links: 4 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 4 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonthly-bill-planner-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-09-04 What Is a Good Monthly Plann...
+✓ [PASS] H1: one <h1>: 'What Is a Good Monthly Planner for Bills?'
+✓ [PASS] Word count: 1551 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[4/16] https://homeweal.com/articles/how-to-split-bills-based-on-income
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 45 chars: 'How to Split Bills Based on Income | HomeWeal'
+✓ [PASS] Meta description: 148 chars: 'A practical way for households with different incomes to agree on proportional shared-bill splits, calculate them, and keep the arrangement current.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/how-to-split-bills-based-on-income
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/income-split-hero-v2.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/income-split-hero-v2.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/income-split-hero-v2.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fincome-split-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 How to Split Bills Based on...
+✓ [PASS] H1: one <h1>: 'How to Split Bills Based on Income'
+✓ [PASS] Word count: 1101 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[5/16] https://homeweal.com/articles/how-to-track-household-bills-in-multiple-currencies
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 62 chars: 'How to Track Household Bills in Multiple Currencies | HomeWeal'
+✓ [PASS] Meta description: 142 chars: 'A practical system for households with recurring bills in more than one currency: keep original amounts, real due dates, and a shared routine.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/how-to-track-household-bills-in-multiple-currencies
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/multi-currency-bills-hero-v2.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/multi-currency-bills-hero-v2.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/multi-currency-bills-hero-v2.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmulti-currency-bills-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 How to Track Household Bills...
+✓ [PASS] H1: one <h1>: 'How to Track Household Bills in Multiple Currencies'
+✓ [PASS] Word count: 1090 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[6/16] https://homeweal.com/articles/uk-household-bills-checklist-moving-home
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 58 chars: 'UK Household Bills Checklist When You Move Home | HomeWeal'
+✓ [PASS] Meta description: 125 chars: 'A source-backed first-month checklist for organising council tax, energy, and the household bills that apply after a UK move.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/uk-household-bills-checklist-moving-home
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/uk-moving-bills-hero-v2.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/uk-moving-bills-hero-v2.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/uk-moving-bills-hero-v2.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 4 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 2 external/competitor link(s) in the body: ['https://www.gov.uk/guidance/your-property-and-council-tax', 'https://www.ofgem.gov.uk/get-energy-if-you-are-moving-home-or-business-premises']
+✓ [PASS] Internal links: all 4 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fuk-moving-bills-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 UK Household Bills Checklist...
+✓ [PASS] H1: one <h1>: 'UK Household Bills Checklist When You Move Home'
+✓ [PASS] Word count: 1170 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[7/16] https://homeweal.com/articles/best-bill-tracker-without-bank-linking
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 56 chars: 'Best Bill Tracker Without Bank Linking (2026) | HomeWeal'
+✓ [PASS] Meta description: 155 chars: 'A manual-first, no-bank-linking bill tracker compared against YNAB, Monarch, Copilot, and Splitwise — what to look for and which tool fits which household.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/best-bill-tracker-without-bank-linking
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 4 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']
+✓ [PASS] Internal links: all 4 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fbest-tracker-hero-v3.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 Best Bill Tracker Without Ba...
+✓ [PASS] H1: one <h1>: 'Best Bill Tracker Without Bank Linking (2026)'
+✓ [PASS] Word count: 1277 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[8/16] https://homeweal.com/articles/how-to-split-bills-with-a-roommate-without-a-spreadsheet
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 67 chars: 'How to Split Bills With a Roommate Without a Spreadsheet | HomeWeal'
+⚠ [WARN] Meta description: 170 chars, outside the 50-160 guidance: 'Stop reconciling a shared spreadsheet. How a household bill tracker logs each bill once, auto-converts currencies, and tells you who owes whom — no bank linking required.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/how-to-split-bills-with-a-roommate-without-a-spreadsheet
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://splitwise.com', 'https://ynab.com', 'https://monarchmoney.com']
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fsplit-bills-hero-v3.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 How to Split Bills With a Ro...
+✓ [PASS] H1: one <h1>: 'How to Split Bills With a Roommate Without a Spreadsheet'
+✓ [PASS] Word count: 1104 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[9/16] https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 74 chars, outside the 15-70 guidance: 'Best Splitwise Alternative for Recurring Household Bills (2026) | HomeWeal'
+⚠ [WARN] Meta description: 167 chars, outside the 50-160 guidance: 'Splitwise is built for one-off shared expenses. For recurring rent, utilities, and cross-currency bills, see how HomeWeal, YNAB, Monarch, and Copilot actually compare.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 4 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://splitwise.com', 'https://ynab.com', 'https://monarchmoney.com']
+✓ [PASS] Internal links: all 4 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fsplitwise-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 Best Splitwise Alternative f...
+✓ [PASS] H1: one <h1>: 'Best Splitwise Alternative for Recurring Household Bills (2026)'
+✓ [PASS] Word count: 1127 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[10/16] https://homeweal.com/articles/multi-currency-budgeting-app-for-couples
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 58 chars: 'Multi-Currency Budgeting App for Couples (2026) | HomeWeal'
+✓ [PASS] Meta description: 157 chars: 'Most budgeting apps bolt multi-currency on as an afterthought. See why a per-bill approach fits cross-currency couples better than YNAB, Monarch, or Copilot.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/multi-currency-budgeting-app-for-couples
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmulticurrency-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 Multi-Currency Budgeting App...
+✓ [PASS] H1: one <h1>: 'Multi-Currency Budgeting App for Couples (2026): The Honest Guide'
+✓ [PASS] Word count: 1100 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[11/16] https://homeweal.com/articles/ynab-alternatives-without-bank-linking
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 56 chars: 'YNAB Alternatives Without Bank Linking (2026) | HomeWeal'
+✓ [PASS] Meta description: 146 chars: 'YNAB, Monarch, and Copilot all assume a linked bank account. For a household bill tracker that works entirely manually, see how HomeWeal compares.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/ynab-alternatives-without-bank-linking
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fynab-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 YNAB Alternatives Without Ba...
+✓ [PASS] H1: one <h1>: 'YNAB Alternatives Without Bank Linking (2026)'
+⚠ [WARN] Word count: 972 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[12/16] https://homeweal.com/articles/what-is-a-household-bill-tracker
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 44 chars: 'What Is a Household Bill Tracker? | HomeWeal'
+⚠ [WARN] Meta description: 161 chars, outside the 50-160 guidance: 'A household bill tracker logs, splits, and settles recurring shared bills without bank linking — how it differs from a budgeting app, and who actually needs one.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/what-is-a-household-bill-tracker
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://ynab.com', 'https://monarchmoney.com', 'https://copilot.money']
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhousehold-tracker-pillar-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 What Is a Household Bill Tra...
+✓ [PASS] H1: one <h1>: 'What Is a Household Bill Tracker?'
+⚠ [WARN] Word count: 975 words in the content region, below the 1000-2000 band for 'standard' (region extraction is heuristic — confirm by eye)
+✓ [PASS] Banned words: no banned words in the served copy
+[13/16] https://homeweal.com/articles/monarch-alternative-without-bank-linking
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 58 chars: 'Monarch Alternative Without Bank Linking (2026) | HomeWeal'
+✓ [PASS] Meta description: 148 chars: 'Monarch requires connecting your bank accounts to work at all. For a household bill tracker that works entirely manually, see how HomeWeal compares.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/monarch-alternative-without-bank-linking
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 3 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://monarchmoney.com', 'https://splitwise.com', 'https://ynab.com']
+✓ [PASS] Internal links: all 3 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fmonarch-alt-hero-v2.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 Monarch Alternative Without...
+✓ [PASS] H1: one <h1>: 'Monarch Alternative Without Bank Linking (2026)'
+✓ [PASS] Word count: 1117 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[14/16] https://homeweal.com/articles/copilot-alternative-without-bank-linking
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 58 chars: 'Copilot Alternative Without Bank Linking (2026) | HomeWeal'
+✓ [PASS] Meta description: 158 chars: 'Copilot is iOS-only and requires bank linking to function. For a household bill tracker that works entirely manually on any device, see how HomeWeal compares.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/copilot-alternative-without-bank-linking
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-09) — modified date carries no signal
+✓ [PASS] Internal links: 4 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 4 external/competitor link(s) in the body: ['https://copilot.money', 'https://splitwise.com', 'https://ynab.com']
+✓ [PASS] Internal links: all 4 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fcopilot-alt-hero-v4.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-09 Copilot Alternative Without...
+✓ [PASS] H1: one <h1>: 'Copilot Alternative Without Bank Linking (2026)'
+✓ [PASS] Word count: 1086 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[15/16] https://homeweal.com/articles/honeydue-alternative-without-bank-linking
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+✓ [PASS] Title: 59 chars: 'Honeydue Alternative Without Bank Linking (2026) | HomeWeal'
+⚠ [WARN] Meta description: 177 chars, outside the 50-160 guidance: 'Honeydue is free but requires linking your accounts across 20,000+ banks to work. For a couples’ bill tracker that runs entirely without bank linking, see how HomeWeal compares.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/honeydue-alternative-without-bank-linking
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✗ [FAIL] Open Graph / Twitter: og:image missing — social/link previews have no image
+⚠ [WARN] Open Graph / Twitter: twitter:image missing while twitter:card is 'summary_large_image' — the card claims a large image it cannot render
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+⚠ [WARN] JSON-LD: Article.image missing
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-30) — modified date carries no signal
+✓ [PASS] Internal links: 5 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+⚠ [WARN] Internal links: 1 external/competitor link(s) in the body: ['https://www.honeydue.com']
+✓ [PASS] Internal links: all 5 checked internal link(s) return 200
+✓ [PASS] Images: all 2 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fhoneydue-alt-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-30 Honeydue Alternative Without...
+✓ [PASS] H1: one <h1>: 'Honeydue Alternative Without Bank Linking (2026)'
+✓ [PASS] Word count: 1075 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+[16/16] https://homeweal.com/articles/debt-snowball-vs-avalanche
+✓ [PASS] HTTP status: HTTP 200
+✓ [PASS] Redirect chain: served directly, no redirects
+⚠ [WARN] Title: 74 chars, outside the 15-70 guidance: 'Debt Snowball vs Avalanche: Which Payoff Method Should You Use? | HomeWeal'
+✓ [PASS] Meta description: 156 chars: 'A worked comparison of the debt snowball and avalanche payoff methods — the real math behind total interest and payoff time, and how to choose between them.'
+✓ [PASS] Meta description: description differs from the homepage's
+✓ [PASS] Canonical: self-referencing canonical: https://homeweal.com/articles/debt-snowball-vs-avalanche
+✓ [PASS] Robots directives: indexable: 'index, follow'
+✓ [PASS] Open Graph / Twitter: og:image: https://homeweal.com/images/articles/debt-snowball-avalanche-hero.webp
+✓ [PASS] Open Graph / Twitter: twitter:image: https://homeweal.com/images/articles/debt-snowball-avalanche-hero.webp
+✗ [FAIL] Open Graph / Twitter: twitter:title is identical to the homepage's — the card shows the wrong page name
+⚠ [WARN] Open Graph / Twitter: og:type missing
+✓ [PASS] JSON-LD: 2 JSON-LD block(s) parse; 8 node(s)
+✓ [PASS] JSON-LD: article node: Article
+✗ [FAIL] JSON-LD: Article.author references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✗ [FAIL] JSON-LD: Article.publisher references @id 'https://homeweal.com#org' but no such node exists on this page (dangling reference)
+✓ [PASS] JSON-LD: Article.image: https://homeweal.com/images/articles/debt-snowball-avalanche-hero.webp
+⚠ [WARN] JSON-LD: dateModified == datePublished (2026-08-30) — modified date carries no signal
+✓ [PASS] Internal links: 2 in-body internal link(s)
+⚠ [WARN] Internal links: no in-body link up to the hub (/articles)
+✓ [PASS] Internal links: all 2 checked internal link(s) return 200
+✓ [PASS] Images: all 1 image(s) have alt text
+⚠ [WARN] Images: hero image has no width/height or aspect-ratio: /_next/image?url=%2Fimages%2Farticles%2Fdebt-snowball-avalanche-hero.webp&w=3840&q=75&dpl=dpl_5Bj68X1CSpyfKt7WSkAT73uUHu5k
+✓ [PASS] Visible dates: visible date text: ...Guide · updated 2026-08-30 Debt Snowball vs Avalanche:...
+✓ [PASS] H1: one <h1>: 'Debt Snowball vs Avalanche: Which Payoff Method Should You Use?'
+✓ [PASS] Word count: 1126 words, within 1000-2000 for 'standard'
+✓ [PASS] Banned words: no banned words in the served copy
+
+STATUS  HARD  WARN  URL
+FAIL       3     6  https://homeweal.com/articles/how-to-make-a-monthly-budget
+FAIL       3     6  https://homeweal.com/articles/how-to-track-expenses
+FAIL       3     4  https://homeweal.com/articles/what-is-a-good-monthly-planner-for-bills
+FAIL       3     4  https://homeweal.com/articles/how-to-split-bills-based-on-income
+FAIL       3     4  https://homeweal.com/articles/how-to-track-household-bills-in-multiple-currencies
+FAIL       3     5  https://homeweal.com/articles/uk-household-bills-checklist-moving-home
+FAIL       4     7  https://homeweal.com/articles/best-bill-tracker-without-bank-linking
+FAIL       4     8  https://homeweal.com/articles/how-to-split-bills-with-a-roommate-without-a-spreadsheet
+FAIL       4     9  https://homeweal.com/articles/best-splitwise-alternative-for-recurring-household-bills
+FAIL       4     7  https://homeweal.com/articles/multi-currency-budgeting-app-for-couples
+FAIL       4     8  https://homeweal.com/articles/ynab-alternatives-without-bank-linking
+FAIL       4     9  https://homeweal.com/articles/what-is-a-household-bill-tracker
+FAIL       4     7  https://homeweal.com/articles/monarch-alternative-without-bank-linking
+FAIL       4     7  https://homeweal.com/articles/copilot-alternative-without-bank-linking
+FAIL       4     8  https://homeweal.com/articles/honeydue-alternative-without-bank-linking
+FAIL       3     5  https://homeweal.com/articles/debt-snowball-vs-avalanche
+
+HARD FAILURES on 16 of 16 page(s) — fix before treating this set as publishable.
+Warnings: 104 across 16 page(s).
+JSON report written to reports/publish-gate.homeweal.sitemap.json

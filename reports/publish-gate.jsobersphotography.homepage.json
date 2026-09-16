@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-09-15T19:08:55-04:00",
+  "config": "site-config.jsobersphotography.json",
+  "site": "jsobersphotography.com",
+  "kind": "page",
+  "article_type": "standard",
+  "pages": [
+    {
+      "url": "https://www.jsobersphotography.com/",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "61 chars: 'Barbados Wedding & Portrait Photographer | JSobersPhotography'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "166 chars, outside the 50-160 guidance: 'Jason Sobers is a Barbados wedding photographer creating honest, editorial photographs for destination weddings, couples, families and portraits across the Caribbean.'"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://www.jsobersphotography.com"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://www.jsobersphotography.com/images/gallery/15043934-8ba9ea89a778587b3c2bc26fe485acc6-5645445e.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://www.jsobersphotography.com/images/gallery/15043934-8ba9ea89a778587b3c2bc26fe485acc6-5645445e.jpg"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Barbados Wedding & Portrait Photographer | JSobersPhotography'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'website'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "3 JSON-LD block(s) parse; 12 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "site-level node present: ['LocalBusiness']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "7 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 7 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 8 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: https://res.cloudinary.com/dugnhr5f3/image/upload/c_fill,w_3840,h_2880,g_auto/f_auto/q_auto/v1/jsobers/home/15043934?_a=BAVMn6E70"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "WARN",
+          "detail": "no visible publish or update date anywhere in the page text"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "1 <h1>: 'Barbados weddings.Beautifully kept.'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "word count skipped for non-article pages"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "banned words skipped for non-article pages"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "166 chars, outside the 50-160 guidance: 'Jason Sobers is a Barbados wedding photographer creating honest, editorial photographs for destination weddings, couples, families and portraits across the Caribbean.'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "no in-body link up to the hub (/blog)"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "WARN",
+          "detail": "no visible publish or update date anywhere in the page text"
+        }
+      ],
+      "pass": 18
+    }
+  ],
+  "summary": {
+    "pages_checked": 1,
+    "pages_with_hard_failures": 0,
+    "pages_with_warnings": 1,
+    "hard_items": 0,
+    "warn_items": 3
+  }
+}

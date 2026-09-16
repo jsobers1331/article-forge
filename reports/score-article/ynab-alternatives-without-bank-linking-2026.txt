@@ -1,0 +1,42 @@
+TOTAL SCORE: 82.9/100
+  intent_match: 100.0/100 (weight 20%)
+  topical_comprehensiveness: 100.0/100 (weight 25%)
+  entity_coverage: 44.4/100 (weight 15%)
+  structure_extractability: 75.0/100 (weight 15%)
+  eeat: 100.0/100 (weight 15%)
+  linking: 50.0/100 (weight 10%)
+
+Entity gaps:
+  - mint
+  - goodbudget
+  - google sheets
+  - everydollar
+  - dave ramsey
+
+Linking:
+  - only 0 internal links (want 3-5)
+  - only 0 external links (want 2-4)
+{
+  "total_score": 82.9,
+  "pillars": {
+    "intent_match": 100.0,
+    "topical_comprehensiveness": 100.0,
+    "entity_coverage": 44.4,
+    "structure_extractability": 75.0,
+    "eeat": 100.0,
+    "linking": 50.0
+  },
+  "topical_gaps": [],
+  "entity_gaps": [
+    "mint",
+    "goodbudget",
+    "google sheets",
+    "everydollar",
+    "dave ramsey"
+  ],
+  "linking_notes": [
+    "only 0 internal links (want 3-5)",
+    "only 0 external links (want 2-4)"
+  ],
+  "hard_gate_failed": false
+}

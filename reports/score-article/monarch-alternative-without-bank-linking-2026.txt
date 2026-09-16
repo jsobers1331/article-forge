@@ -1,0 +1,46 @@
+TOTAL SCORE: 84.3/100
+  intent_match: 100.0/100 (weight 20%)
+  topical_comprehensiveness: 100.0/100 (weight 25%)
+  entity_coverage: 27.3/100 (weight 15%)
+  structure_extractability: 75.0/100 (weight 15%)
+  eeat: 100.0/100 (weight 15%)
+  linking: 90.0/100 (weight 10%)
+
+Entity gaps:
+  - mint
+  - plaid
+  - empower
+  - goodbudget
+  - pocketguard
+  - honeydue
+  - mx
+  - finicity
+
+Linking:
+  - 6 internal links may be excessive (want 3-5)
+{
+  "total_score": 84.3,
+  "pillars": {
+    "intent_match": 100.0,
+    "topical_comprehensiveness": 100.0,
+    "entity_coverage": 27.3,
+    "structure_extractability": 75.0,
+    "eeat": 100.0,
+    "linking": 90.0
+  },
+  "topical_gaps": [],
+  "entity_gaps": [
+    "mint",
+    "plaid",
+    "empower",
+    "goodbudget",
+    "pocketguard",
+    "honeydue",
+    "mx",
+    "finicity"
+  ],
+  "linking_notes": [
+    "6 internal links may be excessive (want 3-5)"
+  ],
+  "hard_gate_failed": false
+}

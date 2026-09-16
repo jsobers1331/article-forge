@@ -1,0 +1,255 @@
+{
+  "source": "google_search_console",
+  "property": "sc-domain:shootmuse.com",
+  "date_range": {
+    "start": "2026-06-16",
+    "end": "2026-09-13"
+  },
+  "dimensions": [
+    "query",
+    "page"
+  ],
+  "row_count": 30,
+  "rows": [
+    {
+      "query": "accounting software for photographers",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 76.54545454545455
+    },
+    {
+      "query": "accounting software for photography business",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "query": "client gallery software",
+      "page": "https://shootmuse.com/features/galleries",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 78
+    },
+    {
+      "query": "client gallery software for volume photographers",
+      "page": "https://shootmuse.com/features/galleries",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "query": "client management for photographers",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 66.5
+    },
+    {
+      "query": "client management software for photographers",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 88.5
+    },
+    {
+      "query": "client management system for photographers",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "query": "concurrent pixieset",
+      "page": "https://shootmuse.com/compare/pixieset",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "query": "crm for photographers",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 75.8
+    },
+    {
+      "query": "crm software for photographers",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "query": "crms with automated email features for photography clients",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "query": "invoice software for photographers",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 76.33333333333333
+    },
+    {
+      "query": "invoicing software for photographers",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 81.29166666666667
+    },
+    {
+      "query": "photo crm",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "query": "photo studio billing software",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 84
+    },
+    {
+      "query": "photographer client management",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 89
+    },
+    {
+      "query": "photographer client management software",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "query": "photographer crm",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "query": "photography accounting software",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 76.08333333333333
+    },
+    {
+      "query": "photography client management",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 93.5
+    },
+    {
+      "query": "photography client management software",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 86.66666666666667
+    },
+    {
+      "query": "photography crm",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 86.36842105263158
+    },
+    {
+      "query": "photography crm australia",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "query": "photography crm software",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "query": "photography invoicing software",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 80.5
+    },
+    {
+      "query": "photography payment",
+      "page": "https://shootmuse.com/features/invoicing",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "query": "photography sales software",
+      "page": "https://shootmuse.com/features/crm",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 92
+    },
+    {
+      "query": "pixieset cost",
+      "page": "https://shootmuse.com/compare/pixieset",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "query": "pixieset pricing",
+      "page": "https://shootmuse.com/compare/pixieset",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 69.66666666666667
+    },
+    {
+      "query": "pixieset vs smugmug",
+      "page": "https://shootmuse.com/compare/pixieset",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 62
+    }
+  ]
+}

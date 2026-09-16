@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-09-15T19:06:56-04:00",
+  "config": "site-config.shootmuse.json",
+  "site": "shootmuse.com",
+  "kind": "article",
+  "article_type": "pillar",
+  "pages": [
+    {
+      "url": "https://shootmuse.com/blog/what-is-a-photography-crm",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "38 chars: 'What Is a Photography CRM? | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "175 chars, outside the 50-160 guidance: 'What is a photography CRM? ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/what-is-a-photography-crm"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 20 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/what-is-a-photography-crm.jpg"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "10 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fwhat-is-a-photography-crm.jpg&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...at Is a Photography CRM? ShootMuse Team Published Aug 30, 2026 12 min read Updated Aug 30..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'What Is a Photography CRM?'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "H1 matches the target query closely (100% word overlap)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "2183 words, within 1500-2200 for 'pillar'"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "og:image missing \u2014 social/link previews have no image"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "FAIL",
+          "detail": "twitter:title is identical to the homepage's \u2014 the card shows the wrong page name"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "FAIL",
+          "detail": "1 internal link(s) do not resolve: https://shootmuse.com/features/automation -> HTTP 404"
+        }
+      ],
+      "warn": [
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "WARN",
+          "detail": "175 chars, outside the 50-160 guidance: 'What is a photography CRM? ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "WARN",
+          "detail": "twitter:image missing while twitter:card is 'summary_large_image' \u2014 the card claims a large image it cannot render"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "datePublished is not ISO-8601: 'Aug 30, 2026'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified is not ISO-8601: 'Aug 30, 2026'"
+        }
+      ],
+      "pass": 21
+    }
+  ],
+  "summary": {
+    "pages_checked": 1,
+    "pages_with_hard_failures": 1,
+    "pages_with_warnings": 1,
+    "hard_items": 3,
+    "warn_items": 4
+  }
+}
