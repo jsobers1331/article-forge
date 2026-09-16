@@ -98,6 +98,7 @@ python scripts/generate_article.py --config site-config.<yourproject>.json --top
 | `scripts/score_article.py` | SERP-parity scorer: weighted 0-100 rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) against a `serp_snapshot.json` you build from real search results. No live SEO API — an orchestrating agent does the actual keyword research (search, fetch top pages, extract headings/entities) and hands it to this script as structured input. See the module docstring for the snapshot schema. |
 | `DISCOVERY.md` | Pre-topic-selection ruleset — find coverage-gap candidates vs. real competitor pages before guessing at `topic_backlog`. Read this before starting a brand-new site config. |
 | `scripts/discover_gaps.py` | Deterministic half of Discovery: `--suggest-seeds` prints starter queries from identity fields alone; `--snapshot discovery_snapshot.json` produces a ranked coverage-gap report. No search-volume/authority signal — see DISCOVERY.md for exactly what this can and can't tell you. |
+| `scripts/collect_search_console.py` | Pulls real Search Console clicks/impressions/CTR/position for a site's own domain, to validate `discover_gaps.py` candidates against actual signal. The one script here with its own live API access (OAuth-authenticated) — see the module docstring for one-time setup. |
 
 ## Adding a topic
 
