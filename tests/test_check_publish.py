@@ -8,6 +8,7 @@ network. One fixture per failure mode, plus a clean article page and a clean
 
 import json
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -1123,8 +1124,8 @@ def test_select_article_urls_needs_a_prefix_source():
 # --- CLI ---------------------------------------------------------------------
 
 
-def run_cli(monkeypatch, argv):
-    monkeypatch.setattr(check_publish, "load_config", lambda path: CONFIG)
+def run_cli(monkeypatch, argv, config=CONFIG):
+    monkeypatch.setattr(check_publish, "load_config", lambda path: config)
     monkeypatch.setattr(sys, "argv", ["check_publish.py"] + argv)
     with pytest.raises(SystemExit) as excinfo:
         check_publish.main()
@@ -1253,3 +1254,96 @@ def test_cli_requires_exactly_one_target(site, monkeypatch):
         check_publish.main()
 
     assert excinfo.value.code == 2
+
+
+# --- claim-verification ledger -----------------------------------------------
+
+
+LEDGER_CONFIG = {
+    "domain": "example.com",
+    "hub_path": "/blog",
+    "claim_evidence": [
+        {
+            "claim_id": "fixture-claim",
+            "claim": "Widgets ship in two days.",
+            "source_url": "https://example.com/pricing",
+        }
+    ],
+}
+
+
+def write_ledger(tmp_path, status, checked_at=None):
+    """Write the ledger `verify_facts.py` would leave next to a fixture config."""
+    checked_at = checked_at or datetime.now(timezone.utc)
+    ledger = {
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "project": "fixture",
+        "verifier": "scripts/verify_facts.py (provider=openai, model=gpt-4o-mini)",
+        "results": [
+            {
+                "claim_id": "fixture-claim",
+                "status": status,
+                "checked_at": checked_at.isoformat(timespec="seconds"),
+                "source": "https://example.com/pricing",
+                "http_status_or_local": 200,
+                "evidence_quotes": [],
+                "missing_aspects": [],
+                "snapshot_path": None,
+            }
+        ],
+    }
+    path = tmp_path / "claim-verification.fixture.json"
+    path.write_text(json.dumps(ledger), encoding="utf-8")
+    return path
+
+
+def ledger_cli(site, tmp_path, monkeypatch, *extra):
+    site.add_html(PAGE_URL, build_page())
+    site.add_html(HOMEPAGE_URL, homepage_html())
+    return run_cli(
+        monkeypatch,
+        [
+            "--config",
+            str(tmp_path / "site-config.fixture.json"),
+            "--url",
+            PAGE_URL,
+            "--no-link-check",
+            "--delay",
+            "0",
+            *extra,
+        ],
+        config=LEDGER_CONFIG,
+    )
+
+
+def test_cli_hard_fails_on_an_unsupported_claim(site, tmp_path, monkeypatch):
+    write_ledger(tmp_path, "unsupported")
+    report_path = tmp_path / "publish-report.json"
+
+    code = ledger_cli(site, tmp_path, monkeypatch, "--json-out", str(report_path))
+
+    assert code == 1
+    report = json.loads(report_path.read_text())
+    assert report["claim_ledger"]["status"] == "FAIL"
+    assert "unsupported" in report["claim_ledger"]["message"]
+    assert report["pages"][0]["hard"] == []
+
+
+def test_cli_only_warns_on_an_inconclusive_claim(site, tmp_path, monkeypatch):
+    write_ledger(tmp_path, "inconclusive")
+    report_path = tmp_path / "publish-report.json"
+
+    code = ledger_cli(site, tmp_path, monkeypatch, "--json-out", str(report_path))
+
+    assert code == 0
+    report = json.loads(report_path.read_text())
+    assert report["claim_ledger"]["status"] == "WARN"
+    assert "inconclusive" in report["claim_ledger"]["message"]
+
+
+def test_cli_no_ledger_flag_bypasses_even_an_unsupported_claim(
+    site, tmp_path, monkeypatch
+):
+    write_ledger(tmp_path, "unsupported")
+
+    assert ledger_cli(site, tmp_path, monkeypatch, "--no-ledger") == 0

@@ -22,13 +22,20 @@ What is HARD (blocks, exit 1) vs WARN (soft, human judgment):
         twitter:title identical to the homepage's; JSON-LD that does not
         parse; a JSON-LD `@id` reference (author/publisher) with no node to
         resolve it against; an in-body internal link that returns non-200;
-        zero or multiple <h1>.
-  WARN  everything else: title/description length, missing twitter:image,
+        zero or multiple <h1>; an unsupported claim in the claim-verification
+        ledger.
+  WARN  everything else: a missing, stale, or inconclusive claim-verification
+        ledger; title/description length, missing twitter:image,
         og:type not matching the page kind, missing Article.type/image,
         non-ISO or identical dates, thin internal linking, no hub link,
         external/competitor links, missing alt text, hero without
         width/height, no visible date, word count outside the type's band,
         banned words.
+
+`scripts/verify_facts.py` writes its verdicts to
+`claim-verification.<project>.json` next to the site config; this gate reads
+that ledger. An `unsupported` claim is HARD, while a missing, stale, or
+`inconclusive` ledger is WARN. Pass --no-ledger to skip the check.
 
 Two judgment calls worth naming, because they are the difference between a
 gate that gets used and one that gets ignored:
@@ -64,7 +71,12 @@ from xml.etree import ElementTree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from check_article import DEFAULT_BAN_WORDS, WORD_COUNT_RANGES, word_count  # noqa: E402
+from check_article import (  # noqa: E402
+    DEFAULT_BAN_WORDS,
+    WORD_COUNT_RANGES,
+    check_claim_ledger,
+    word_count,
+)
 from generate_prompt import load_config  # noqa: E402
 
 USER_AGENT = "article-forge-publish-gate/1.0 (+https://github.com/article-forge)"
@@ -1336,11 +1348,20 @@ def main():
         help="Skip the HEAD/GET probe of every internal link",
     )
     parser.add_argument(
+        "--no-ledger",
+        action="store_true",
+        help="Skip the claim-verification ledger check (bypasses the unsupported-claim hard fail)",
+    )
+    parser.add_argument(
         "--verbose", action="store_true", help="Print every check for every sitemap URL"
     )
     args = parser.parse_args()
 
     config = load_config(args.config)
+
+    ledger_status, ledger_message = "PASS", ""
+    if not args.no_ledger:
+        ledger_status, ledger_message = check_claim_ledger(config, args.config)
 
     if args.url:
         results = analyze_page(
@@ -1360,6 +1381,7 @@ def main():
             "site": config.get("domain", ""),
             "kind": args.kind,
             "article_type": args.type,
+            "claim_ledger": {"status": ledger_status, "message": ledger_message},
             "pages": [
                 {"url": args.url, "results": [r.as_dict() for r in results], **summary}
             ],
@@ -1372,6 +1394,10 @@ def main():
             },
         }
         print()
+        if not args.no_ledger:
+            print(
+                f"{MARKERS[ledger_status]} [{ledger_status}] Claim verification ledger: {ledger_message}"
+            )
         for result in results:
             if result.status == "FAIL":
                 print(f"HARD FAIL — {result.name}: {result.detail}")
@@ -1383,10 +1409,15 @@ def main():
                 json.dump(report, handle, indent=2)
                 handle.write("\n")
             print(f"JSON report written to {args.json_out}")
-        sys.exit(1 if summary["hard"] else 0)
+        sys.exit(1 if summary["hard"] or ledger_status == "FAIL" else 0)
 
     report = run_sitemap(args.sitemap_url, config, args)
+    report["claim_ledger"] = {"status": ledger_status, "message": ledger_message}
     print()
+    if not args.no_ledger:
+        print(
+            f"{MARKERS[ledger_status]} [{ledger_status}] Claim verification ledger: {ledger_message}"
+        )
     if report["summary"]["hard_items"]:
         print(
             f"HARD FAILURES on {report['summary']['pages_with_hard_failures']} of {report['summary']['pages_checked']} page(s) — fix before treating this set as publishable."
@@ -1401,7 +1432,7 @@ def main():
             json.dump(report, handle, indent=2)
             handle.write("\n")
         print(f"JSON report written to {args.json_out}")
-    sys.exit(1 if report["summary"]["hard_items"] else 0)
+    sys.exit(1 if report["summary"]["hard_items"] or ledger_status == "FAIL" else 0)
 
 
 if __name__ == "__main__":

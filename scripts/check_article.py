@@ -2,16 +2,19 @@
 
 This is a CHECK, not a rewrite tool. It validates config/evidence shape,
 freshness, placeholders, scope, links, structure, and style before a draft can
-leave generation quarantine. A passing result is necessary but not sufficient:
-the manual QC checklist still requires reading the draft against verified_facts
-and the current source of truth.
+leave generation quarantine. It also enforces the autonomous claim-verification
+ledger: a claim the ledger marks unsupported is a HARD FAIL (replace it with
+`<!-- PLACEHOLDER: claim <id> not verifiable -->` or drop it). A passing result
+is necessary but not sufficient: the QC checklist still requires reading the
+draft against verified_facts and the current source of truth (AUTONOMY.md).
 """
 
 import argparse
 import json
+import os
 import re
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 from urllib.parse import urlsplit
 
 DEFAULT_BAN_WORDS = [
@@ -293,6 +296,112 @@ def check_facts_freshness(config, max_age_days=30):
     return "PASS", f"verified_facts confirmed {age} day(s) ago"
 
 
+
+LEDGER_MAX_AGE_DAYS = 30
+
+
+def ledger_path_for_config(config_path):
+    base = os.path.basename(config_path)
+    slug = base.replace("site-config.", "").replace(".json", "")
+    return os.path.join(os.path.dirname(os.path.abspath(config_path)), f"claim-verification.{slug}.json")
+
+
+def load_claim_ledger(config_path):
+    """Parse the claim-verification ledger next to the config, or None when it
+    is missing, unreadable, or malformed. check_claim_ledger reports that state
+    as a WARN — a broken ledger must not crash the whole gate.
+    """
+    path = ledger_path_for_config(config_path)
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            ledger = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(ledger, dict) or not isinstance(ledger.get("results"), list):
+        return None
+    return ledger
+
+
+def _ledger_entry_age_days(entry):
+    checked_at = entry.get("checked_at")
+    if not isinstance(checked_at, str):
+        return None
+    try:
+        parsed = datetime.fromisoformat(checked_at)
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - parsed).total_seconds() / 86400.0
+
+
+def check_claim_ledger(config, config_path, max_age_days=LEDGER_MAX_AGE_DAYS):
+    """Turn the claim-verification ledger (scripts/verify_facts.py) into a gate.
+
+    An unsupported claim is a HARD FAIL — the draft asserts something its own
+    source contradicts, and the fix is to replace that sentence with
+    `<!-- PLACEHOLDER: claim <id> not verifiable -->` or drop it. Everything
+    else (no ledger yet, stale or inconclusive entries, claims never checked)
+    is a WARN.
+    """
+    claims = [
+        c for c in (config.get("claim_evidence") or [])
+        if isinstance(c, dict) and c.get("claim_id")
+    ]
+    path = ledger_path_for_config(config_path)
+    if not claims:
+        return "PASS", "no claim_evidence configured — autonomous claim verification is opt-in (see AUTONOMY.md)"
+
+    ledger = load_claim_ledger(config_path)
+    if ledger is None:
+        return "WARN", (
+            f"no usable claim-verification ledger at {path} — run "
+            f"`python3 scripts/verify_facts.py --config {config_path}` before publishing"
+        )
+
+    results_by_id = {
+        r["claim_id"]: r
+        for r in ledger.get("results", [])
+        if isinstance(r, dict) and r.get("claim_id")
+    }
+
+    unsupported, inconclusive, stale, missing = [], [], [], []
+    for claim in claims:
+        claim_id = claim["claim_id"]
+        result = results_by_id.get(claim_id)
+        if result is None:
+            missing.append(claim_id)
+            continue
+        status = result.get("status")
+        age = _ledger_entry_age_days(result)
+        if status == "unsupported":
+            unsupported.append(claim_id)
+        elif status != "verified":
+            inconclusive.append(claim_id)
+        elif age is None or age > max_age_days:
+            stale.append(claim_id)
+
+    if unsupported:
+        return "FAIL", (
+            "unsupported claim(s): " + ", ".join(unsupported)
+            + " — the source does not support the claim. Replace each with "
+              "`<!-- PLACEHOLDER: claim <id> not verifiable -->` or remove the claim, "
+              "then re-run scripts/verify_facts.py."
+        )
+    warnings = []
+    if missing:
+        warnings.append("never verified: " + ", ".join(missing))
+    if inconclusive:
+        warnings.append("inconclusive: " + ", ".join(inconclusive))
+    if stale:
+        warnings.append(f"stale (>{max_age_days}d): " + ", ".join(stale))
+    if warnings:
+        return "WARN", "; ".join(warnings) + " — re-run scripts/verify_facts.py (see AUTONOMY.md)"
+    return "PASS", f"all {len(claims)} claim(s) verified by the ledger"
+
+
 def check_fabrication_placeholders(text):
     hits = []
     for pattern in PLACEHOLDER_PATTERNS:
@@ -542,7 +651,7 @@ def check_tier_gated_mentions(text, real_differentiators):
     return "PASS", "tier-gated mentions carry nearby plan evidence"
 
 
-def run_checks(text, article_type, target_query, config):
+def run_checks(text, article_type, target_query, config, config_path=None, use_ledger=True):
     voice = config.get("voice", {})
     real_differentiators = config.get("verified_facts", {}).get(
         "real_differentiators", []
@@ -572,6 +681,8 @@ def run_checks(text, article_type, target_query, config):
         ("Tier-gating mentions", check_tier_gated_mentions(text, real_differentiators)),
         ("Structural repetition (heuristic)", check_structural_repetition(text)),
     ]
+    if use_ledger and config_path:
+        checks.append(("Claim verification ledger", check_claim_ledger(config, config_path)))
     return checks
 
 
@@ -598,6 +709,11 @@ def main():
         action="store_true",
         help="Return non-zero for warnings as well as failures",
     )
+    parser.add_argument(
+        "--no-ledger",
+        action="store_true",
+        help="Skip the claim-verification ledger check (bypasses the unsupported-claim hard fail)",
+    )
     args = parser.parse_args()
 
     with open(args.draft, "r", encoding="utf-8") as f:
@@ -605,7 +721,7 @@ def main():
     with open(args.config, "r", encoding="utf-8") as f:
         config = json.load(f)
 
-    checks = run_checks(text, args.type, args.query, config)
+    checks = run_checks(text, args.type, args.query, config, config_path=args.config, use_ledger=not args.no_ledger)
 
     blocked = False
     for name, (status, detail) in checks:

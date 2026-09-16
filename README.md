@@ -127,6 +127,7 @@ python scripts/generate_image.py \
 | Path | Purpose |
 |---|---|
 | `RULES.md` | The full ruleset — structure, schema/JSON-LD guidance, voice, word counts, cadence, the pre-publish integrity gate. Read this first. |
+| `AUTONOMY.md` | The autonomy ruleset — how each configured claim gets machine-verified against its source, what each verdict means, staleness, and the ledger/`evidence/` files it writes. |
 | `site-config.example.json` | Template for a site's facts: positioning, ICP, verified differentiators, what's NOT real yet, competitors, topic backlog. Copy to `site-config.<project>.json` and fill in. |
 | `prompts/article_prompt_template.md` | The master prompt template, filled in by `generate_prompt.py`. |
 | `scripts/generate_prompt.py` | Renders `site-config.<project>.json` + a topic into a ready-to-send prompt. No API calls, no dependencies beyond the standard library. |
@@ -136,7 +137,9 @@ python scripts/generate_image.py \
 | `prompts/image_prompt_template.md` | Fillable image-prompt template implementing the pattern in `IMAGES.md` §3. |
 | `scripts/generate_image.py` | Generates one image (OpenAI GPT Image 2 by default), converts it to WebP, and runs the image quality/duplicate gate. |
 | `scripts/check_image.py` | Deterministic image gate for WebP/AVIF format, dimensions, decodability, alt text, and duplicate reuse; visual QC remains human-owned. |
-| `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, and style signals. Run before publishing every draft; human meaning review remains required. |
+| `scripts/check_article.py` | Automated compliance gate — config/evidence integrity, freshness, placeholders, H1/query match, coming-soon and tier scope, links, structure, style signals, and the claim-verification ledger (hard-fails on an `unsupported` claim). Run before publishing every draft; human meaning review remains required. |
+| `scripts/check_publish.py` | Live-page publish gate: fetches a published URL (or every article in a sitemap via `--sitemap-url`) and checks status/canonicals/robots, OG/Twitter cards, JSON-LD entity resolution, real dates, in-body internal links (with 404-target detection), images, H1, word band, banned words, and the claim-verification ledger. Catches what draft-time gates cannot see. |
+| `scripts/verify_facts.py` | Autonomous claim verifier: fetches or reads each `claim_evidence` source (live URL or local file), has an LLM judge (OpenAI by default, temperature 0) check support/contradiction/inconclusive with required verbatim quotes plus a programmatic quote-substring check, snapshots sources to `evidence/`, and writes `claim-verification.<project>.json`. Exit 0 even with unsupported claims; exit 2 only on config/ledger errors. |
 | `scripts/score_article.py` | Always-on article scorer/report builder. Uses a deterministic pre-SERP readiness score when no snapshot is available, or a weighted 0–100 SERP-parity rubric (intent match, topical/entity coverage vs. real competitor pages, structure, E-E-A-T, linking) once a five-domain `serp_snapshot.json` is supplied. No live SEO API. |
 | `scripts/collect_serper.py` | Direct personal Serper adapter: collects timestamped Google organic results, hosts, snippets, People Also Ask, related searches, visible SERP features, and raw intent signals into a disk-backed `article-forge.serp.v1` evidence record. It never calculates Google keyword difficulty. |
 | `scripts/collect_search_console.py` | Direct read-only Search Console adapter: collects final web query/page data into `article-forge.gsc.v1` and can aggregate it into scorer-ready site-opportunity demand evidence. |

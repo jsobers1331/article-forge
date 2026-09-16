@@ -28,7 +28,10 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
    re-read the live site's actual source of truth and confirmed the block
    still matches; `scripts/check_article.py` hard-WARNs once it's more than
    30 days old, so staleness surfaces every run instead of relying on someone
-   remembering to check. See DISCOVERY.md for the pre-topic-selection
+   remembering to check. Per-claim freshness is tracked separately in the
+   claim-verification ledger (`claim-verification.<project>.json`, written by
+   `scripts/verify_facts.py`) — see AUTONOMY.md for what it covers and when
+   entries go stale. See DISCOVERY.md for the pre-topic-selection
    research pass that also depends on these facts being current.
    A live config should also carry a `claim_evidence` registry: each record
    names the claim, its first-party source URL, verification date, and
@@ -255,6 +258,18 @@ angle and a limitation. `freshness` records the refresh window and evidence,
 while `evidence_confidence` is confidence in the evidence packet, not a
 probability of ranking or citation. A score below 80 confidence can never
 remain a `pursue` decision.
+
+**For claim-level truth, run the automated verifier.** `scripts/verify_facts.py`
+checks every entry in the config's `claim_evidence` against its source — a
+live URL or a local file (`source_local`) — and records a verdict
+(`verified` / `unsupported` / `inconclusive`) in
+`claim-verification.<project>.json` next to the config. `check_article.py`
+reads that ledger on every run and hard-fails the draft on any claim marked
+`unsupported`; the fix is to replace the sentence with
+`<!-- PLACEHOLDER: claim <id> not verifiable -->` or remove it. This covers
+"does the source actually support this claim," not "is it scoped to the
+right tier" — the tier question above is still a manual read. See
+`AUTONOMY.md` for the full loop.
 
 ## 12. Rewriting an already-published article
 

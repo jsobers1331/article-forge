@@ -29,6 +29,8 @@
       "claim_id": "replace-with-stable-id",
       "claim": "The exact product claim this source verifies.",
       "source_url": "https://example.com/product-source",
+      "source_local": "path/to/your-site-repo/app/pricing/page.tsx",
+      "verification_scope": "site source review \u2014 when both source_url and source_local are present, the local file wins; run scripts/verify_facts.py to check it",
       "verified_on": "YYYY-MM-DD",
       "status": "verified",
       "regions": ["global"]
