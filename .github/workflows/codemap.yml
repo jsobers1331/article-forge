@@ -1,0 +1,34 @@
+# PERSONAL CODEMAP CHECK
+name: Code map
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  codemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+      - name: Require CODEMAP.md stamped to the pushed commit
+        env:
+          EXPECTED_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: |
+          set -eu
+          test -f CODEMAP.md
+          test "$(git ls-files --error-unmatch CODEMAP.md)" = CODEMAP.md
+          PARENT_SHA="$(git rev-list --parents -n 1 "$EXPECTED_SHA" | awk '{print $2}')"
+          CHANGED="$(git diff --name-only "$PARENT_SHA" "$EXPECTED_SHA" 2>/dev/null || true)"
+          if printf '%s\n' "$CHANGED" | grep -v '^CODEMAP.md$' | grep -q .; then
+            printf '%s\n' "$CHANGED" | grep -qx 'CODEMAP.md'
+          fi
+          if ! grep -E -- "^- \*\*commit:\*\* .*$EXPECTED_SHA" CODEMAP.md; then
+            test -n "$PARENT_SHA"
+            grep -E -- "^- \*\*commit:\*\* .*$PARENT_SHA" CODEMAP.md
+          fi
+          grep -F -- "- **map generated:** " CODEMAP.md
