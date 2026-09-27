@@ -26,7 +26,10 @@ import json
 import math
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 from urllib.parse import urlsplit
+
+from check_article import run_checks
 
 # Consensus is deliberately conservative. A small SERP sample is not enough to
 # distinguish a real category expectation from one page's editorial choice.
@@ -701,6 +704,23 @@ def main():
     parser.add_argument(
         "--type", default="standard", choices=["pillar", "standard", "supporting"]
     )
+    parser.add_argument(
+        "--query",
+        help="Target query used for the article gate and report; defaults to the snapshot keyword when available.",
+    )
+    parser.add_argument(
+        "--no-ledger",
+        action="store_true",
+        help="Skip the claim-verification ledger check when generating a report.",
+    )
+    parser.add_argument(
+        "--report-json",
+        help="Write the complete Article Forge report as JSON to this path.",
+    )
+    parser.add_argument(
+        "--report-markdown",
+        help="Write a human-readable Markdown companion report to this path.",
+    )
     args = parser.parse_args()
 
     with open(args.draft, "r", encoding="utf-8") as f:
@@ -712,13 +732,47 @@ def main():
     with open(args.config, "r", encoding="utf-8") as f:
         config = json.load(f)
 
+    target_query = args.query or (snapshot or {}).get("keyword")
+    if (args.report_json or args.report_markdown) and not target_query:
+        parser.error("--query is required for report output when no snapshot keyword is available")
+
+    checks = []
+    if target_query:
+        checks = run_checks(
+            draft_text,
+            args.type,
+            target_query,
+            config,
+            config_path=args.config,
+            use_ledger=not args.no_ledger,
+        )
+
     result = score_for_report(
         draft_text,
         snapshot,
         args.type,
         config.get("verified_facts", {}),
         domain=config.get("domain"),
+        checks=checks,
     )
+    report = build_article_report(
+        draft_text,
+        config,
+        {"target_query": target_query, "type": args.type},
+        checks,
+        snapshot=snapshot,
+        draft_filename=args.draft,
+        snapshot_source=args.snapshot,
+    )
+
+    if args.report_json:
+        Path(args.report_json).write_text(
+            json.dumps(report, indent=2) + "\n", encoding="utf-8"
+        )
+    if args.report_markdown:
+        Path(args.report_markdown).write_text(
+            render_report_markdown(report), encoding="utf-8"
+        )
 
     print(
         f"TOTAL SCORE: {result['total_score']}/100 [{result['score_kind']}]"
