@@ -623,7 +623,9 @@ Review the result, then make a deliberate migration plan.
             {
                 "keyword": "how to choose a photography CRM",
                 "serp_intent": "informational",
-                "competitors": [competitor(f"example{index}.com") for index in range(5)],
+                "competitors": [
+                    competitor(f"example{index}.com") for index in range(5)
+                ],
             }
         ),
         encoding="utf-8",

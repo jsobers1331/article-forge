@@ -6,10 +6,10 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-score-reports`
 - **branch:** `fix/score-cli-reports`
-- **commit:** `109ef28e97e1c08161d43273eef9469728d8baba`
-- **short:** `109ef28`
-- **last commit:** 2026-09-26T21:36:13-04:00
-- **map generated:** 2026-09-27T01:36:25+00:00
+- **commit:** `522a4d29503654e37ca505065470b92cdc62df55`
+- **short:** `522a4d2`
+- **last commit:** 2026-09-26T21:36:24-04:00
+- **map generated:** 2026-09-27T01:37:46+00:00
 - **tracked files:** 127
 
 ## Tech Stack
