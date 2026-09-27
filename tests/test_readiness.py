@@ -1,4 +1,5 @@
 import json
+import subprocess
 import sys
 from datetime import date, timedelta
 
@@ -580,6 +581,85 @@ def test_generated_article_report_is_persisted_for_pass_and_quarantine(tmp_path)
         for item in blocked_payload["what_to_fix_next"]
     )
     assert blocked_path.with_suffix(".report.md").exists()
+
+
+def test_score_article_cli_writes_a_complete_report_with_gate_results(tmp_path):
+    config_path = tmp_path / "config.json"
+    config = valid_config()
+    config["current_month_year"] = date.today().strftime("%B %Y")
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    draft_path = tmp_path / "draft.md"
+    draft_path.write_text(
+        """# How to choose a photography CRM
+
+*Last updated: September 2026.*
+
+Choose a photography CRM by comparing your current workflow, client records, and the work you need the system to handle.
+
+## What should you compare?
+
+Start with the client workflow and the fields you need to retain.
+
+## How should you test it?
+
+Run a small test before moving every client record.
+
+## Which records matter?
+
+Keep the client details and documents you still need.
+
+## What happens next?
+
+Review the result, then make a deliberate migration plan.
+
+1. Export a small sample.
+2. Check the imported records.
+""",
+        encoding="utf-8",
+    )
+    snapshot_path = tmp_path / "snapshot.json"
+    snapshot_path.write_text(
+        json.dumps(
+            {
+                "keyword": "how to choose a photography CRM",
+                "serp_intent": "informational",
+                "competitors": [competitor(f"example{index}.com") for index in range(5)],
+            }
+        ),
+        encoding="utf-8",
+    )
+    report_json = tmp_path / "report.json"
+    report_markdown = tmp_path / "report.md"
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/score_article.py",
+            "--draft",
+            str(draft_path),
+            "--snapshot",
+            str(snapshot_path),
+            "--config",
+            str(config_path),
+            "--query",
+            "how to choose a photography CRM",
+            "--no-ledger",
+            "--report-json",
+            str(report_json),
+            "--report-markdown",
+            str(report_markdown),
+        ],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+
+    payload = json.loads(report_json.read_text(encoding="utf-8"))
+    assert "TOTAL SCORE:" in result.stdout
+    assert payload["score"]["score_kind"] == "serp_parity"
+    assert payload["target_query"] == "how to choose a photography CRM"
+    assert payload["gate_checks"]
+    assert "# Article Forge report" in report_markdown.read_text(encoding="utf-8")
 
 
 def test_generate_article_cli_emits_report_on_quarantine_path(
