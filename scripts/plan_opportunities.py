@@ -22,6 +22,11 @@ from dotenv import load_dotenv
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from collect_authority import (  # noqa: E402
+    load_authority_artifacts,
+    platform_hosts_from_config,
+    summarize_authority,
+)
 from collect_serper import (  # noqa: E402
     DEFAULT_CACHE_TTL_SECONDS,
     DEFAULT_MAX_REQUESTS,
@@ -371,7 +376,15 @@ def _preliminary_priority(candidate):
 
 
 def _candidate_from_query(
-    query, reasons, *, serp_records, demand_records, site_corpus, config
+    query,
+    reasons,
+    *,
+    serp_records,
+    demand_records,
+    site_corpus,
+    config,
+    authority=None,
+    platform_hosts=None,
 ):
     direct = _direct_serp_record(serp_records)
     demand = _best_demand(demand_records)
@@ -436,6 +449,19 @@ def _candidate_from_query(
         "missing_evidence": missing,
         "topic": topic,
     }
+    if authority is not None:
+        # Evidence for editorial review only: it never feeds discovery_priority
+        # or the opportunity score, and only a direct SERP has hosts to rate.
+        candidate["authority_evidence"] = (
+            summarize_authority(
+                direct.get("organic", []),
+                authority,
+                own_domain=config.get("domain"),
+                platform_hosts=platform_hosts,
+            )
+            if direct
+            else None
+        )
     candidate["discovery_priority"] = _preliminary_priority(candidate)
     candidate["topic"]["opportunity"]["discovery_priority"] = candidate[
         "discovery_priority"
@@ -593,9 +619,11 @@ def build_plan(
     seeds=None,
     max_candidates=25,
     source_artifacts=None,
+    authority=None,
 ):
     serp_records = serp_records or []
     demand_records = demand_records or []
+    platform_hosts = platform_hosts_from_config(config) if authority else None
     seed_values = _unique_queries(seeds or suggest_seeds(config))
     serp_by_query = _record_map(serp_records)
     demand_by_query = _demand_map(demand_records)
@@ -638,6 +666,8 @@ def build_plan(
                     demand_records=demand_by_query.get(normalized, []),
                     site_corpus=site_corpus,
                     config=config,
+                    authority=authority,
+                    platform_hosts=platform_hosts,
                 )
             )
         else:
@@ -665,6 +695,13 @@ def build_plan(
             "demand": "only normalized Keyword Planner or Search Console artifacts can populate measured demand/site opportunity",
             "promotion": "a candidate still needs editorial difficulty, product fit, content fit, freshness, and confidence evidence before score_opportunities.py can mark it pursue",
         },
+        **(
+            {
+                "authority_semantics": "Open PageRank is a Common Crawl link-graph popularity proxy per host; authority_evidence is reviewer context, not keyword difficulty, and never changes discovery_priority or the opportunity score"
+            }
+            if authority
+            else {}
+        ),
         "source_artifacts": source_artifacts or [],
         "candidate_count": min(len(candidates), max_candidates),
         "candidates": candidates[:max_candidates],
@@ -684,6 +721,25 @@ def print_plan(plan):
         )
 
 
+def print_authority(plan):
+    rows = [item for item in plan["candidates"] if item.get("authority_evidence")]
+    if not rows:
+        return
+    print("\nQUERY | OWN POS | INDEPENDENT (scored/total) | MEDIAN | MAX | PLATFORMS")
+    for candidate in rows:
+        evidence = candidate["authority_evidence"]
+        independent = evidence["independent"]
+        own = evidence["own_domain"]["best_position"]
+        median = independent["median"]
+        top = independent["max"]
+        print(
+            f"{candidate['query']} | {own if own is not None else '-'} | "
+            f"{independent['scored_count']}/{independent['count']} | "
+            f"{median if median is not None else '-'} | "
+            f"{top if top is not None else '-'} | {evidence['platforms']['count']}"
+        )
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Discover and triage evidence-backed article opportunities"
@@ -700,6 +756,11 @@ def main():
         "--demand",
         action="append",
         help="normalized demand, raw Keyword Planner, or GSC JSON; repeatable",
+    )
+    parser.add_argument(
+        "--authority",
+        action="append",
+        help="article-forge.authority.v1 JSON from collect_authority.py; repeatable",
     )
     parser.add_argument(
         "--live-serp",
@@ -765,6 +826,13 @@ def main():
     if args.demand:
         demand_records, sources = _load_demand_records(args.demand)
         source_artifacts.extend(sources)
+    authority = None
+    if args.authority:
+        try:
+            authority = load_authority_artifacts(args.authority)
+        except (OSError, ValueError) as exc:
+            raise SystemExit(f"could not read authority evidence: {exc}") from exc
+        source_artifacts.extend(authority["sources"])
     plan = build_plan(
         config,
         serp_records=serp_records,
@@ -772,8 +840,10 @@ def main():
         seeds=seeds,
         max_candidates=args.max_candidates,
         source_artifacts=source_artifacts,
+        authority=authority,
     )
     print_plan(plan)
+    print_authority(plan)
     _write_json(args.out, plan, force=args.force)
     print(f"\nOpportunity plan written to {args.out}")
 

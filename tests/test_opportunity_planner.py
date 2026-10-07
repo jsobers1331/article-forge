@@ -265,3 +265,108 @@ def test_live_planner_is_bounded_and_uses_a_second_pass(monkeypatch, tmp_path):
         "follow_up",
     ]
     assert collection["request_budget"]["max_requests_per_run"] == 2
+
+
+def authority_artifact(scores):
+    return {
+        "provider_as_of": "2026-09-01",
+        "domains": {
+            host: {
+                "status": "scored",
+                "open_page_rank": score,
+                "resolved_domain": host,
+            }
+            for host, score in scores.items()
+        },
+    }
+
+
+def authority_plan_inputs():
+    records = [
+        serp_record(
+            "household bill tracker",
+            paa=["how do families split recurring bills"],
+        ),
+        serp_record("how do families split recurring bills"),
+    ]
+    return {"serp_records": records, "seeds": ["household bill tracker"]}
+
+
+def test_authority_evidence_attaches_without_changing_triage():
+    baseline = build_plan(config(), **authority_plan_inputs())
+    plan = build_plan(
+        config(),
+        **authority_plan_inputs(),
+        authority=authority_artifact({"site-1.example": 3.0, "site-2.example": 1.0}),
+    )
+
+    assert "authority_semantics" not in baseline
+    assert "link-graph" in plan["authority_semantics"]
+    assert all("authority_evidence" not in item for item in baseline["candidates"])
+    baseline_priority = {
+        item["query"]: item["discovery_priority"] for item in baseline["candidates"]
+    }
+    for candidate in plan["candidates"]:
+        assert candidate["discovery_priority"] == baseline_priority[candidate["query"]]
+        if candidate["serp_evidence"]["evidence_scope"] != "direct_query":
+            assert candidate["authority_evidence"] is None
+
+    direct = next(
+        item
+        for item in plan["candidates"]
+        if item["query"] == "how do families split recurring bills"
+    )
+    independent = direct["authority_evidence"]["independent"]
+    assert independent["count"] == 5
+    assert independent["scored_count"] == 2
+    assert independent["unscored_count"] == 3
+    assert independent["median"] == 2.0
+    assert independent["max"] == 3.0
+    assert independent["strongest_host"] == "site-1.example"
+    assert direct["authority_evidence"]["own_domain"]["best_position"] is None
+    assert "authority_evidence" not in direct["topic"]["opportunity"]
+
+
+def test_planner_cli_reads_authority_artifacts(tmp_path, monkeypatch, capsys):
+    config_path = tmp_path / "site-config.example.json"
+    config_path.write_text(json.dumps(config()), encoding="utf-8")
+    serp_path = tmp_path / "serp.json"
+    serp_path.write_text(
+        json.dumps(serp_record("how do families split recurring bills")),
+        encoding="utf-8",
+    )
+    authority_path = tmp_path / "authority.json"
+    authority_path.write_text(
+        json.dumps(
+            {
+                "schema_version": "article-forge.authority.v1",
+                **authority_artifact({"site-1.example": 3.0}),
+            }
+        ),
+        encoding="utf-8",
+    )
+    out_path = tmp_path / "plan.json"
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "plan_opportunities.py",
+            "--config",
+            str(config_path),
+            "--seed",
+            "how do families split recurring bills",
+            "--serp",
+            str(serp_path),
+            "--authority",
+            str(authority_path),
+            "--out",
+            str(out_path),
+        ],
+    )
+
+    planner_module.main()
+
+    plan = json.loads(out_path.read_text(encoding="utf-8"))
+    assert any(item.get("authority_evidence") for item in plan["candidates"])
+    assert str(authority_path) in {item["path"] for item in plan["source_artifacts"]}
+    assert "INDEPENDENT (scored/total)" in capsys.readouterr().out

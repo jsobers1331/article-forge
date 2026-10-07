@@ -24,6 +24,11 @@ not a ranked opportunity list — validate against Google Search Console /
 Keyword Planner before committing real writing time, same caveat the main
 README already states for `topic_backlog` generally.
 
+Who holds those top results is a separate question this report does not answer.
+`scripts/collect_authority.py` rates the SERP hosts with Open PageRank (a
+link-graph proxy, not Moz DA or keyword difficulty); see "Authority evidence"
+in `OPPORTUNITY_PIPELINE.md`.
+
 For live SERP collection:
 
 ```bash

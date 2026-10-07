@@ -1138,3 +1138,81 @@ def test_serper_counts_alone_cannot_be_editorial_difficulty():
     result = score_candidate(candidate)
     assert result["status"] == "needs-data"
     assert any("sole basis" in item for item in result["missing_evidence"])
+
+
+def authority_sample(**overrides):
+    return {
+        "source": "open_page_rank",
+        "semantics": "link_graph_authority_proxy",
+        "provider_as_of": date.today().isoformat(),
+        "scored_count": 4,
+        "median": 1.2,
+        "max": 3.4,
+        **overrides,
+    }
+
+
+def test_authority_sample_is_context_and_never_moves_the_score():
+    baseline = score_candidate(complete_candidate())
+    candidate = complete_candidate()
+    candidate["organic_competition"]["authority_sample"] = authority_sample()
+    result = score_candidate(candidate)
+
+    assert result["status"] == "scored"
+    assert result["opportunity_score"] == baseline["opportunity_score"]
+    assert (
+        result["competition_opportunity_score"]
+        == baseline["competition_opportunity_score"]
+    )
+    assert result["organic_competition"]["authority_sample"]["median"] == 1.2
+
+
+def test_authority_alone_cannot_be_editorial_difficulty():
+    candidate = complete_candidate()
+    candidate["organic_competition"]["authority_sample"] = authority_sample()
+    candidate["organic_competition"]["editorial_difficulty"].update(
+        {
+            "evidence_types": ["authority_sample"],
+            "evidence": ["Open PageRank", "authority sample"],
+        }
+    )
+    result = score_candidate(candidate)
+
+    assert result["status"] == "needs-data"
+    assert result["opportunity_score"] is None
+    assert any("sole basis" in item for item in result["missing_evidence"])
+    assert any("evidence_types" in item for item in result["missing_evidence"])
+
+
+def test_authority_beside_a_manual_review_is_accepted_evidence():
+    candidate = complete_candidate()
+    candidate["organic_competition"]["authority_sample"] = authority_sample()
+    candidate["organic_competition"]["editorial_difficulty"].update(
+        {
+            "evidence_types": ["manual_page_review"],
+            "evidence": ["Open PageRank", "manual page review of the top five"],
+        }
+    )
+
+    assert score_candidate(candidate)["status"] == "scored"
+
+
+def test_malformed_or_difficulty_bearing_authority_samples_are_rejected():
+    cases = {
+        "source": authority_sample(source="moz"),
+        "semantics": authority_sample(semantics="domain_authority"),
+        "provider_as_of": authority_sample(provider_as_of="last month"),
+        "scored_count": authority_sample(scored_count=0),
+        "max": authority_sample(max=11),
+        "difficulty": authority_sample(difficulty_score=20),
+    }
+    for expected, sample in cases.items():
+        candidate = complete_candidate()
+        candidate["organic_competition"]["authority_sample"] = sample
+        result = score_candidate(candidate)
+        assert result["status"] == "needs-data", expected
+        assert any(expected in item for item in result["missing_evidence"]), expected
+
+    candidate = complete_candidate()
+    candidate["organic_competition"]["authority_sample"] = "strong"
+    assert score_candidate(candidate)["status"] == "needs-data"
