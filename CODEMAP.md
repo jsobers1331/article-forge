@@ -6,10 +6,10 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-authority-20261007`
 - **branch:** `feat/authority-evidence`
-- **commit:** `b12f4321560fe25810493e523995c922ab023c97`
-- **short:** `b12f432`
-- **last commit:** 2026-09-26T22:02:42-04:00
-- **map generated:** 2026-10-07T22:13:26+00:00
+- **commit:** `a94b50d82e1c3a5c1189b88c5a1cf47bc46bc8e8`
+- **short:** `a94b50d`
+- **last commit:** 2026-10-07T18:13:26-04:00
+- **map generated:** 2026-10-07T22:15:57+00:00
 - **tracked files:** 129
 
 ## Tech Stack

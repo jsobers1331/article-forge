@@ -106,6 +106,9 @@ DEFAULT_PLATFORM_HOSTS = {
     "wikipedia": "reference",
     "amazon": "marketplace",
     "etsy": "marketplace",
+    "pubhtml5": "document_hosting",
+    "issuu": "document_hosting",
+    "scribd": "document_hosting",
 }
 _HOST_RE = re.compile(
     r"^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$"

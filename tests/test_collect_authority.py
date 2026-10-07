@@ -103,6 +103,9 @@ def test_platform_classification_matches_stems_and_honors_config_override():
     assert classify_platform("tripadvisor.ie", DEFAULT_PLATFORM_HOSTS) == "directory"
     assert classify_platform("tripadvisor.ca", DEFAULT_PLATFORM_HOSTS) == "directory"
     assert classify_platform("jsobersphotography.com", DEFAULT_PLATFORM_HOSTS) is None
+    assert (
+        classify_platform("pubhtml5.com", DEFAULT_PLATFORM_HOSTS) == "document_hosting"
+    )
     assert platform_hosts_from_config({}) == DEFAULT_PLATFORM_HOSTS
     override = platform_hosts_from_config(
         {"research": {"authority": {"platform_hosts": ["Brides", " easyweddings "]}}}

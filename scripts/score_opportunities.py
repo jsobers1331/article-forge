@@ -44,6 +44,16 @@ EDITORIAL_DIFFICULTY_EVIDENCE_TYPES = {
 # it deliberately stays out of EDITORIAL_DIFFICULTY_EVIDENCE_TYPES above.
 AUTHORITY_SOURCE = "open_page_rank"
 AUTHORITY_SEMANTICS = "link_graph_authority_proxy"
+SERPER_COUNT_ONLY_EVIDENCE = {
+    "serper",
+    "serper api",
+    "serp record",
+    "result count",
+    "organic result count",
+    "host count",
+    "unique hosts",
+    "total results",
+}
 AUTHORITY_ONLY_EVIDENCE = {
     "authority",
     "authority sample",
@@ -284,25 +294,18 @@ def _validate_organic_competition(record):
                 errors.append(
                     "Open PageRank authority cannot be the sole basis for editorial difficulty"
                 )
-            if record.get("source") == "serper":
-                count_only = {
-                    "serper",
-                    "serper api",
-                    "serp record",
-                    "result count",
-                    "organic result count",
-                    "host count",
-                    "unique hosts",
-                    "total results",
-                }
-                evidence = {
-                    " ".join(str(item).lower().split())
-                    for item in editorial.get("evidence", [])
-                }
-                if evidence and evidence.issubset(count_only):
-                    errors.append(
-                        "Serper observations cannot be the sole basis for editorial difficulty"
-                    )
+            elif (
+                record.get("source") == "serper"
+                and normalized_evidence
+                # Count phrases mixed with authority phrases are still all
+                # automated, so the union is checked, not each set alone.
+                and normalized_evidence.issubset(
+                    SERPER_COUNT_ONLY_EVIDENCE | AUTHORITY_ONLY_EVIDENCE
+                )
+            ):
+                errors.append(
+                    "Serper observations cannot be the sole basis for editorial difficulty"
+                )
     if record.get("source") == "serper":
         if not _nonempty_string(record.get("serp_cache_key")):
             errors.append("Serper organic evidence requires serp_cache_key provenance")

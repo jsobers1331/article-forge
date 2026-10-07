@@ -126,6 +126,9 @@ candidate's `organic_competition.authority_sample`:
 }
 ```
 
+Omit `authority_sample` when no independent host was scored (`scored_count`
+must be at least 1); empty context would only block the candidate.
+
 `score_opportunities.py` validates the sample and carries it through, but
 authority is not an `editorial_difficulty` evidence type. An estimate whose
 evidence is only authority is rejected, exactly like a Serper-count-only one,

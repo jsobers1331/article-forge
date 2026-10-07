@@ -1184,6 +1184,21 @@ def test_authority_alone_cannot_be_editorial_difficulty():
     assert any("evidence_types" in item for item in result["missing_evidence"])
 
 
+def test_serper_counts_mixed_with_authority_are_still_all_automated():
+    candidate = complete_candidate()
+    candidate["organic_competition"]["authority_sample"] = authority_sample()
+    candidate["organic_competition"]["editorial_difficulty"].update(
+        {
+            "evidence_types": ["manual_page_review"],
+            "evidence": ["Open PageRank", "result count", "unique hosts"],
+        }
+    )
+    result = score_candidate(candidate)
+
+    assert result["status"] == "needs-data"
+    assert any("sole basis" in item for item in result["missing_evidence"])
+
+
 def test_authority_beside_a_manual_review_is_accepted_evidence():
     candidate = complete_candidate()
     candidate["organic_competition"]["authority_sample"] = authority_sample()
