@@ -15,6 +15,7 @@ gsc-snapshot.*.json
 keyword-planner-snapshot.*.json
 demand-search-console.*.json
 demand-keyword-planner.*.json
+indexing.*.json
 output/*.md
 !output/.gitkeep
 output/.quarantine/
