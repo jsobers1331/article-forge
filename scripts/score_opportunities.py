@@ -40,6 +40,32 @@ EDITORIAL_DIFFICULTY_EVIDENCE_TYPES = {
     "intent_match_assessment",
     "manual_page_review",
 }
+# Authority is context for a reviewer, never an editorial-difficulty basis, so
+# it deliberately stays out of EDITORIAL_DIFFICULTY_EVIDENCE_TYPES above.
+AUTHORITY_SOURCE = "open_page_rank"
+AUTHORITY_SEMANTICS = "link_graph_authority_proxy"
+SERPER_COUNT_ONLY_EVIDENCE = {
+    "serper",
+    "serper api",
+    "serp record",
+    "result count",
+    "organic result count",
+    "host count",
+    "unique hosts",
+    "total results",
+}
+AUTHORITY_ONLY_EVIDENCE = {
+    "authority",
+    "authority sample",
+    "authority_sample",
+    "domain authority",
+    "link graph authority",
+    "open page rank",
+    "open pagerank",
+    "open_page_rank",
+    "openpagerank",
+}
+AUTHORITY_FORBIDDEN_KEYS = {"difficulty", "difficulty_score", "editorial_difficulty"}
 
 
 def _number(value):
@@ -190,10 +216,39 @@ def _validate_content_fit(record):
     return errors
 
 
+def _validate_authority_sample(sample):
+    """Optional link-graph authority context attached to organic_competition."""
+    if sample is None:
+        return []
+    if not isinstance(sample, dict):
+        return ["organic_competition.authority_sample must be an object"]
+    errors = []
+    if sample.get("source") != AUTHORITY_SOURCE:
+        errors.append(f"authority_sample.source must be {AUTHORITY_SOURCE}")
+    if sample.get("semantics") != AUTHORITY_SEMANTICS:
+        errors.append(f"authority_sample.semantics must be {AUTHORITY_SEMANTICS}")
+    if not _parse_date(sample.get("provider_as_of")):
+        errors.append("authority_sample.provider_as_of must be YYYY-MM-DD or ISO-8601")
+    scored = sample.get("scored_count")
+    if not _number(scored) or scored < 1:
+        errors.append("authority_sample.scored_count must be at least 1")
+    for field in ("median", "max"):
+        value = sample.get(field)
+        if value is not None and (not _number(value) or not 0 <= value <= 10):
+            errors.append(f"authority_sample.{field} must be a 0-10 score")
+    forbidden = sorted(AUTHORITY_FORBIDDEN_KEYS.intersection(sample))
+    if forbidden:
+        errors.append(
+            "authority_sample must not carry a difficulty score "
+            f"({', '.join(forbidden)}); keep editorial_difficulty a reviewed estimate"
+        )
+    return errors
+
+
 def _validate_organic_competition(record):
     if not isinstance(record, dict):
         return ["organic_competition must be an object"]
-    errors = []
+    errors = _validate_authority_sample(record.get("authority_sample"))
     if not _nonempty_string(record.get("source")):
         errors.append("organic_competition.source is required")
     if (
@@ -228,25 +283,29 @@ def _validate_organic_competition(record):
                 errors.append(
                     "editorial_difficulty.semantics must be editorial_estimate"
                 )
-            if record.get("source") == "serper":
-                count_only = {
-                    "serper",
-                    "serper api",
-                    "serp record",
-                    "result count",
-                    "organic result count",
-                    "host count",
-                    "unique hosts",
-                    "total results",
-                }
-                evidence = {
-                    " ".join(str(item).lower().split())
-                    for item in editorial.get("evidence", [])
-                }
-                if evidence and evidence.issubset(count_only):
-                    errors.append(
-                        "Serper observations cannot be the sole basis for editorial difficulty"
-                    )
+            evidence_items = editorial.get("evidence")
+            normalized_evidence = {
+                " ".join(str(item).lower().split())
+                for item in (evidence_items if isinstance(evidence_items, list) else [])
+            }
+            if normalized_evidence and normalized_evidence.issubset(
+                AUTHORITY_ONLY_EVIDENCE
+            ):
+                errors.append(
+                    "Open PageRank authority cannot be the sole basis for editorial difficulty"
+                )
+            elif (
+                record.get("source") == "serper"
+                and normalized_evidence
+                # Count phrases mixed with authority phrases are still all
+                # automated, so the union is checked, not each set alone.
+                and normalized_evidence.issubset(
+                    SERPER_COUNT_ONLY_EVIDENCE | AUTHORITY_ONLY_EVIDENCE
+                )
+            ):
+                errors.append(
+                    "Serper observations cannot be the sole basis for editorial difficulty"
+                )
     if record.get("source") == "serper":
         if not _nonempty_string(record.get("serp_cache_key")):
             errors.append("Serper organic evidence requires serp_cache_key provenance")
