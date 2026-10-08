@@ -42,10 +42,59 @@ are not market search volume. LLM citation observations are directional and
 must name the engine, query, date, and surface. A missing citation is not proof
 that an article is invisible.
 
+## Checking indexation
+
+A page Google has not indexed cannot earn impressions, so check indexation
+before reading any ranking signal. `scripts/check_indexing.py` reads each page's
+index status from the read-only Search Console URL Inspection API (the login
+`collect_search_console.py --authorize` sets up) and writes an
+`article-forge.indexing.v1` artifact:
+
+```bash
+python scripts/check_indexing.py --config site-config.<yourproject>.json \
+  --out indexing.<yourproject>.json [--path-prefix /blog/]
+```
+
+It takes URLs from the site's sitemap (`https://<domain>/sitemap.xml` unless
+`--sitemap` is given) plus any `--url` / `--urls-file` entries. Each record gets
+one status and zero or more flags:
+
+| Status | Meaning |
+|---|---|
+| `indexed` | Google reports the page as indexed |
+| `pending` | Not indexed yet, but still inside `--grace-days` (default 14) of its `lastmod` |
+| `not_indexed` | Not indexed and past the grace period, or its age is unknown |
+| `error` | Google returned no status for the URL (quota, API error, URL outside the property) |
+
+| Flag | Meaning |
+|---|---|
+| `never_crawled` | Not indexed, past the grace period, and Google has no crawl on record |
+| `stale_crawl` | Google last crawled the page more than `--stale-days` (default 14) before its `lastmod` |
+| `google_chose_other_canonical` | Google treats a different URL as this page's canonical (often a host or trailing-slash split) |
+| `declared_canonical_disagrees` | The page's own canonical tag differs from the one Google chose |
+| `fetch_problem` | Google's last fetch of the page did not succeed |
+| `indexing_blocked` | robots.txt, a meta tag, or an HTTP header blocks indexing |
+
+How to read it:
+
+- **It reports Google's view at check time.** It is not a ranking, traffic, or
+  impressions measurement, and an indexed page can still receive no impressions.
+- **`lastmod` is a modification date, not a publish date.** It is only as honest
+  as the site that emits it. A date shared by many URLs looks like a build
+  timestamp, so it is ignored for the grace period and `stale_crawl`, with a
+  warning in the artifact, instead of flagging every static page.
+- **It cannot request indexing.** The API is read-only. For flagged pages, use
+  **Request indexing** in Search Console and record the date in the `indexed` field
+  above.
+- **Limits.** Google allows 2,000 inspections per site per day and 600 per minute;
+  `--max-urls` (default 200) bounds a run and a quota error stops it.
+- **Exit codes.** Flagged pages still exit 0. Exit 2 means the request itself is
+  wrong (bad config, no URLs, a rejected login, refusing to overwrite the output).
+
 ## Review cadence and actions
 
-- **Weekly for the first four weeks:** check indexation, technical errors,
-  impressions, clicks, CTR, and qualified actions for new pages.
+- **Weekly for the first four weeks:** run the indexation check, then review
+  technical errors, impressions, clicks, CTR, and qualified actions for new pages.
 - **Monthly:** compare performance with the query cluster and record meaningful
   changes, not just rank snapshots.
 - **Every 90 days or after a material product/search change:** re-run the SERP
