@@ -6,10 +6,10 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 
 - **path:** `~/Personal/article-forge-seo-implementation-20261009`
 - **branch:** `fix/seo-evidence-system-20261009`
-- **commit:** `ebe91eec6a8833797c291e11e9b42fa687af4e28`
-- **short:** `ebe91ee`
-- **last commit:** 2026-10-08T01:00:56-04:00
-- **map generated:** 2026-10-09T02:26:04+00:00
+- **commit:** `d194e8045fe063f1238ecef8b8bd2893c30152e9`
+- **short:** `d194e80`
+- **last commit:** 2026-10-08T22:26:03-04:00
+- **map generated:** 2026-10-09T02:26:57+00:00
 - **tracked files:** 144
 
 ## Tech Stack
