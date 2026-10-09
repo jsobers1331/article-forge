@@ -1,11 +1,8 @@
 # Article Rules
 
-A model-agnostic, site-agnostic ruleset for writing articles that rank in
-traditional search (Google/Bing SERPs) **and** get cited by AI answer engines
-(ChatGPT, Perplexity, Google AI Overviews, Claude). Distilled from cross-model
-research (independent answers from Claude and DeepSeek, cross-checked against
-live web research) plus hard lessons from real sites that shipped inaccurate
-content.
+A site-agnostic editorial policy for useful, sourced content. These policies
+are not validated ranking predictors or promises of AI citations. The evidence
+contracts and migration rules are in [EVIDENCE_SYSTEM.md](EVIDENCE_SYSTEM.md).
 
 Every rule below assumes you've filled out `site-config.<project>.json` first — that's
 where the site-specific facts (product, ICP, differentiators, competitors,
@@ -63,43 +60,26 @@ what's real vs. not-yet-real) live. These rules never hardcode a product.
    likely to be surfaced by AI engines, which favor even-handed sourcing over
    marketing copy.
 
-## 2. Structure — same template for every article
+## 2. Structure follows the reader task
 
-- **H1** = the target query, close to verbatim.
-- **First 40–100 words**: a standalone, extractable direct-answer
-  "capsule" — plain declarative prose, no throat-clearing intro
-  ("In today's fast-paced world…"). This is the paragraph AI answer engines
-  lift verbatim, so it must make sense with zero surrounding context.
-- **H2s phrased as the real follow-up questions** a searcher would ask next.
-  Each H2 opens with its own 2–3 sentence direct answer, then supporting
-  detail.
-- **At least one real structured element**: a genuine `<table>` (never a div
-  grid) for comparisons, or a numbered step list for how-tos. Structured
-  elements get extracted and cited by AI engines disproportionately more
-  than prose paragraphs saying the same thing.
-- **Process intent needs process structure**: when the target query is a how-to,
-  booking, setup, planning, or other procedural question, include a numbered
-  step list. A pricing table alone does not explain the sequence a reader must
-  follow, and the automated gate fails a process-intent draft without one.
-- **An honest "who this isn't for" / "common mistakes" section.** Builds
-  trust; also reads as a non-absolute claim, which AI engines weight
-  favorably.
-- **Close with a ~150-word bottom-line/verdict** restating the direct answer,
-  plus a single CTA appropriate to the article's funnel stage.
+Select create, improve, consolidate or defer before choosing a page format.
+The evidence-led brief must name the reader problem, intended action, original
+contribution, inspectable supporting assets and a limitation. Service, feature,
+comparison, documentation and interactive examples may fit better than articles.
+Existing page content and query-to-page observations inform overlap review;
+multiple ranking URLs are a signal to investigate, not proof of cannibalization.
 
-## 3. Word count
+Give the reader a clear answer and useful next action. Use headings, comparisons,
+tables or steps when they help. No four-H2 requirement, question-heading quota,
+introductory word band, mandatory exclusions section or universal closing verdict.
+The brief can explicitly require ordered steps for a procedural task.
 
-Let the query's intent set the length — don't pad to hit a number.
+## 3. Length is advisory
 
-| Article type | Target length |
-|---|---|
-| Standard how-to / comparison | 1,200–1,800 words |
-| The one definitional/pillar article | up to 2,000 words |
-| Supporting/narrow-question posts | 800–1,200 words |
-
-Signal you're off: consistently landing under ~1,000 words means the topic is
-too narrow to stand alone (fold it into a bigger piece). Consistently pushing
-past ~2,000 on a non-pillar piece means split it into two articles.
+The prompt and scripts share these planning ranges: pillar 1,500–2,200,
+standard 1,000–2,000, supporting 700–1,400 words. They are editorial planning
+ranges, not gates or search-engine targets. Stop when the reader's task is
+answered; short service pages and narrow answers can be useful.
 
 ## 4. Structured data (schema.org / JSON-LD)
 
@@ -114,21 +94,15 @@ past ~2,000 on a non-pillar piece means split it into two articles.
   without contradicting the on-page positioning copy.
 - `featureList` (if used) must name only features listed as real/live in
   `verified_facts` — never a `coming_soon` feature.
-- **Do not add `FAQPage` schema for a Google rich-result benefit** — Google
-  retired FAQ rich results entirely in May 2026 (confirmed, for every site
-  including government/health, which had been the last carve-out). FAQPage
-  markup itself still validates and may still help some AI engines parse
-  Q&A structure, but don't build content strategy around the schema for
-  SERP purposes. Natural Q&A sentences embedded in body prose work just as
-  well for AI parseability without a dedicated schema block.
+- Structured data must describe visible, accurate content. It does not create
+  evidence for an assertion or guarantee a special search appearance.
 
-## 5. Entity consistency (cheapest, strongest AEO signal)
+## 5. Entity identity
 
-Write **one canonical definition sentence** for the product/business and
-reuse it **verbatim** in: the meta description, the schema `description`
-field, and the homepage/article's first paragraph. Consistency across
-surfaces — not more content — is what lets AI engines resolve "what is this
-entity" with confidence and start citing it.
+Keep names, identifiers, categories and factual descriptions consistent.
+The canonical definition is a reference, not mandatory identical copy in every
+introduction, meta description and schema description. Tailor the description
+to the page's actual purpose.
 
 ## 6. Earn AI citations with original data
 
@@ -172,33 +146,31 @@ force a fake one in.
   these two concrete instructions reliably produces the flat-register
   default.
 
-## 8. Internal linking — hub and spoke
+## 8. Useful links
 
-Pick one pillar/definitional page as the hub for the site's core topic.
-Every comparison and how-to article links **up** to the hub with a
-descriptive (not "click here") anchor, **sideways** to sibling comparison
-pages, and **down** to the primary conversion surface (signup, pricing, a
-free tool) — placed in the first third of the article, not just the
-footer.
+Use descriptive anchors and destinations that support the reader's next action
+or evidence needs. Review internal paths and external source relevance. No link
+count or placement quota. A draft with no links has unassessed link readiness.
+Syntax checks alone do not establish usefulness.
 
-## 9. Technical / AEO baseline
+## 9. Technical baseline and platform-specific claims
 
-- Article pages must be server-rendered or statically generated — many AI
-  crawlers don't execute client-side JS, so client-only rendering makes
-  content invisible to them even though it looks fine in a browser.
-- Show a visible last-updated / `dateModified` date.
-- Keep that date visible immediately after the H1 so it survives rendering and
-  can be checked in the raw draft as well as in the browser.
-- Consider adding a `llms.txt` file at the site root — cheap, emerging
-  convention, no known downside.
+Make pages accessible to the intended crawler, keep meaningful dates honest,
+and ensure structured data matches visible content. Record AI-search engine,
+query, locale, observation date, cited URL and method separately from referrals
+and conversions. Do not infer one outcome from another.
 
-## 10. Cadence
+Google's generative-search guidance builds on ordinary SEO and useful original
+content; no special AI markup, llms.txt, tiny chunks or writing style is required.
+Other engines' behavior is platform-specific and needs its own dated evidence.
 
-Depth over volume. For a solo writer: roughly 3–4 articles/month, each done
-to the full standard above, beats a higher volume of thinner posts — both
-traditional SEO and AI-citation patterns reward depth-per-query. Revisit
-each article at ~90 days: check what queries it's actually getting found
-for, tighten the answer capsule, refresh the date.
+## 10. Review cadence
+
+Choose production cadence by reader value and review capacity, not an invented
+ranking benefit of a posting quota. Review published cohorts at declared 30/60/90
+day windows. Diagnose accessibility, indexation, relevant impressions, clicks
+and qualified actions in that order. Compare comparable periods and rates,
+record seasonality and edits, and leave missing conversion data unknown.
 
 ## 11. Pre-publish gate
 
@@ -227,7 +199,7 @@ reduces this error class; it does not eliminate it. Keep doing a manual
 claim-and-tier read even on a fully tier-tagged config.
 
 **Automated gate:** run `scripts/check_article.py --draft <file> --config
-site-config.<project>.json --type <type> --query "<target query>" --strict` before publishing.
+site-config.<project>.json --type <type> --query "<target query>" --manifest <reviewed.json> --brief <brief.json> --strict` before publishing.
 Generation runs the same checks and writes non-PASS drafts only to
 `output/.quarantine/` with a JSON receipt; it returns non-zero. The gate catches
 config/evidence shape, placeholders, H1/query mismatch, coming-soon and
@@ -318,3 +290,15 @@ this, not one:
    patterns across H2s. A fresh context has no stake in the text it
    didn't write, which is why it catches what a same-context self-critique
    misses.
+
+## Dated primary-source basis
+
+Reviewed October 9, 2026 UTC (October 8 in Barbados):
+
+- [Google people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content): original value, clear sources, demonstrable experience, no preferred word count, no cosmetic date refreshing.
+- [Google generative-search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide): ordinary SEO and useful original material; no special AI markup or required writing style.
+- [Google image guidance](https://developers.google.com/search/docs/appearance/google-images): visible content, contextual captions and descriptive alt text.
+
+The numerical weights, length ranges, five-domain sampling and review cadence
+are Forge editorial policy. They are not Google rules or calibrated predictors.
+Refresh platform guidance against dated primary sources when it changes.

@@ -9,6 +9,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 
 import check_article
+from evidence_fixtures import bind_result
 
 CONFIG_NAME = "site-config.testproject.json"
 LEDGER_NAME = "claim-verification.testproject.json"
@@ -62,6 +63,14 @@ def entry(claim_id, status, checked_at):
 
 def write_ledger(tmp_path, results):
     path = tmp_path / LEDGER_NAME
+    config = json.loads((tmp_path / CONFIG_NAME).read_text())
+    claims = {c["claim_id"]: c for c in config.get("claim_evidence") or []}
+    results = [
+        bind_result(tmp_path, claims[r["claim_id"]], r)
+        if r["claim_id"] in claims
+        else r
+        for r in results
+    ]
     path.write_text(
         json.dumps(
             {
@@ -182,7 +191,7 @@ def test_no_claim_evidence_passes(tmp_path):
     status, detail = check_article.check_claim_ledger(config, path)
 
     assert status == "PASS"
-    assert "no claim_evidence" in detail
+    assert "no registry claims" in detail
 
 
 def test_missing_claim_evidence_key_passes(tmp_path):
@@ -219,11 +228,15 @@ def test_run_checks_omits_ledger_check_when_disabled(tmp_path):
     names = [
         name
         for name, _ in check_article.run_checks(
-            DRAFT_TEXT, "standard", "autonomous claim verification", config,
-            config_path=path, use_ledger=False,
+            DRAFT_TEXT,
+            "standard",
+            "autonomous claim verification",
+            config,
+            config_path=path,
+            use_ledger=False,
         )
     ]
-    assert "Claim verification ledger" not in names
+    assert "Claim verification ledger" in names
 
     names_no_path = [
         name
@@ -231,20 +244,24 @@ def test_run_checks_omits_ledger_check_when_disabled(tmp_path):
             DRAFT_TEXT, "standard", "autonomous claim verification", config
         )
     ]
-    assert "Claim verification ledger" not in names_no_path
+    assert "Claim verification ledger" in names_no_path
 
 
 def _run_main(tmp_path, monkeypatch, extra_args=()):
     config, path = make_config(tmp_path, ["claim-a"])
     write_ledger(tmp_path, [entry("claim-a", "unsupported", now_iso())])
     draft = tmp_path / "draft.md"
-    draft.write_text(DRAFT_TEXT, encoding="utf-8")
+    draft.write_text(DRAFT_TEXT + "\nclaim text for claim-a", encoding="utf-8")
     argv = [
         "check_article.py",
-        "--draft", str(draft),
-        "--config", path,
-        "--type", "standard",
-        "--query", "autonomous claim verification",
+        "--draft",
+        str(draft),
+        "--config",
+        path,
+        "--type",
+        "standard",
+        "--query",
+        "autonomous claim verification",
         *extra_args,
     ]
     monkeypatch.setattr(sys, "argv", argv)
@@ -266,10 +283,16 @@ def test_main_exits_1_on_unsupported_claim(tmp_path, monkeypatch, capsys):
     assert "claim-a" in out
 
 
-def test_main_no_ledger_flag_bypasses_the_hard_fail(tmp_path, monkeypatch):
+def test_main_no_ledger_flag_is_diagnostic_and_blocks_ready_status(
+    tmp_path, monkeypatch
+):
     main = _run_main(tmp_path, monkeypatch, extra_args=("--no-ledger",))
 
     try:
         main()
     except SystemExit as exc:
-        raise AssertionError(f"expected no hard fail with --no-ledger, got SystemExit({exc.code})")
+        assert exc.code == 1
+    else:
+        raise AssertionError(
+            "disabled verification must not produce a passing exit code"
+        )

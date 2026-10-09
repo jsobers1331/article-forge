@@ -1,0 +1,21 @@
+{
+  "schema_version": "article-forge.implementation-validation.v1",
+  "recorded_at": "2026-10-09T02:26:01.175150+00:00",
+  "base_commit": "ebe91eec6a8833797c291e11e9b42fa687af4e28",
+  "branch": "fix/seo-evidence-system-20261009",
+  "baseline_pytest_passed": 224,
+  "targeted_pre_fix_failures": 11,
+  "implementation_pytest_passed": 343,
+  "ruff_lint": "pass",
+  "ci_formatting": "pass",
+  "compileall": "pass",
+  "diff_check": "pass",
+  "provider_mode": "stubbed",
+  "live_effectiveness_measured": false,
+  "publication_or_deployment_performed": false,
+  "limits": [
+    "Synthetic fixtures verify mechanics, not causal search performance.",
+    "Exact human semantic review is required.",
+    "30/60/90-day live cohorts remain unmeasured."
+  ]
+}

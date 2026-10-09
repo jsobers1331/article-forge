@@ -25,7 +25,10 @@ from score_article import (  # noqa: E402
     _norm,
     _phrase_covered,
     consensus_items,
+    dedupe_competitors,
 )
+
+from serp_contract import validate_snapshot, policy_for  # noqa: E402
 
 SEED_TEMPLATES = [
     "what is {category_frame}",
@@ -75,18 +78,7 @@ def dedupe_by_domain(competitors):
     """One entry per distinct domain — the same domain ranking twice in one
     cluster is one data point, not two (pooling duplicates inflates
     consensus counts without adding real independent signal)."""
-    seen = {}
-    for c in competitors:
-        domain = (
-            c.get("domain")
-            or re.sub(r"^https?://(www\.)?", "", c.get("url", "")).split("/")[0]
-        )
-        domain = domain.lower().split(":", 1)[0].removeprefix("www.")
-        if domain not in seen or c.get("position", 999) < seen[domain].get(
-            "position", 999
-        ):
-            seen[domain] = c
-    return list(seen.values())
+    return dedupe_competitors(competitors)
 
 
 def cluster_consensus(cluster, key):
@@ -215,10 +207,16 @@ def build_market_language(config, clusters):
 
 
 def build_report(config, snapshot):
-    clusters = snapshot.get("clusters", [])
+    raw_clusters = snapshot.get("clusters", [])
+    validations = [
+        validate_snapshot(c, c.get("keyword"), policy_for(config)) for c in raw_clusters
+    ]
+    clusters = [c for c, v in zip(raw_clusters, validations) if v["valid"]]
     cross_cluster, single_cluster = build_gap_candidates(config, clusters)
     market_language = build_market_language(config, clusters)
     return {
+        "evidence_validation": validations,
+        "invalid_clusters": sum(not v["valid"] for v in validations),
         "disclaimer": (
             "These are coverage-gap candidates based on lexical overlap with today's "
             "top-ranking competitor pages for the seed keywords searched. No search-volume, "

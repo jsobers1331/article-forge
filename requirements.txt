@@ -3,3 +3,5 @@ Pillow
 google-auth-oauthlib
 google-api-python-client
 google-ads
+
+publicsuffix2==2.20191221

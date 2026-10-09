@@ -1,4 +1,5 @@
 import json
+from evidence_fixtures import valid_snapshot
 import subprocess
 import sys
 from datetime import date, timedelta
@@ -176,9 +177,9 @@ def test_consensus_requires_independent_sample_and_sixty_percent():
         [competitor("a.example.com"), competitor("b.example.com")], "subtopics"
     )
     assert item == set()
-    assert counts["client portal"] == 2
+    assert counts["client portal"] == 1  # Sibling hosts are one registrable domain.
 
-    competitors = [competitor(f"{letter}.example.com") for letter in "abcde"]
+    competitors = [competitor(f"{letter}example.com") for letter in "abcde"]
     competitors[-1]["subtopics"] = ["different topic"]
     item, _ = consensus_items(competitors, "subtopics")
     assert CONSENSUS_MIN_PAGES == 5
@@ -191,7 +192,7 @@ def test_consensus_dedupes_same_domain():
         competitor("same.example.com", position=1),
         competitor("same.example.com", position=2),
     ]
-    competitors.extend(competitor(f"{letter}.example.com") for letter in "abcd")
+    competitors.extend(competitor(f"{letter}example.com") for letter in "abcd")
     item, counts = consensus_items(competitors, "subtopics")
     assert "client portal" in item
     assert counts["client portal"] == 5
@@ -323,11 +324,13 @@ def test_config_requires_evidence_registry_for_generation():
             }
         ],
     }
-    assert check_claim_evidence(external)[0] == "FAIL"
+    assert (
+        check_claim_evidence(external)[0] == "PASS"
+    )  # Independent research sources are allowed.
 
 
 def test_eeat_does_not_award_generic_brand_language():
-    assert score_eeat("Updated. This is our overview.", False, False) < 100
+    assert score_eeat("Updated. This is our overview.", False, False) is None
     assert (
         score_eeat(
             "Updated. We tested this on 2026-09-03.",
@@ -335,14 +338,14 @@ def test_eeat_does_not_award_generic_brand_language():
             False,
             has_first_hand_evidence=True,
         )
-        > 20
+        is None
     )
 
 
 def test_linking_does_not_require_fixed_counts_or_accept_spoofed_host():
     score, notes = score_linking("A short draft with no links.", "shootmuse.com")
-    assert score == 100
-    assert notes == []
+    assert score is None
+    assert notes
     score, _ = score_linking(
         "[spoof](https://shootmuse.com.evil.example/claim)", "shootmuse.com"
     )
@@ -425,11 +428,14 @@ We tested this workflow on 2026-09-03. Read the [pricing page](https://example.c
     )
     assert result["score_kind"] == "readiness"
     assert result["evidence_status"] == "serp_snapshot_missing"
-    assert 0 <= result["total_score"] <= 100
+    assert (
+        result["total_score"] is None
+    )  # E-E-A-T cannot be inferred from self-declared flags.
     assert result["unassessed_pillars"] == [
         "intent_match",
         "topical_comprehensiveness",
         "entity_coverage",
+        "eeat",
     ]
     assert any(
         item["category"] == "research_evidence" for item in result["improvements"]
@@ -471,7 +477,7 @@ Avoid features that add maintenance without helping the workflow.
 
 def test_insufficient_serp_report_uses_actual_domain_count():
     snapshot = {
-        "competitors": [competitor(f"{letter}.example.org") for letter in "abcd"]
+        "competitors": [competitor(f"{letter}example.org") for letter in "abcd"]
     }
     result = score_for_report(
         "# Draft\n\n*Last updated: September 2026.*",
@@ -484,8 +490,9 @@ def test_insufficient_serp_report_uses_actual_domain_count():
         for item in result["improvements"]
         if item["category"] == "research_evidence"
     )
-    assert "supplied: 4" in evidence
-    assert result["evidence_status"] == "serp_snapshot_insufficient"
+    assert "insufficient independent-domain sample" in evidence
+    assert result["competitor_count"] == 4
+    assert result["evidence_status"] == "serp_snapshot_invalid"
 
 
 def test_serp_report_turns_consensus_gaps_into_fix_actions():
@@ -493,7 +500,7 @@ def test_serp_report_turns_consensus_gaps_into_fix_actions():
         "serp_intent": "informational",
         "competitors": [
             competitor(
-                f"{letter}.example.org",
+                f"{letter}example.org",
                 subtopics=["budget planning", "privacy settings"],
                 entities=["YNAB", "Monarch"],
             )
@@ -510,6 +517,7 @@ This guide covers budget planning for choosing a photography CRM and explains th
 
 Start with budget planning and test the workflow against a real example.
 """
+    snapshot = valid_snapshot(pages=snapshot["competitors"])
     result = score_for_report(
         article,
         snapshot,
@@ -535,11 +543,18 @@ def test_generated_article_report_is_persisted_for_pass_and_quarantine(tmp_path)
         "# How to choose a photography CRM\n\n*Last updated: September 2026.*\n",
         config,
         topic,
-        [("Rule", ("PASS", "ok"))],
+        [
+            (name, ("PASS", "synthetic gate fixture"))
+            for name in (
+                "Claim verification ledger",
+                "Final-draft claim coverage",
+                "Evidence-led brief",
+            )
+        ],
     )
 
     passed, passing_path, _ = persist_checked_article(
-        "# Draft",
+        "# How to choose a photography CRM\n\n*Last updated: September 2026.*\n",
         tmp_path / "passing",
         "draft",
         [("Rule", ("PASS", "ok"))],
@@ -551,7 +566,7 @@ def test_generated_article_report_is_persisted_for_pass_and_quarantine(tmp_path)
     passing_report = json.loads(
         passing_path.with_suffix(".report.json").read_text(encoding="utf-8")
     )
-    assert passing_report["score"]["total_score"] >= 0
+    assert passing_report["score"]["total_score"] is None  # Linking evidence is absent.
     assert "improvements" not in passing_report["score"]
     assert "Score meaning:" in passing_path.with_suffix(".report.md").read_text(
         encoding="utf-8"
@@ -633,6 +648,7 @@ Review the result, then make a deliberate migration plan.
     report_json = tmp_path / "report.json"
     report_markdown = tmp_path / "report.md"
 
+    snapshot_path.write_text(json.dumps(valid_snapshot()))
     result = subprocess.run(
         [
             sys.executable,
@@ -651,10 +667,11 @@ Review the result, then make a deliberate migration plan.
             "--report-markdown",
             str(report_markdown),
         ],
-        check=True,
+        check=False,
         text=True,
         capture_output=True,
     )
+    assert result.returncode == 1  # --no-ledger cannot claim review readiness.
 
     payload = json.loads(report_json.read_text(encoding="utf-8"))
     assert "TOTAL SCORE:" in result.stdout
@@ -703,7 +720,7 @@ def test_generate_article_cli_emits_report_on_quarantine_path(
     except SystemExit as error:
         assert error.code == 1
     captured = capsys.readouterr()
-    assert "Article score:" in captured.err
+    assert "Article assessment:" in captured.err
     reports = list((out_dir / ".quarantine").glob("*.report.json"))
     assert len(reports) == 1
     report = json.loads(reports[0].read_text(encoding="utf-8"))

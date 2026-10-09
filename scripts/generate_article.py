@@ -11,13 +11,17 @@ import os
 import re
 import sys
 import tempfile
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from call_llm import PROVIDERS, call_llm
-from check_article import check_fabrication_placeholders, run_checks
+from check_article import check_fabrication_placeholders, run_checks, load_claim_ledger
+from claim_manifest import propose_manifest
+from evidence_contract import object_hash
+from serp_contract import snapshot_gate
 from generate_prompt import REPO_ROOT, load_config, pick_topic, render
 from score_article import build_article_report, render_report_markdown
 
@@ -172,10 +176,27 @@ def persist_checked_article(
     the failure reproducible without retaining credentials or the API request.
     """
     out_dir = _safe_output_dir(out_dir, config_path)
+    if report is not None and report.get("provenance", {}).get(
+        "draft_sha256"
+    ) != _sha256_text(article):
+        raise ValueError("report does not bind the exact persisted draft")
     payload = _checks_payload(checks)
     # WARN is intentionally held in quarantine too: only an all-PASS draft may
     # enter normal output, matching the repo's fail-closed publication contract.
     non_pass = [item for item in payload if item["status"] != "PASS"]
+    if (
+        report is not None
+        and report.get("publication_status") == "blocked"
+        and not non_pass
+    ):
+        payload.append(
+            {
+                "name": "Report evidence gate",
+                "status": "WARN",
+                "detail": "Report is blocked",
+            }
+        )
+        non_pass = payload[-1:]
     if non_pass:
         draft_path = _unique_quarantine_path(out_dir, slug)
         _atomic_write(draft_path, article)
@@ -197,6 +218,23 @@ def persist_checked_article(
     target = _target_path(out_dir, slug, force=force)
     _persist_report(target, report)
     _atomic_write(target, article)
+    _atomic_write(
+        target.with_suffix(".provenance.json"),
+        json.dumps(
+            {
+                "schema_version": "article-forge.draft-receipt.v1",
+                "draft_sha256": _sha256_text(article),
+                "prompt_sha256": _sha256_text(prompt),
+                "config_sha256": hashlib.sha256(
+                    Path(config_path).read_bytes()
+                ).hexdigest(),
+                "checks": payload,
+                "provenance": (report or {}).get("provenance"),
+            },
+            indent=2,
+        )
+        + "\n",
+    )
     return True, target, payload
 
 
@@ -229,6 +267,12 @@ def main():
         action="store_true",
         help="Replace an existing passing draft; never bypass checks",
     )
+    parser.add_argument(
+        "--review-draft",
+        help="Recheck an exact quarantined draft locally without a writer call",
+    )
+    parser.add_argument("--manifest", help="Reviewed manifest bound to the final draft")
+    parser.add_argument("--brief", help="Evidence-led editorial brief JSON")
     args = parser.parse_args()
 
     direct_topic_args = [
@@ -258,15 +302,39 @@ def main():
         if args.opportunity_plan
         else pick_topic(config, args.topic_index, args.title, args.query, args.type)
     )
+    if args.brief:
+        topic["editorial_brief"] = json.loads(Path(args.brief).read_text())
+    brief = topic.get("editorial_brief")
+    if (
+        isinstance(brief, dict)
+        and (brief.get("page_decision") or {}).get("action") == "defer"
+    ):
+        raise SystemExit("Reviewed page decision is defer; generation held")
+    if snapshot is not None:
+        status, reason = snapshot_gate(snapshot, topic.get("target_query", ""), config)
+        if status != "PASS":
+            raise SystemExit("SERP snapshot rejected before provider call: " + reason)
     prompt = render(config, topic)
     slug = slugify(topic.get("target_query", topic.get("title", "article")))
     out_dir = _safe_output_dir(args.out_dir, args.config)
     _target_path(out_dir, slug, force=args.force)
 
-    print(f"Calling {args.provider}...", file=sys.stderr)
-    article = call_llm(prompt, provider=args.provider, model=args.model)
+    if args.review_draft:
+        article = Path(args.review_draft).read_text(encoding="utf-8")
+    else:
+        print(f"Calling {args.provider}...", file=sys.stderr)
+        article = call_llm(prompt, provider=args.provider, model=args.model)
+    manifest = json.loads(Path(args.manifest).read_text()) if args.manifest else None
     checks = run_checks(
-        article, topic.get("type", "standard"), topic.get("target_query", ""), config
+        article,
+        topic.get("type", "standard"),
+        topic.get("target_query", ""),
+        config,
+        config_path=args.config,
+        manifest=manifest,
+        snapshot=snapshot,
+        brief=brief,
+        brief_root=Path(args.brief or args.config).parent,
     )
     report = build_article_report(
         article,
@@ -275,6 +343,43 @@ def main():
         checks,
         snapshot=snapshot,
         snapshot_source=args.snapshot,
+    )
+    origin = None
+    if args.review_draft:
+        source_report = Path(args.review_draft).with_suffix(".report.json")
+        if source_report.exists():
+            original_report = json.loads(source_report.read_text())
+            origin = original_report.get("provenance")
+            if not isinstance(origin, dict) or origin.get(
+                "draft_sha256"
+            ) != _sha256_text(article):
+                raise SystemExit(
+                    "Original generation receipt differs from review draft"
+                )
+    report["provenance"].update(
+        {
+            "prompt_sha256": _sha256_text(prompt),
+            "config_sha256": hashlib.sha256(Path(args.config).read_bytes()).hexdigest(),
+            "manifest_sha256": object_hash(manifest) if manifest else None,
+            "ledger_sha256": object_hash(load_claim_ledger(args.config)),
+            "forge_commit": subprocess.check_output(
+                ["git", "-C", str(REPO_ROOT), "rev-parse", "HEAD"], text=True
+            ).strip(),
+            "implementation_note": "Local working tree may contain uncommitted changes; commit before production handoff",
+            "brief_sha256": object_hash(brief) if brief else None,
+            "provider": (origin or {}).get("provider")
+            if args.review_draft
+            else args.provider,
+            "model": (origin or {}).get("model")
+            if args.review_draft
+            else (args.model or PROVIDERS[args.provider]["default_model"]),
+            "original_generation": origin,
+            "prompt_role": "review_context" if args.review_draft else "writer_prompt",
+            "candidate_id": args.candidate_id,
+            "opportunity_plan": args.opportunity_plan,
+            "human_review": (manifest or {}).get("human_review"),
+            "review_draft_source": args.review_draft,
+        }
     )
     passed, saved_path, payload = persist_checked_article(
         article,
@@ -286,9 +391,18 @@ def main():
         force=args.force,
         report=report,
     )
+    if manifest is None:
+        _atomic_write(
+            saved_path.with_suffix(".manifest-proposal.json"),
+            json.dumps(
+                propose_manifest(article, config, load_claim_ledger(args.config)),
+                indent=2,
+            )
+            + "\n",
+        )
     report_json, report_markdown = _report_paths(saved_path)
     print(
-        f"Article score: {report['score']['total_score']}/100 "
+        f"Article assessment: {report['score']['total_score'] if report['score']['total_score'] is not None else 'unassessed'} "
         f"[{report['score']['score_kind']}; {report['score']['evidence_status']}]",
         file=sys.stderr,
     )

@@ -970,20 +970,20 @@ def test_h1_missing_the_target_query_warns(site):
 # --- word count --------------------------------------------------------------
 
 
-def test_short_article_warns_below_the_band(site):
+def test_short_article_length_is_advisory(site):
     word_count = results_named(
         gate(site, build_page(body=filler_text(200))), "Word count"
     )[0]
-    assert word_count.status == "WARN"
-    assert "below the 1000-2000 band for 'standard'" in word_count.detail
+    assert word_count.status == "PASS"
+    assert "planning band 1000-2000" in word_count.detail
 
 
-def test_long_article_warns_above_the_band(site):
+def test_long_article_length_is_advisory(site):
     word_count = results_named(
         gate(site, build_page(body=filler_text(2400))), "Word count"
     )[0]
-    assert word_count.status == "WARN"
-    assert "above the 1000-2000 band" in word_count.detail
+    assert word_count.status == "PASS"
+    assert "planning band 1000-2000" in word_count.detail
 
 
 def test_supporting_articles_use_a_narrower_band(site):
@@ -991,8 +991,8 @@ def test_supporting_articles_use_a_narrower_band(site):
         gate(site, build_page(body=filler_text(1500)), article_type="supporting"),
         "Word count",
     )[0]
-    assert word_count.status == "WARN"
-    assert "above the 700-1400 band for 'supporting'" in word_count.detail
+    assert word_count.status == "PASS"
+    assert "planning band 700-1400" in word_count.detail
 
 
 # --- banned words ------------------------------------------------------------

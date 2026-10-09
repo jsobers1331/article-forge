@@ -16,6 +16,11 @@ import re
 import sys
 from datetime import date, datetime, timezone
 from urllib.parse import urlsplit
+from pathlib import Path
+from evidence_contract import age_days, binding_error
+from claim_manifest import check_manifest, used_ids
+from serp_contract import snapshot_gate
+from editorial_brief import check_brief
 
 DEFAULT_BAN_WORDS = [
     "delve",
@@ -94,7 +99,7 @@ def check_config_integrity(config):
     return "PASS", "config has the required product, facts, pages, and tier fields"
 
 
-def check_claim_evidence(config):
+def check_claim_evidence(config, used_claim_ids=None):
     """Require a provenance registry before a draft can leave quarantine."""
     evidence = config.get("claim_evidence")
     if evidence is None:
@@ -104,6 +109,17 @@ def check_claim_evidence(config):
         )
     if not isinstance(evidence, list):
         return "FAIL", "claim_evidence must be a list"
+    if used_claim_ids is not None:
+        evidence = [
+            e
+            for e in evidence
+            if isinstance(e, dict) and e.get("claim_id") in used_claim_ids
+        ]
+        if not evidence and not used_claim_ids:
+            return (
+                "PASS",
+                "no registry claims used; final-draft coverage is checked separately",
+            )
     if not evidence:
         return (
             "WARN",
@@ -111,25 +127,22 @@ def check_claim_evidence(config):
         )
     errors = []
     stale = []
+    seen_ids = set()
     for index, item in enumerate(evidence):
         if not isinstance(item, dict):
             errors.append(f"claim_evidence[{index}] must be an object")
             continue
         if not item.get("claim_id") or not item.get("claim"):
             errors.append(f"claim_evidence[{index}] needs claim_id and claim")
+        if item.get("claim_id") in seen_ids:
+            errors.append(f"duplicate claim_id: {item.get('claim_id')}")
+        seen_ids.add(item.get("claim_id"))
         source_url = item.get("source_url", "")
         parsed = urlsplit(source_url)
         if parsed.scheme not in {"http", "https"} or not parsed.hostname:
             errors.append(
                 f"claim_evidence[{index}] needs an absolute http(s) source_url"
             )
-        else:
-            source_host = parsed.hostname.lower().removeprefix("www.")
-            site_host = config.get("domain", "").lower().removeprefix("www.")
-            if not (source_host == site_host or source_host.endswith(f".{site_host}")):
-                errors.append(
-                    f"claim_evidence[{index}] source_url must be first-party for {config.get('domain', '')}"
-                )
         try:
             verified_on = date.fromisoformat(item.get("verified_on", ""))
         except (TypeError, ValueError):
@@ -137,7 +150,7 @@ def check_claim_evidence(config):
                 f"claim_evidence[{index}] needs verified_on in YYYY-MM-DD form"
             )
         else:
-            if (date.today() - verified_on).days > 30:
+            if not 0 <= (date.today() - verified_on).days <= 30:
                 stale.append(item.get("claim_id", str(index)))
         if item.get("status") != "verified":
             errors.append(
@@ -176,17 +189,10 @@ def word_count(text):
 def check_word_count(text, article_type):
     lo, hi = WORD_COUNT_RANGES.get(article_type, WORD_COUNT_RANGES["standard"])
     n = word_count(text)
-    if n < lo:
-        return (
-            "WARN",
-            f"word count {n} is below the {lo}-{hi} range for '{article_type}' — topic may be too narrow to stand alone",
-        )
-    if n > hi:
-        return (
-            "WARN",
-            f"word count {n} is above the {lo}-{hi} range for '{article_type}' — consider splitting into two articles",
-        )
-    return "PASS", f"word count {n} is within {lo}-{hi} for '{article_type}'"
+    return (
+        "PASS",
+        f"advisory length: {n} words; {lo}-{hi} is a planning range for {article_type}, not a gate",
+    )
 
 
 def check_banned_words(text, extra_ban_words):
@@ -297,7 +303,6 @@ def check_facts_freshness(config, max_age_days=30):
     return "PASS", f"verified_facts confirmed {age} day(s) ago"
 
 
-
 LEDGER_MAX_AGE_DAYS = 30
 
 
@@ -338,7 +343,9 @@ def _ledger_entry_age_days(entry):
     return (datetime.now(timezone.utc) - parsed).total_seconds() / 86400.0
 
 
-def check_claim_ledger(config, config_path, max_age_days=LEDGER_MAX_AGE_DAYS):
+def check_claim_ledger(
+    config, config_path, max_age_days=LEDGER_MAX_AGE_DAYS, used_claim_ids=None
+):
     """Turn the claim-verification ledger (scripts/verify_facts.py) into a gate.
 
     An unsupported claim is a HARD FAIL — the draft asserts something its own
@@ -348,18 +355,35 @@ def check_claim_ledger(config, config_path, max_age_days=LEDGER_MAX_AGE_DAYS):
     is a WARN.
     """
     claims = [
-        c for c in (config.get("claim_evidence") or [])
-        if isinstance(c, dict) and c.get("claim_id")
+        c
+        for c in (config.get("claim_evidence") or [])
+        if isinstance(c, dict)
+        and c.get("claim_id")
+        and (used_claim_ids is None or c["claim_id"] in used_claim_ids)
     ]
     path = ledger_path_for_config(config_path)
     if not claims:
-        return "PASS", "no claim_evidence configured — autonomous claim verification is opt-in (see AUTONOMY.md)"
+        return (
+            "PASS",
+            "no registry claims selected — final-draft manifest coverage is checked separately",
+        )
 
     ledger = load_claim_ledger(config_path)
     if ledger is None:
         return "WARN", (
             f"no usable claim-verification ledger at {path} — run "
             f"`python3 scripts/verify_facts.py --config {config_path}` before publishing"
+        )
+
+    ids = [
+        r.get("claim_id")
+        for r in ledger.get("results", [])
+        if isinstance(r, dict) and r.get("claim_id") in {c["claim_id"] for c in claims}
+    ]
+    if len(ids) != len(set(ids)):
+        return (
+            "FAIL",
+            "duplicate ledger results for used claim IDs; re-verify the evidence registry",
         )
 
     results_by_id = {
@@ -376,20 +400,27 @@ def check_claim_ledger(config, config_path, max_age_days=LEDGER_MAX_AGE_DAYS):
             missing.append(claim_id)
             continue
         status = result.get("status")
-        age = _ledger_entry_age_days(result)
+        age = age_days(result.get("checked_at"))
         if status == "unsupported":
             unsupported.append(claim_id)
         elif status != "verified":
             inconclusive.append(claim_id)
-        elif age is None or age > max_age_days:
+        elif age is None or age < 0 or age > max_age_days:
             stale.append(claim_id)
+        elif binding_error(
+            claim, result, ledger.get("evidence_root") or Path(config_path).parent
+        ):
+            missing.append(
+                claim_id + " (legacy or changed binding/snapshot; re-verify)"
+            )
 
     if unsupported:
         return "FAIL", (
-            "unsupported claim(s): " + ", ".join(unsupported)
+            "unsupported claim(s): "
+            + ", ".join(unsupported)
             + " — the source does not support the claim. Replace each with "
-              "`<!-- PLACEHOLDER: claim <id> not verifiable -->` or remove the claim, "
-              "then re-run scripts/verify_facts.py."
+            "`<!-- PLACEHOLDER: claim <id> not verifiable -->` or remove the claim, "
+            "then re-run scripts/verify_facts.py."
         )
     warnings = []
     if missing:
@@ -399,7 +430,9 @@ def check_claim_ledger(config, config_path, max_age_days=LEDGER_MAX_AGE_DAYS):
     if stale:
         warnings.append(f"stale (>{max_age_days}d): " + ", ".join(stale))
     if warnings:
-        return "WARN", "; ".join(warnings) + " — re-run scripts/verify_facts.py (see AUTONOMY.md)"
+        return "WARN", "; ".join(
+            warnings
+        ) + " — re-run scripts/verify_facts.py (see AUTONOMY.md)"
     return "PASS", f"all {len(claims)} claim(s) verified by the ledger"
 
 
@@ -423,8 +456,8 @@ def check_structured_element(text):
         kind = "table" if has_table else "numbered list"
         return "PASS", f"found a structured element ({kind})"
     return (
-        "WARN",
-        "no markdown table or numbered list found — RULES.md §2 wants at least one structured element",
+        "PASS",
+        "no structured element; use tables or steps only when the reader task benefits",
     )
 
 
@@ -652,16 +685,32 @@ def check_tier_gated_mentions(text, real_differentiators):
     return "PASS", "tier-gated mentions carry nearby plan evidence"
 
 
-def run_checks(text, article_type, target_query, config, config_path=None, use_ledger=True):
+def run_checks(
+    text,
+    article_type,
+    target_query,
+    config,
+    config_path=None,
+    use_ledger=True,
+    manifest=None,
+    snapshot=None,
+    brief=None,
+    brief_root=None,
+):
     voice = config.get("voice", {})
     real_differentiators = config.get("verified_facts", {}).get(
         "real_differentiators", []
     )
 
+    ids = used_ids(text, manifest, config)
+    ledger = load_claim_ledger(config_path) if config_path else None
+    root = (ledger or {}).get("evidence_root") or (
+        Path(config_path).parent if config_path else Path(__file__).resolve().parents[1]
+    )
     checks = [
         ("Config integrity", check_config_integrity(config)),
         ("Facts freshness", check_facts_freshness(config)),
-        ("Claim evidence registry", check_claim_evidence(config)),
+        ("Claim evidence registry", check_claim_evidence(config, ids)),
         ("Dateline freshness", check_current_month_year(config)),
         ("Fabrication/placeholder gate", check_fabrication_placeholders(text)),
         ("Visible opening-function labels", check_visible_function_labels(text)),
@@ -678,12 +727,62 @@ def run_checks(text, article_type, target_query, config, config_path=None, use_l
         ("Word count", check_word_count(text, article_type)),
         ("Banned words", check_banned_words(text, voice.get("extra_ban_words", []))),
         ("Structured element present", check_structured_element(text)),
-        ("Process structure", check_process_structure(text, target_query)),
+        (
+            "Process structure",
+            check_process_structure(text, target_query)
+            if isinstance(brief, dict) and brief.get("requires_ordered_steps") is True
+            else ("PASS", "ordered steps not required by the reviewed reader task"),
+        ),
         ("Tier-gating mentions", check_tier_gated_mentions(text, real_differentiators)),
         ("Structural repetition (heuristic)", check_structural_repetition(text)),
     ]
     if use_ledger and config_path:
-        checks.insert(2, ("Claim verification ledger", check_claim_ledger(config, config_path)))
+        checks.insert(
+            2,
+            (
+                "Claim verification ledger",
+                check_claim_ledger(config, config_path, used_claim_ids=ids),
+            ),
+        )
+    elif use_ledger:
+        checks.insert(
+            2,
+            (
+                "Claim verification ledger",
+                (
+                    "WARN",
+                    "config_path missing; ledger verification cannot be performed",
+                ),
+            ),
+        )
+    else:
+        checks.insert(
+            2,
+            (
+                "Claim verification ledger",
+                ("WARN", "ledger verification disabled; diagnostic output only"),
+            ),
+        )
+    checks.append(
+        (
+            "Evidence-led brief",
+            check_brief(
+                brief,
+                target_query,
+                brief_root or (Path(config_path).parent if config_path else root),
+            ),
+        )
+    )
+    checks.append(
+        (
+            "Final-draft claim coverage",
+            check_manifest(text, manifest, config, ledger, root),
+        )
+    )
+    if snapshot is not None:
+        checks.append(
+            ("SERP evidence contract", snapshot_gate(snapshot, target_query, config))
+        )
     return checks
 
 
@@ -713,8 +812,11 @@ def main():
     parser.add_argument(
         "--no-ledger",
         action="store_true",
-        help="Skip the claim-verification ledger check (bypasses the unsupported-claim hard fail)",
+        help="Diagnostic only: skipped verification stays WARN and blocks a passing exit",
     )
+    parser.add_argument("--manifest", help="Reviewed claim-to-sentence manifest JSON")
+    parser.add_argument("--brief", help="Evidence-led editorial brief JSON")
+    parser.add_argument("--snapshot", help="Versioned SERP snapshot JSON")
     args = parser.parse_args()
 
     with open(args.draft, "r", encoding="utf-8") as f:
@@ -722,13 +824,26 @@ def main():
     with open(args.config, "r", encoding="utf-8") as f:
         config = json.load(f)
 
-    checks = run_checks(text, args.type, args.query, config, config_path=args.config, use_ledger=not args.no_ledger)
+    manifest = json.loads(Path(args.manifest).read_text()) if args.manifest else None
+    snapshot = json.loads(Path(args.snapshot).read_text()) if args.snapshot else None
+    checks = run_checks(
+        text,
+        args.type,
+        args.query,
+        config,
+        config_path=args.config,
+        use_ledger=not args.no_ledger,
+        manifest=manifest,
+        snapshot=snapshot,
+        brief=json.loads(Path(args.brief).read_text()) if args.brief else None,
+        brief_root=Path(args.brief).parent if args.brief else None,
+    )
 
     blocked = False
     for name, (status, detail) in checks:
         marker = {"PASS": "✓", "WARN": "⚠", "FAIL": "✗"}[status]
         print(f"{marker} [{status}] {name}: {detail}")
-        if status == "FAIL" or (args.strict and status == "WARN"):
+        if status != "PASS":
             blocked = True
 
     print()
@@ -741,7 +856,7 @@ def main():
         print("HARD FAIL — resolve the failures before publishing.")
         sys.exit(1)
     print(
-        "No hard failures. WARN items still need a human read against RULES.md/IMAGES.md before publishing."
+        "All checks passed. Human publication approval and factual/visual review remain required."
     )
 
 
