@@ -24,3 +24,13 @@ output/.quarantine/
 # Autonomous verification artifacts (local, dated evidence)
 claim-verification.*.json
 evidence/
+
+# Local evidence-led editorial and outcome artifacts
+claim-manifest.*.json
+editorial-brief.*.json
+publication-registry.*.json
+publication-registry.*.json.lock
+outcome-review.*.json
+workflow-evaluation.*.json
+workflow-scorecard.*.json
+output/*.json

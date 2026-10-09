@@ -27,6 +27,7 @@ OPENAI_API_KEY, deepseek → DEEPSEEK_API_KEY).
 """
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -40,6 +41,7 @@ from urllib.request import Request, urlopen
 from dotenv import load_dotenv
 
 from call_llm import PROVIDERS, call_llm
+from evidence_contract import LEDGER_SCHEMA, binding_error, claim_fingerprint, text_hash
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -199,36 +201,50 @@ def fetch_url(url):
 
 def read_local_source(rel_path):
     full_path = os.path.normpath(os.path.join(REPO_ROOT, rel_path))
-    with open(full_path, "r", encoding="utf-8", errors="replace") as handle:
-        return handle.read()
+    with open(full_path, "rb") as handle:
+        raw = handle.read()
+    text = (
+        raw.decode("utf-8", errors="replace")
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+    )
+    return text, hashlib.sha256(raw).hexdigest()
 
 
 def acquire_source(entry):
-    """Return (raw_text, source_label, http_status_or_local, error_note)."""
+    """Return text, source identity/status, error and the acquired source hash."""
     local_rel = entry.get("source_local")
     if local_rel:
         try:
-            raw = read_local_source(local_rel)
+            raw, raw_hash = read_local_source(local_rel)
         except OSError as exc:
-            return None, local_rel, local_rel, f"could not read source_local {local_rel}: {exc}"
-        return raw, local_rel, local_rel, None
+            return (
+                None, local_rel, local_rel,
+                f"could not read source_local {local_rel}: {exc}", None,
+            )
+        return raw, local_rel, local_rel, None, raw_hash
     url = entry.get("source_url")
     if not url:
-        return None, "(no source)", None, "claim has neither source_local nor source_url"
+        return (
+            None, "(no source)", None,
+            "claim has neither source_local nor source_url", None,
+        )
     text, status = fetch_url(url)
     if text is None:
-        return None, url, status, f"fetch failed ({status})"
-    return text, url, status, None
+        return None, url, status, f"fetch failed ({status})", None
+    return text, url, status, None, text_hash(text)
 
 
 def snapshot_rel_path(slug, claim_id, checked_at):
     safe_id = re.sub(r"[^A-Za-z0-9._-]", "_", claim_id)
     day = checked_at[:10].replace("-", "")
-    return f"evidence/{slug}/{safe_id}-{day}.txt"
+    return f"evidence/{slug}/{safe_id}-{day}-{text_hash(checked_at)[:12]}.txt"
 
 
 def write_snapshot(slug, claim_id, checked_at, text):
-    rel_path = snapshot_rel_path(slug, claim_id, checked_at)
+    rel_path = snapshot_rel_path(slug, claim_id, checked_at).replace(
+        ".txt", f"-{text_hash(text)[:16]}.txt"
+    )
     full_path = os.path.join(REPO_ROOT, rel_path)
     os.makedirs(os.path.dirname(full_path), exist_ok=True)
     with open(full_path, "w", encoding="utf-8") as handle:
@@ -284,14 +300,9 @@ def parse_judgment(raw):
 
 
 def quotes_in_source(quotes, source_text):
-    flat_source = " ".join(source_text.split())
-    for quote in quotes:
-        quote = quote.strip()
-        if len(quote) < 4:
-            continue
-        if quote in source_text or " ".join(quote.split()) in flat_source:
-            return True
-    return False
+    return bool(quotes) and all(
+        len(q.strip()) >= 4 and q.strip() in source_text for q in quotes
+    )
 
 
 def currency_amounts(text):
@@ -354,11 +365,11 @@ def numeric_mismatch(claim, source_text):
     if not claim_prices:
         return None
     source_prices = jsonld_offer_prices(source_text)
-    if not source_prices or claim_prices & source_prices:
+    if not source_prices or claim_prices <= source_prices:
         return None
     return (
         "numeric cross-check: claim amounts "
-        f"{sorted(claim_prices)} share no value with structured-data prices "
+        f"{sorted(claim_prices)} are not all present in structured-data prices "
         f"{sorted(source_prices)}"
     )
 
@@ -373,11 +384,13 @@ def judge_claim(claim, scope, source_label, source_text, provider=None, model=No
             temperature=0.0,
             max_tokens=1500,
         )
-    except Exception as exc:  # an LLM/network failure is reported, not fatal
+    except (
+        Exception
+    ):  # Provider exception text can include credentials; never retain it.
         return {
             "status": "inconclusive",
             "evidence_quotes": [],
-            "missing_aspects": [f"LLM call failed: {exc}"],
+            "missing_aspects": ["LLM call failed; no provider exception text retained"],
         }
     judgment = parse_judgment(raw)
     if judgment is None:
@@ -386,9 +399,13 @@ def judge_claim(claim, scope, source_label, source_text, provider=None, model=No
             "evidence_quotes": [],
             "missing_aspects": ["verifier output was not strict JSON"],
         }
-    if judgment["status"] == "verified" and not quotes_in_source(judgment["evidence_quotes"], source_text):
+    if judgment["status"] == "verified" and not quotes_in_source(
+        judgment["evidence_quotes"], source_text
+    ):
         judgment["status"] = "inconclusive"
-        judgment["missing_aspects"].append("verified verdict had no quote matching the source")
+        judgment["missing_aspects"].append(
+            "verified verdict had no quote matching the source"
+        )
     mismatch = numeric_mismatch(claim, source_text)
     if mismatch:
         if judgment["status"] == "verified":
@@ -398,21 +415,14 @@ def judge_claim(claim, scope, source_label, source_text, provider=None, model=No
 
 
 def entry_age_days(entry, now):
-    checked_at = entry.get("checked_at")
-    if not isinstance(checked_at, str):
-        return None
-    try:
-        parsed = datetime.fromisoformat(checked_at)
-    except ValueError:
-        return None
-    if parsed.tzinfo is None:
-        parsed = parsed.replace(tzinfo=timezone.utc)
-    return (now - parsed).total_seconds() / 86400.0
+    from evidence_contract import age_days
+
+    return age_days(entry.get("checked_at"), now)
 
 
 def is_fresh(entry, now, max_age_days):
     age = entry_age_days(entry, now)
-    return age is not None and age < max_age_days
+    return age is not None and 0 <= age < max_age_days
 
 
 def make_result(claim_id, judgment, source_label, status_field, checked_at, snapshot_path):
@@ -432,7 +442,9 @@ def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Verify claim_evidence entries against their sources and write a claim-verification ledger."
     )
-    parser.add_argument("--config", required=True, help="Path to a site-config JSON file")
+    parser.add_argument(
+        "--config", required=True, help="Path to a site-config JSON file"
+    )
     parser.add_argument(
         "--claim-id",
         help="Verify only this claim (always re-checks it, ignoring the freshness window)",
@@ -514,28 +526,50 @@ def main(argv=None):
 
         if args.claim_id and claim_id != args.claim_id:
             if previous is not None:
-                results.append(previous)
+                preserved = dict(previous)
+                if binding_error(entry, previous, REPO_ROOT):
+                    preserved["status"] = "inconclusive"
+                    preserved["missing_aspects"] = [
+                        "binding invalid outside requested scope; re-verify"
+                    ]
+                results.append(preserved)
                 print(f"– {claim_id}: preserved (outside --claim-id scope)")
             else:
-                print(f"– {claim_id}: skipped (outside --claim-id scope, no ledger entry yet)")
+                print(
+                    f"– {claim_id}: skipped (outside --claim-id scope, no ledger entry yet)"
+                )
             continue
 
         forced = claim_id == args.claim_id
-        if previous is not None and not forced and is_fresh(previous, now, args.max_age_days):
+        if (
+            previous is not None
+            and not forced
+            and is_fresh(previous, now, args.max_age_days)
+            and not binding_error(entry, previous, REPO_ROOT)
+        ):
             carried_entry = dict(previous)
             carried_entry["carried_forward"] = True
             results.append(carried_entry)
             carried += 1
-            print(f"↻ {claim_id}: carried forward (checked {previous.get('checked_at')})")
+            print(
+                f"↻ {claim_id}: carried forward (checked {previous.get('checked_at')})"
+            )
             continue
 
-        planned = entry.get("source_local") or entry.get("source_url") or "(no source configured)"
+        planned = (
+            entry.get("source_local")
+            or entry.get("source_url")
+            or "(no source configured)"
+        )
         if args.dry_run:
             action = "re-verify" if previous is not None else "verify"
             print(f"• {claim_id}: would {action} against {planned}")
             continue
 
-        raw_source, source_label, status_field, error_note = acquire_source(entry)
+        source_text = None
+        raw_source, source_label, status_field, error_note, raw_hash = acquire_source(
+            entry
+        )
         if error_note:
             judgment = {
                 "status": "inconclusive",
@@ -549,7 +583,9 @@ def main(argv=None):
                 snapshot_path = write_snapshot(slug, claim_id, now_iso, source_text)
             except OSError as exc:
                 snapshot_path = None
-                sys.stderr.write(f"Warning: could not write snapshot for {claim_id}: {exc}\n")
+                sys.stderr.write(
+                    f"Warning: could not write snapshot for {claim_id}: {exc}\n"
+                )
             judgment = judge_claim(
                 entry.get("claim") or "",
                 entry.get("verification_scope") or "",
@@ -559,10 +595,31 @@ def main(argv=None):
                 model=args.model,
             )
 
-        result = make_result(claim_id, judgment, source_label, status_field, now_iso, snapshot_path)
+        result = make_result(
+            claim_id, judgment, source_label, status_field, now_iso, snapshot_path
+        )
+        result.update(
+            {
+                "claim_fingerprint": claim_fingerprint(entry),
+                "snapshot_sha256": text_hash(source_text)
+                if source_text is not None
+                else None,
+                "source_truncated": source_text is not None
+                and len(source_text) > MAX_SOURCE_CHARS,
+                "source_raw_sha256": raw_hash,
+                "provider": args.provider,
+                "model": args.model,
+                "limitations": "Model entailment is advisory; exact quotes/numbers and human semantic review remain required.",
+            }
+        )
+        if result["status"] == "verified" and not snapshot_path:
+            result["status"] = "inconclusive"
+            result["missing_aspects"].append("snapshot was not persisted")
         results.append(result)
         checked_now += 1
-        print(f"{STATUS_MARKERS.get(result['status'], '?')} {claim_id}: {result['status']} ({source_label})")
+        print(
+            f"{STATUS_MARKERS.get(result['status'], '?')} {claim_id}: {result['status']} ({source_label})"
+        )
         for aspect in result["missing_aspects"]:
             print(f"    -> {aspect}")
 
@@ -571,6 +628,8 @@ def main(argv=None):
         return 0
 
     ledger_out = {
+        "schema_version": LEDGER_SCHEMA,
+        "evidence_root": os.path.abspath(REPO_ROOT),
         "generated_at": now_iso,
         "project": slug,
         "verifier": f"scripts/verify_facts.py (provider={args.provider}, model={args.model})",

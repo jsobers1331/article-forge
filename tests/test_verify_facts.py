@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 import pytest
 
 import verify_facts
+from evidence_fixtures import bind_result
 
 
 @pytest.fixture(autouse=True)
@@ -163,8 +164,16 @@ def test_fresh_entry_is_carried_forward_without_llm_call(tmp_path, monkeypatch):
         "missing_aspects": [],
         "snapshot_path": "evidence/demo/claim-a-20260101.txt",
     }
+    prior = bind_result(tmp_path, make_entry(), prior, "costs $10 per month")
     (tmp_path / "claim-verification.demo.json").write_text(
-        json.dumps({"generated_at": checked_at, "project": "demo", "verifier": "prior", "results": [prior]}),
+        json.dumps(
+            {
+                "generated_at": checked_at,
+                "project": "demo",
+                "verifier": "prior",
+                "results": [prior],
+            }
+        ),
         encoding="utf-8",
     )
 
@@ -178,7 +187,7 @@ def test_fresh_entry_is_carried_forward_without_llm_call(tmp_path, monkeypatch):
     result = read_ledger(tmp_path)["results"][0]
     assert result["carried_forward"] is True
     assert result["checked_at"] == checked_at
-    assert result["snapshot_path"] == "evidence/demo/claim-a-20260101.txt"
+    assert result["snapshot_path"] == prior["snapshot_path"]
 
 
 def test_stale_entry_is_reverified(tmp_path, monkeypatch):
@@ -237,15 +246,44 @@ def test_entries_for_dropped_claims_are_removed(tmp_path, monkeypatch):
     config = write_config(tmp_path, [make_entry("claim-a")])
     checked_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     prior = [
-        {"claim_id": "claim-a", "status": "verified", "checked_at": checked_at, "source": "x"},
-        {"claim_id": "claim-gone", "status": "verified", "checked_at": checked_at, "source": "x"},
+        {
+            "claim_id": "claim-a",
+            "status": "verified",
+            "checked_at": checked_at,
+            "source": "x",
+        },
+        {
+            "claim_id": "claim-gone",
+            "status": "verified",
+            "checked_at": checked_at,
+            "source": "x",
+        },
     ]
     (tmp_path / "claim-verification.demo.json").write_text(
-        json.dumps({"generated_at": checked_at, "project": "demo", "verifier": "prior", "results": prior}),
+        json.dumps(
+            {
+                "generated_at": checked_at,
+                "project": "demo",
+                "verifier": "prior",
+                "results": prior,
+            }
+        ),
         encoding="utf-8",
     )
-    monkeypatch.setattr(verify_facts, "fetch_url", lambda url: (_ for _ in ()).throw(AssertionError("fetched")))
-    monkeypatch.setattr(verify_facts, "call_llm", lambda *a, **k: (_ for _ in ()).throw(AssertionError("judged")))
+    prior[0] = bind_result(tmp_path, make_entry(), prior[0])
+    (tmp_path / "claim-verification.demo.json").write_text(
+        json.dumps({"results": prior})
+    )
+    monkeypatch.setattr(
+        verify_facts,
+        "fetch_url",
+        lambda url: (_ for _ in ()).throw(AssertionError("fetched")),
+    )
+    monkeypatch.setattr(
+        verify_facts,
+        "call_llm",
+        lambda *a, **k: (_ for _ in ()).throw(AssertionError("judged")),
+    )
 
     assert verify_facts.main(["--config", str(config)]) == 0
     ids = [r["claim_id"] for r in read_ledger(tmp_path)["results"]]
@@ -472,3 +510,33 @@ def test_jsonld_offer_prices_reads_nested_offers_and_ignores_microdata():
     assert verify_facts.currency_amounts("$1,000 and $1,750.50") == {1000.0, 1750.5}
     assert verify_facts.numeric_mismatch("Costs $2,500.", source) is not None
     assert verify_facts.numeric_mismatch("Costs $1,750.", source) is None
+
+
+@pytest.mark.parametrize("suffix", [b"\n", b"\r\n", b"\xff\r\n"])
+def test_local_byte_provenance_survives_decoding_and_reuses_verdict(tmp_path, monkeypatch, suffix):
+    import hashlib
+    from check_article import check_claim_ledger
+
+    monkeypatch.setattr(verify_facts, "REPO_ROOT", str(tmp_path))
+    raw = b"The demo product costs $10 per month." + suffix
+    source = tmp_path / "source.txt"
+    source.write_bytes(raw)
+    config = write_config(tmp_path, [make_entry(source_local="source.txt")])
+    calls = []
+
+    def judge(*args, **kwargs):
+        calls.append(args)
+        return llm_json("verified", quotes=["costs $10 per month"])
+
+    monkeypatch.setattr(verify_facts, "call_llm", judge)
+    args = ["--config", str(config)]
+    assert verify_facts.main(args) == 0
+    assert read_ledger(tmp_path)["results"][0]["source_raw_sha256"] == hashlib.sha256(raw).hexdigest()
+    assert check_claim_ledger(json.loads(config.read_text()), str(config))[0] == "PASS"
+    assert verify_facts.main(args) == 0
+    assert len(calls) == 1
+    assert read_ledger(tmp_path)["results"][0]["carried_forward"]
+    source.write_bytes(raw + b" ")
+    assert check_claim_ledger(json.loads(config.read_text()), str(config))[0] == "WARN"
+    assert verify_facts.main(args) == 0
+    assert len(calls) == 2

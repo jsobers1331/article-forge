@@ -39,6 +39,7 @@ from collect_serper import (  # noqa: E402
 )
 from discover_gaps import suggest_seeds  # noqa: E402
 from generate_prompt import load_config  # noqa: E402
+from editorial_brief import suggest_page_decision  # noqa: E402
 from score_article import _norm, _phrase_covered  # noqa: E402
 
 
@@ -132,6 +133,9 @@ def _site_corpus(config):
         if isinstance(topic, dict):
             parts.extend((topic.get("title", ""), topic.get("target_query", "")))
     parts.extend(config.get("existing_pages", []))
+    for page in config.get("existing_page_evidence", []):
+        if isinstance(page, dict):
+            parts.append(page.get("content", ""))
     return _norm(" ".join(str(part) for part in parts))
 
 
@@ -406,6 +410,8 @@ def _candidate_from_query(
         [
             "manual editorial-difficulty/page-depth assessment",
             "verified product-fit and original-content-fit review",
+            "versioned evidence-led brief and create/improve/consolidate/defer decision",
+            "validated extracted-page SERP snapshot before generation/scoring",
         ]
     )
     topic = {
@@ -447,6 +453,11 @@ def _candidate_from_query(
         if serp_records
         else None,
         "missing_evidence": missing,
+        "page_decision_signal": suggest_page_decision(
+            query,
+            config.get("existing_page_evidence", []),
+            config.get("query_page_observations", []),
+        ),
         "topic": topic,
     }
     if authority is not None:
@@ -657,26 +668,18 @@ def build_plan(
         query = candidate_display.get(normalized)
         if not query:
             continue
-        if not _phrase_covered(query, site_corpus):
-            candidates.append(
-                _candidate_from_query(
-                    query,
-                    reasons,
-                    serp_records=serp_by_query.get(normalized, []),
-                    demand_records=demand_by_query.get(normalized, []),
-                    site_corpus=site_corpus,
-                    config=config,
-                    authority=authority,
-                    platform_hosts=platform_hosts,
-                )
+        candidates.append(
+            _candidate_from_query(
+                query,
+                reasons,
+                serp_records=serp_by_query.get(normalized, []),
+                demand_records=demand_by_query.get(normalized, []),
+                site_corpus=site_corpus,
+                config=config,
+                authority=authority,
+                platform_hosts=platform_hosts,
             )
-        else:
-            skipped.append(
-                {
-                    "query": query,
-                    "reason": "existing_pages_or_topic_backlog_overlap",
-                }
-            )
+        )
     candidates.sort(
         key=lambda item: (-item["discovery_priority"]["score"], item["query"].lower())
     )

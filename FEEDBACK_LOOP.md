@@ -117,3 +117,25 @@ conversion definition. The editor owns claim truth, originality, and the
 decision label. Forge owns normalization, provenance, freshness warnings, and
 fail-closed draft gating. It does not log into owner dashboards, publish to a
 CMS, or claim that a score predicts Google rankings or LLM recommendations.
+
+## Implemented local registry and evaluation
+
+`scripts/publication_registry.py` stores immutable content versions joined to
+a passing draft report and owner-confirmed publication receipt. Its export
+adapter joins the existing GSC and indexation collector artifacts; access and
+qualified-action evidence are supplied separately. No provider login, article
+publication or scheduling is performed. Original URLs, exact periods and source
+hashes remain in the observations. Explicit equivalent hosts can be joined;
+path case, trailing slashes and query parameters are preserved.
+
+`review_registry` emits one approval-held keep/improve/consolidate/refresh/defer
+recommendation per URL at declared review windows. Anonymous GSC query omissions
+remain unknown; rates normalize unequal durations only when scopes, attribution,
+seasonality and edits permit comparison.
+
+`scripts/evaluate_workflows.py` evaluates a fixed set of queries across businesses
+using factual accuracy, original contribution, page choice, evidence validity,
+human review time, cost and elapsed time. Minimum paired samples and holdouts
+are recorded separately from 30/60/90-day published cohorts. Synthetic regression
+fixtures verify the implementation, not search effectiveness. No weights are
+automatically changed. See [EVIDENCE_SYSTEM.md](EVIDENCE_SYSTEM.md) for commands.

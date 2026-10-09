@@ -4,7 +4,7 @@ You are writing one article for {site_name} ({domain}).
 
 - Category: "{category_frame}" — explicitly NOT positioned as "{not_positioned_as}".
 - ICP: {icp}
-- Canonical definition (reuse verbatim wherever a one-sentence definition is needed): "{canonical_definition_sentence}"
+- Canonical identity reference (paraphrase accurately when useful; no mandatory verbatim reuse): "{canonical_definition_sentence}"
 - Real, live differentiators (safe to claim — some carry a [TIER: ...] tag; if a differentiator has one, you MUST name that exact tier/plan anywhere you describe using that feature, not just once in passing):
 {real_differentiators}
 - Coming-soon / roadmap features — do not name, describe, compare, or mention these anywhere in the article, even to say they are unavailable. If a limitation matters, describe the reader-facing limitation generically. NEVER claim these are available:
@@ -24,7 +24,9 @@ You are writing one article for {site_name} ({domain}).
 ## This article
 
 - Target query / topic: {target_query}
-- Article type: {article_type}
+- Article planning length: {article_type}; selected page type: {page_type}
+- Required evidence-led reader brief and page decision:
+{editorial_brief}
 - Measured opportunity brief (advisory only; unknown values stay unknown):
 {opportunity_brief}
 
@@ -32,13 +34,13 @@ You are writing one article for {site_name} ({domain}).
 
 1. Never fabricate anything not listed above. If a needed fact is missing, omit it or qualify the uncertainty; a placeholder is a blocked draft, not publishable content.
 2. Title = a single Markdown H1 — one `#` character, not `##` — using the target query close to verbatim. This is a hard formatting requirement, not a suggestion.
-3. First 40-100 words: a standalone, extractable direct-answer paragraph. No throat-clearing intro.
-4. H2s phrased as the real follow-up questions a searcher would ask next. Before drafting, silently plan each H2 an opening function — answer, assertion, scenario, contrast, continuation, evidence, or question — based on what that section is actually doing. This plan is for YOUR use only: **never print the function name itself as visible text** (do not write "**Answer.**" or "**Scenario.**" as a literal label at the start of a section — that's just as mechanical a tell as the pattern this rule exists to avoid). Write the sentence in that style; don't announce the style. Reserve "answer" (a direct-answer capsule) for sections that genuinely match a real search/"people also ask"-style query, not as a fixed quota to hit. Never use the same opening function on two adjacent H2s. Not every section needs to be independently understandable in isolation — some should explicitly continue or complicate the previous section's point, which itself breaks the flat-register feel of every H2 restarting from zero.
-5. Include at least one genuine structured element: a real markdown table for comparisons, or a numbered list for how-to steps.
-6. Include an honest "who this isn't for" or "common mistakes" section.
-7. Close with a concise bottom-line verdict and one CTA linking to one of the existing pages above.
+3. Answer the reader problem promptly and clearly. Introductory length depends on the task; no fixed word band.
+4. Use descriptive headings when the task needs sections. Questions, tables, numbered steps and direct answers are tools, not quotas. Keep internal planning and opening-function labels out of the visible draft.
+5. Use tables for real comparisons and numbered steps for actual procedures when they help readers. Do not add a structured element solely for scoring.
+6. State relevant limitations where they matter, without a mandatory “who this isn't for” section.
+7. Give the reader an appropriate next action, without a universal closing verdict or mandatory CTA.
 8. Target length guidance: {target_length}. Stop when the question is fully answered — do not pad for a search-engine word-count target.
-9. Skip FAQPage-schema-oriented content; Google retired FAQ rich results in May 2026. Natural embedded Q&A sentences are fine.
+9. Use structured data only when it accurately describes visible content. No special AI schema or forced FAQ section is required.
 10. Voice: {voice_instructions}
 11. Banned words/phrases — do not use: {ban_words}
 12. If a competitor or simpler alternative genuinely wins this specific use case, say so plainly.
@@ -51,6 +53,8 @@ You are writing one article for {site_name} ({domain}).
 19. Never describe a topic as "high volume," "low competition," or likely to rank unless the opportunity brief contains the relevant measured field and source. Paid advertiser competition is not organic competition. The opportunity score is a prioritization aid, never a ranking prediction.
 20. Treat `intent_evidence.intent_hypothesis` as a reviewable hypothesis, not fact. Preserve mixed intent when the observed signals disagree. Treat `organic_competition.editorial_difficulty` as an editorial estimate only; if it is absent, do not invent one from result counts, host counts, or total-result strings.
 21. Use `content_fit.original_angle`, `content_fit.unanswered_question`, `content_fit.limitation`, `content_fit.source_dates`, and `evidence_confidence` to shape a genuinely useful brief. If the brief lacks a first-party product fact, verified claim, original angle, limitation, unanswered question, or current evidence, omit the unsupported claim and surface the gap for human review.
-22. If an image accompanies this article, use an AI-generated editorial image for tone or context when the policy allows it. Use a real, topic-specific screenshot only when the image must prove a real product feature. Never reuse a prior article asset without running `scripts/check_image.py`, and never use image alt text as keyword stuffing.
+22. Track real media evidence with captions, source/rights records and visible-content alt text. Generated images are illustrations, not proof of experience. If an image accompanies this article, use an AI-generated editorial image for tone or context when the policy allows it. Use a real, topic-specific screenshot only when the image must prove a real product feature. Never reuse a prior article asset without running `scripts/check_image.py`, and never use image alt text as keyword stuffing.
 
 Plan this variation silently before drafting, not in a rewrite pass afterward. Output only the full article in markdown, including the H1; never output your planning notes or an opening-function plan. Note: this prompt-level instruction alone is not a guarantee — `scripts/check_article.py`'s structural-repetition check and a separate fresh-context audit pass (see RULES.md §12) are the actual verification, not this instruction by itself.
+
+Material prices, capabilities, tiers, statistics, timelines, policies and first-hand claims must be mapped in the final-draft claim manifest. The checker proposes an unsigned worklist; a human reviews full coverage and meaning before the draft leaves quarantine. Use the original supporting assets in the brief, and state limitations honestly.

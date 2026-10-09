@@ -159,18 +159,12 @@ def test_plan_keeps_measured_demand_separate_from_paid_competition():
     )
 
 
-def test_plan_skips_existing_coverage_without_mutating_config():
-    plan = build_plan(
-        config(),
-        seeds=["what is a household bill tracker"],
-    )
-    assert plan["candidates"] == []
-    assert plan["skipped"] == [
-        {
-            "query": "what is a household bill tracker",
-            "reason": "existing_pages_or_topic_backlog_overlap",
-        }
-    ]
+def test_plan_retains_existing_coverage_for_improve_review_without_mutating_config():
+    plan = build_plan(config(), seeds=["what is a household bill tracker"])
+    assert len(plan["candidates"]) == 1
+    assert plan["candidates"][0]["review_status"] == "covered_or_needs_review"
+    assert not plan["candidates"][0]["coverage_gap"]
+    assert plan["skipped"] == []
 
 
 def test_generation_can_consume_plan_candidate_without_backlog_edit(tmp_path):

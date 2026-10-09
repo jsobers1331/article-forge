@@ -30,6 +30,8 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from check_article import run_checks
+from serp_contract import independent_domain, policy_for, validate_snapshot
+from evidence_contract import object_hash, text_hash
 
 # Consensus is deliberately conservative. A small SERP sample is not enough to
 # distinguish a real category expectation from one page's editorial choice.
@@ -52,10 +54,9 @@ READINESS_WEIGHTS = {
     "structure_extractability": 30,
     "eeat": 30,
     "linking": 20,
-    "gate_compliance": 20,
 }
 
-REPORT_SCHEMA_VERSION = "article-forge.report.v1"
+REPORT_SCHEMA_VERSION = "article-forge.report.v2"
 
 
 def _norm(s):
@@ -108,20 +109,23 @@ def _phrase_covered(phrase, text_lower, overlap_threshold=0.6):
 
 
 def _competitor_domain(competitor):
-    domain = competitor.get("domain", "")
-    if not domain:
-        domain = urlsplit(competitor.get("url", "")).hostname or ""
-    return domain.lower().removeprefix("www.").split(":", 1)[0]
+    return independent_domain(
+        competitor.get("url") or f"https://{competitor.get('domain', '')}"
+    )
 
 
 def dedupe_competitors(competitors):
     """Keep the strongest result for each independent domain."""
     by_domain = {}
     for competitor in competitors:
+        if not isinstance(competitor, dict):
+            continue
         domain = _competitor_domain(competitor)
         key = domain or competitor.get("url", "")
-        if key not in by_domain or competitor.get("position", 999) < by_domain[key].get(
-            "position", 999
+        position = competitor.get("position", 999)
+        previous = by_domain.get(key, {}).get("position", 999)
+        if key not in by_domain or (position if isinstance(position, int) else 999) < (
+            previous if isinstance(previous, int) else 999
         ):
             by_domain[key] = competitor
     return list(by_domain.values())
@@ -137,8 +141,7 @@ def consensus_items(competitors, key):
     competitors = dedupe_competitors(competitors)
     counts = {}
     for c in competitors:
-        for item in c.get(key, []):
-            n = _norm(item)
+        for n in {_norm(item) for item in c.get(key, [])}:
             counts[n] = counts.get(n, 0) + 1
     threshold = consensus_threshold(len(competitors))
     if threshold is None:
@@ -148,10 +151,10 @@ def consensus_items(competitors, key):
 
 def score_topical_comprehensiveness(draft_text, competitors):
     if len(dedupe_competitors(competitors)) < CONSENSUS_MIN_PAGES:
-        return 0.0, [], []
+        return None, [], []
     consensus, counts = consensus_items(competitors, "subtopics")
     if not consensus:
-        return 100.0, [], []
+        return None, [], []
     draft_lower = draft_text.lower()
     covered = [s for s in consensus if _phrase_covered(s, draft_lower)]
     gaps = sorted(
@@ -164,10 +167,10 @@ def score_topical_comprehensiveness(draft_text, competitors):
 
 def score_entity_coverage(draft_text, competitors):
     if len(dedupe_competitors(competitors)) < CONSENSUS_MIN_PAGES:
-        return 0.0, []
+        return None, []
     union, counts = consensus_items(competitors, "entities")
     if not union:
-        return 100.0, []
+        return None, []
     draft_lower = draft_text.lower()
     covered = [e for e in union if _phrase_covered(e, draft_lower)]
     missing = sorted([e for e in union if e not in covered], key=lambda e: -counts[e])
@@ -175,54 +178,45 @@ def score_entity_coverage(draft_text, competitors):
     return score, missing
 
 
-def score_intent_match(draft_type, serp_intent):
-    mapping = {
-        "commercial-investigation": {"standard", "pillar"},
-        "informational": {"pillar", "standard", "supporting"},
-        "transactional": {"standard"},
+def score_intent_match(draft_type, serp_intent, draft_text=None):
+    """Intent needs a content review; article length/type does not prove it."""
+    if serp_intent not in {
+        "informational",
+        "commercial-investigation",
+        "transactional",
+        "navigational",
+        "local",
+    }:
+        return None
+    if not draft_text:
+        return None
+    # Deterministic cues are observations, not semantic intent approval.
+    cues = {
+        "informational": r"\b(?:means|defined|how|why|steps)\b",
+        "commercial-investigation": r"\b(?:compare|comparison|versus|alternative|trade.?off)\b",
+        "transactional": r"\b(?:buy|book|request|sign up|purchase)\b",
+        "navigational": r"\b(?:login|contact|support|official)\b",
+        "local": r"\b(?:location|address|visit|service area)\b",
     }
-    ok_types = mapping.get(serp_intent, {"standard", "pillar", "supporting"})
-    return 100.0 if draft_type in ok_types else 40.0
+    return 60.0 if re.search(cues[serp_intent], draft_text, re.I) else None
 
 
 def score_structure_extractability(text):
-    points = 0
-    total = 4
-    # The generated format requires an H1 and a visible dateline before the
-    # answer capsule. Skip those metadata blocks so the first-paragraph signal
-    # measures the actual answer, not the document wrapper.
-    first_para = ""
-    for block in text.strip().split("\n\n") if text.strip() else []:
-        candidate = block.strip()
-        candidate = re.sub(
-            r"^\s*#{1,6}\s+[^\n]+\s*$", "", candidate, flags=re.MULTILINE
+    """Observe readability without prescribing a universal article template."""
+    if not text.strip():
+        return 0.0
+    return (
+        100.0
+        * sum(
+            [
+                bool(re.search(r"^#\s+.+", text, re.M)),
+                bool(re.search(r"\w", re.sub(r"^#.*$", "", text, flags=re.M))),
+                not any(len(p.split()) > 250 for p in text.split("\n\n")),
+                not bool(re.search(r"\b(?:TBD|FIXME)\b", text)),
+            ]
         )
-        candidate = re.sub(
-            r"^\s*[*_]?Last updated:\s*[^\n]+[*_]?\s*$",
-            "",
-            candidate,
-            flags=re.IGNORECASE | re.MULTILINE,
-        ).strip()
-        if re.search(r"\w", candidate):
-            first_para = candidate
-            break
-    if (
-        30
-        <= len(re.findall(r"\w+", re.sub(r"^#.*$", "", first_para, flags=re.MULTILINE)))
-        <= 120
-    ):
-        points += 1
-    if re.search(r"^\s*\|.*\|.*\|\s*$", text, re.MULTILINE) or re.search(
-        r"^\s*\d+\.\s", text, re.MULTILINE
-    ):
-        points += 1
-    question_h2s = len(re.findall(r"^##\s+.+\?\s*$", text, re.MULTILINE))
-    total_h2s = max(1, len(re.findall(r"^##\s+.+$", text, re.MULTILINE)))
-    if question_h2s / total_h2s >= 0.3:
-        points += 1
-    if len(re.findall(r"^##\s+.+$", text, re.MULTILINE)) >= 4:
-        points += 1
-    return 100.0 * points / total
+        / 4
+    )
 
 
 def score_eeat(
@@ -232,23 +226,10 @@ def score_eeat(
     has_real_sources=False,
     has_first_hand_evidence=False,
 ):
-    points = 0
-    total = 5
-    if re.search(r"\bupdated\b|\bpublished\b", text, re.IGNORECASE):
-        points += 1
-    if has_real_stats and re.search(r"\d+%|\$\d", text) and has_real_sources:
-        points += 1
-    if has_first_hand_evidence and re.search(
-        r"\bwe (tested|found|built|use)\b", text, re.IGNORECASE
-    ):
-        points += 1
-    if has_real_sources and re.search(r"\[[^\]]+\]\(https?://[^)]+\)", text):
-        points += 1
-    if has_real_testimonials and re.search(
-        r"testimonial|customer said|\"[^\"]+\"", text, re.IGNORECASE
-    ):
-        points += 1
-    return 100.0 * points / total
+    # Config booleans and phrases are not evidence of expertise/experience.
+    # Record the actual manifest/brief review separately; numeric E-E-A-T is
+    # unassessed until a defensible rubric and inspected assets are supplied.
+    return None
 
 
 def _is_own_host(href, domain):
@@ -268,7 +249,7 @@ def score_linking(
     max_external=None,
 ):
     """Score link safety and usefulness without arbitrary link-count quotas."""
-    links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", text)
+    links = re.findall(r"(?<!!)\[([^\]]+)\]\(([^)]+)\)", text)
     internal = []
     external = []
     unknown = []
@@ -284,7 +265,15 @@ def score_linking(
 
     penalty = 0
     notes = []
+    if not links:
+        return None, [
+            "No links observed; internal-link usefulness/readiness is unassessed."
+        ]
+    if not internal:
+        notes.append("No internal links observed; review the next reader action.")
+        penalty += 30
     if unknown:
+        penalty += 50
         notes.append(
             f"{len(unknown)} link(s) have unsupported or relative URL forms and need review"
         )
@@ -296,11 +285,38 @@ def score_linking(
     return max(0.0, 100.0 - penalty), notes
 
 
-def score_draft(draft_text, snapshot, article_type, verified_facts, domain=None):
-    competitors = snapshot.get("competitors", [])
-    intent = snapshot.get("serp_intent", "informational")
+def _editorial_total(pillars, weights):
+    if any(pillars.get(k) is None for k in weights):
+        return None
+    return round(
+        sum(pillars[k] * w for k, w in weights.items()) / sum(weights.values()), 1
+    )
 
-    intent_score = score_intent_match(article_type, intent)
+
+def score_draft(
+    draft_text,
+    snapshot,
+    article_type,
+    verified_facts,
+    domain=None,
+    target_query=None,
+    policy=None,
+):
+    verdict = validate_snapshot(
+        snapshot,
+        target_query
+        or (snapshot.get("keyword") if isinstance(snapshot, dict) else None),
+        policy,
+    )
+    if not verdict["valid"]:
+        result = score_readiness(draft_text, article_type, verified_facts, domain)
+        result["evidence_status"] = "serp_snapshot_invalid"
+        result["evidence_reasons"] = verdict["reasons"]
+        return result
+    competitors = snapshot.get("competitors", [])
+    intent = snapshot.get("serp_intent")
+
+    intent_score = score_intent_match(article_type, intent, draft_text)
     topical_score, topical_gaps, _ = score_topical_comprehensiveness(
         draft_text, competitors
     )
@@ -323,33 +339,20 @@ def score_draft(draft_text, snapshot, article_type, verified_facts, domain=None)
         "eeat": eeat_score,
         "linking": linking_score,
     }
-    total = sum(pillars[k] * WEIGHTS[k] / 100 for k in WEIGHTS)
+    total = _editorial_total(pillars, WEIGHTS)
 
     return {
-        "total_score": round(total, 1),
-        "pillars": {k: round(v, 1) for k, v in pillars.items()},
+        "total_score": total,
+        "pillars": {
+            k: round(v, 1) if v is not None else None for k, v in pillars.items()
+        },
         "topical_gaps": topical_gaps,
         "entity_gaps": entity_gaps,
         "linking_notes": linking_notes,
-        "consensus_ready": len(dedupe_competitors(competitors)) >= CONSENSUS_MIN_PAGES,
+        "consensus_ready": topical_score is not None and entity_score is not None,
         "consensus_min_pages": CONSENSUS_MIN_PAGES,
-        "hard_gate_failed": intent_score < 50,
+        "hard_gate_failed": False,
     }
-
-
-def _gate_compliance_score(checks):
-    """Turn the deterministic gate result into a report-only signal.
-
-    WARN is intentionally partial credit rather than a pass. This score is
-    not used to decide whether a draft may be published; ``check_article``
-    remains the authority for that decision.
-    """
-    if not checks:
-        return None
-    points = {"PASS": 1.0, "WARN": 0.5, "FAIL": 0.0}
-    return (
-        100.0 * sum(points.get(status, 0.0) for _, (status, _) in checks) / len(checks)
-    )
 
 
 def score_readiness(draft_text, article_type, verified_facts, domain=None, checks=None):
@@ -376,24 +379,18 @@ def score_readiness(draft_text, article_type, verified_facts, domain=None, check
         "linking": linking_score,
     }
     weights = dict(READINESS_WEIGHTS)
-    gate_score = _gate_compliance_score(checks)
-    if gate_score is not None:
-        pillars["gate_compliance"] = gate_score
-    else:
-        weights.pop("gate_compliance")
-
-    weight_total = sum(weights.values())
-    total = sum(pillars[name] * weight / 100 for name, weight in weights.items())
+    total = _editorial_total(pillars, weights)
     unassessed_pillars = [
         "intent_match",
         "topical_comprehensiveness",
         "entity_coverage",
     ]
-    if gate_score is None:
-        unassessed_pillars.append("gate_compliance")
     return {
-        "total_score": round(total * 100 / weight_total, 1),
-        "pillars": {name: round(score, 1) for name, score in pillars.items()},
+        "total_score": total,
+        "pillars": {
+            name: round(score, 1) if score is not None else None
+            for name, score in pillars.items()
+        },
         "topical_gaps": [],
         "entity_gaps": [],
         "linking_notes": linking_notes,
@@ -408,8 +405,9 @@ def score_readiness(draft_text, article_type, verified_facts, domain=None, check
             "Pre-SERP editorial readiness based only on deterministic checks and "
             "configured evidence; not a ranking or traffic prediction."
         ),
-        "assessed_pillars": list(pillars),
-        "unassessed_pillars": unassessed_pillars,
+        "assessed_pillars": [k for k, v in pillars.items() if v is not None],
+        "unassessed_pillars": unassessed_pillars
+        + [k for k, v in pillars.items() if v is None],
     }
 
 
@@ -424,7 +422,7 @@ _PILLAR_FIXES = {
     "intent_match": "Align the article format and answer depth with the observed query intent.",
     "topical_comprehensiveness": "Address the highest-frequency consensus subtopics that are relevant and supported by verified facts.",
     "entity_coverage": "Define the relevant entities readers need to understand, without adding unsupported claims.",
-    "structure_extractability": "Strengthen the answer capsule, question-led headings, and a real table or numbered process so key answers are easy to extract.",
+    "structure_extractability": "Make the answer and next reader action clear; use headings, tables or steps when the task benefits.",
     "eeat": "Add only verifiable dates, first-party evidence, source links, or real usage evidence; never fill gaps with invented proof.",
     "linking": "Review link destinations and anchor relevance; keep links useful, safe, and connected to the article's next reader action.",
     "gate_compliance": "Resolve every warning or failure and rerun the full article gate before publication.",
@@ -470,9 +468,10 @@ def build_improvements(score_result, checks=None, snapshot_supplied=False):
             {
                 "priority": "P1",
                 "category": "research_evidence",
-                "issue": "The supplied SERP snapshot is below the independent-domain consensus threshold.",
+                "issue": "The supplied SERP snapshot is not valid for this assessment.",
                 "fix": f"Collect at least {CONSENSUS_MIN_PAGES} independent organic domains and rerun the report.",
-                "evidence": f"Independent domains supplied: {supplied}; required: {CONSENSUS_MIN_PAGES}.",
+                "evidence": "; ".join(score_result.get("evidence_reasons", []))
+                or f"Independent domains supplied: {supplied}; required: {CONSENSUS_MIN_PAGES}.",
             }
         )
 
@@ -534,31 +533,47 @@ def score_for_report(
     verified_facts,
     domain=None,
     checks=None,
+    target_query=None,
+    policy=None,
 ):
     """Return the right score mode for an always-on article report."""
     snapshot_supplied = snapshot is not None
-    if snapshot_supplied and not isinstance(snapshot, dict):
-        raise ValueError("SERP snapshot must be a JSON object")
     verified_facts = verified_facts or {}
-    competitors = dedupe_competitors((snapshot or {}).get("competitors", []))
-    if snapshot_supplied and len(competitors) >= CONSENSUS_MIN_PAGES:
+    verdict = validate_snapshot(
+        snapshot,
+        target_query
+        or (snapshot.get("keyword") if isinstance(snapshot, dict) else None),
+        policy,
+    )
+    competitors = (
+        dedupe_competitors(snapshot["competitors"]) if verdict["valid"] else []
+    )
+    if snapshot_supplied and verdict["valid"]:
         result = score_draft(
             draft_text,
             snapshot,
             article_type,
             verified_facts,
             domain=domain,
+            target_query=target_query,
+            policy=policy,
         )
         result.update(
             {
                 "score_kind": "serp_parity",
-                "evidence_status": "serp_consensus_ready",
+                "evidence_status": "serp_consensus_ready"
+                if result["consensus_ready"]
+                else "serp_sample_valid_no_consensus",
                 "score_semantics": (
                     "Deterministic comparison with the supplied SERP snapshot; "
                     "not a ranking or traffic prediction."
                 ),
-                "assessed_pillars": list(result["pillars"]),
-                "unassessed_pillars": [],
+                "assessed_pillars": [
+                    k for k, v in result["pillars"].items() if v is not None
+                ],
+                "unassessed_pillars": [
+                    k for k, v in result["pillars"].items() if v is None
+                ],
                 "competitor_count": len(competitors),
             }
         )
@@ -571,17 +586,18 @@ def score_for_report(
             checks=checks,
         )
         result["evidence_status"] = (
-            "serp_snapshot_insufficient"
-            if snapshot_supplied
-            else "serp_snapshot_missing"
+            "serp_snapshot_invalid" if snapshot_supplied else "serp_snapshot_missing"
         )
         if snapshot_supplied:
             result["score_semantics"] = (
-                "Pre-consensus editorial readiness; the supplied SERP snapshot "
-                "does not contain enough independent domains for topical/entity "
-                "consensus, so this is not a ranking or traffic prediction."
+                "Editorial observations only; SERP evidence did not pass the shared contract. "
+                "Unknown pillars and totals are unassessed, never ranking predictions."
             )
-        result["competitor_count"] = len(competitors)
+        result["competitor_count"] = verdict["independent_domains"]
+    result["evidence_validation"] = verdict
+    result["evidence_reasons"] = (
+        verdict["reasons"] if snapshot_supplied else ["No SERP snapshot supplied"]
+    )
     result["improvements"] = build_improvements(
         result, checks=checks, snapshot_supplied=snapshot_supplied
     )
@@ -609,8 +625,39 @@ def build_article_report(
         config.get("verified_facts", {}),
         domain=config.get("domain"),
         checks=checks,
+        target_query=topic.get("target_query"),
+        policy=policy_for(config),
     )
     non_pass = [item for item in _check_payload(checks) if item["status"] != "PASS"]
+    if snapshot is not None and not score["evidence_validation"]["valid"]:
+        non_pass.append(
+            {
+                "name": "SERP evidence",
+                "status": "WARN",
+                "detail": "; ".join(score["evidence_reasons"]),
+            }
+        )
+    for required in (
+        "Claim verification ledger",
+        "Final-draft claim coverage",
+        "Evidence-led brief",
+    ):
+        if required not in [name for name, _ in checks]:
+            non_pass.append(
+                {
+                    "name": required,
+                    "status": "WARN",
+                    "detail": "Required verification gate was not supplied",
+                }
+            )
+    if not checks:
+        non_pass.append(
+            {
+                "name": "Verification gates",
+                "status": "WARN",
+                "detail": "No gate results supplied",
+            }
+        )
     improvements = score["improvements"]
     score_payload = {
         key: value for key, value in score.items() if key != "improvements"
@@ -624,15 +671,28 @@ def build_article_report(
         "serp_evidence": {
             "supplied": snapshot is not None,
             "source": snapshot_source,
-            "keyword": (snapshot or {}).get("keyword") if snapshot else None,
-            "schema_version": (snapshot or {}).get("schema_version")
-            if snapshot
+            "keyword": snapshot.get("keyword") if isinstance(snapshot, dict) else None,
+            "schema_version": snapshot.get("schema_version")
+            if isinstance(snapshot, dict)
             else None,
             "competitor_count": score.get("competitor_count", 0),
             "consensus_min_pages": score["consensus_min_pages"],
         },
         "score": score_payload,
+        "pillar_limits": {
+            "intent_match": "Content cue heuristic only; human intent review required",
+            "eeat": "Unassessed: self-declared flags and phrases do not prove experience",
+            "linking": "Syntax/safety observations; anchor usefulness requires human review",
+            "topical_comprehensiveness": "Lexical consensus coverage, not completeness or truth",
+            "entity_coverage": "Lexical coverage, not semantic correctness",
+        },
         "gate_checks": _check_payload(checks),
+        "gate_assessment": {"all_pass": not non_pass, "non_pass": non_pass},
+        "provenance": {
+            "draft_sha256": text_hash(draft_text),
+            "topic_sha256": object_hash(topic),
+            "snapshot_sha256": object_hash(snapshot) if snapshot is not None else None,
+        },
         "what_to_fix_next": improvements,
         "score_status": "improvements_available"
         if improvements
@@ -649,13 +709,17 @@ def build_article_report(
     }
 
 
+def _score_label(value):
+    return "unassessed" if value is None else f"{value}/100"
+
+
 def render_report_markdown(report):
     """Render a concise human-readable companion to the JSON report."""
     score = report["score"]
     lines = [
         "# Article Forge report",
         "",
-        f"- Score: **{score['total_score']}/100** ({score['score_kind']})",
+        f"- Score: **{_score_label(score['total_score'])}** ({score['score_kind']})",
         f"- Evidence: **{score['evidence_status']}**",
         f"- Score meaning: {score['score_semantics']}",
         f"- Query: {report.get('target_query') or 'not supplied'}",
@@ -665,7 +729,7 @@ def render_report_markdown(report):
         "",
     ]
     for pillar, value in score.get("pillars", {}).items():
-        lines.append(f"- {pillar}: {value}/100")
+        lines.append(f"- {pillar}: {_score_label(value)}")
     lines.extend(["", "## What to fix next", ""])
     improvements = report.get("what_to_fix_next", [])
     if improvements:
@@ -721,6 +785,8 @@ def main():
         "--report-markdown",
         help="Write a human-readable Markdown companion report to this path.",
     )
+    parser.add_argument("--brief", help="Evidence-led editorial brief JSON")
+    parser.add_argument("--manifest", help="Reviewed exact-draft manifest JSON")
     args = parser.parse_args()
 
     with open(args.draft, "r", encoding="utf-8") as f:
@@ -734,7 +800,9 @@ def main():
 
     target_query = args.query or (snapshot or {}).get("keyword")
     if (args.report_json or args.report_markdown) and not target_query:
-        parser.error("--query is required for report output when no snapshot keyword is available")
+        parser.error(
+            "--query is required for report output when no snapshot keyword is available"
+        )
 
     checks = []
     if target_query:
@@ -745,6 +813,12 @@ def main():
             config,
             config_path=args.config,
             use_ledger=not args.no_ledger,
+            manifest=json.loads(Path(args.manifest).read_text())
+            if args.manifest
+            else None,
+            snapshot=snapshot,
+            brief=json.loads(Path(args.brief).read_text()) if args.brief else None,
+            brief_root=Path(args.brief).parent if args.brief else None,
         )
 
     result = score_for_report(
@@ -754,6 +828,8 @@ def main():
         config.get("verified_facts", {}),
         domain=config.get("domain"),
         checks=checks,
+        target_query=target_query,
+        policy=policy_for(config),
     )
     report = build_article_report(
         draft_text,
@@ -775,7 +851,7 @@ def main():
         )
 
     print(
-        f"TOTAL SCORE: {result['total_score']}/100 [{result['score_kind']}]"
+        f"TOTAL SCORE: {_score_label(result['total_score'])} [{result['score_kind']}]"
         + (
             "  [HARD GATE FAILED — wrong format for search intent]"
             if result["hard_gate_failed"]
@@ -784,7 +860,7 @@ def main():
     )
     for pillar, score in result["pillars"].items():
         weight = WEIGHTS.get(pillar, READINESS_WEIGHTS.get(pillar, 0))
-        print(f"  {pillar}: {score}/100 (weight {weight}%)")
+        print(f"  {pillar}: {_score_label(score)} (editorial policy weight {weight}%)")
     if result["topical_gaps"]:
         print(
             "\nTopical gaps (consensus subtopics we don't cover, highest-frequency first):"
@@ -806,6 +882,8 @@ def main():
             print(f"  - [{item['priority']}] {item['fix']}")
 
     print(json.dumps(result, indent=2))
+    if report["publication_status"] == "blocked":
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

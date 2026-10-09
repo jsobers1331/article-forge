@@ -143,6 +143,10 @@ def render(config, topic):
         "target_length": target_length_for(topic.get("type", "standard")),
         "voice_instructions": voice_instructions,
         "ban_words": ", ".join(ban_words),
+        "editorial_brief": json.dumps(topic.get("editorial_brief"), indent=2),
+        "page_type": (topic.get("editorial_brief") or {})
+        .get("page_decision", {})
+        .get("page_type", "unreviewed"),
         "opportunity_brief": json.dumps(topic.get("opportunity", {}), indent=2)
         if topic.get("opportunity")
         else "(no measured opportunity record supplied)",
@@ -175,10 +179,14 @@ def main():
     parser.add_argument(
         "--out", help="Write the rendered prompt to this file instead of stdout"
     )
+    parser.add_argument("--brief", help="Evidence-led editorial brief JSON")
     args = parser.parse_args()
 
     config = load_config(args.config)
     topic = pick_topic(config, args.topic_index, args.title, args.query, args.type)
+    if args.brief:
+        with open(args.brief, encoding="utf-8") as stream:
+            topic["editorial_brief"] = json.load(stream)
     prompt = render(config, topic)
 
     if args.out:
