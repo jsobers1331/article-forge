@@ -41,6 +41,19 @@ the article. The image path is guarded separately from article prose: generated 
 must be converted to WebP/AVIF, carry descriptive alt text, pass duplicate and dimension
 checks, and still receive a human visual QC pass before publication.
 
+## Evidence-led generation and review
+
+The October 8 review fixes introduce fingerprinted claim ledgers, exact-draft
+claim manifests, validated SERP snapshots, evidence-led briefs and a local
+publication/outcome registry. Read [EVIDENCE_SYSTEM.md](EVIDENCE_SYSTEM.md)
+for schemas, migration and the complete local workflow. Existing configs and
+ledgers are never silently rewritten. Legacy evidence must be reverified.
+
+The first writer draft normally stays in quarantine until a human has reviewed
+the exact final-draft manifest. `generate_article.py --review-draft <path>`
+rechecks that draft locally without another provider request. It retains the
+original generation provenance when a matching report is present.
+
 ## Quick start
 
 This repo is shared across every product you use it for — name your config per project so
@@ -90,12 +103,12 @@ python scripts/generate_prompt.py --config site-config.<yourproject>.json --topi
 # Option B — let the script call a provider for you. DeepSeek defaults to
 # `deepseek-v4-pro`. Only an all-PASS draft is
 # written to normal output; blocked drafts go to output/.quarantine/:
-python scripts/generate_article.py --config site-config.<yourproject>.json --topic-index 0 --provider deepseek
+python scripts/generate_article.py --config site-config.<yourproject>.json --topic-index 0 --provider deepseek --brief editorial-brief.<yourproject>.json
 ```
 
 Every `generate_article.py` run also writes a companion `<article>.report.json`
 and `<article>.report.md`, including when the draft is quarantined. The report
-always includes a 0–100 score and prioritized, evidence-linked fixes. Without
+includes editorial observations and prioritized, evidence-linked fixes. Missing evidence is `null`/unassessed; aggregate scores stay unassessed when a pillar is unknown. Without
 `--snapshot`, the score is explicitly `readiness` and leaves SERP intent,
 topical consensus, and entity coverage unassessed. Add a current snapshot to
 get `serp_parity` scoring:

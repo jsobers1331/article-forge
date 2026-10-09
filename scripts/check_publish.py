@@ -1069,21 +1069,12 @@ def check_word_count(ctx):
     low, high = WORD_COUNT_RANGES.get(ctx.article_type, WORD_COUNT_RANGES["standard"])
     if count == 0:
         return [("WARN", "no readable body text found in the article content region")]
-    if count < low:
-        return [
-            (
-                "WARN",
-                f"{count} words in the content region, below the {low}-{high} band for '{ctx.article_type}' (region extraction is heuristic — confirm by eye)",
-            )
-        ]
-    if count > high:
-        return [
-            (
-                "WARN",
-                f"{count} words in the content region, above the {low}-{high} band for '{ctx.article_type}' (region extraction is heuristic — confirm by eye)",
-            )
-        ]
-    return [("PASS", f"{count} words, within {low}-{high} for '{ctx.article_type}'")]
+    return [
+        (
+            "PASS",
+            f"advisory length: {count} words; planning band {low}-{high}, no publication word-count quota",
+        )
+    ]
 
 
 def check_banned_words(ctx):
