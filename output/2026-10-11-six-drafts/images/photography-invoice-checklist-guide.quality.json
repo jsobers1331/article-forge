@@ -14,7 +14,16 @@
     "story_action": "PASS: The graphic gives three checks before sending the invoice.",
     "truth_provenance": "PASS: Deterministic graphic with reviewed wording; no client data or fake UI.",
     "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
-    "placement": "PASS in source: In-body support beside the invoice-field table; desktop variant. Live placement pending deployment.",
-    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
-  }
+    "placement": "PASS: desktop in-body graphic rendered on production at https://shootmuse.com/blog/photography-invoice-checklist; image asset returned HTTP 200; phone browser showed no horizontal overflow.",
+    "editorial_status": "PASS_LIVE_PLACEMENT; CLAIM_REVIEW_OUTSTANDING"
+  },
+  "live_verification": {
+    "verified_at": "2026-10-11",
+    "article_url": "https://shootmuse.com/blog/photography-invoice-checklist",
+    "site_commit_sha": "83ead54a86b0dc5a259d000b2ba4759ff1c7ae16",
+    "production_deployment_id": "6997879844",
+    "evidence": "Production article and image HTTP 200, OG/schema hero checked, mobile browser currentSrc and overflow checked as applicable."
+  },
+  "status": "PASS",
+  "detail": "1536x1024 WEBP asset passed image and duplicate checks"
 }

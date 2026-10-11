@@ -4,7 +4,7 @@ Reviewed 11 October 2026 after replacing three drafts that scored below 75 and t
 
 ## Rubric
 
-The revised 100-point rubric includes intent fit (20), usefulness (25), distinct purpose (15), evidence and claim accuracy (15), editorial execution (10), and image relevance, visual quality, and placement (15). The image score uses the five pass criteria in `IMAGES.md` §6a, full-resolution visual review, and `images/*.quality.json` receipts. A failed image gets zero and blocks publication. These scores remain provisional until live placement is verified.
+The revised 100-point rubric includes intent fit (20), usefulness (25), distinct purpose (15), evidence and claim accuracy (15), editorial execution (10), and image relevance, visual quality, and placement (15). The image score uses the five pass criteria in `IMAGES.md` §6a, full-resolution visual review, and `images/*.quality.json` receipts. A failed image gets zero and blocks publication. Live image placement has now been verified for the four updated articles; the scores remain editorial judgments while exact-draft claim review is outstanding.
 
 | Active draft | Intent /20 | Usefulness /25 | Distinct /15 | Evidence /15 | Execution /10 | Image /15 | Editorial total /100 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -19,7 +19,7 @@ The revised 100-point rubric includes intent fit (20), usefulness (25), distinct
 
 The first candidates were rejected: empty wedding chairs, wedding accessories, people reviewing blank paper, and generic home scenes did not show the reader's task. The owner later requested generated photography-guide heroes because the selected first-party frames were already used elsewhere. Those prior photos are retained under `images/replaced/` for traceability. The new fictional scenes show a guest gathering a wedding group and the final dressing-to-departure transition. Their generated origin is recorded in the source receipts; the owner requested removal of an on-page disclosure caption. ShootMuse now pairs a human-centered hero with its original instructional graphic beside the relevant table; the hero shows a client invoice review or a photographer pausing to speak with a client. The HomeWeal graphics remain unchanged.
 
-All active landscape assets are decodable WebP images at least 1536 pixels wide, with descriptive alt text and passing duplicate scans. ShootMuse's two in-body graphics retain their 1200×1600 portrait variants. The `images/*.quality.json` receipts record article-specific fit and provenance; generated hero source records are in `images/*.source.json`. The image scores above remain provisional editorial judgments until the replacement deployments receive a live visual check; automated Article Forge scores remain unassessed.
+All active landscape assets are decodable WebP images at least 1536 pixels wide, with descriptive alt text and passing duplicate scans. ShootMuse's two in-body graphics retain their 1200×1600 portrait variants. The `images/*.quality.json` receipts record article-specific fit, provenance, production deployment SHA, and live placement for the four changed articles; generated hero source records are in `images/*.source.json`. The production pages served the new heroes and support graphics, used the new hero for OG/schema, and had no horizontal overflow at 390px. Automated Article Forge scores remain unassessed.
 
 ## Review findings and next improvements
 

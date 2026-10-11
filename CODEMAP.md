@@ -5,11 +5,11 @@ A model-agnostic, site-agnostic framework for generating guarded article drafts 
 ## Identity
 
 - **path:** `~/Personal/article-forge-human-image-rules-20261011`
-- **branch:** `docs/human-story-image-placement`
-- **commit:** `2c8eb0474e6c7445692aec3a8161fc8d8bdaf448`
-- **short:** `2c8eb04`
-- **last commit:** 2026-10-11T11:17:36-04:00
-- **map generated:** 2026-10-11T15:42:50+00:00
+- **branch:** `docs/live-image-placement-receipts`
+- **commit:** `2d4d673ec8cfdd6b6cb9c4d4b5ede3ed14d81f09`
+- **short:** `2d4d673`
+- **last commit:** 2026-10-11T11:44:28-04:00
+- **map generated:** 2026-10-11T15:54:02+00:00
 - **tracked files:** 230
 
 ## Tech Stack
