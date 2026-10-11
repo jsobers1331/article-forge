@@ -4,7 +4,9 @@
 
 A useful photography invoice tells the client what they booked, what each item costs, when payment is due, and how to pay. It should match the signed agreement and make deposits, installments, and the remaining balance easy to reconcile. A branded PDF alone is not enough if the scope or due date is unclear. Use this checklist when a client moves from proposal to booking or when an approved add-on changes the total.
 
-![Illustrated invoice checklist with agreement, amount due, and deadline checks](images/photography-invoice-checklist-hero.webp)
+![Photographer reviewing a booking invoice with a client in a studio](images/photography-invoice-checklist-human-hero.webp)
+
+*AI-generated editorial scene; not a ShootMuse customer or product screen.*
 
 ## What belongs on a photography invoice?
 
@@ -19,6 +21,10 @@ Start with the agreed work, then make the payment request unambiguous. For a wed
 | Total and amount due now | Whether the request is for a retainer, installment, or balance |
 | Due date and payment method | The deadline and the route to payment |
 | Terms or contract reference | Where to find cancellation, delivery, and other agreed terms |
+
+![Invoice checklist showing booking details, amount due now, and due date and payment method](images/photography-invoice-checklist-guide.webp)
+
+*Before sending, compare the booking, amount due now, and payment terms with the agreement. A portrait version is supplied for mobile.*
 
 Tax treatment depends on location and the transaction. Use the correct amount from your own records or accountant rather than copying a sample invoice's tax line. This article is a workflow checklist, not tax or legal advice.
 

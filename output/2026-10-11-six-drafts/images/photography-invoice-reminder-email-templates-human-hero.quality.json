@@ -1,0 +1,20 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/photography-invoice-reminder-email-templates-human-hero.webp",
+  "alt": "Photographer listening to a client by phone while setting aside a reminder note",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "34f3fe0130298b79cf722b430a5bb12440053f6edd26aaa51377dbac6a82cd73",
+  "format": "WEBP",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 135516,
+  "story_review": {
+    "specificity": "PASS: Photographer, phone call, camera equipment, and reminder note",
+    "story_action": "PASS: The photographer listens and moves the note aside, matching the article stop-and-talk exception.",
+    "truth_provenance": "PASS: Fictional AI-generated editorial scene; visible disclosure says this is not a customer or product screen.",
+    "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
+    "placement": "PASS in source: Human hero after answer capsule; local site source and OG/schema use human hero. Live placement pending deployment.",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  }
+}

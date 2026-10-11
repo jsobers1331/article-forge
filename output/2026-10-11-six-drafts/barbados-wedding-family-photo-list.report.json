@@ -1,6 +1,6 @@
 {
   "schema_version": "article-forge.report.v2",
-  "generated_at": "2026-10-11T15:11:45.509908+00:00",
+  "generated_at": "2026-10-11T15:42:19.770275+00:00",
   "draft_filename": "output/2026-10-11-six-drafts/barbados-wedding-family-photo-list.md",
   "target_query": "barbados wedding family photo list",
   "article_type": "supporting",
@@ -121,7 +121,7 @@
     {
       "name": "Word count",
       "status": "PASS",
-      "detail": "advisory length: 985 words; 700-1400 is a planning range for supporting, not a gate"
+      "detail": "advisory length: 994 words; 700-1400 is a planning range for supporting, not a gate"
     },
     {
       "name": "Banned words",
@@ -180,7 +180,7 @@
     ]
   },
   "provenance": {
-    "draft_sha256": "35c455b09824f96ee9c94f0367b3670a200739ecefcdf6e01a4877467d4f608c",
+    "draft_sha256": "daee9901664589f1a65523305c151eebeea83e3c9a8e7cb57123c815cabcaedf",
     "topic_sha256": "e7c196e9929e51a53b1b15febff0bd829b39693127ee07fe9e4a9212e4b61d74",
     "snapshot_sha256": null
   },

@@ -1,0 +1,20 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/photography-invoice-reminder-email-templates-guide-mobile.webp",
+  "alt": "Reminder sequence showing checks before due, after due, and when a charge is disputed",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "13d11595bccef8d8d8e3c01de56b064269cc7aaff8f49e13cd41f1d4aba93774",
+  "format": "WEBP",
+  "width": 1200,
+  "height": 1600,
+  "bytes": 44718,
+  "story_review": {
+    "specificity": "PASS: Before due, after due, and disputed states are readable at phone width",
+    "story_action": "PASS: The portrait graphic shows when to send and when to stop reminders.",
+    "truth_provenance": "PASS: Deterministic graphic with reviewed wording; no customer data or fake UI.",
+    "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
+    "placement": "PASS in source: In-body support beside the decision table; mobile variant. Live placement pending deployment.",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  }
+}

@@ -10,7 +10,7 @@
 ✓ [PASS] Visible dateline: visible 'Last updated' dateline is present after the H1
 ✓ [PASS] Bare URLs (not Markdown links): no bare parenthetical URLs found
 ✓ [PASS] Coming-soon features: no configured coming-soon features mentioned
-✓ [PASS] Word count: advisory length: 857 words; 700-1400 is a planning range for supporting, not a gate
+✓ [PASS] Word count: advisory length: 911 words; 700-1400 is a planning range for supporting, not a gate
 ✓ [PASS] Banned words: no banned words found
 ✓ [PASS] Structured element present: found a structured element (table)
 ✓ [PASS] Process structure: ordered steps not required by the reviewed reader task

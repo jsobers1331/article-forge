@@ -4,7 +4,9 @@
 
 A photography invoice reminder should identify the booking and invoice, state the amount and agreed due date, make payment easy to find, and give the client a way to correct a mistake. The tone can stay calm even after the date passes. Check the invoice and contract before sending: a reminder about a paid, changed, or disputed balance creates more work than it saves.
 
-![Illustrated reminder sequence before and after due date, ending with a dispute stop rule](images/photography-invoice-reminder-email-templates-hero.webp)
+![Photographer listening to a client by phone while setting aside a reminder note](images/photography-invoice-reminder-email-templates-human-hero.webp)
+
+*AI-generated editorial scene; not a ShootMuse customer or product screen.*
 
 ## What should you verify before sending a reminder?
 
@@ -19,6 +21,10 @@ Use this decision table to choose the next action:
 | Partial payment or agreed extension | State only the corrected balance and agreed date |
 | Client disputes the charge | Stop the sequence and answer the issue personally |
 | Payment recorded | Stop reminders and confirm receipt if appropriate |
+
+![Reminder sequence showing checks before due, after due, and when a charge is disputed](images/photography-invoice-reminder-email-templates-guide.webp)
+
+*The message changes with the invoice state. A dispute means pausing reminders and speaking with the client. A portrait version is supplied for mobile.*
 
 This is a workflow example, not a required cadence. Use the notice periods in your own signed agreement and adapt to the relationship. ShootMuse's [invoicing page](/features/invoicing) describes invoice status tracking and automated payment reminders; its [current pricing page](/pricing) places PayPal payments and the fuller payment workflow on Professional and Studio. Basic invoice creation and sending are listed on Starter. Check the current plan before promising an automated sequence to a client.
 

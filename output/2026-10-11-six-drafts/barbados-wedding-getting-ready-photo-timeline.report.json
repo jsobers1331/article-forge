@@ -1,6 +1,6 @@
 {
   "schema_version": "article-forge.report.v2",
-  "generated_at": "2026-10-11T15:11:45.642088+00:00",
+  "generated_at": "2026-10-11T15:42:19.859469+00:00",
   "draft_filename": "output/2026-10-11-six-drafts/barbados-wedding-getting-ready-photo-timeline.md",
   "target_query": "barbados wedding getting-ready photos",
   "article_type": "supporting",
@@ -180,7 +180,7 @@
     ]
   },
   "provenance": {
-    "draft_sha256": "7d859b82e28832b745df071a7e92c1012b5c3b44e53940379bb87d4b38758d3d",
+    "draft_sha256": "31e1a958e22044a0a53b177acf9503a4e55929889cce34fa3d19e7165431a2a4",
     "topic_sha256": "3a42b82f3444952f31cb9f4922ac65083b29dda22a876e72d83d135fffb4769e",
     "snapshot_sha256": null
   },

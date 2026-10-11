@@ -1,6 +1,6 @@
 {
   "schema_version": "article-forge.report.v2",
-  "generated_at": "2026-10-11T15:11:45.878378+00:00",
+  "generated_at": "2026-10-11T15:39:59.295270+00:00",
   "draft_filename": "output/2026-10-11-six-drafts/photography-invoice-reminder-email-templates.md",
   "target_query": "photography invoice reminder email templates",
   "article_type": "supporting",
@@ -121,7 +121,7 @@
     {
       "name": "Word count",
       "status": "PASS",
-      "detail": "advisory length: 1000 words; 700-1400 is a planning range for supporting, not a gate"
+      "detail": "advisory length: 1057 words; 700-1400 is a planning range for supporting, not a gate"
     },
     {
       "name": "Banned words",
@@ -185,7 +185,7 @@
     ]
   },
   "provenance": {
-    "draft_sha256": "b7caa198e3443a79f21cd3b4e4ce56f0ebd372796ad476276c3eb3597432bca8",
+    "draft_sha256": "972ca29d7971644e56f08997db891497abd662566a5f061a79e0c58f733519c5",
     "topic_sha256": "6bce9e629c70fe44b1be8da7fb120e10223c42b385e842aec660ecd1991291a2",
     "snapshot_sha256": null
   },

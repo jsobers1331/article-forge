@@ -4,7 +4,7 @@
 
 Getting-ready photographs work best when the photographer knows which moments matter, where they will happen, and when everyone must leave for the ceremony. Start from the ceremony arrival deadline and work backward. Reserve time for the final clothing and family moments, allow for travel, and decide whether you want preparation photographed at all. A four-hour wedding collection may require a different choice from a full-day plan.
 
-![Hands adjusting the back of a wedding dress in a black-and-white photograph](images/barbados-wedding-getting-ready-photo-timeline-hero.webp)
+![Illustrative bride holding a bouquet while a friend adjusts her veil before departure](images/barbados-wedding-getting-ready-photo-timeline-generated-hero.webp)
 
 ## How do you work backward from the ceremony?
 
