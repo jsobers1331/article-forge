@@ -1,0 +1,16 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/how-to-estimate-variable-utility-bills-hero-mobile.webp",
+  "alt": "Illustrated three-step utility bill process from past bills through estimate to actual statement",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "4222733cad42f98807f370a004dcd5f98447e20a7ea8441823a356635de5828f",
+  "format": "WEBP",
+  "width": 1200,
+  "height": 1600,
+  "bytes": 45724,
+  "status": "PASS",
+  "detail": "1200x1600 WEBP asset passed image and duplicate checks",
+  "variant_of": "output/2026-10-11-six-drafts/images/how-to-estimate-variable-utility-bills-hero.webp",
+  "mobile_visual_review": "PASS: 390px layout reviewed; text is legible and the sequence remains intact"
+}

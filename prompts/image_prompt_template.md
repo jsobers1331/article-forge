@@ -4,6 +4,8 @@ You are generating one supporting image for an article on {site_name}.
 
 - Article: {article_title}
 - Placement: {placement} (e.g. "hero", "mood — <section name>")
+- Scene brief: The reader should see {specific action or evidence} and understand
+  {article-specific point}. If this also fits another article, redesign the scene.
 - This image supports the article; it is NOT a product screenshot and must not imply
   one. Do not attempt to render any app UI, dashboard, or interface.
 - Make the composition distinct from prior article assets: vary the camera angle,

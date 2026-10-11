@@ -1,0 +1,23 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/barbados-wedding-getting-ready-photo-timeline-hero.webp",
+  "alt": "Hands adjusting the back of a wedding dress in a black-and-white photograph",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "41fcddee1d9259c09433dbbfc06edca04f560dd0d5d18761e4d577b19faedc35",
+  "format": "WEBP",
+  "width": 1536,
+  "height": 1025,
+  "bytes": 74530,
+  "status": "PASS",
+  "detail": "1536x1025 WEBP asset passed image and duplicate checks",
+  "story_review": {
+    "specificity": "PASS: Dress fastening, hands, wedding setting",
+    "story_action": "PASS: Owner photograph shows a final clothing moment that needs a place in the preparation timeline.",
+    "truth_provenance": "PASS: First-party photo jsobers/wedding/950999913; no claim about the wedding date or venue.",
+    "visual_quality": "PASS: full-resolution photo or crisp deterministic graphic reviewed; no pseudo-text, fake UI, or anatomy defect",
+    "placement": "PASS in draft: immediately after answer capsule; production placement pending",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  },
+  "rejected_candidate": "output/2026-10-11-six-drafts/images/rejected/barbados-wedding-getting-ready-photo-timeline-hero.webp"
+}

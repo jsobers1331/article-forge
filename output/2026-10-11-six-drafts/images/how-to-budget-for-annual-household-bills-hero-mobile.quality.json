@@ -1,0 +1,16 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/how-to-budget-for-annual-household-bills-hero-mobile.webp",
+  "alt": "Illustrated annual bill reserve calculation: $600 minus $120 over six months equals $80 monthly",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "25c3e2748fa7156d9087b3f62814c9c9d2f3e935c6efb1b5ceea84e6c1a7d33a",
+  "format": "WEBP",
+  "width": 1200,
+  "height": 1600,
+  "bytes": 42800,
+  "status": "PASS",
+  "detail": "1200x1600 WEBP asset passed image and duplicate checks",
+  "variant_of": "output/2026-10-11-six-drafts/images/how-to-budget-for-annual-household-bills-hero.webp",
+  "mobile_visual_review": "PASS: 390px layout reviewed; text is legible and the sequence remains intact"
+}
