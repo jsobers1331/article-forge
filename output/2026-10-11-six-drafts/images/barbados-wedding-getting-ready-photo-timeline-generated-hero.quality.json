@@ -14,7 +14,16 @@
     "story_action": "PASS: The final dressing moment leads directly to departure, matching the backward-timeline advice.",
     "truth_provenance": "PASS: Fictional AI-generated editorial scene recorded in the source receipt; alt and article text do not claim a real client, venue, or portfolio photograph.",
     "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
-    "placement": "PASS in source: Hero after answer capsule; local site source and OG/schema use generated hero. Live placement pending deployment.",
-    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
-  }
+    "placement": "PASS: hero and OG/schema rendered on production at https://www.jsobersphotography.com/blog/barbados-wedding-getting-ready-photo-timeline; image asset returned HTTP 200; phone browser showed no horizontal overflow.",
+    "editorial_status": "PASS_LIVE_PLACEMENT; CLAIM_REVIEW_OUTSTANDING"
+  },
+  "live_verification": {
+    "verified_at": "2026-10-11",
+    "article_url": "https://www.jsobersphotography.com/blog/barbados-wedding-getting-ready-photo-timeline",
+    "site_commit_sha": "d043b1afba17342526dbe298878b4aa9d1e097a9",
+    "production_deployment_id": "6997933872",
+    "evidence": "Production article and image HTTP 200, OG/schema hero checked, mobile browser currentSrc and overflow checked as applicable."
+  },
+  "status": "PASS",
+  "detail": "1536x1024 WEBP asset passed image and duplicate checks"
 }
