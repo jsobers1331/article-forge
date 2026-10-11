@@ -4,7 +4,7 @@
 
 A useful Barbados wedding family photo list names the people in each must-have group, gives someone the job of gathering them, and fits the available photography time. It should be short enough to use on the day. For a destination wedding, confirm which relatives will actually travel before finalizing it; a generic list copied from the internet can include people who will not be there while missing someone important to you.
 
-![Real wedding group posing together outdoors](images/barbados-wedding-family-photo-list-hero.webp)
+![Illustrative wedding group gathering for a portrait as a guest guides relatives into place](images/barbados-wedding-family-photo-list-generated-hero.webp)
 
 ## What belongs on the family photo list?
 

@@ -1,6 +1,6 @@
 {
   "schema_version": "article-forge.report.v2",
-  "generated_at": "2026-10-11T15:11:45.759160+00:00",
+  "generated_at": "2026-10-11T15:39:59.140488+00:00",
   "draft_filename": "output/2026-10-11-six-drafts/photography-invoice-checklist.md",
   "target_query": "photography invoice checklist",
   "article_type": "supporting",
@@ -121,7 +121,7 @@
     {
       "name": "Word count",
       "status": "PASS",
-      "detail": "advisory length: 857 words; 700-1400 is a planning range for supporting, not a gate"
+      "detail": "advisory length: 911 words; 700-1400 is a planning range for supporting, not a gate"
     },
     {
       "name": "Banned words",
@@ -185,7 +185,7 @@
     ]
   },
   "provenance": {
-    "draft_sha256": "08116dba20d93e354e917d362f6f91d68b37743798ba706fd26dd3617fdae0d1",
+    "draft_sha256": "14e9c9919f4d6af08d0a81774384f773eb1544e33bb4a61fefdee48a75c601c5",
     "topic_sha256": "b6f84e9d0de690a20930b1f30438639862baf6c8eef1ae5db86e8a3eb2ccbb59",
     "snapshot_sha256": null
   },

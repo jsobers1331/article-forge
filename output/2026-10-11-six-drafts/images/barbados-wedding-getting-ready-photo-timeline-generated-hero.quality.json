@@ -1,0 +1,20 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/barbados-wedding-getting-ready-photo-timeline-generated-hero.webp",
+  "alt": "Illustrative bride holding a bouquet while a friend adjusts her veil before departure",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "8b31c0951f191176e5d9f9b11dc6beddfa737757e9cbb474b10b394b92dea163",
+  "format": "WEBP",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 135562,
+  "story_review": {
+    "specificity": "PASS: Bride, final veil adjustment, doorway, and waiting vehicle",
+    "story_action": "PASS: The final dressing moment leads directly to departure, matching the backward-timeline advice.",
+    "truth_provenance": "PASS: Fictional AI-generated editorial scene recorded in the source receipt; alt and article text do not claim a real client, venue, or portfolio photograph.",
+    "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
+    "placement": "PASS in source: Hero after answer capsule; local site source and OG/schema use generated hero. Live placement pending deployment.",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  }
+}

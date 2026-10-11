@@ -1,0 +1,20 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/photography-invoice-checklist-guide-mobile.webp",
+  "alt": "Invoice checklist showing booking details, amount due now, and due date and payment method",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "3b6692c790472ded46a23dd338ce49f19c3a1bb2ed5b96861355de85889706a7",
+  "format": "WEBP",
+  "width": 1200,
+  "height": 1600,
+  "bytes": 52746,
+  "story_review": {
+    "specificity": "PASS: Booking, amount due now, and payment terms are readable at phone width",
+    "story_action": "PASS: The portrait graphic gives the same three checks without shrinking desktop text.",
+    "truth_provenance": "PASS: Deterministic graphic with reviewed wording; no client data or fake UI.",
+    "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
+    "placement": "PASS in source: In-body support beside the invoice-field table; mobile variant. Live placement pending deployment.",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  }
+}

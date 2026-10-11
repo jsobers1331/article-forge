@@ -1,0 +1,20 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/barbados-wedding-family-photo-list-generated-hero.webp",
+  "alt": "Illustrative wedding group gathering for a portrait as a guest guides relatives into place",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "66925a758d14c5a499ffbbce4bd904a38fcaa5eb6dc7e62b998c24a375423e4e",
+  "format": "WEBP",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 277272,
+  "story_review": {
+    "specificity": "PASS: Wedding couple, multigenerational group, photographer, and guest gatherer in a shaded courtyard",
+    "story_action": "PASS: The guest visibly guides relatives toward the group, showing why assigning a gatherer matters.",
+    "truth_provenance": "PASS: Fictional AI-generated editorial scene recorded in the source receipt; alt and article text do not claim a real client, venue, or portfolio photograph.",
+    "visual_quality": "PASS: inspected full-resolution image for natural anatomy, readable graphic text, and lack of accidental UI/text",
+    "placement": "PASS in source: Hero after answer capsule; local site source and OG/schema use generated hero. Live placement pending deployment.",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  }
+}

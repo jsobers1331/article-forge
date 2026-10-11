@@ -22,6 +22,24 @@ Choose the medium that can do that job truthfully:
    sheet, an empty chair, or generic desk props is not a visual story.
 4. Use a real product screenshot only for a specific UI claim, as in §1a.
 
+For a photography business, do not silently reuse a portfolio frame as a new
+article's hero. Search existing article and portfolio image references first. If the
+owner asks for generated imagery instead, make a new fictional editorial scene with
+an article-specific action and record its origin in the asset receipt. Do not describe
+the generated setting as an actual venue or the subjects as real clients in alt text,
+captions, metadata, or schema. Follow the site's editorial disclosure preference;
+do not insert a caption the owner has asked to remove.
+
+For a photographer-facing software guide, the hero may show the human stakes of
+the workflow while a separate explanatory graphic teaches the exact steps. The
+hero must show a photographer doing something specific to the article, with a
+credible emotion or relationship; a camera on a desk is not enough. Place the
+graphic next to the checklist, calculation, or decision sequence it explains,
+with its own descriptive alt text and a readable mobile variant. Keep both images
+only if they do distinct jobs. Use the human scene for OG/schema and the graphic
+as in-body support. Keep fictional AI people out of customer or testimonial claims
+and record the source in the asset receipt.
+
 Make a shot/graphic plan before creating the asset. The plan must identify the
 subject, action, visible evidence, reader takeaway, image source, and placement.
 Changing the palette or props cannot rescue a concept with no article-specific
@@ -242,6 +260,12 @@ Record a short, falsifiable answer for each item in the image receipt:
 | Truth/provenance | First-party source ID, reviewed example data, or explicit fictional editorial status; alt text describes only visible facts | It suggests a real customer, venue, result, app screen, or invoice that was not verified |
 | Visual quality | Full-resolution inspection finds natural anatomy/materials or crisp readable diagram text; no accidental text/logos | Uncanny face/hand, pseudo-text, fake UI, unclear small text, or generic stock appearance |
 | Placement | Hero follows the answer capsule; the page uses its URL in OG/schema/sitemap where supported | File exists but is not rendered, or the image weakens the adjacent section |
+
+Before accepting a replacement, check every live image reference and the article
+source draft. A previous hero moved into the body must keep a truthful caption and
+mobile layout; a previous hero removed from the article must no longer appear in
+its OG/schema metadata. Check for reuse against images already published on that
+site, not just other files in the current batch.
 
 **All five criteria must pass.** A deterministic `check_image.py` PASS proves only
 file integrity, dimensions, alt length, and duplicate distance; it is not an

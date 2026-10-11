@@ -4,14 +4,22 @@ You are generating one supporting image for an article on {site_name}.
 
 - Article: {article_title}
 - Placement: {placement} (e.g. "hero", "mood — <section name>")
+- Visual job: {human_story_or_explanatory_step}; if the article needs both, plan
+  separate hero and support placements rather than asking one scene to do both.
 - Scene brief: The reader should see {specific action or evidence} and understand
   {article-specific point}. If this also fits another article, redesign the scene.
 - This image supports the article; it is NOT a product screenshot and must not imply
   one. Do not attempt to render any app UI, dashboard, or interface.
 - Make the composition distinct from prior article assets: vary the camera angle,
   subject distance, and named props while keeping the site's palette and light quality
-  coherent. Run `scripts/check_image.py` after export with the final alt text and prior
-  asset directory.
+  coherent. Check existing live article and portfolio references for reuse, then run
+  `scripts/check_image.py` after export with the final alt text and prior asset directory.
+- For a photography portfolio using generated imagery by owner request, identify
+  fictional subjects and record the AI origin in the asset receipt. Never imply
+  this is an example of the photographer's actual work or a real client event.
+- For photographer-facing software, show the photographer's specific action and
+  emotional stakes in the hero. Put a separately rendered, legible process graphic
+  beside the instructions it explains; preserve its responsive mobile layout.
 
 ## Hard rules (see IMAGES.md for full rationale)
 

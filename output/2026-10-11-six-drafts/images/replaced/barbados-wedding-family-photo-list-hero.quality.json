@@ -1,5 +1,5 @@
 {
-  "path": "output/2026-10-11-six-drafts/images/barbados-wedding-family-photo-list-hero.webp",
+  "path": "output/2026-10-11-six-drafts/images/replaced/barbados-wedding-family-photo-list-hero.webp",
   "alt": "Real wedding group posing together outdoors",
   "against": [
     "output/2026-10-11-six-drafts/images"
@@ -16,8 +16,8 @@
     "story_action": "PASS: Owner gallery photograph: a visible group portrait makes the must-have group list tangible.",
     "truth_provenance": "PASS: First-party photo jsobers/wedding/71666891; relationships are deliberately not claimed.",
     "visual_quality": "PASS: full-resolution photo or crisp deterministic graphic reviewed; no pseudo-text, fake UI, or anatomy defect",
-    "placement": "PASS in draft: immediately after answer capsule; production placement pending",
-    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+    "placement": "REPLACED: previous first-party photo was already used elsewhere; active article uses generated editorial hero by owner request.",
+    "editorial_status": "REPLACED: not used in active article or site hero"
   },
   "rejected_candidate": "output/2026-10-11-six-drafts/images/rejected/barbados-wedding-family-photo-list-hero.webp"
 }
