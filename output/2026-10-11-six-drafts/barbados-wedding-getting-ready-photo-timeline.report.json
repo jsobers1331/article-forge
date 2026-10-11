@@ -1,0 +1,227 @@
+{
+  "schema_version": "article-forge.report.v2",
+  "generated_at": "2026-10-11T15:11:45.642088+00:00",
+  "draft_filename": "output/2026-10-11-six-drafts/barbados-wedding-getting-ready-photo-timeline.md",
+  "target_query": "barbados wedding getting-ready photos",
+  "article_type": "supporting",
+  "serp_evidence": {
+    "supplied": false,
+    "source": null,
+    "keyword": null,
+    "schema_version": null,
+    "competitor_count": 0,
+    "consensus_min_pages": 5
+  },
+  "score": {
+    "total_score": null,
+    "pillars": {
+      "structure_extractability": 100.0,
+      "eeat": null,
+      "linking": 100.0
+    },
+    "topical_gaps": [],
+    "entity_gaps": [],
+    "linking_notes": [],
+    "consensus_ready": false,
+    "consensus_min_pages": 5,
+    "hard_gate_failed": false,
+    "score_kind": "readiness",
+    "evidence_status": "serp_snapshot_missing",
+    "score_semantics": "Pre-SERP editorial readiness based only on deterministic checks and configured evidence; not a ranking or traffic prediction.",
+    "assessed_pillars": [
+      "structure_extractability",
+      "linking"
+    ],
+    "unassessed_pillars": [
+      "intent_match",
+      "topical_comprehensiveness",
+      "entity_coverage",
+      "eeat"
+    ],
+    "competitor_count": 0,
+    "evidence_validation": {
+      "valid": false,
+      "reasons": [
+        "snapshot is missing or not an object"
+      ],
+      "independent_domains": 0
+    },
+    "evidence_reasons": [
+      "No SERP snapshot supplied"
+    ]
+  },
+  "pillar_limits": {
+    "intent_match": "Content cue heuristic only; human intent review required",
+    "eeat": "Unassessed: self-declared flags and phrases do not prove experience",
+    "linking": "Syntax/safety observations; anchor usefulness requires human review",
+    "topical_comprehensiveness": "Lexical consensus coverage, not completeness or truth",
+    "entity_coverage": "Lexical coverage, not semantic correctness"
+  },
+  "gate_checks": [
+    {
+      "name": "Config integrity",
+      "status": "PASS",
+      "detail": "config has the required product, facts, pages, and tier fields"
+    },
+    {
+      "name": "Facts freshness",
+      "status": "PASS",
+      "detail": "verified_facts confirmed 26 day(s) ago"
+    },
+    {
+      "name": "Claim verification ledger",
+      "status": "PASS",
+      "detail": "no registry claims selected \u2014 final-draft manifest coverage is checked separately"
+    },
+    {
+      "name": "Claim evidence registry",
+      "status": "PASS",
+      "detail": "no registry claims used; final-draft coverage is checked separately"
+    },
+    {
+      "name": "Dateline freshness",
+      "status": "WARN",
+      "detail": "current_month_year is 'August 2026'; current month is 'October 2026'"
+    },
+    {
+      "name": "Fabrication/placeholder gate",
+      "status": "PASS",
+      "detail": "no placeholder/fabrication patterns found"
+    },
+    {
+      "name": "Visible opening-function labels",
+      "status": "PASS",
+      "detail": "no visible opening-function labels found"
+    },
+    {
+      "name": "Internal planning artifacts",
+      "status": "PASS",
+      "detail": "no internal planning artifacts found"
+    },
+    {
+      "name": "H1 matches target query",
+      "status": "PASS",
+      "detail": "H1 matches target query closely (100% word overlap)"
+    },
+    {
+      "name": "Visible dateline",
+      "status": "PASS",
+      "detail": "visible 'Last updated' dateline is present after the H1"
+    },
+    {
+      "name": "Bare URLs (not Markdown links)",
+      "status": "PASS",
+      "detail": "no bare parenthetical URLs found"
+    },
+    {
+      "name": "Coming-soon features",
+      "status": "PASS",
+      "detail": "no configured coming-soon features mentioned"
+    },
+    {
+      "name": "Word count",
+      "status": "PASS",
+      "detail": "advisory length: 938 words; 700-1400 is a planning range for supporting, not a gate"
+    },
+    {
+      "name": "Banned words",
+      "status": "PASS",
+      "detail": "no banned words found"
+    },
+    {
+      "name": "Structured element present",
+      "status": "PASS",
+      "detail": "found a structured element (table)"
+    },
+    {
+      "name": "Process structure",
+      "status": "PASS",
+      "detail": "ordered steps not required by the reviewed reader task"
+    },
+    {
+      "name": "Tier-gating mentions",
+      "status": "PASS",
+      "detail": "tier-gated mentions carry nearby plan evidence"
+    },
+    {
+      "name": "Structural repetition (heuristic)",
+      "status": "PASS",
+      "detail": "no obvious structural repetition detected (coarse heuristic \u2014 still worth a human skim)"
+    },
+    {
+      "name": "Evidence-led brief",
+      "status": "WARN",
+      "detail": "missing evidence-led editorial brief and reviewed page decision"
+    },
+    {
+      "name": "Final-draft claim coverage",
+      "status": "WARN",
+      "detail": "missing versioned claim-to-sentence manifest; full human semantic review required"
+    }
+  ],
+  "gate_assessment": {
+    "all_pass": false,
+    "non_pass": [
+      {
+        "name": "Dateline freshness",
+        "status": "WARN",
+        "detail": "current_month_year is 'August 2026'; current month is 'October 2026'"
+      },
+      {
+        "name": "Evidence-led brief",
+        "status": "WARN",
+        "detail": "missing evidence-led editorial brief and reviewed page decision"
+      },
+      {
+        "name": "Final-draft claim coverage",
+        "status": "WARN",
+        "detail": "missing versioned claim-to-sentence manifest; full human semantic review required"
+      }
+    ]
+  },
+  "provenance": {
+    "draft_sha256": "7d859b82e28832b745df071a7e92c1012b5c3b44e53940379bb87d4b38758d3d",
+    "topic_sha256": "3a42b82f3444952f31cb9f4922ac65083b29dda22a876e72d83d135fffb4769e",
+    "snapshot_sha256": null
+  },
+  "what_to_fix_next": [
+    {
+      "priority": "P1",
+      "category": "publish_gate",
+      "issue": "Dateline freshness is WARN: current_month_year is 'August 2026'; current month is 'October 2026'",
+      "fix": "Resolve this gate result, then regenerate or rerun check_article.py.",
+      "evidence": "current_month_year is 'August 2026'; current month is 'October 2026'"
+    },
+    {
+      "priority": "P1",
+      "category": "publish_gate",
+      "issue": "Evidence-led brief is WARN: missing evidence-led editorial brief and reviewed page decision",
+      "fix": "Resolve this gate result, then regenerate or rerun check_article.py.",
+      "evidence": "missing evidence-led editorial brief and reviewed page decision"
+    },
+    {
+      "priority": "P1",
+      "category": "publish_gate",
+      "issue": "Final-draft claim coverage is WARN: missing versioned claim-to-sentence manifest; full human semantic review required",
+      "fix": "Resolve this gate result, then regenerate or rerun check_article.py.",
+      "evidence": "missing versioned claim-to-sentence manifest; full human semantic review required"
+    },
+    {
+      "priority": "P1",
+      "category": "research_evidence",
+      "issue": "No organic SERP snapshot was supplied, so intent, topical consensus, and entity coverage were not assessed.",
+      "fix": "Collect a current serp_snapshot.json with at least five independent organic domains, then rerun the report.",
+      "evidence": "Required independent-domain sample: 5; supplied: 0."
+    }
+  ],
+  "score_status": "improvements_available",
+  "human_review_required": [
+    "Confirm every claim, date, pricing or tier statement, and CTA against current first-party sources.",
+    "Review originality, usefulness, voice, legal meaning, and any editorial image/alt text before publication."
+  ],
+  "publication_status": "blocked",
+  "limits": [
+    "An automated gate and score do not prove factual accuracy, originality, legal safety, indexing, or ranking.",
+    "A SERP-parity score is evidence-relative to the supplied snapshot and is not a ranking probability."
+  ]
+}

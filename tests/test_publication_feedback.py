@@ -482,6 +482,9 @@ def test_export_adapter_preserves_but_does_not_promote_stale_surface_evidence():
 
 def test_content_versions_are_ordered_by_instant_across_timezones():
     registry, pub, observation = measured_fixture()
+    # The fixture's moving publication date can be later than these fixed July
+    # versions as time advances; isolate only the versions this test compares.
+    registry["publications"].clear()
     pub["content_version"] = "older-offset-version"
     pub["published_at"] = "2026-07-01T12:00:00+14:00"
     observation["publication_id"] = add_publication(registry, pub)

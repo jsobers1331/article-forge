@@ -1,0 +1,22 @@
+✓ [PASS] Config integrity: config has the required product, facts, pages, and tier fields
+⚠ [WARN] Facts freshness: verified_facts last confirmed 38 days ago (>30) — re-read the live site's source of truth and update facts_last_verified before publishing
+✓ [PASS] Claim verification ledger: no registry claims selected — final-draft manifest coverage is checked separately
+✓ [PASS] Claim evidence registry: no registry claims used; final-draft coverage is checked separately
+⚠ [WARN] Dateline freshness: current_month_year is 'September 2026'; current month is 'October 2026'
+✓ [PASS] Fabrication/placeholder gate: no placeholder/fabrication patterns found
+✓ [PASS] Visible opening-function labels: no visible opening-function labels found
+✓ [PASS] Internal planning artifacts: no internal planning artifacts found
+✓ [PASS] H1 matches target query: H1 matches target query closely (100% word overlap)
+✓ [PASS] Visible dateline: visible 'Last updated' dateline is present after the H1
+✓ [PASS] Bare URLs (not Markdown links): no bare parenthetical URLs found
+✓ [PASS] Coming-soon features: no configured coming-soon features mentioned
+✓ [PASS] Word count: advisory length: 811 words; 700-1400 is a planning range for supporting, not a gate
+✓ [PASS] Banned words: no banned words found
+✓ [PASS] Structured element present: found a structured element (table)
+✓ [PASS] Process structure: ordered steps not required by the reviewed reader task
+✓ [PASS] Tier-gating mentions: tier-gated mentions carry nearby plan evidence
+✓ [PASS] Structural repetition (heuristic): no obvious structural repetition detected (coarse heuristic — still worth a human skim)
+⚠ [WARN] Evidence-led brief: missing evidence-led editorial brief and reviewed page decision
+⚠ [WARN] Final-draft claim coverage: missing versioned claim-to-sentence manifest; full human semantic review required
+
+HARD FAIL — resolve the failures before publishing.

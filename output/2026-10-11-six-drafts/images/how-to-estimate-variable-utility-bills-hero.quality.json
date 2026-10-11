@@ -1,0 +1,27 @@
+{
+  "path": "output/2026-10-11-six-drafts/images/how-to-estimate-variable-utility-bills-hero.webp",
+  "alt": "Illustrated three-step utility bill process from past bills through estimate to actual statement",
+  "against": [
+    "output/2026-10-11-six-drafts/images"
+  ],
+  "sha256": "4d086a5e4d0981b03c597b554b72373ccd86b3da7a0b14d943492ac7c9a5f15e",
+  "format": "WEBP",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 43222,
+  "duplicate": {
+    "path": "output/2026-10-11-six-drafts/images/photography-invoice-reminder-email-templates-hero.webp",
+    "hash_distance": 4
+  },
+  "status": "PASS",
+  "detail": "1536x1024 WEBP asset passed image and duplicate checks",
+  "story_review": {
+    "specificity": "PASS: Past bills, adjustment, actual statement",
+    "story_action": "PASS: Explanatory graphic makes estimate and confirmed charge separate stages.",
+    "truth_provenance": "PASS: Exact reviewed wording from the article; no fictional meter readings or charges.",
+    "visual_quality": "PASS: full-resolution photo or crisp deterministic graphic reviewed; no pseudo-text, fake UI, or anatomy defect",
+    "placement": "PASS in draft: immediately after answer capsule; production placement pending",
+    "editorial_status": "PASS_FOR_DRAFT; PENDING_LIVE_PLACEMENT"
+  },
+  "rejected_candidate": "output/2026-10-11-six-drafts/images/rejected/how-to-estimate-variable-utility-bills-hero.webp"
+}

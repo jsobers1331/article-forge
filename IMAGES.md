@@ -1,6 +1,33 @@
 # Image Rules
 
-A model-agnostic, site-agnostic ruleset for adding AI-generated supporting imagery to
+## 0. Choose the visual job before making an asset
+
+Write a one-sentence **scene brief** for every placement: “The reader should see
+<specific action or evidence> and understand <article-specific point>.” Name the
+article section that supports that point. If the sentence could describe another
+article by changing only the title, reject the concept before generation.
+
+Choose the medium that can do that job truthfully:
+
+1. For a photography portfolio or other business whose work itself is the product,
+   prefer a permissioned, first-party photograph from that business. Record its
+   source/public ID and inspect the actual frame. Never present an AI scene as a
+   photograph made by the business or as a real client event.
+2. For a checklist, calculation, sequence, or comparison, use a legible explanatory
+   graphic when it teaches the task better than a lifestyle photo. Render exact,
+   reviewed text and example values deterministically; label examples as examples.
+   Do not ask an image model to invent an invoice, UI, data, or typography.
+3. Use AI editorial photography for atmosphere or a visible human action only when
+   the action itself explains the article's subject. A person looking at a blank
+   sheet, an empty chair, or generic desk props is not a visual story.
+4. Use a real product screenshot only for a specific UI claim, as in §1a.
+
+Make a shot/graphic plan before creating the asset. The plan must identify the
+subject, action, visible evidence, reader takeaway, image source, and placement.
+Changing the palette or props cannot rescue a concept with no article-specific
+meaning.
+
+A model-agnostic, site-agnostic ruleset for adding supporting imagery to
 articles produced by this framework. Distilled from cross-model research (DeepSeek API,
 direct Codex CLI, Claude Fable) plus a real generate-and-inspect test cycle against
 OpenAI's GPT Image 2 (2026-08-09) — including one real failure and its fix. Companion
@@ -8,7 +35,8 @@ to `RULES.md`; read that first for the article-writing rules this assumes.
 
 ## 1. Scope — what this covers and doesn't
 
-- **Covers:** AI-generated hero/OG images and mood/emotional supporting images.
+- **Covers:** first-party photographs, explanatory graphics, AI-generated hero/OG
+  images, and mood/emotional supporting images.
 - **Does NOT cover:** real product screenshots — but see §1a for exactly when a
   screenshot is the right call vs. when it isn't.
 
@@ -187,7 +215,7 @@ several regeneration attempts per image. Cost is not the constraint; QC time is.
 
 ## 5. Images per article
 
-**1–2 AI-generated images per article, maximum**, on top of any real product
+**1–2 editorial images per article, maximum**, on top of any real product
 screenshots (which are separate and should dominate):
 
 - **Hero/OG image** — always. Placed right after the intro/answer-capsule paragraph,
@@ -201,6 +229,36 @@ screenshots (which are separate and should dominate):
   images are supporting" hierarchy and starts to look like stock-photo padding.
 
 ## 6. Post-generation QC checklist
+
+### 6a. Article-fit acceptance gate (applies to every source and medium)
+
+Review the full-resolution image beside the exact article paragraph it supports.
+Record a short, falsifiable answer for each item in the image receipt:
+
+| Criterion | Pass requires | Reject when |
+|---|---|---|
+| Specificity | At least two visible details uniquely tied to this article's task or example | The scene fits several unrelated articles |
+| Story/action | A visible action, consequence, or explanatory relationship with a clear reader takeaway | A static person or decorative props merely suggest the general industry |
+| Truth/provenance | First-party source ID, reviewed example data, or explicit fictional editorial status; alt text describes only visible facts | It suggests a real customer, venue, result, app screen, or invoice that was not verified |
+| Visual quality | Full-resolution inspection finds natural anatomy/materials or crisp readable diagram text; no accidental text/logos | Uncanny face/hand, pseudo-text, fake UI, unclear small text, or generic stock appearance |
+| Placement | Hero follows the answer capsule; the page uses its URL in OG/schema/sitemap where supported | File exists but is not rendered, or the image weakens the adjacent section |
+
+**All five criteria must pass.** A deterministic `check_image.py` PASS proves only
+file integrity, dimensions, alt length, and duplicate distance; it is not an
+editorial PASS. Record the article-specific evidence and any rejected candidates.
+If the image has no clear story, change medium or concept before trying a new seed.
+An image that fails this gate contributes **zero** to the image portion of the
+article score and must not be published. Re-score the full article only after the
+final asset and its placement pass. A blank sheet is acceptable only if the
+absence of content is itself the article's point; otherwise it is a failed
+substitute for visible evidence.
+
+If a graphic contains meaningful text, inspect it at a 390px phone width. Supply
+a separately laid-out portrait/mobile source for the same placement when labels
+are too small to read; shrinking the desktop graphic is not a mobile treatment.
+Verify the browser actually selects that source, that it has the same truthful
+message and alt text, and that neither variant causes horizontal overflow.
+
 
 Every image, before it ships:
 
