@@ -1,0 +1,105 @@
+{
+  "articles": [
+    {
+      "url": "https://shootmuse.com/blog/photography-proposal-template",
+      "body_sha256": "55a844ecd950a599a87d77513635f919005def45419dd82b28e0318bbde26879",
+      "body_matches_approved_rendering": true,
+      "download_matches": true,
+      "images": [
+        {
+          "file": "photography-proposal-template-hero-mobile.webp",
+          "sha256": "287b4064060928e65c117f37c840db50834240759b2a6448de8dd9e21b9d2f7e"
+        },
+        {
+          "file": "photography-proposal-template-hero.webp",
+          "sha256": "fcf99fc6d6c815573c80fb02bfe82d766641ba18008e29d4edc29a68b78806a2"
+        }
+      ]
+    },
+    {
+      "url": "https://shootmuse.com/blog/mini-session-workflow",
+      "body_sha256": "04feaf53456422b967edf80e4c978afe58005408f0741fe2e313767be61520ab",
+      "body_matches_approved_rendering": true,
+      "download_matches": true,
+      "images": [
+        {
+          "file": "mini-session-workflow-guide.webp",
+          "sha256": "500f9cd9addf610435ec5c47a935f221b27960205490e5b582801dff715c4230"
+        },
+        {
+          "file": "mini-session-workflow-hero.webp",
+          "sha256": "412adbedca906207e7788551886eed4578f091ffea8915110ba496ff39c56ddf"
+        },
+        {
+          "file": "mini-session-workflow-guide-mobile.webp",
+          "sha256": "51194e637bfd477ffd1cdd7fe08b768c7f6c8bd3d7db70656de0477b8f11c836"
+        }
+      ]
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-gallery-delivery-email-templates",
+      "body_sha256": "4720caf18a7eee55bf282520188acf01a11a5d9f0ffb5ec06e8c0711f833d755",
+      "body_matches_approved_rendering": true,
+      "download_matches": true,
+      "images": [
+        {
+          "file": "photography-gallery-delivery-email-templates-hero.webp",
+          "sha256": "edfdd8a869974933f55398d97c381a9cc47cf94c78395377aec0b80c6637145d"
+        },
+        {
+          "file": "photography-gallery-delivery-email-templates-hero-mobile.webp",
+          "sha256": "6ba6a0e8348da78e190a79250d7891e4128ca9b8ade84370e669b7646df899aa"
+        }
+      ]
+    },
+    {
+      "url": "https://homeweal.com/articles/subscription-audit-checklist",
+      "body_sha256": "299a47b9358c96492a5d77b5a7e80354d767d526b4db2d43df84eca7d6a86152",
+      "body_matches_approved_rendering": true,
+      "download_matches": true,
+      "images": [
+        {
+          "file": "subscription-audit-checklist-hero.webp",
+          "sha256": "0ed41df6f535e2b559cc01fd0febf153925bef0d5863fc00ee76796806df2a02"
+        },
+        {
+          "file": "subscription-audit-checklist-hero-mobile.webp",
+          "sha256": "ae66373410ef91b78fe62feec136722436f103febf774d43f36dc05f5aecf7ca"
+        }
+      ]
+    },
+    {
+      "url": "https://homeweal.com/articles/household-bill-spreadsheet-template",
+      "body_sha256": "35c4aee42995fa347d5d43ef298117e81faf9797f5995f4d59f94a9ac3af8d12",
+      "body_matches_approved_rendering": true,
+      "download_matches": true,
+      "images": [
+        {
+          "file": "household-bill-spreadsheet-template-hero.webp",
+          "sha256": "dd7e5e1d217dc28e828a81001d97e6b0367202b958a23618b14406274a2bf716"
+        },
+        {
+          "file": "household-bill-spreadsheet-template-hero-mobile.webp",
+          "sha256": "7ad8262e1af200523cd525f7421e99c98f45ac06c095111abb2615301cc63799"
+        }
+      ]
+    },
+    {
+      "url": "https://homeweal.com/articles/split-bills-with-variable-income",
+      "body_sha256": "f960a822051a377f9544bf49492c41886fcbb9b415ebb7a61c50329ebb8ea9c0",
+      "body_matches_approved_rendering": true,
+      "download_matches": true,
+      "images": [
+        {
+          "file": "split-bills-with-variable-income-hero-mobile.webp",
+          "sha256": "bc4b3654b415cde3933e0df7b110dff00b444acdab894bb333f4a9d44b0730cb"
+        },
+        {
+          "file": "split-bills-with-variable-income-hero.webp",
+          "sha256": "47d40083eeb1b8136994936f2111fe1123c0c933d853148804ff1246637a475e"
+        }
+      ]
+    }
+  ],
+  "sitemap_and_llms": "all six present"
+}

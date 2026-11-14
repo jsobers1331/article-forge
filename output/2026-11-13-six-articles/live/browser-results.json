@@ -1,0 +1,1231 @@
+{
+  "pages": [
+    {
+      "slug": "photography-proposal-template",
+      "status": 200,
+      "seo": {
+        "h1": [
+          "Photography Proposal Template: Scope, Fees, and Next Steps"
+        ],
+        "canonical": "https://shootmuse.com/blog/photography-proposal-template",
+        "title": "Photography Proposal Template: Scope, Fees, and Next Steps | ShootMuse",
+        "description": "Download a free photography proposal outline and learn how to clarify scope, fees, deliverables, and next steps before preparing the agreement.",
+        "og": "https://shootmuse.com/images/blog/photography-proposal-template-hero.webp",
+        "twitter": "summary_large_image",
+        "schemas": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://shootmuse.com/#org",
+            "name": "ShootMuse",
+            "url": "https://shootmuse.com",
+            "logo": "https://shootmuse.com/icon",
+            "description": "ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.",
+            "founder": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/shootmuse",
+              "https://www.facebook.com/shootmuse",
+              "https://www.crunchbase.com/organization/shootmuse"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://shootmuse.com/contact"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://shootmuse.com/#person",
+            "name": "Jason Sobers",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "description": "Founder of ShootMuse. Eight and a half years as a working wedding and portrait photographer.",
+            "sameAs": [
+              "https://www.jsobersphotography.com",
+              "https://www.instagram.com/jsobersphotography",
+              "https://www.facebook.com/JSobersPhotography/",
+              "https://www.pinterest.com/jsobersphotography/"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "ShootMuse",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "https://shootmuse.com",
+            "description": "AI-powered photography business management software. CRM, galleries, invoicing, contracts, and workflow automation in one platform.",
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "author": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "featureList": [
+              "Photography CRM",
+              "Client Gallery Delivery",
+              "Invoicing & Payments",
+              "Contract Management",
+              "AI Workflow Automation",
+              "Client Portal",
+              "Booking & Scheduling",
+              "Email Automation"
+            ],
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Starter",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "For photographers just getting started"
+              },
+              {
+                "@type": "Offer",
+                "name": "Professional (monthly)",
+                "price": "59",
+                "priceCurrency": "USD",
+                "billingDuration": "P1M",
+                "description": "Professional plan, $59/month billed monthly."
+              },
+              {
+                "@type": "Offer",
+                "name": "Professional (annual)",
+                "price": "588",
+                "priceCurrency": "USD",
+                "billingDuration": "P1Y",
+                "description": "Professional plan, $588/year billed annually ($49/month equivalent)."
+              },
+              {
+                "@type": "Offer",
+                "name": "Studio (monthly)",
+                "price": "109",
+                "priceCurrency": "USD",
+                "billingDuration": "P1M",
+                "description": "Studio plan, $109/month billed monthly."
+              },
+              {
+                "@type": "Offer",
+                "name": "Studio (annual)",
+                "price": "1068",
+                "priceCurrency": "USD",
+                "billingDuration": "P1Y",
+                "description": "Studio plan, $1,068/year billed annually ($89/month equivalent)."
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://shootmuse.com/#website",
+            "name": "ShootMuse",
+            "url": "https://shootmuse.com",
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Photography Proposal Template: Scope, Fees, and Next Steps",
+            "description": "Download a free photography proposal outline and learn how to clarify scope, fees, deliverables, and next steps before preparing the agreement.",
+            "image": [
+              "https://shootmuse.com/images/blog/photography-proposal-template-hero.webp"
+            ],
+            "author": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "url": "https://shootmuse.com/blog/photography-proposal-template",
+            "datePublished": "2026-11-13",
+            "dateModified": "2026-11-13",
+            "mainEntityOfPage": "https://shootmuse.com/blog/photography-proposal-template"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://shootmuse.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://shootmuse.com/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Photography Proposal Template: Scope, Fees, and Next Steps",
+                "item": "https://shootmuse.com/blog/photography-proposal-template"
+              }
+            ]
+          }
+        ],
+        "links": [
+          "/downloads/photography-proposal-template.txt",
+          "/features",
+          "/pricing",
+          "/pricing",
+          "/blog/photography-invoice-checklist",
+          "/blog/photography-contract-checklist",
+          "/features/invoicing",
+          "/features/galleries",
+          "/features/crm",
+          "/blog/photography-workflow-automation",
+          "/blog/choose-photography-crm",
+          "/downloads/photography-proposal-template.txt",
+          "/blog",
+          "/blog"
+        ],
+        "lists": 2,
+        "tables": 1
+      },
+      "media": [
+        {
+          "width": 1440,
+          "documentWidth": 1440,
+          "images": [
+            {
+              "alt": "Photography proposal workflow: clarify the brief, define deliverables and fees, then confirm the scope before preparing other documents",
+              "currentSrc": "https://shootmuse.com/_next/image?url=%2Fimages%2Fblog%2Fphotography-proposal-template-hero.webp&w=828&q=75",
+              "naturalWidth": 768,
+              "renderedWidth": 720
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "documentWidth": 390,
+          "images": [
+            {
+              "alt": "Photography proposal workflow: clarify the brief, define deliverables and fees, then confirm the scope before preparing other documents",
+              "currentSrc": "https://shootmuse.com/images/blog/photography-proposal-template-hero-mobile.webp",
+              "naturalWidth": 1200,
+              "renderedWidth": 342
+            }
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mini-session-workflow",
+      "status": 200,
+      "seo": {
+        "h1": [
+          "Mini Session Workflow: Booking Through Gallery Delivery"
+        ],
+        "canonical": "https://shootmuse.com/blog/mini-session-workflow",
+        "title": "Mini Session Workflow: Booking Through Gallery Delivery | ShootMuse",
+        "description": "Plan a mini session workflow from booking through gallery delivery, with a private roster, reset buffers, recipient checks, and an editable checklist.",
+        "og": "https://shootmuse.com/images/blog/mini-session-workflow-hero.webp",
+        "twitter": "summary_large_image",
+        "schemas": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://shootmuse.com/#org",
+            "name": "ShootMuse",
+            "url": "https://shootmuse.com",
+            "logo": "https://shootmuse.com/icon",
+            "description": "ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.",
+            "founder": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/shootmuse",
+              "https://www.facebook.com/shootmuse",
+              "https://www.crunchbase.com/organization/shootmuse"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://shootmuse.com/contact"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://shootmuse.com/#person",
+            "name": "Jason Sobers",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "description": "Founder of ShootMuse. Eight and a half years as a working wedding and portrait photographer.",
+            "sameAs": [
+              "https://www.jsobersphotography.com",
+              "https://www.instagram.com/jsobersphotography",
+              "https://www.facebook.com/JSobersPhotography/",
+              "https://www.pinterest.com/jsobersphotography/"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "ShootMuse",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "https://shootmuse.com",
+            "description": "AI-powered photography business management software. CRM, galleries, invoicing, contracts, and workflow automation in one platform.",
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "author": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "featureList": [
+              "Photography CRM",
+              "Client Gallery Delivery",
+              "Invoicing & Payments",
+              "Contract Management",
+              "AI Workflow Automation",
+              "Client Portal",
+              "Booking & Scheduling",
+              "Email Automation"
+            ],
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Starter",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "For photographers just getting started"
+              },
+              {
+                "@type": "Offer",
+                "name": "Professional (monthly)",
+                "price": "59",
+                "priceCurrency": "USD",
+                "billingDuration": "P1M",
+                "description": "Professional plan, $59/month billed monthly."
+              },
+              {
+                "@type": "Offer",
+                "name": "Professional (annual)",
+                "price": "588",
+                "priceCurrency": "USD",
+                "billingDuration": "P1Y",
+                "description": "Professional plan, $588/year billed annually ($49/month equivalent)."
+              },
+              {
+                "@type": "Offer",
+                "name": "Studio (monthly)",
+                "price": "109",
+                "priceCurrency": "USD",
+                "billingDuration": "P1M",
+                "description": "Studio plan, $109/month billed monthly."
+              },
+              {
+                "@type": "Offer",
+                "name": "Studio (annual)",
+                "price": "1068",
+                "priceCurrency": "USD",
+                "billingDuration": "P1Y",
+                "description": "Studio plan, $1,068/year billed annually ($89/month equivalent)."
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://shootmuse.com/#website",
+            "name": "ShootMuse",
+            "url": "https://shootmuse.com",
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Mini Session Workflow: Booking Through Gallery Delivery",
+            "description": "Plan a mini session workflow from booking through gallery delivery, with a private roster, reset buffers, recipient checks, and an editable checklist.",
+            "image": [
+              "https://shootmuse.com/images/blog/mini-session-workflow-hero.webp"
+            ],
+            "author": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "url": "https://shootmuse.com/blog/mini-session-workflow",
+            "datePublished": "2026-11-13",
+            "dateModified": "2026-11-13",
+            "mainEntityOfPage": "https://shootmuse.com/blog/mini-session-workflow"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://shootmuse.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://shootmuse.com/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Mini Session Workflow: Booking Through Gallery Delivery",
+                "item": "https://shootmuse.com/blog/mini-session-workflow"
+              }
+            ]
+          }
+        ],
+        "links": [
+          "/features/galleries",
+          "/pricing",
+          "/downloads/mini-session-workflow.txt",
+          "/blog/what-is-a-photography-crm",
+          "/features/invoicing",
+          "/features/galleries",
+          "/blog/gallery-delivery-best-practices",
+          "/downloads/mini-session-workflow.txt",
+          "/features",
+          "/blog",
+          "/blog"
+        ],
+        "lists": 3,
+        "tables": 1
+      },
+      "media": [
+        {
+          "width": 1440,
+          "documentWidth": 1440,
+          "images": [
+            {
+              "alt": "A photographer preparing a tripod-mounted camera beside an outdoor portrait backdrop and stool",
+              "currentSrc": "https://shootmuse.com/_next/image?url=%2Fimages%2Fblog%2Fmini-session-workflow-hero.webp&w=828&q=75",
+              "naturalWidth": 768,
+              "renderedWidth": 720
+            },
+            {
+              "alt": "Mini session sequence: prepare the next client, photograph the agreed scope, then reset and protect the transition buffer",
+              "currentSrc": "https://shootmuse.com/images/blog/mini-session-workflow-guide.webp",
+              "naturalWidth": 1536,
+              "renderedWidth": 720
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "documentWidth": 390,
+          "images": [
+            {
+              "alt": "A photographer preparing a tripod-mounted camera beside an outdoor portrait backdrop and stool",
+              "currentSrc": "https://shootmuse.com/_next/image?url=%2Fimages%2Fblog%2Fmini-session-workflow-hero.webp&w=828&q=75",
+              "naturalWidth": 390,
+              "renderedWidth": 342
+            },
+            {
+              "alt": "Mini session sequence: prepare the next client, photograph the agreed scope, then reset and protect the transition buffer",
+              "currentSrc": "https://shootmuse.com/images/blog/mini-session-workflow-guide-mobile.webp",
+              "naturalWidth": 1200,
+              "renderedWidth": 342
+            }
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "slug": "photography-gallery-delivery-email-templates",
+      "status": 200,
+      "seo": {
+        "h1": [
+          "Photography Gallery Delivery Email Templates You Can Adapt"
+        ],
+        "canonical": "https://shootmuse.com/blog/photography-gallery-delivery-email-templates",
+        "title": "Photography Gallery Delivery Email Templates You Can Adapt | ShootMuse",
+        "description": "Copy photography gallery delivery emails for first delivery, selection requests, access reminders, and troubleshooting, with a pre-send checklist.",
+        "og": "https://shootmuse.com/images/blog/photography-gallery-delivery-email-templates-hero.webp",
+        "twitter": "summary_large_image",
+        "schemas": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://shootmuse.com/#org",
+            "name": "ShootMuse",
+            "url": "https://shootmuse.com",
+            "logo": "https://shootmuse.com/icon",
+            "description": "ShootMuse is AI-powered photography business management software with CRM, galleries, invoicing, contracts, and workflow automation in one platform.",
+            "founder": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/shootmuse",
+              "https://www.facebook.com/shootmuse",
+              "https://www.crunchbase.com/organization/shootmuse"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "url": "https://shootmuse.com/contact"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://shootmuse.com/#person",
+            "name": "Jason Sobers",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "description": "Founder of ShootMuse. Eight and a half years as a working wedding and portrait photographer.",
+            "sameAs": [
+              "https://www.jsobersphotography.com",
+              "https://www.instagram.com/jsobersphotography",
+              "https://www.facebook.com/JSobersPhotography/",
+              "https://www.pinterest.com/jsobersphotography/"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "ShootMuse",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "https://shootmuse.com",
+            "description": "AI-powered photography business management software. CRM, galleries, invoicing, contracts, and workflow automation in one platform.",
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "author": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "featureList": [
+              "Photography CRM",
+              "Client Gallery Delivery",
+              "Invoicing & Payments",
+              "Contract Management",
+              "AI Workflow Automation",
+              "Client Portal",
+              "Booking & Scheduling",
+              "Email Automation"
+            ],
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Starter",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "For photographers just getting started"
+              },
+              {
+                "@type": "Offer",
+                "name": "Professional (monthly)",
+                "price": "59",
+                "priceCurrency": "USD",
+                "billingDuration": "P1M",
+                "description": "Professional plan, $59/month billed monthly."
+              },
+              {
+                "@type": "Offer",
+                "name": "Professional (annual)",
+                "price": "588",
+                "priceCurrency": "USD",
+                "billingDuration": "P1Y",
+                "description": "Professional plan, $588/year billed annually ($49/month equivalent)."
+              },
+              {
+                "@type": "Offer",
+                "name": "Studio (monthly)",
+                "price": "109",
+                "priceCurrency": "USD",
+                "billingDuration": "P1M",
+                "description": "Studio plan, $109/month billed monthly."
+              },
+              {
+                "@type": "Offer",
+                "name": "Studio (annual)",
+                "price": "1068",
+                "priceCurrency": "USD",
+                "billingDuration": "P1Y",
+                "description": "Studio plan, $1,068/year billed annually ($89/month equivalent)."
+              }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://shootmuse.com/#website",
+            "name": "ShootMuse",
+            "url": "https://shootmuse.com",
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Photography Gallery Delivery Email Templates You Can Adapt",
+            "description": "Copy photography gallery delivery emails for first delivery, selection requests, access reminders, and troubleshooting, with a pre-send checklist.",
+            "image": [
+              "https://shootmuse.com/images/blog/photography-gallery-delivery-email-templates-hero.webp"
+            ],
+            "author": {
+              "@id": "https://shootmuse.com/#person"
+            },
+            "publisher": {
+              "@id": "https://shootmuse.com/#org"
+            },
+            "url": "https://shootmuse.com/blog/photography-gallery-delivery-email-templates",
+            "datePublished": "2026-11-13",
+            "dateModified": "2026-11-13",
+            "mainEntityOfPage": "https://shootmuse.com/blog/photography-gallery-delivery-email-templates"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://shootmuse.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://shootmuse.com/blog"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Photography Gallery Delivery Email Templates You Can Adapt",
+                "item": "https://shootmuse.com/blog/photography-gallery-delivery-email-templates"
+              }
+            ]
+          }
+        ],
+        "links": [
+          "/downloads/photography-gallery-delivery-email-templates.txt",
+          "/blog/gallery-delivery-best-practices",
+          "/blog/photography-client-portal-checklist",
+          "/features",
+          "/pricing",
+          "/features/galleries",
+          "/features",
+          "/features/crm",
+          "/features/invoicing",
+          "/blog/photography-workflow-automation",
+          "/downloads/photography-gallery-delivery-email-templates.txt",
+          "/features/galleries",
+          "/pricing",
+          "/blog",
+          "/blog"
+        ],
+        "lists": 1,
+        "tables": 1
+      },
+      "media": [
+        {
+          "width": 1440,
+          "documentWidth": 1440,
+          "images": [
+            {
+              "alt": "Gallery delivery email outline: open the private gallery, save or select photographs, and reply for help",
+              "currentSrc": "https://shootmuse.com/_next/image?url=%2Fimages%2Fblog%2Fphotography-gallery-delivery-email-templates-hero.webp&w=828&q=75",
+              "naturalWidth": 768,
+              "renderedWidth": 720
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "documentWidth": 390,
+          "images": [
+            {
+              "alt": "Gallery delivery email outline: open the private gallery, save or select photographs, and reply for help",
+              "currentSrc": "https://shootmuse.com/images/blog/photography-gallery-delivery-email-templates-hero-mobile.webp",
+              "naturalWidth": 1200,
+              "renderedWidth": 342
+            }
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "slug": "subscription-audit-checklist",
+      "status": 200,
+      "seo": {
+        "h1": [
+          "Subscription Audit Checklist: Keep, Cancel, or Review"
+        ],
+        "canonical": "https://homeweal.com/articles/subscription-audit-checklist",
+        "title": "Subscription Audit Checklist: Keep, Cancel, or Review | HomeWeal",
+        "description": "Use a subscription audit checklist to review renewals, decide what to keep or cancel, and record confirmation. Includes a free editable CSV.",
+        "og": "https://homeweal.com/images/articles/subscription-audit-checklist-hero.webp",
+        "twitter": "summary_large_image",
+        "schemas": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://homeweal.com#org",
+            "name": "HomeWeal",
+            "url": "https://homeweal.com",
+            "logo": "https://homeweal.com/apple-icon.png",
+            "founder": {
+              "@id": "https://homeweal.com#person"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/homeweal/",
+              "https://www.facebook.com/homeweal",
+              "https://www.crunchbase.com/organization/homeweal"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://homeweal.com#person",
+            "name": "Jason Sobers",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://homeweal.com#org"
+            },
+            "sameAs": [
+              "https://www.jsobersphotography.com",
+              "https://www.instagram.com/jsobersphotography",
+              "https://www.facebook.com/JSobersPhotography/",
+              "https://www.pinterest.com/jsobersphotography/"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Subscription Audit Checklist: Keep, Cancel, or Review",
+            "description": "Use a subscription audit checklist to review renewals, decide what to keep or cancel, and record confirmation. Includes a free editable CSV.",
+            "url": "https://homeweal.com/articles/subscription-audit-checklist",
+            "datePublished": "2026-11-13",
+            "dateModified": "2026-11-13",
+            "author": {
+              "@id": "https://homeweal.com#person"
+            },
+            "publisher": {
+              "@id": "https://homeweal.com#org"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://homeweal.com/articles/subscription-audit-checklist"
+            },
+            "image": "https://homeweal.com/images/articles/subscription-audit-checklist-hero.webp"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://homeweal.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Articles",
+                "item": "https://homeweal.com/articles"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Subscription Audit Checklist: Keep, Cancel, or Review",
+                "item": "https://homeweal.com/articles/subscription-audit-checklist"
+              }
+            ]
+          }
+        ],
+        "links": [
+          "/features",
+          "/tools/subscription-audit",
+          "/pricing",
+          "/articles/what-is-a-household-bill-tracker",
+          "/downloads/subscription-audit-checklist.csv",
+          "https://support.apple.com/en-us/118428",
+          "https://support.google.com/googleplay/answer/7018481",
+          "/articles/what-is-a-household-bill-tracker",
+          "/features",
+          "/pricing",
+          "/articles/how-to-budget-for-annual-household-bills",
+          "/articles/ai-bill-tracker",
+          "/downloads/subscription-audit-checklist.csv",
+          "/pricing",
+          "/articles",
+          "/articles/ai-bill-tracker",
+          "/articles/how-to-budget-for-annual-household-bills",
+          "/articles/household-bill-spreadsheet-template"
+        ],
+        "lists": 1,
+        "tables": 1
+      },
+      "media": [
+        {
+          "width": 1440,
+          "documentWidth": 1440,
+          "images": [
+            {
+              "alt": "Subscription audit decision guide with keep, cancel, and review actions and a reminder to save cancellation confirmation",
+              "currentSrc": "https://homeweal.com/_next/image?url=%2Fimages%2Farticles%2Fsubscription-audit-checklist-hero.webp&w=828&q=75&dpl=dpl_wb5AHRZfiySK3Ru2V58QsEdCaRto",
+              "naturalWidth": 820,
+              "renderedWidth": 772
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "documentWidth": 390,
+          "images": [
+            {
+              "alt": "Subscription audit decision guide with keep, cancel, and review actions and a reminder to save cancellation confirmation",
+              "currentSrc": "https://homeweal.com/images/articles/subscription-audit-checklist-hero-mobile.webp",
+              "naturalWidth": 1200,
+              "renderedWidth": 342
+            }
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "slug": "household-bill-spreadsheet-template",
+      "status": 200,
+      "seo": {
+        "h1": [
+          "Household Bill Spreadsheet Template: Due, Paid, and Shared"
+        ],
+        "canonical": "https://homeweal.com/articles/household-bill-spreadsheet-template",
+        "title": "Household Bill Spreadsheet Template: Due, Paid, and Shared | HomeWeal",
+        "description": "Download a household bill spreadsheet template with CSV headers for due dates, amounts, payment status, and shared bills, plus setup instructions.",
+        "og": "https://homeweal.com/images/articles/household-bill-spreadsheet-template-hero.webp",
+        "twitter": "summary_large_image",
+        "schemas": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://homeweal.com#org",
+            "name": "HomeWeal",
+            "url": "https://homeweal.com",
+            "logo": "https://homeweal.com/apple-icon.png",
+            "founder": {
+              "@id": "https://homeweal.com#person"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/homeweal/",
+              "https://www.facebook.com/homeweal",
+              "https://www.crunchbase.com/organization/homeweal"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://homeweal.com#person",
+            "name": "Jason Sobers",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://homeweal.com#org"
+            },
+            "sameAs": [
+              "https://www.jsobersphotography.com",
+              "https://www.instagram.com/jsobersphotography",
+              "https://www.facebook.com/JSobersPhotography/",
+              "https://www.pinterest.com/jsobersphotography/"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Household Bill Spreadsheet Template: Due, Paid, and Shared",
+            "description": "Download a household bill spreadsheet template with CSV headers for due dates, amounts, payment status, and shared bills, plus setup instructions.",
+            "url": "https://homeweal.com/articles/household-bill-spreadsheet-template",
+            "datePublished": "2026-11-13",
+            "dateModified": "2026-11-13",
+            "author": {
+              "@id": "https://homeweal.com#person"
+            },
+            "publisher": {
+              "@id": "https://homeweal.com#org"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://homeweal.com/articles/household-bill-spreadsheet-template"
+            },
+            "image": "https://homeweal.com/images/articles/household-bill-spreadsheet-template-hero.webp"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://homeweal.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Articles",
+                "item": "https://homeweal.com/articles"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Household Bill Spreadsheet Template: Due, Paid, and Shared",
+                "item": "https://homeweal.com/articles/household-bill-spreadsheet-template"
+              }
+            ]
+          }
+        ],
+        "links": [
+          "/downloads/household-bill-spreadsheet-template.csv",
+          "/articles/how-to-estimate-variable-utility-bills",
+          "/articles/multi-currency-budgeting-app-for-couples",
+          "/features",
+          "/pricing",
+          "/articles/what-is-a-household-bill-tracker",
+          "/articles/best-bill-tracker-without-bank-linking",
+          "/articles/how-to-budget-for-annual-household-bills",
+          "/articles",
+          "/articles/how-to-keep-track-of-bills-paid",
+          "/articles/how-to-estimate-variable-utility-bills",
+          "/articles/subscription-audit-checklist"
+        ],
+        "lists": 1,
+        "tables": 1
+      },
+      "media": [
+        {
+          "width": 1440,
+          "documentWidth": 1440,
+          "images": [
+            {
+              "alt": "Bill spreadsheet column groups separating planned amounts and due dates from confirmed payments and shared-split notes",
+              "currentSrc": "https://homeweal.com/_next/image?url=%2Fimages%2Farticles%2Fhousehold-bill-spreadsheet-template-hero.webp&w=828&q=75&dpl=dpl_wb5AHRZfiySK3Ru2V58QsEdCaRto",
+              "naturalWidth": 820,
+              "renderedWidth": 772
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "documentWidth": 390,
+          "images": [
+            {
+              "alt": "Bill spreadsheet column groups separating planned amounts and due dates from confirmed payments and shared-split notes",
+              "currentSrc": "https://homeweal.com/images/articles/household-bill-spreadsheet-template-hero-mobile.webp",
+              "naturalWidth": 1200,
+              "renderedWidth": 342
+            }
+          ]
+        }
+      ],
+      "issues": []
+    },
+    {
+      "slug": "split-bills-with-variable-income",
+      "status": 200,
+      "seo": {
+        "h1": [
+          "How to Split Bills With Variable Income: A Worked Example"
+        ],
+        "canonical": "https://homeweal.com/articles/split-bills-with-variable-income",
+        "title": "How to Split Bills With Variable Income: A Worked Example | HomeWeal",
+        "description": "Split bills with variable income using a worked example, agreed review dates, and manual percentages. Learn what to do when available cash changes.",
+        "og": "https://homeweal.com/images/articles/split-bills-with-variable-income-hero.webp",
+        "twitter": "summary_large_image",
+        "schemas": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://homeweal.com#org",
+            "name": "HomeWeal",
+            "url": "https://homeweal.com",
+            "logo": "https://homeweal.com/apple-icon.png",
+            "founder": {
+              "@id": "https://homeweal.com#person"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/homeweal/",
+              "https://www.facebook.com/homeweal",
+              "https://www.crunchbase.com/organization/homeweal"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://homeweal.com#person",
+            "name": "Jason Sobers",
+            "jobTitle": "Founder",
+            "worksFor": {
+              "@id": "https://homeweal.com#org"
+            },
+            "sameAs": [
+              "https://www.jsobersphotography.com",
+              "https://www.instagram.com/jsobersphotography",
+              "https://www.facebook.com/JSobersPhotography/",
+              "https://www.pinterest.com/jsobersphotography/"
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "How to Split Bills With Variable Income: A Worked Example",
+            "description": "Split bills with variable income using a worked example, agreed review dates, and manual percentages. Learn what to do when available cash changes.",
+            "url": "https://homeweal.com/articles/split-bills-with-variable-income",
+            "datePublished": "2026-11-13",
+            "dateModified": "2026-11-13",
+            "author": {
+              "@id": "https://homeweal.com#person"
+            },
+            "publisher": {
+              "@id": "https://homeweal.com#org"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://homeweal.com/articles/split-bills-with-variable-income"
+            },
+            "image": "https://homeweal.com/images/articles/split-bills-with-variable-income-hero.webp"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://homeweal.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Articles",
+                "item": "https://homeweal.com/articles"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "How to Split Bills With Variable Income: A Worked Example",
+                "item": "https://homeweal.com/articles/split-bills-with-variable-income"
+              }
+            ]
+          }
+        ],
+        "links": [
+          "/articles/what-is-a-household-bill-tracker",
+          "/articles/multi-currency-budgeting-app-for-couples",
+          "/downloads/split-bills-with-variable-income.txt",
+          "/features",
+          "/articles/how-to-estimate-variable-utility-bills",
+          "/pricing",
+          "/articles/multi-currency-budgeting-app-for-couples",
+          "/features",
+          "/articles",
+          "/articles/how-to-split-bills-based-on-income",
+          "/articles/how-to-manage-shared-household-bills",
+          "/articles/how-to-budget-bills-around-payday",
+          "/shared-bills"
+        ],
+        "lists": 1,
+        "tables": 1
+      },
+      "media": [
+        {
+          "width": 1440,
+          "documentWidth": 1440,
+          "images": [
+            {
+              "alt": "Hypothetical bill split: incomes of 2400 and 1600 give contributions of 720 and 480; equal incomes of 1800 give contributions of 600 each",
+              "currentSrc": "https://homeweal.com/_next/image?url=%2Fimages%2Farticles%2Fsplit-bills-with-variable-income-hero.webp&w=828&q=75&dpl=dpl_wb5AHRZfiySK3Ru2V58QsEdCaRto",
+              "naturalWidth": 820,
+              "renderedWidth": 772
+            }
+          ]
+        },
+        {
+          "width": 390,
+          "documentWidth": 390,
+          "images": [
+            {
+              "alt": "Hypothetical bill split: incomes of 2400 and 1600 give contributions of 720 and 480; equal incomes of 1800 give contributions of 600 each",
+              "currentSrc": "https://homeweal.com/images/articles/split-bills-with-variable-income-hero-mobile.webp",
+              "naturalWidth": 1200,
+              "renderedWidth": 342
+            }
+          ]
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "links": [
+    {
+      "url": "https://shootmuse.com/downloads/photography-proposal-template.txt",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/features",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/pricing",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-invoice-checklist",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-contract-checklist",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/features/invoicing",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/features/galleries",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/features/crm",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-workflow-automation",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/choose-photography-crm",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/downloads/mini-session-workflow.txt",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/what-is-a-photography-crm",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/gallery-delivery-best-practices",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/downloads/photography-gallery-delivery-email-templates.txt",
+      "status": 200
+    },
+    {
+      "url": "https://shootmuse.com/blog/photography-client-portal-checklist",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/features",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/tools/subscription-audit",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/pricing",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/what-is-a-household-bill-tracker",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/downloads/subscription-audit-checklist.csv",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-budget-for-annual-household-bills",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/ai-bill-tracker",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/household-bill-spreadsheet-template",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/downloads/household-bill-spreadsheet-template.csv",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-estimate-variable-utility-bills",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/multi-currency-budgeting-app-for-couples",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/best-bill-tracker-without-bank-linking",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-keep-track-of-bills-paid",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/subscription-audit-checklist",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/downloads/split-bills-with-variable-income.txt",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-split-bills-based-on-income",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-manage-shared-household-bills",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/articles/how-to-budget-bills-around-payday",
+      "status": 200
+    },
+    {
+      "url": "https://homeweal.com/shared-bills",
+      "status": 200
+    }
+  ],
+  "failedPages": 0,
+  "brokenLinks": []
+}

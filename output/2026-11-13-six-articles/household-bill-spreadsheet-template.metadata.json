@@ -1,0 +1,11 @@
+{
+  "slug": "household-bill-spreadsheet-template",
+  "title": "Household Bill Spreadsheet Template: Due, Paid, and Shared",
+  "description": "Download a household bill spreadsheet template with CSV headers for due dates, amounts, payment status, and shared bills, plus setup instructions.",
+  "blurb": "Download a household bill spreadsheet template with CSV headers for due dates, amounts, payment status, and shared bills, plus setup instructions.",
+  "heroSrc": "/images/articles/household-bill-spreadsheet-template-hero.webp",
+  "mobileHeroSrc": "/images/articles/household-bill-spreadsheet-template-hero-mobile.webp",
+  "heroAlt": "Bill spreadsheet column groups separating planned amounts and due dates from confirmed payments and shared-split notes",
+  "thumbnailAlt": "Bill spreadsheet column groups separating planned amounts and due dates from confirmed payments and shared-split notes",
+  "publishedAt": "2026-11-13"
+}

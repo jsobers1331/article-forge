@@ -1,0 +1,39 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "minor_findings": [
+    {
+      "quote": "If your spreadsheet app asks about encoding, choose UTF-8.",
+      "issue": "Minor: Could clarify that the file is already UTF-8, so most users will not need to select encoding.",
+      "correction": "Optional: Add 'The file is already UTF-8, so most spreadsheet apps will detect this automatically.'"
+    },
+    {
+      "quote": "Do not copy the `status`, `paid_date`, or `confirmation_reference` values from a previous month. Those are per-occurrence fields and should start blank each cycle.",
+      "issue": "Minor: Could clarify that 'expected_amount' may also change for variable bills.",
+      "correction": "Optional: Add 'For variable bills, update expected_amount as needed each cycle.'"
+    },
+    {
+      "quote": "The downloadable file is already UTF-8 encoded, so it should open correctly in Excel, Google Sheets, LibreOffice, Apple Numbers, or any text editor.",
+      "issue": "Minor: Apple Numbers sometimes has issues with CSVs; a brief note could help.",
+      "correction": "Optional: Add 'If you encounter issues in Apple Numbers, try importing the file rather than opening directly.'"
+    }
+  ],
+  "scores": {
+    "voice_40": 39,
+    "fidelity_30": 30,
+    "structure_20": 20,
+    "completeness_10": 10
+  },
+  "limitations": [
+    "Article does not provide measured user outcomes or legal advice.",
+    "All workflow and arithmetic examples are qualitative and illustrative, not empirical data.",
+    "No claim of automated reminders, formula logic, or sample data in the downloadable file.",
+    "No claim of product execution for features not supported by first-party sources.",
+    "No testimonials or user experience data included."
+  ],
+  "draft_sha256": "fd10d3a5438c43892b287c2c740d0e56cdf1644306e6b64cbe5c41f50f5928fc",
+  "model": "gpt-4.1",
+  "provider": "OpenAI direct personal account",
+  "reviewed_at": "2026-11-14T01:21:53.901686+00:00",
+  "review_type": "Independent automated review; not a human attestation"
+}
