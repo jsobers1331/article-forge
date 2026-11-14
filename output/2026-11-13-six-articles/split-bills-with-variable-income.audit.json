@@ -1,0 +1,40 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "minor_findings": [
+    {
+      "quote": "You can download the original worked arithmetic note for this calculation at [the worked arithmetic note](/downloads/split-bills-with-variable-income.txt). This plain text file contains the same hypothetical, same-currency arithmetic shown above. It is not a calculator, template, or form\u2014just a worked example you can copy into your own notes and adapt with your household's numbers.",
+      "issue": "The description is accurate, but the article could clarify that the file contains only the arithmetic steps and not any interactive or spreadsheet features.",
+      "correction": "Consider adding: 'The file contains only the arithmetic steps as plain text, not any interactive or spreadsheet features.'"
+    },
+    {
+      "quote": "HomeWeal Family supports equal, percentage, or fixed-amount bill splitting. The income percentages themselves are calculated by the household outside the app. Calculate and agree the percentages yourself, then enter the chosen split; the app does not move money between people. It records the split you decide and keeps the shared bill view up to date. See [HomeWeal's features](/features) for more details.",
+      "issue": "The description is accurate per sources, but could be even clearer that HomeWeal does not recalculate splits automatically if income changes.",
+      "correction": "Consider adding: 'HomeWeal does not recalculate splits automatically if income changes; you must update the split manually.'"
+    },
+    {
+      "quote": "For solo households, HomeWeal Solo includes up to 10 bills, a bill calendar, web push bill reminders, variable-amount tracking, and CSV and Excel export. See the [pricing page](/pricing) for current plan details.",
+      "issue": "Accurate, but could clarify that Excel export is available on Solo, not just CSV.",
+      "correction": "No change needed, but could add: 'Excel (XLSX) export is included in Solo.'"
+    }
+  ],
+  "scores": {
+    "voice_40": 39,
+    "fidelity_30": 30,
+    "structure_20": 20,
+    "completeness_10": 10
+  },
+  "limitations": [
+    "The article is based on a hypothetical example and a proposed method, not measured household data or legal advice.",
+    "No empirical evidence or user testimonials are provided or claimed.",
+    "All arithmetic is checked and correct for the provided example.",
+    "Product claims are limited to what is supported by first-party sources; no execution or user experience is tested.",
+    "Advice is general and not tailored to individual circumstances.",
+    "No links were found to be broken or misleading, but actual link targets were not loaded for this audit."
+  ],
+  "draft_sha256": "067135b6423f9a3faa763b936b6bf29d1916e13c04c533b578046d9c34191fef",
+  "model": "gpt-4.1",
+  "provider": "OpenAI direct personal account",
+  "reviewed_at": "2026-11-14T01:21:55.159234+00:00",
+  "review_type": "Independent automated review; not a human attestation"
+}
