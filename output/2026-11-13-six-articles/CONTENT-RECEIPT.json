@@ -1,0 +1,178 @@
+{
+  "schema_version": "article-forge.content-batch.v1",
+  "forge_commit": "aef813bacfcdd1e38972b0889ef704d547247786",
+  "owner_review": {
+    "schema_version": "article-forge.owner-publication-review.v1",
+    "reviewer": "Jason Sobers",
+    "recorded_at": "2026-11-14T01:17:10.086059+00:00",
+    "approval_quote": "I\u2019ve reviewed them and approve publication",
+    "approval_source": "Explicit user response to the final six-article review request in this chat",
+    "limitations": "Owner approved exact final article text and imagery. Source inspection, arithmetic checks and evidence mapping were performed by Codex and independent GPT-4.1 review; the receipt does not claim the owner personally performed those technical checks.",
+    "drafts": [
+      {
+        "slug": "photography-proposal-template",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/photography-proposal-template/final.md",
+        "draft_sha256": "0055f03c737490eb4fdde9b0470e921b36a856afaca73ad82d5bdb34141ff5be"
+      },
+      {
+        "slug": "mini-session-workflow",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/mini-session-workflow/final.md",
+        "draft_sha256": "003c3f598299c3b5f952a1ef93fc10c44ee5ee1119ac2d35a62384f4931e9b5d"
+      },
+      {
+        "slug": "photography-gallery-delivery-email-templates",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/photography-gallery-delivery-email-templates/final.md",
+        "draft_sha256": "659e1cc050ba61d46bc89b194560f83054683165529fa5e36904c00606006927"
+      },
+      {
+        "slug": "subscription-audit-checklist",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/subscription-audit-checklist/final.md",
+        "draft_sha256": "b1daca54ec806d1573c1e7dfda4de977f08994b1a6e3652dbce9b7b61d9c0f05"
+      },
+      {
+        "slug": "household-bill-spreadsheet-template",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/household-bill-spreadsheet-template/final.md",
+        "draft_sha256": "fd10d3a5438c43892b287c2c740d0e56cdf1644306e6b64cbe5c41f50f5928fc"
+      },
+      {
+        "slug": "split-bills-with-variable-income",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/split-bills-with-variable-income/final.md",
+        "draft_sha256": "067135b6423f9a3faa763b936b6bf29d1916e13c04c533b578046d9c34191fef"
+      }
+    ]
+  },
+  "articles": [
+    {
+      "brand": "shootmuse",
+      "title": "Photography Proposal Template: Scope, Fees, and Next Steps",
+      "slug": "photography-proposal-template",
+      "canonical_url": "https://shootmuse.com/blog/photography-proposal-template",
+      "draft_sha256": "0055f03c737490eb4fdde9b0470e921b36a856afaca73ad82d5bdb34141ff5be",
+      "checks": "all PASS",
+      "sources": "First-party product sources and original editable resources; detailed ledgers, manifests and snapshots remain local-only by Forge contract",
+      "writer": {
+        "provider": "DeepSeek personal direct account",
+        "model": "deepseek-v4-pro"
+      },
+      "independent_editor": {
+        "provider": "OpenAI personal direct account",
+        "model": "gpt-4.1"
+      },
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "0055f03c737490eb4fdde9b0470e921b36a856afaca73ad82d5bdb34141ff5be",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
+    },
+    {
+      "brand": "shootmuse",
+      "title": "Mini Session Workflow: Booking Through Gallery Delivery",
+      "slug": "mini-session-workflow",
+      "canonical_url": "https://shootmuse.com/blog/mini-session-workflow",
+      "draft_sha256": "003c3f598299c3b5f952a1ef93fc10c44ee5ee1119ac2d35a62384f4931e9b5d",
+      "checks": "all PASS",
+      "sources": "First-party product sources and original editable resources; detailed ledgers, manifests and snapshots remain local-only by Forge contract",
+      "writer": {
+        "provider": "DeepSeek personal direct account",
+        "model": "deepseek-v4-pro"
+      },
+      "independent_editor": {
+        "provider": "OpenAI personal direct account",
+        "model": "gpt-4.1"
+      },
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "003c3f598299c3b5f952a1ef93fc10c44ee5ee1119ac2d35a62384f4931e9b5d",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
+    },
+    {
+      "brand": "shootmuse",
+      "title": "Photography Gallery Delivery Email Templates You Can Adapt",
+      "slug": "photography-gallery-delivery-email-templates",
+      "canonical_url": "https://shootmuse.com/blog/photography-gallery-delivery-email-templates",
+      "draft_sha256": "659e1cc050ba61d46bc89b194560f83054683165529fa5e36904c00606006927",
+      "checks": "all PASS",
+      "sources": "First-party product sources and original editable resources; detailed ledgers, manifests and snapshots remain local-only by Forge contract",
+      "writer": {
+        "provider": "DeepSeek personal direct account",
+        "model": "deepseek-v4-pro"
+      },
+      "independent_editor": {
+        "provider": "OpenAI personal direct account",
+        "model": "gpt-4.1"
+      },
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "659e1cc050ba61d46bc89b194560f83054683165529fa5e36904c00606006927",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
+    },
+    {
+      "brand": "homeweal",
+      "title": "Subscription Audit Checklist: Keep, Cancel, or Review",
+      "slug": "subscription-audit-checklist",
+      "canonical_url": "https://homeweal.com/articles/subscription-audit-checklist",
+      "draft_sha256": "b1daca54ec806d1573c1e7dfda4de977f08994b1a6e3652dbce9b7b61d9c0f05",
+      "checks": "all PASS",
+      "sources": "First-party product sources and original editable resources; detailed ledgers, manifests and snapshots remain local-only by Forge contract",
+      "writer": {
+        "provider": "DeepSeek personal direct account",
+        "model": "deepseek-v4-pro"
+      },
+      "independent_editor": {
+        "provider": "OpenAI personal direct account",
+        "model": "gpt-4.1"
+      },
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "b1daca54ec806d1573c1e7dfda4de977f08994b1a6e3652dbce9b7b61d9c0f05",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
+    },
+    {
+      "brand": "homeweal",
+      "title": "Household Bill Spreadsheet Template: Due, Paid, and Shared",
+      "slug": "household-bill-spreadsheet-template",
+      "canonical_url": "https://homeweal.com/articles/household-bill-spreadsheet-template",
+      "draft_sha256": "fd10d3a5438c43892b287c2c740d0e56cdf1644306e6b64cbe5c41f50f5928fc",
+      "checks": "all PASS",
+      "sources": "First-party product sources and original editable resources; detailed ledgers, manifests and snapshots remain local-only by Forge contract",
+      "writer": {
+        "provider": "DeepSeek personal direct account",
+        "model": "deepseek-v4-pro"
+      },
+      "independent_editor": {
+        "provider": "OpenAI personal direct account",
+        "model": "gpt-4.1"
+      },
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "16150270940263c27b211da92868e852ba4a495a0e874d90ad8f2d3b8ddf5491",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
+    },
+    {
+      "brand": "homeweal",
+      "title": "How to Split Bills With Variable Income: A Worked Example",
+      "slug": "split-bills-with-variable-income",
+      "canonical_url": "https://homeweal.com/articles/split-bills-with-variable-income",
+      "draft_sha256": "067135b6423f9a3faa763b936b6bf29d1916e13c04c533b578046d9c34191fef",
+      "checks": "all PASS",
+      "sources": "First-party product sources and original editable resources; detailed ledgers, manifests and snapshots remain local-only by Forge contract",
+      "writer": {
+        "provider": "DeepSeek personal direct account",
+        "model": "deepseek-v4-pro"
+      },
+      "independent_editor": {
+        "provider": "OpenAI personal direct account",
+        "model": "gpt-4.1"
+      },
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "067135b6423f9a3faa763b936b6bf29d1916e13c04c533b578046d9c34191fef",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
+    }
+  ],
+  "verification": {
+    "forge_tests": "374 passed",
+    "shootmuse_tests": "91 passed; TypeScript and production build passed",
+    "homeweal_tests": "79 unit tests, lint, build and all 35 release browser checks passed in GitHub CI run 43540895703.",
+    "article_browser_qa": "6 articles at 2 viewport sizes; 36 internal links; no failures",
+    "images": "Final WebP assets passed deterministic and corpus duplicate checks; visually inspected. HomeWeal phone layouts use a decision tree, field table, and proportion bars; mini-session article pairs an editorial photograph with a process illustration."
+  },
+  "limitations": [
+    "No current authenticated Search Console demand data or five-domain extracted SERP consensus snapshot was used. These are editorial resource topics, not measured low-competition opportunities.",
+    "Original methods and illustrative calculations are labeled; they do not demonstrate customer savings, bookings, or production product execution.",
+    "Source ledgers and detailed evidence remain local artifacts as specified by AUTONOMY.md and EVIDENCE_SYSTEM.md."
+  ]
+}

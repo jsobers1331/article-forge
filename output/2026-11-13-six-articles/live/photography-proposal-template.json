@@ -1,0 +1,197 @@
+{
+  "generated_at": "2026-11-13T21:31:43-04:00",
+  "config": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/site-config.shootmuse.json",
+  "site": "shootmuse.com",
+  "kind": "article",
+  "article_type": "standard",
+  "claim_ledger": {
+    "status": "PASS",
+    "message": "all 6 claim(s) verified by the ledger"
+  },
+  "pages": [
+    {
+      "url": "https://shootmuse.com/blog/photography-proposal-template",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "70 chars: 'Photography Proposal Template: Scope, Fees, and Next Steps | ShootMuse'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "143 chars: 'Download a free photography proposal outline and learn how to clarify scope, fees, deliverables, and next steps before preparing the agreement.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://shootmuse.com/blog/photography-proposal-template"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "PASS",
+          "detail": "indexable: 'index, follow'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://shootmuse.com/images/blog/photography-proposal-template-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://shootmuse.com/images/blog/photography-proposal-template-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Photography Proposal Template: Scope, Fees, and Next Steps'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "6 JSON-LD block(s) parse; 22 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://shootmuse.com/#person (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://shootmuse.com/#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://shootmuse.com/images/blog/photography-proposal-template-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-11-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "15 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/blog)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 15 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 4 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Fblog%2Fphotography-proposal-template-hero.webp&w=3840&q=75"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...pe, Fees, and Next Steps ShootMuse Team Published Nov 13, 2026 7 min read A photography p..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Photography Proposal Template: Scope, Fees, and Next Steps'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "H1 matches the target query closely (100% word overlap)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "advisory length: 1464 words; planning band 1000-2000, no publication word-count quota"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-11-13) \u2014 modified date carries no signal"
+        }
+      ],
+      "pass": 26
+    }
+  ],
+  "summary": {
+    "pages_checked": 1,
+    "pages_with_hard_failures": 0,
+    "pages_with_warnings": 1,
+    "hard_items": 0,
+    "warn_items": 1
+  }
+}

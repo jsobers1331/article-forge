@@ -1,0 +1,7 @@
+Hypothetical same-currency arithmetic; not household observations or a forecast.
+Period A: take-home incomes 2400 + 1600 = 4000. Shared bills 1200.
+2400 / 4000 = 60%; 1600 / 4000 = 40%.
+1200 * 60% = 720; 1200 * 40% = 480; 720 + 480 = 1200.
+Period B: incomes 1800 + 1800 = 3600. Shared bills 1200.
+1800 / 3600 = 50%; 1200 * 50% = 600 each; 600 + 600 = 1200.
+If combined available income is zero, do not divide; agree a different plan before the due date.

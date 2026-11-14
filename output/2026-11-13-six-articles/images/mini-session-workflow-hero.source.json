@@ -1,0 +1,10 @@
+{
+  "method": "Built-in image_gen tool",
+  "model_id": "Not exposed by the tool; not inferred",
+  "prompt": "Use case: photorealistic-natural. Asset type: editorial article hero, landscape 1536x1024. A photographer adjusting a tripod-mounted camera in a simple outdoor portrait setup beside a linen stool, autumn late-afternoon light, small coral ribbon on stool. Hands fully obscured behind the camera. Warm matte editorial photography, candid and believable, soft side light, subtle film grain, neutral linen and wood palette, one muted accent. Fictional people, no customer-testimonial implication. Every paper surface blank or face down; every book/album closed. No visible screens, printed words, UI, charts, logos, watermarks, or typography. No money or bank branding.",
+  "original_file": "/Users/jasonsobers/.codex/generated_images/01a1d787-6d7d-74e3-9c95-ebd7ebf852db/exec-feacb1bd-5278-4c6c-aae7-4f49f49cb2e0.png",
+  "final_file": "images/mini-session-workflow-hero.webp",
+  "sha256": "412adbedca906207e7788551886eed4578f091ffea8915110ba496ff39c56ddf",
+  "inspection": "Photographer prepares a tripod-mounted camera and portrait backdrop. Hands are obscured; no fake UI, text, logos, named customers, or testimonials.",
+  "other_images": "All remaining graphics are deterministic illustrations. Their exact SVG sources and WebP exports are included in this directory."
+}

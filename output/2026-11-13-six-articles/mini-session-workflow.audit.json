@@ -1,0 +1,45 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "minor_findings": [
+    {
+      "quote": "This article proposes a practical workflow and includes an editable checklist to adapt for your own use.",
+      "issue": "The checklist is described as 'editable', but the download is a plain text file, not an interactive or automated tool.",
+      "correction": "Clarify that 'editable' means you can copy and adapt the text, not that the file is interactive."
+    },
+    {
+      "quote": "The slot roster in this guide is one you maintain yourself. Check the slot, payment, and confirmation behavior of any booking tool before relying on it.",
+      "issue": "Could more explicitly warn that ShootMuse does not natively manage mini-session seat inventory or prevent double-booking.",
+      "correction": "Add a clarifying sentence: 'ShootMuse does not provide native mini-session seat inventory or double-booking prevention; always verify slot management manually.'"
+    },
+    {
+      "quote": "A twenty-minute session is not a twenty-minute slot. You need transition time between families.\n\nFor example, if you offer a 20-minute shoot and allow 5 minutes for arrival and 5 minutes for departure, each slot occupies 30 minutes. Four such slots take 120 minutes in total: 80 minutes of shooting and 40 minutes for transitions.",
+      "issue": "The arithmetic is correct, but the phrase 'arrival and departure' could be clearer as 'buffer before and after each session.'",
+      "correction": "Consider rephrasing to '5 minutes before and 5 minutes after each session as buffer time.'"
+    },
+    {
+      "quote": "If your client management is still fragmented across email, spreadsheets, and separate gallery hosts, review the [ShootMuse features](/features) to see if a connected system would reduce your administrative load.",
+      "issue": "Could clarify that ShootMuse's features are as described, not a guarantee of specific workflow outcomes.",
+      "correction": "Add: 'Feature availability is as described; actual workflow improvements depend on your process.'"
+    }
+  ],
+  "scores": {
+    "voice_40": 39,
+    "fidelity_30": 29,
+    "structure_20": 20,
+    "completeness_10": 10
+  },
+  "limitations": [
+    "Does not provide legal advice or guarantee of workflow effectiveness.",
+    "No empirical evidence or measured client outcomes are claimed.",
+    "All product claims are checked only against supplied first-party sources, not execution tests.",
+    "Arithmetic and planning illustrations are independently computed, not industry standards.",
+    "Checklist is a plain text resource, not an automated or interactive tool.",
+    "No invented client experiences, legal effects, or numerical results are present."
+  ],
+  "draft_sha256": "003c3f598299c3b5f952a1ef93fc10c44ee5ee1119ac2d35a62384f4931e9b5d",
+  "model": "gpt-4.1",
+  "provider": "OpenAI direct personal account",
+  "reviewed_at": "2026-11-14T01:21:51.282081+00:00",
+  "review_type": "Independent automated review; not a human attestation"
+}

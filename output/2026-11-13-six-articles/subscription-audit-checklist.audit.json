@@ -1,0 +1,32 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "minor_findings": [
+    "The article repeats the distinction between uninstalling an app and canceling a subscription in several sections. While this is important, the repetition could be streamlined for rhythm.",
+    "Section openings often restate the section title or previous content, which could be tightened for conciseness.",
+    "The phrase 'Income-based percentages are calculated by the household, not by the app.' is accurate, but could clarify that HomeWeal does not automate income splits, only supports manual entry.",
+    "The CSV download is described as 'editable checklist with headers only\u2014no example data, formulas, reminders, macros, or automated imports.' This matches the actual file, but the phrase is repeated in multiple places.",
+    "The article refers to 'HomeWeal's Solo plan includes up to 10 bills...' and 'Family supports equal, percentage, or fixed-amount bill splitting.' These are accurate per sources, but the distinction that income-based splits are manual could be more prominent.",
+    "The article links to several internal resources (e.g., /features, /pricing, /articles/what-is-a-household-bill-tracker). These appear correct, but the actual content of those pages is not audited here."
+  ],
+  "scores": {
+    "voice_40": 38,
+    "fidelity_30": 30,
+    "structure_20": 19,
+    "completeness_10": 10
+  },
+  "limitations": [
+    "This audit does not verify the content of linked internal articles, only that the links are plausible and not obviously broken or off-topic.",
+    "No user testimonials, legal advice, or empirical results are present or required.",
+    "All arithmetic (e.g., annual to monthly conversion, income splits) is checked and matches the original editorial resource.",
+    "Commercial claims about HomeWeal features, pricing, and limitations are checked against supplied first-party sources and are accurate.",
+    "No invented legal effects, client experience, or numerical results are present.",
+    "No product execution tests are claimed or required.",
+    "No claims are made about the effectiveness of the audit method beyond its editorial intent."
+  ],
+  "draft_sha256": "b1daca54ec806d1573c1e7dfda4de977f08994b1a6e3652dbce9b7b61d9c0f05",
+  "model": "gpt-4.1",
+  "provider": "OpenAI direct personal account",
+  "reviewed_at": "2026-11-14T01:21:53.627205+00:00",
+  "review_type": "Independent automated review; not a human attestation"
+}

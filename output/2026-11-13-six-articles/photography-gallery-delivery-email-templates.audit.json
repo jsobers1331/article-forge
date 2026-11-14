@@ -1,0 +1,29 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "minor_findings": [
+    "The phrase 'see [current pricing](/pricing)' is repeated in two places; consider varying the phrasing for rhythm.",
+    "Section openings sometimes repeat the structure 'Use this template when...' or 'Send this when...'. While clear, some variation could improve flow.",
+    "The article refers to 'see [ShootMuse features](/features) and [current pricing](/pricing)' in the intro and again near the end; this is not strictly necessary in both places.",
+    "The phrase 'the email remains yours to write' is slightly awkward; consider 'You retain control over the email content.'",
+    "The checklist table could be more visually distinct from the surrounding text for clarity."
+  ],
+  "scores": {
+    "voice_40": 39,
+    "fidelity_30": 30,
+    "structure_20": 19,
+    "completeness_10": 10
+  },
+  "limitations": [
+    "No empirical evidence or user testimonials are provided, but none are required for this editorial resource.",
+    "No legal advice or enforceability claims are made, in line with the editorial policy.",
+    "No product execution or automation is claimed; all product features are described as per first-party sources.",
+    "No arithmetic or income percentages are present in this article, so none were checked.",
+    "The article does not cover edge cases for highly customized workflows or non-photography use."
+  ],
+  "draft_sha256": "659e1cc050ba61d46bc89b194560f83054683165529fa5e36904c00606006927",
+  "model": "gpt-4.1",
+  "provider": "OpenAI direct personal account",
+  "reviewed_at": "2026-11-14T01:21:50.027271+00:00",
+  "review_type": "Independent automated review; not a human attestation"
+}

@@ -1,0 +1,34 @@
+{
+  "verdict": "pass",
+  "blockers": [],
+  "minor_findings": [
+    "The article refers to the proposal template as having 'section headings and prompts to fill in.' The actual download is a plain-text outline with headings only, but this matches the description.",
+    "The article says 'The template does not include prices, as these are specific to each photographer.' This is accurate; the download contains no prices.",
+    "The article refers to 'scope change record' as a table with four columns: change, effect, decision, version. The download lists these as a single line, but this is a reasonable summary for a plain-text template.",
+    "The article links to /downloads/photography-proposal-template.txt and describes its contents accurately.",
+    "The article references ShootMuse features (proposals, questionnaires, workflow automation, galleries, CRM, etc.) and ties them to the correct plans and features as described in the supplied sources.",
+    "The article does not claim legal effect, client experience, or numerical results.",
+    "The article avoids invented legal enforceability or empirical claims.",
+    "Section openings are varied and not repetitive.",
+    "Advice is specific and actionable.",
+    "Internal links are relevant and not broken (paths match the article topic)."
+  ],
+  "scores": {
+    "voice_40": 39,
+    "fidelity_30": 30,
+    "structure_20": 20,
+    "completeness_10": 10
+  },
+  "limitations": [
+    "The article is an editorial guide and does not provide legal advice or guarantee outcomes.",
+    "No empirical evidence or user testimonials are included, as appropriate for the resource.",
+    "The template is a plain-text outline and does not include interactive or automated features.",
+    "Descriptions of ShootMuse features are based on first-party source documentation, not execution tests.",
+    "No pricing or product claims are made beyond what is supported by the supplied sources."
+  ],
+  "draft_sha256": "0055f03c737490eb4fdde9b0470e921b36a856afaca73ad82d5bdb34141ff5be",
+  "model": "gpt-4.1",
+  "provider": "OpenAI direct personal account",
+  "reviewed_at": "2026-11-14T01:21:50.706086+00:00",
+  "review_type": "Independent automated review; not a human attestation"
+}

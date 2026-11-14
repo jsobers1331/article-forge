@@ -1,0 +1,141 @@
+{
+  "schema_version": "article-forge.publication-batch.v1",
+  "verified_at": "2026-11-14T01:42:27.685659+00:00",
+  "owner_approval": {
+    "schema_version": "article-forge.owner-publication-review.v1",
+    "reviewer": "Jason Sobers",
+    "recorded_at": "2026-11-14T01:17:10.086059+00:00",
+    "approval_quote": "I\u2019ve reviewed them and approve publication",
+    "approval_source": "Explicit user response to the final six-article review request in this chat",
+    "limitations": "Owner approved exact final article text and imagery. Source inspection, arithmetic checks and evidence mapping were performed by Codex and independent GPT-4.1 review; the receipt does not claim the owner personally performed those technical checks.",
+    "drafts": [
+      {
+        "slug": "photography-proposal-template",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/photography-proposal-template/final.md",
+        "draft_sha256": "0055f03c737490eb4fdde9b0470e921b36a856afaca73ad82d5bdb34141ff5be"
+      },
+      {
+        "slug": "mini-session-workflow",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/mini-session-workflow/final.md",
+        "draft_sha256": "003c3f598299c3b5f952a1ef93fc10c44ee5ee1119ac2d35a62384f4931e9b5d"
+      },
+      {
+        "slug": "photography-gallery-delivery-email-templates",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/photography-gallery-delivery-email-templates/final.md",
+        "draft_sha256": "659e1cc050ba61d46bc89b194560f83054683165529fa5e36904c00606006927"
+      },
+      {
+        "slug": "subscription-audit-checklist",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/subscription-audit-checklist/final.md",
+        "draft_sha256": "b1daca54ec806d1573c1e7dfda4de977f08994b1a6e3652dbce9b7b61d9c0f05"
+      },
+      {
+        "slug": "household-bill-spreadsheet-template",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/household-bill-spreadsheet-template/final.md",
+        "draft_sha256": "fd10d3a5438c43892b287c2c740d0e56cdf1644306e6b64cbe5c41f50f5928fc"
+      },
+      {
+        "slug": "split-bills-with-variable-income",
+        "path": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/split-bills-with-variable-income/final.md",
+        "draft_sha256": "067135b6423f9a3faa763b936b6bf29d1916e13c04c533b578046d9c34191fef"
+      }
+    ]
+  },
+  "deployments": [
+    {
+      "repo": "jsobers1331/focal-studio-website",
+      "pr": 71,
+      "merge_sha": "13402c1b9280a39345684486dc80f9964b4c393a",
+      "production_deployment": "https://shootmuse-website-ok36vgz9l-jason-sobers-projects.vercel.app",
+      "canonical_host": "shootmuse.com",
+      "status": "production verified"
+    },
+    {
+      "repo": "jsobers1331/homeweal-marketing",
+      "pr": 53,
+      "merge_sha": "f2c49e29e5f368251be450078a7751c5aaf1ae0a",
+      "production_deployment": "https://weal-marketing-rf11x7e7b-jason-sobers-projects.vercel.app",
+      "canonical_host": "homeweal.com",
+      "status": "production verified",
+      "build_recovery": "The cached preview failed to resolve a generated font module. A cache-free build of the exact same commit passed; normal production deployment then passed."
+    }
+  ],
+  "verification": {
+    "live_pages": 6,
+    "viewports": 12,
+    "broken_links": 0,
+    "internal_links_checked": 36,
+    "hard_publish_failures": 0,
+    "approved_body_matches": 6,
+    "matching_downloads": 6,
+    "matching_image_bytes": 13,
+    "discovery": "All six articles found in each site sitemap, llms.txt and llms-full.txt",
+    "pages": [
+      {
+        "slug": "photography-proposal-template",
+        "summary": {
+          "pages_checked": 1,
+          "pages_with_hard_failures": 0,
+          "pages_with_warnings": 1,
+          "hard_items": 0,
+          "warn_items": 1
+        }
+      },
+      {
+        "slug": "mini-session-workflow",
+        "summary": {
+          "pages_checked": 1,
+          "pages_with_hard_failures": 0,
+          "pages_with_warnings": 1,
+          "hard_items": 0,
+          "warn_items": 1
+        }
+      },
+      {
+        "slug": "photography-gallery-delivery-email-templates",
+        "summary": {
+          "pages_checked": 1,
+          "pages_with_hard_failures": 0,
+          "pages_with_warnings": 1,
+          "hard_items": 0,
+          "warn_items": 1
+        }
+      },
+      {
+        "slug": "subscription-audit-checklist",
+        "summary": {
+          "pages_checked": 1,
+          "pages_with_hard_failures": 0,
+          "pages_with_warnings": 1,
+          "hard_items": 0,
+          "warn_items": 3
+        }
+      },
+      {
+        "slug": "household-bill-spreadsheet-template",
+        "summary": {
+          "pages_checked": 1,
+          "pages_with_hard_failures": 0,
+          "pages_with_warnings": 1,
+          "hard_items": 0,
+          "warn_items": 2
+        }
+      },
+      {
+        "slug": "split-bills-with-variable-income",
+        "summary": {
+          "pages_checked": 1,
+          "pages_with_hard_failures": 0,
+          "pages_with_warnings": 1,
+          "hard_items": 0,
+          "warn_items": 2
+        }
+      }
+    ]
+  },
+  "nonblocking_notes": [
+    "Generic live checks report new-post dates where dateModified equals datePublished, inherited robots behavior, and the subscription audit references to official Apple and Google support.",
+    "The broad HomeWeal registry retains an inconclusive unused vendor-directory claim. None of the six final articles asserts it; final-draft claim coverage checks only the evidence actually used and passes."
+  ],
+  "rollback": "Revert the corresponding site publication merge through a PR; Vercel redeploys main."
+}

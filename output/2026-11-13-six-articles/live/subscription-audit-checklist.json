@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-11-13T21:37:19-04:00",
+  "config": "/Users/jasonsobers/Personal/.article-forge-publish-20261113/artifacts/batch/site-config.homeweal.json",
+  "site": "homeweal.com",
+  "kind": "article",
+  "article_type": "standard",
+  "claim_ledger": {
+    "status": "WARN",
+    "message": "inconclusive: vendor-directory \u2014 re-run scripts/verify_facts.py (see AUTONOMY.md)"
+  },
+  "pages": [
+    {
+      "url": "https://homeweal.com/articles/subscription-audit-checklist",
+      "results": [
+        {
+          "area": "HTTP status & redirects",
+          "name": "HTTP status",
+          "status": "PASS",
+          "detail": "HTTP 200"
+        },
+        {
+          "area": "HTTP status & redirects",
+          "name": "Redirect chain",
+          "status": "PASS",
+          "detail": "served directly, no redirects"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Title",
+          "status": "PASS",
+          "detail": "64 chars: 'Subscription Audit Checklist: Keep, Cancel, or Review | HomeWeal'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "140 chars: 'Use a subscription audit checklist to review renewals, decide what to keep or cancel, and record confirmation. Includes a free editable CSV.'"
+        },
+        {
+          "area": "Title & meta description",
+          "name": "Meta description",
+          "status": "PASS",
+          "detail": "description differs from the homepage's"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Canonical",
+          "status": "PASS",
+          "detail": "self-referencing canonical: https://homeweal.com/articles/subscription-audit-checklist"
+        },
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "WARN",
+          "detail": "no meta robots directive (treated as index,follow, but say so explicitly)"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:image: https://homeweal.com/images/articles/subscription-audit-checklist-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:image: https://homeweal.com/images/articles/subscription-audit-checklist-hero.webp"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "twitter:title: 'Subscription Audit Checklist: Keep, Cancel, or Review'"
+        },
+        {
+          "area": "Social cards",
+          "name": "Open Graph / Twitter",
+          "status": "PASS",
+          "detail": "og:type: 'article'"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "4 JSON-LD block(s) parse; 12 node(s)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "article node: Article"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.author -> https://homeweal.com#person (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.publisher -> https://homeweal.com#org (resolves on this page)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "PASS",
+          "detail": "Article.image: https://homeweal.com/images/articles/subscription-audit-checklist-hero.webp"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-11-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "9 in-body internal link(s)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "links up to the hub (/articles)"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "2 external/competitor link(s) in the body: ['https://support.apple.com/en-us/118428', 'https://support.google.com/googleplay/answer/7018481']"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "PASS",
+          "detail": "all 9 checked internal link(s) return 200"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "all 1 image(s) have alt text"
+        },
+        {
+          "area": "Images",
+          "name": "Images",
+          "status": "PASS",
+          "detail": "hero image has explicit dimensions or aspect ratio: /_next/image?url=%2Fimages%2Farticles%2Fsubscription-audit-checklist-hero.webp&w=3840&q=75&dpl=dpl_wb5AHRZfiySK3Ru2V58QsEdCaRto"
+        },
+        {
+          "area": "Visible dates",
+          "name": "Visible dates",
+          "status": "PASS",
+          "detail": "visible date text: ...Guide \u00b7 updated November 13, 2026 Subscription Audit Ch..."
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "one <h1>: 'Subscription Audit Checklist: Keep, Cancel, or Review'"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "H1",
+          "status": "PASS",
+          "detail": "H1 matches the target query closely (100% word overlap)"
+        },
+        {
+          "area": "H1 & word count",
+          "name": "Word count",
+          "status": "PASS",
+          "detail": "advisory length: 1617 words; planning band 1000-2000, no publication word-count quota"
+        },
+        {
+          "area": "Banned words",
+          "name": "Banned words",
+          "status": "PASS",
+          "detail": "no banned words in the served copy"
+        }
+      ],
+      "hard": [],
+      "warn": [
+        {
+          "area": "Canonical & robots",
+          "name": "Robots directives",
+          "status": "WARN",
+          "detail": "no meta robots directive (treated as index,follow, but say so explicitly)"
+        },
+        {
+          "area": "Structured data",
+          "name": "JSON-LD",
+          "status": "WARN",
+          "detail": "dateModified == datePublished (2026-11-13) \u2014 modified date carries no signal"
+        },
+        {
+          "area": "Internal links",
+          "name": "Internal links",
+          "status": "WARN",
+          "detail": "2 external/competitor link(s) in the body: ['https://support.apple.com/en-us/118428', 'https://support.google.com/googleplay/answer/7018481']"
+        }
+      ],
+      "pass": 25
+    }
+  ],
+  "summary": {
+    "pages_checked": 1,
+    "pages_with_hard_failures": 0,
+    "pages_with_warnings": 1,
+    "hard_items": 0,
+    "warn_items": 3
+  }
+}
