@@ -58,7 +58,9 @@
         "provider": "OpenAI personal direct account",
         "model": "gpt-4.1"
       },
-      "independent_final_audit": "pass"
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "0055f03c737490eb4fdde9b0470e921b36a856afaca73ad82d5bdb34141ff5be",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
     },
     {
       "brand": "shootmuse",
@@ -76,7 +78,9 @@
         "provider": "OpenAI personal direct account",
         "model": "gpt-4.1"
       },
-      "independent_final_audit": "pass"
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "003c3f598299c3b5f952a1ef93fc10c44ee5ee1119ac2d35a62384f4931e9b5d",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
     },
     {
       "brand": "shootmuse",
@@ -94,7 +98,9 @@
         "provider": "OpenAI personal direct account",
         "model": "gpt-4.1"
       },
-      "independent_final_audit": "pass"
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "659e1cc050ba61d46bc89b194560f83054683165529fa5e36904c00606006927",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
     },
     {
       "brand": "homeweal",
@@ -112,7 +118,9 @@
         "provider": "OpenAI personal direct account",
         "model": "gpt-4.1"
       },
-      "independent_final_audit": "pass"
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "b1daca54ec806d1573c1e7dfda4de977f08994b1a6e3652dbce9b7b61d9c0f05",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
     },
     {
       "brand": "homeweal",
@@ -130,7 +138,9 @@
         "provider": "OpenAI personal direct account",
         "model": "gpt-4.1"
       },
-      "independent_final_audit": "pass"
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "16150270940263c27b211da92868e852ba4a495a0e874d90ad8f2d3b8ddf5491",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
     },
     {
       "brand": "homeweal",
@@ -148,7 +158,9 @@
         "provider": "OpenAI personal direct account",
         "model": "gpt-4.1"
       },
-      "independent_final_audit": "pass"
+      "independent_final_audit": "pass",
+      "archived_markdown_sha256": "067135b6423f9a3faa763b936b6bf29d1916e13c04c533b578046d9c34191fef",
+      "archive_normalization": "Trailing line whitespace removed; the approved original draft hash and owner-review receipt remain unchanged and bind the source run artifacts."
     }
   ],
   "verification": {

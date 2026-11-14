@@ -20,7 +20,7 @@ Three practical articles for ShootMuse and three for HomeWeal, created on the ow
 
 ## Evidence and limits
 
-The original editable resources and exact final drafts are included. Reports, independent audit receipts, publication metadata, vector sources and final WebP images sit alongside them. `CONTENT-RECEIPT.json` records draft hashes, the owner approval and verification scope. Configs, signed claim manifests, generated ledgers and raw evidence snapshots remain local-only in the run artifacts, as required by the Forge evidence contract.
+The original editable resources and reviewed drafts are included. Archived Markdown removes insignificant trailing line whitespace; the receipt records both the archived file hash and the unchanged original approved-draft hash. Reports, independent audit receipts, publication metadata, vector sources and final WebP images sit alongside them. `CONTENT-RECEIPT.json` records draft hashes, the owner approval and verification scope. Configs, signed claim manifests, generated ledgers and raw evidence snapshots remain local-only in the run artifacts, as required by the Forge evidence contract.
 
 No current Search Console demand measurements or five-domain extracted SERP consensus packet was supplied. Readiness and editorial review are not ranking probabilities. The examples do not claim customer results or prove product execution.
 

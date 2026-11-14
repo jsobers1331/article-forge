@@ -2,7 +2,7 @@
 
 Last updated: November 13, 2026
 
-A household bill spreadsheet template is a plain, editable starting file for tracking recurring bills by hand. The downloadable file provided here is a UTF-8 CSV containing only column headers—no formulas, macros, automatic reminders, or sample data. You open it in your preferred spreadsheet app, copy the header row into a workbook, and add one row per bill occurrence as it happens. This approach works best for households with a modest number of bills and a preference for reviewing each charge manually. 
+A household bill spreadsheet template is a plain, editable starting file for tracking recurring bills by hand. The downloadable file provided here is a UTF-8 CSV containing only column headers—no formulas, macros, automatic reminders, or sample data. You open it in your preferred spreadsheet app, copy the header row into a workbook, and add one row per bill occurrence as it happens. This approach works best for households with a modest number of bills and a preference for reviewing each charge manually.
 
 Download the template here: [household-bill-spreadsheet-template.csv](/downloads/household-bill-spreadsheet-template.csv)
 
